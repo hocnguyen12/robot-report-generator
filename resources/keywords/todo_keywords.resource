@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
+Library    String
 Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
@@ -29,13 +30,17 @@ Add Todo Item
 Complete Todo Item
     [Arguments]    ${todo_text}
     Log    Completing todo item: ${todo_text}
-    Click Element    ${selectors.todo_complete_button}    ${todo_text}
-    Wait Until Element Contains    ${selectors.todo_completed}    ${todo_text}    ${timeouts.element_visible}
+    ${selector}=    Replace String    ${selectors.todo_checkbox_for_text}    {0}    ${todo_text}
+    ${checkbox}=    Get WebElement    ${selector}
+    Select Checkbox    ${checkbox}
+    Wait Until Element Is Enabled    ${checkbox}    ${timeouts.element_visible}
 
 Delete Todo Item
     [Arguments]    ${todo_text}
     Log    Deleting todo item: ${todo_text}
-    Click Element    ${selectors.todo_delete_button}    ${todo_text}
+    ${selector}=    Replace String    ${selectors.todo_delete_for_text}    {0}    ${todo_text}
+    ${delete_button}=    Get WebElement    ${selector}
+    Click Element    ${delete_button}
     Wait Until Page Does Not Contain    ${todo_text}    ${timeouts.element_visible}
 
 Delete Todo
@@ -57,28 +62,37 @@ Verify Todo Does Not Exist
     Verify Todo Not Exists    ${todo_text}
 
 Verify Todo Is Empty
-    ${count}=    Get Todo Count
+    ${count}=    Get Element Count    ${selectors.todo_item}
     Should Be Equal As Numbers    ${count}    0
     Log    Verified todo list is empty
 
 Verify Todo Completed
     [Arguments]    ${todo_text}
-    Element Should Contain    ${selectors.todo_completed}    ${todo_text}
+    ${selector}=    Replace String    ${selectors.todo_checkbox_for_text}    {0}    ${todo_text}
+    ${checkbox}=    Get WebElement    ${selector}
+    Checkbox Should Be Selected    ${checkbox}
     Log    Verified todo item is completed: ${todo_text}
+
+Verify Todo Not Completed
+    [Arguments]    ${todo_text}
+    ${selector}=    Replace String    ${selectors.todo_checkbox_for_text}    {0}    ${todo_text}
+    ${checkbox}=    Get WebElement    ${selector}
+    Checkbox Should Not Be Selected    ${checkbox}
+    Log    Verified todo item is not completed: ${todo_text}
 
 Verify Todo Item Is Completed
     [Arguments]    ${todo_text}
-    Element Should Contain    ${selectors.todo_completed}    ${todo_text}
-    Log    Verified todo item is completed: ${todo_text}
+    Verify Todo Completed    ${todo_text}
 
 Verify Todo Item Is Not Completed
     [Arguments]    ${todo_text}
-    Element Should Not Contain    ${selectors.todo_completed}    ${todo_text}
-    Log    Verified todo item is not completed: ${todo_text}
+    Verify Todo Not Completed    ${todo_text}
 
 Toggle Todo
     [Arguments]    ${todo_text}
-    Click Element    ${selectors.todo_complete_button}    ${todo_text}
+    ${selector}=    Replace String    ${selectors.todo_checkbox_for_text}    {0}    ${todo_text}
+    ${checkbox}=    Get WebElement    ${selector}
+    Click Element    ${checkbox}
     Log    Toggled todo item: ${todo_text}
 
 Toggle Todo Item

@@ -1,37 +1,17 @@
-1745503978644	geckodriver	INFO	Listening on 127.0.0.1:60709
-1745503978649	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/home/nguyenvh/.cache/ ... te" "--remote-debugging-port" "46285" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileWTqXlK"
+1745504053449	geckodriver	INFO	Listening on 127.0.0.1:41053
+1745504053459	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/home/nguyenvh/.cache/ ... te" "--remote-debugging-port" "36747" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileZ95xs6"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1745503979212	Marionette	INFO	Marionette enabled
-1745503979594	Marionette	INFO	Listening on port 42685
-WebDriver BiDi listening on ws://127.0.0.1:46285
-Read port: 42685
-1745503979843	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1745504054010	Marionette	INFO	Marionette enabled
+1745504054565	Marionette	INFO	Listening on port 36981
+WebDriver BiDi listening on ws://127.0.0.1:36747
+Read port: 36981
+1745504054703	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 console.error: ({})
-DevTools listening on ws://127.0.0.1:46285/devtools/browser/713a4072-ca8a-41ac-9ed0-744ec077bf19
-1745503982559	Marionette	INFO	Stopped listening on port 42685
+DevTools listening on ws://127.0.0.1:36747/devtools/browser/550e9c88-82b6-4ae4-9b03-ff79e5fee6cb
+1745504057469	Marionette	INFO	Stopped listening on port 36981
 console.error: services.settings: 
-  main/nimbus-desktop-experiments: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/tracking-protection-lists: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/nimbus-secure-experiments: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/newtab-wallpapers-v2: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/cfr: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/partitioning-exempt-urls: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/normandy-recipes-capabilities: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/search-categorization: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/message-groups: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/fingerprinting-protection-overrides: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
-console.error: services.settings: 
-  main/query-stripping: Signature of bundled changeset is invalid: [Exception... "<no message>"  nsresult: "0x8046001e (<unknown>)"  location: "JS frame :: resource://gre/modules/ServiceRequest.sys.mjs :: open :: line 126"  data: no].
+  Remote Settings startup changesets bundle could not be extracted (TypeError: NetworkError: Network request failed)
 console.error: services.settings: 
 Object
   - prototype Object

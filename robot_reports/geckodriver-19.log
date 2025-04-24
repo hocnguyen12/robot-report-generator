@@ -1,15 +1,15 @@
-1745503983324	geckodriver	INFO	Listening on 127.0.0.1:59607
-1745503983336	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/home/nguyenvh/.cache/ ... te" "--remote-debugging-port" "50773" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileLFN9Gc"
+1745504068769	geckodriver	INFO	Listening on 127.0.0.1:34185
+1745504068782	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/home/nguyenvh/.cache/ ... te" "--remote-debugging-port" "52689" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileWqm4Zg"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1745503983900	Marionette	INFO	Marionette enabled
-1745503984154	Marionette	INFO	Listening on port 41277
-WebDriver BiDi listening on ws://127.0.0.1:50773
-Read port: 41277
-1745503984370	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1745504069355	Marionette	INFO	Marionette enabled
+1745504069740	Marionette	INFO	Listening on port 37771
+WebDriver BiDi listening on ws://127.0.0.1:52689
+Read port: 37771
+1745504069953	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 console.error: ({})
-DevTools listening on ws://127.0.0.1:50773/devtools/browser/f90a11e6-953c-4efa-b1b6-96561112c984
-1745503986934	Marionette	INFO	Stopped listening on port 41277
+DevTools listening on ws://127.0.0.1:52689/devtools/browser/50dc0cac-08f4-4164-be42-073a3476ee3d
+1745504072275	Marionette	INFO	Stopped listening on port 37771
 console.error: services.settings: 
   Message: StorageError: Storage error: Error: IndexedDB: main/remote-permissions list() IndexedDB:  execute() The application is shutting down
   Stack:

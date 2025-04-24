@@ -12,10 +12,13 @@ selectors:
   note_item: "css=div[data-testid='note-item']"
   todo_input: "css=input[placeholder='Add a new todo']"
   add_todo_button: "css=button[data-testid='add-todo-button']"
-  todo_item: "css=li"
-  todo_complete_button: "css=button:contains('Complete')"
-  todo_delete_button: "css=button:contains('Delete')"
-  todo_completed: "css=li.completed"
+  todo_item: "css=li[data-testid^='todo-item-']"
+  todo_text: "css=span[data-testid^='todo-text-']"
+  todo_checkbox: "css=input[data-testid^='todo-checkbox-']"
+  todo_delete_button: "css=button[data-testid^='todo-delete-']"
+  todo_text_by_content: "xpath=//li[.//span[contains(text(), '{0}')]]"
+  todo_checkbox_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//input[@type='checkbox']"
+  todo_delete_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//button[@data-testid[starts-with(., 'todo-delete-')]]"
 
 test_data:
   initial_note:

@@ -1,0 +1,28 @@
+1745504009108	geckodriver	INFO	Listening on 127.0.0.1:37055
+1745504009122	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" "/home/nguyenvh/.cache/ ... te" "--remote-debugging-port" "35189" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileRBDLen"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1745504009673	Marionette	INFO	Marionette enabled
+1745504010090	Marionette	INFO	Listening on port 42895
+Read port: 42895
+WebDriver BiDi listening on ws://127.0.0.1:35189
+1745504010296	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+DevTools listening on ws://127.0.0.1:35189/devtools/browser/a6297e16-2fcf-4cfb-adad-ec3feeae377c
+1745504013113	Marionette	INFO	Stopped listening on port 42895
+console.error: services.settings: 
+  Message: StorageError: Storage error: Error: IndexedDB: main/third-party-cookie-blocking-exempt-urls list() IndexedDB:  execute() The application is shutting down
+  Stack:
+    StorageError@resource://services-settings/RemoteSettingsClient.sys.mjs:154:5
+_adjustedError@resource://services-settings/RemoteSettingsClient.sys.mjs:947:14
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:835:38
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:569:17
+
+console.error: services.settings: 
+  Message: StorageError: Storage error: Error: IndexedDB: main/remote-permissions list() IndexedDB:  execute() The application is shutting down
+  Stack:
+    StorageError@resource://services-settings/RemoteSettingsClient.sys.mjs:154:5
+_adjustedError@resource://services-settings/RemoteSettingsClient.sys.mjs:947:14
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:835:38
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:569:17
+

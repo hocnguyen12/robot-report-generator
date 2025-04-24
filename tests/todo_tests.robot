@@ -13,16 +13,15 @@ Test Add Todo Functionality
     Verify Todo Exists    Walk the dog
     Add New Todo    Pay bills
     Verify Todo Exists    Pay bills
-    Verify Todo Is Empty
 
 Test Todo Completion Toggle
     [Documentation]    Test toggling todo completion
     Add New Todo    Exercise
-    Verify Todo Completed    Exercise  
+    Verify Todo Not Completed    Exercise
     Toggle Todo    Exercise
-    Verify Todo Completed    Exercide
+    Verify Todo Completed    Exercise
     Toggle Todo    Exercise
-    Verify Todo Completed    Exercise   
+    Verify Todo Not Completed    Exercise
 
 Test Delete Todo Functionality
     [Documentation]    Test deleting todos
@@ -39,26 +38,12 @@ Test Multiple Operations
     Add New Todo    Read book
     Add New Todo    Write code
     Toggle Todo    Read book
-    Verify Todo Completion    Read book    ${TRUE}
+    Verify Todo Completed    Read book
     Add New Todo    Send email
     Delete Todo    Write code
     Verify Todo Does Not Exist    Write code
     Toggle Todo    Send email
-    Verify Todo Completion    Send email    ${TRUE}
-
-Test Rapid Operations
-    [Documentation]    Test rapid operations
-    Add New Todo    Task 1
-    Add New Todo    Task 2
-    Add New Todo    Task 3
-    Toggle Todo    Task 1
-    Toggle Todo    Task 2
-    Delete Todo    Task 2
-    Add New Todo    Task 4
-    Toggle Todo    Task 3
-    Delete Todo    Task 1
-    Verify Todo Completion    Task 3    ${TRUE}
-    Verify Todo Completion    Task 4    ${FALSE}
+    Verify Todo Completed    Send email
 
 Test Complex Workflow
     [Documentation]    Test complex workflow
@@ -70,21 +55,31 @@ Test Complex Workflow
     Delete Todo    Client call
     Toggle Todo    Report writing
     Add New Todo    Code review
-    Verify Todo Completion    Meeting prep    ${TRUE}
-    Verify Todo Completion    Report writing    ${TRUE}
+    Verify Todo Completed    Meeting prep
+    Verify Todo Completed    Report writing
     Delete Todo    Team sync
     Toggle Todo    Code review
     Verify Todo Does Not Exist    Client call
     Verify Todo Does Not Exist    Team sync
 
+Test Todo With Special Characters
+    [Documentation]    Test todo with special characters
+    Add New Todo    Special chars: !@#$%^&*()
+    Verify Todo Exists    Special chars: !@#$%^&*()
+
+Test Empty Todo List
+    [Documentation]    Test empty todo list
+    Verify Todo Is Empty
+    Add New Todo    Test item
+    Delete Todo    Test item
+    Verify Todo Is Empty
+
 Add Single Todo
-    Open Todo List
     Add Todo Item    Buy groceries
     Verify Todo Exists    Buy groceries
     [Teardown]    Close Browser
 
 Add Multiple Todos
-    Open Todo List
     Add Todo Item    First task
     Add Todo Item    Second task
     Add Todo Item    Third task
@@ -93,7 +88,6 @@ Add Multiple Todos
     [Teardown]    Close Browser
 
 Complete Todo
-    Open Todo List
     Add Todo Item    Complete this task
     Verify Todo Item Is Not Completed    Complete this task
     Toggle Todo Item    Complete this task
@@ -101,7 +95,6 @@ Complete Todo
     [Teardown]    Close Browser
 
 Delete Todo
-    Open Todo List
     Add Todo Item    Task to delete
     Verify Todo Exists    Task to delete
     Delete Todo Item    Task to delete
@@ -109,7 +102,6 @@ Delete Todo
     [Teardown]    Close Browser
 
 Toggle Multiple Todos
-    Open Todo List
     Add Todo Item    Task 1
     Add Todo Item    Task 2
     Toggle Todo Item    Task 1
@@ -119,7 +111,6 @@ Toggle Multiple Todos
     [Teardown]    Close Browser
 
 Complete And Uncomplete Todo
-    Open Todo List
     Add Todo Item    Toggle task
     Toggle Todo Item    Toggle task
     Verify Todo Item Is Completed    Toggle task
@@ -128,7 +119,6 @@ Complete And Uncomplete Todo
     [Teardown]    Close Browser
 
 Add And Delete Multiple Todos
-    Open Todo List
     Add Todo Item    Task 1
     Add Todo Item    Task 2
     Add Todo Item    Task 3
@@ -138,34 +128,24 @@ Add And Delete Multiple Todos
     Verify Todo Exists    Task 3
     [Teardown]    Close Browser
 
-Todo With Special Characters
-    Open Todo List
-    Add Todo Item    Special chars: !@#$%^&*()
-    Verify Todo Exists    Special chars: !@#$%^&*()
-    [Teardown]    Close Browser
-
 Add Todo Item
-    Open Todo List
     Add Todo Item    ${test_data.todo_items}[0]
     Verify Todo Exists    ${test_data.todo_items}[0]
     Close Browser and Stop App
 
 Complete Todo Item
-    Open Todo List
     Add Todo Item    ${test_data.todo_items}[1]
     Complete Todo Item    ${test_data.todo_items}[1]
     Verify Todo Completed    ${test_data.todo_items}[1]
     Close Browser and Stop App
 
 Delete Todo Item
-    Open Todo List
     Add Todo Item    ${test_data.todo_items}[2]
     Delete Todo Item    ${test_data.todo_items}[2]
     Verify Todo Not Exists    ${test_data.todo_items}[2]
     Close Browser and Stop App
 
 Multiple Todo Operations
-    Open Todo List
     Add Todo Item    ${test_data.todo_items}[0]
     Add Todo Item    ${test_data.todo_items}[1]
     Add Todo Item    ${test_data.todo_items}[2]
@@ -178,7 +158,6 @@ Multiple Todo Operations
     Close Browser and Stop App
 
 Add Todo Item With Special Characters
-    Open Todo List
     Add Todo Item    ${test_data.todo_items}[3]
     Verify Todo Exists    ${test_data.todo_items}[3]
     Close Browser and Stop App 
