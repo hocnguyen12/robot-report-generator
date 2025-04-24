@@ -1,12 +1,12 @@
 *** Settings ***
 Resource    ../resources/keywords/todo_keywords.resource
-Resource    ../resources/variables/app_variables.yaml
+Variables    ../resources/variables/app_variables.yaml
 Test Setup    Open Todo Application
 Test Teardown    Close Todo Application
 
 *** Test Cases ***
 Test Add Todo Functionality
-    [Documentation]    Test adding todos - will fail sometimes due to empty todos
+    [Documentation]    Test adding todos
     Add New Todo    Buy groceries
     Verify Todo Exists    Buy groceries
     Add New Todo    Walk the dog
@@ -16,16 +16,16 @@ Test Add Todo Functionality
     Verify Todo Is Empty
 
 Test Todo Completion Toggle
-    [Documentation]    Test toggling todo completion - will fail sometimes due to toggle not working
+    [Documentation]    Test toggling todo completion
     Add New Todo    Exercise
-    Verify Todo Completion    Exercise    ${FALSE}
+    Verify Todo Completed    Exercise  
     Toggle Todo    Exercise
-    Verify Todo Completion    Exercise    ${TRUE}
+    Verify Todo Completed    Exercide
     Toggle Todo    Exercise
-    Verify Todo Completion    Exercise    ${FALSE}
+    Verify Todo Completed    Exercise   
 
 Test Delete Todo Functionality
-    [Documentation]    Test deleting todos - will fail sometimes due to wrong todo being deleted
+    [Documentation]    Test deleting todos
     Add New Todo    Clean house
     Add New Todo    Do laundry
     Add New Todo    Cook dinner
@@ -35,7 +35,7 @@ Test Delete Todo Functionality
     Verify Todo Exists    Cook dinner
 
 Test Multiple Operations
-    [Documentation]    Test multiple operations - will generate various failures
+    [Documentation]    Test multiple operations
     Add New Todo    Read book
     Add New Todo    Write code
     Toggle Todo    Read book
@@ -47,7 +47,7 @@ Test Multiple Operations
     Verify Todo Completion    Send email    ${TRUE}
 
 Test Rapid Operations
-    [Documentation]    Test rapid operations - will generate various failures
+    [Documentation]    Test rapid operations
     Add New Todo    Task 1
     Add New Todo    Task 2
     Add New Todo    Task 3
@@ -61,7 +61,7 @@ Test Rapid Operations
     Verify Todo Completion    Task 4    ${FALSE}
 
 Test Complex Workflow
-    [Documentation]    Test complex workflow - will generate various failures
+    [Documentation]    Test complex workflow
     Add New Todo    Meeting prep
     Add New Todo    Client call
     Add New Todo    Report writing
@@ -80,7 +80,7 @@ Test Complex Workflow
 Add Single Todo
     Open Todo List
     Add Todo Item    Buy groceries
-    Verify Todo Item Exists    Buy groceries
+    Verify Todo Exists    Buy groceries
     [Teardown]    Close Browser
 
 Add Multiple Todos
@@ -103,9 +103,9 @@ Complete Todo
 Delete Todo
     Open Todo List
     Add Todo Item    Task to delete
-    Verify Todo Item Exists    Task to delete
+    Verify Todo Exists    Task to delete
     Delete Todo Item    Task to delete
-    Verify Todo Item Does Not Exist    Task to delete
+    Verify Todo Does Not Exist    Task to delete
     [Teardown]    Close Browser
 
 Toggle Multiple Todos
@@ -133,15 +133,15 @@ Add And Delete Multiple Todos
     Add Todo Item    Task 2
     Add Todo Item    Task 3
     Delete Todo Item    Task 2
-    Verify Todo Item Exists    Task 1
-    Verify Todo Item Does Not Exist    Task 2
-    Verify Todo Item Exists    Task 3
+    Verify Todo Exists    Task 1
+    Verify Todo Does Not Exist    Task 2
+    Verify Todo Exists    Task 3
     [Teardown]    Close Browser
 
 Todo With Special Characters
     Open Todo List
     Add Todo Item    Special chars: !@#$%^&*()
-    Verify Todo Item Exists    Special chars: !@#$%^&*()
+    Verify Todo Exists    Special chars: !@#$%^&*()
     [Teardown]    Close Browser
 
 Add Todo Item

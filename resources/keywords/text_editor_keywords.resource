@@ -21,11 +21,11 @@ Set Editor Content
 
 Get Editor Content
     ${content}=    Get Value    ${CONTENT_TEXTAREA}
-    [Return]    ${content}
+    RETURN    ${content}
 
 Get File Name
     ${filename}=    Get Value    ${FILENAME_INPUT}
-    [Return]    ${filename}
+    RETURN    ${filename}
 
 Click Save Button
     Click Button    ${SAVE_BUTTON}

@@ -11,7 +11,7 @@ selectors:
   note_content: "css=p"
   note_item: "css=div[data-testid='note-item']"
   todo_input: "css=input[placeholder='Add a new todo']"
-  add_todo_button: "css=button:contains('Add')"
+  add_todo_button: "css=button[data-testid='add-todo-button']"
   todo_item: "css=li"
   todo_complete_button: "css=button:contains('Complete')"
   todo_delete_button: "css=button:contains('Delete')"
