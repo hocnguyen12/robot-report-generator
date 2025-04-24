@@ -1,0 +1,35 @@
+app:
+  url: "http://localhost:3000"
+
+selectors:
+  note_title_input: "css=input[placeholder='Note title']"
+  note_content_input: "css=textarea[placeholder='Note content']"
+  add_note_button: "css=button:contains('Add Note')"
+  edit_note_button: "css=button:contains('Edit')"
+  delete_note_button: "css=button:contains('Delete')"
+  note_title: "css=h3"
+  note_content: "css=p"
+  note_item: "css=div[data-testid='note-item']"
+  todo_input: "css=input[placeholder='Add a new todo']"
+  add_todo_button: "css=button:contains('Add')"
+  todo_item: "css=li"
+  todo_complete_button: "css=button:contains('Complete')"
+  todo_delete_button: "css=button:contains('Delete')"
+  todo_completed: "css=li.completed"
+
+test_data:
+  initial_note:
+    title: "Test Note"
+    content: "This is a test note"
+  updated_note:
+    title: "Updated Test Note"
+    content: "This is an updated test note"
+  todo_items:
+    - "Buy groceries"
+    - "Do laundry"
+    - "Call mom"
+    - "Special & test item"
+
+timeouts:
+  page_load: 10s
+  element_visible: 5s 
