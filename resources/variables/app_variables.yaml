@@ -19,6 +19,9 @@ selectors:
   todo_text_by_content: "xpath=//li[.//span[contains(text(), '{0}')]]"
   todo_checkbox_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//input[@type='checkbox']"
   todo_delete_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//button[@data-testid[starts-with(., 'todo-delete-')]]"
+  FILENAME_INPUT: "css=input[placeholder='Enter file name']"
+  CONTENT_TEXTAREA: "css=textarea[placeholder='Start typing...']"
+  SAVE_BUTTON: "xpath=//button[contains(., 'Save')]"
 
 test_data:
   initial_note:
