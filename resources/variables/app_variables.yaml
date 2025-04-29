@@ -2,26 +2,31 @@ app:
   url: "http://localhost:3000"
 
 selectors:
-  note_title_input: "css=input[placeholder='Note title']"
-  note_content_input: "css=textarea[placeholder='Note content']"
-  add_note_button: "css=button:contains('Add Note')"
-  edit_note_button: "css=button:contains('Edit')"
-  delete_note_button: "css=button:contains('Delete')"
-  note_title: "css=h3"
-  note_content: "css=p"
-  note_item: "css=div[data-testid='note-item']"
-  todo_input: "css=input[placeholder='Add a new todo']"
-  add_todo_button: "css=button[data-testid='add-todo-button']"
-  todo_item: "css=li[data-testid^='todo-item-']"
-  todo_text: "css=span[data-testid^='todo-text-']"
-  todo_checkbox: "css=input[data-testid^='todo-checkbox-']"
-  todo_delete_button: "css=button[data-testid^='todo-delete-']"
-  todo_text_by_content: "xpath=//li[.//span[contains(text(), '{0}')]]"
-  todo_checkbox_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//input[@type='checkbox']"
-  todo_delete_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//button[@data-testid[starts-with(., 'todo-delete-')]]"
-  FILENAME_INPUT: "css=input[placeholder='Enter file name']"
-  CONTENT_TEXTAREA: "css=textarea[placeholder='Start typing...']"
-  SAVE_BUTTON: "xpath=//button[contains(., 'Save')]"
+  todo :
+    note_title_input: "css=input[placeholder='Note title']"
+    note_content_input: "css=textarea[placeholder='Note content']"
+    add_note_button: "css=button:contains('Add Note')"
+    edit_note_button: "css=button:contains('Edit')"
+    delete_note_button: "css=button:contains('Delete')"
+    note_title: "css=h3"
+    note_content: "css=p"
+    note_item: "css=div[data-testid='note-item']"
+    todo_input: "css=input[placeholder='Add a new todo']"
+    add_todo_button: "css=button[data-testid='add-todo-button']"
+    todo_item: "css=li[data-testid^='todo-item-']"
+    todo_text: "css=span[data-testid^='todo-text-']"
+    todo_checkbox: "css=input[data-testid^='todo-checkbox-']"
+    todo_delete_button: "css=button[data-testid^='todo-delete-']"
+    todo_text_by_content: "xpath=//li[.//span[contains(text(), '{0}')]]"
+    todo_checkbox_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//input[@type='checkbox']"
+    todo_delete_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//button[@data-testid[starts-with(., 'todo-delete-')]]"
+  text_editor:
+    filename_input: "css=input[placeholder='Enter file name']"
+    content_textarea: "css=textarea[placeholder='Start typing...']"
+    save_button: "css=button:contains('Save')"
+    delete_button: "css=button:contains('Delete')"
+    save_success_message: "css=div:contains('File saved successfully')"
+    delete_success_message: "css=div:contains('File deleted successfully')"
 
 test_data:
   initial_note:
@@ -35,6 +40,20 @@ test_data:
     - "Do laundry"
     - "Call mom"
     - "Special & test item"
+  text_editor:
+    test_document:
+      filename: "test_document.txt"
+      content: "This is a test document content"
+    document_to_delete:
+      filename: "document_to_delete.txt"
+      content: "This document will be deleted"
+    editable_document:
+      initial_content: "Initial content"
+      updated_content: "Updated content"
+      filename: "editable_document.txt"
+    persistent_document:
+      filename: "persistent_document.txt"
+      content: "This content should persist"
 
 timeouts:
   page_load: 10s

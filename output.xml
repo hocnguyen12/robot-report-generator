@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T10:29:26.712945" rpa="false" schemaversion="5">
+<suite id="s1" name="Text Editor Tests" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/text_editor_tests.robot">
+<test id="s1-t1" name="Create And Save New Document" line="9">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.849065" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.848962" elapsed="0.000163">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.850646" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.850588" elapsed="0.000101">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<doc>Test creating and saving a new document</doc>
+<status status="FAIL" start="2025-04-29T10:29:26.846406" elapsed="0.004393">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t2" name="Delete Document" line="16">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.853084" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.852987" elapsed="0.000167">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.854703" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.854646" elapsed="0.000106">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<doc>Test deleting a document</doc>
+<status status="FAIL" start="2025-04-29T10:29:26.851012" elapsed="0.003840">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t3" name="Edit Existing Document" line="22">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.856523" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.856466" elapsed="0.000108">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.858376" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.858309" elapsed="0.000108">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<doc>Test editing an existing document</doc>
+<status status="FAIL" start="2025-04-29T10:29:26.855118" elapsed="0.003401">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t4" name="Verify Document Persistence" line="30">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.873017" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.872921" elapsed="0.000158">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.874895" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.874822" elapsed="0.000123">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<doc>Test that document content persists after save</doc>
+<status status="FAIL" start="2025-04-29T10:29:26.858794" elapsed="0.016268">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t5" name="Create And Save Document" line="37">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.876848" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.876793" elapsed="0.000097">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.878414" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.878339" elapsed="0.000130">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.875392" elapsed="0.003187">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t6" name="Edit And Save Document" line="42">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.880810" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.880731" elapsed="0.000129">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.882905" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.882820" elapsed="0.000138">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.878990" elapsed="0.004119">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t7" name="Save Document With Special Characters" line="50">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.885218" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.885134" elapsed="0.000137">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.887519" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.887399" elapsed="0.000197">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.883367" elapsed="0.004369">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t8" name="Save Document With Long Content" line="55">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.889567" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.889497" elapsed="0.000118">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.891030" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.890986" elapsed="0.000080">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.888030" elapsed="0.003118">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t9" name="Save Document With Empty Content" line="61">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.892864" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.892793" elapsed="0.000118">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.894449" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.894314" elapsed="0.000201">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.891335" elapsed="0.003325">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t10" name="Save Document With Whitespace" line="66">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.896292" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.896242" elapsed="0.000089">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.897805" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.897763" elapsed="0.000074">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.894909" elapsed="0.003000">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t11" name="Save Document With Line Breaks" line="71">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.900012" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.899921" elapsed="0.000144">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.902217" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.902075" elapsed="0.000218">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.898087" elapsed="0.004357">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t12" name="Save Document With Unicode Characters" line="76">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.904248" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.904185" elapsed="0.000108">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.905724" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.905674" elapsed="0.000089">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.902751" elapsed="0.003091">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t13" name="Save Document With HTML Content" line="81">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.907776" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.907696" elapsed="0.000126">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.909244" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.909194" elapsed="0.000088">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.906039" elapsed="0.003331">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t14" name="Save Document With JavaScript Content" line="86">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.910909" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.910871" elapsed="0.000070">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.912217" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.912185" elapsed="0.000060">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.909572" elapsed="0.002743">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t15" name="Save Document With SQL Content" line="91">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.913738" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.913703" elapsed="0.000065">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.915539" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.915412" elapsed="0.000202">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.912475" elapsed="0.003326">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t16" name="Save Document With Markdown Content" line="96">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.917909" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.917799" elapsed="0.000206">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.919794" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.919733" elapsed="0.000104">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.916176" elapsed="0.003770">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t17" name="Save Document With JSON Content" line="101">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.921871" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.921800" elapsed="0.000118">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.923342" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.923296" elapsed="0.000085">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.920167" elapsed="0.003302">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t18" name="Save Document With XML Content" line="106">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.924968" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.924935" elapsed="0.000063">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.926964" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.926883" elapsed="0.000130">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.923666" elapsed="0.003458">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t19" name="Save Document With YAML Content" line="111">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.928632" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.928588" elapsed="0.000081">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.930035" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.930000" elapsed="0.000066">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.927341" elapsed="0.002795">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t20" name="Save Document With CSV Content" line="116">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.931851" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.931768" elapsed="0.000148">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.933455" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.933387" elapsed="0.000146">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.930300" elapsed="0.003394">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<test id="s1-t21" name="Save Document With Multiple Saves" line="121">
+<kw name="Open Text Editor" type="SETUP">
+<msg time="2025-04-29T10:29:26.936430" level="FAIL">No keyword with name 'Open Text Editor' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.936307" elapsed="0.000199">No keyword with name 'Open Text Editor' found.</status>
+</kw>
+<kw name="Close Text Editor Application" type="TEARDOWN">
+<msg time="2025-04-29T10:29:26.938885" level="FAIL">No keyword with name 'Close Text Editor Application' found.</msg>
+<status status="FAIL" start="2025-04-29T10:29:26.938776" elapsed="0.000165">No keyword with name 'Close Text Editor Application' found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T10:29:26.934008" elapsed="0.005053">Setup failed:
+No keyword with name 'Open Text Editor' found.
+
+Also teardown failed:
+No keyword with name 'Close Text Editor Application' found.</status>
+</test>
+<status status="FAIL" start="2025-04-29T10:29:26.713873" elapsed="0.225614"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="21" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Text Editor Tests" id="s1" pass="0" fail="21" skip="0">Text Editor Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-29T10:29:26.845868" level="ERROR">Error in file '/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/text_editor_tests.robot' on line 3: Resource file 'resources/keywords/text_editor_keywords.resource' does not exist.</msg>
+<msg time="2025-04-29T10:29:26.846047" level="ERROR">Error in file '/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/text_editor_tests.robot' on line 4: Variable file 'resources/variables/app_variables.yaml' does not exist.</msg>
+</errors>
+</robot>

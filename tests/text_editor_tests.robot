@@ -1,101 +1,146 @@
 *** Settings ***
+Library    SeleniumLibrary
 Resource    ../resources/keywords/text_editor_keywords.resource
-Resource    ../resources/keywords/common_keywords.resource
+Variables    ../resources/variables/app_variables.yaml
 Test Setup    Open Text Editor
 Test Teardown    Close Text Editor Application
 
 *** Test Cases ***
-Create And Save Document
-    Create And Save Document    test_document.txt    This is a test document
-    Verify Document Is Saved    test_document.txt    This is a test document
-    Clean Up Test Files    test_document.txt
+Create And Save New Document
+    [Documentation]    Test creating and saving a new document
+    Create And Save Document    ${test_data.text_editor.test_document.filename}    ${test_data.text_editor.test_document.content}
+    Verify Document Is Saved
+    Verify File Name Is    ${test_data.text_editor.test_document.filename}
+    Verify Content Is    ${test_data.text_editor.test_document.content}
 
-Edit And Save Document
-    Create And Save Document    edit_test.txt    Initial content
-    Verify Document Is Saved    edit_test.txt    Initial content
-    Set Editor Content    Updated content
-    Click Save Button
-    Verify Document Is Saved    edit_test.txt    Updated content
-    Clean Up Test Files    edit_test.txt
+Delete Document
+    [Documentation]    Test deleting a document
+    Create And Save Document    ${test_data.text_editor.document_to_delete.filename}    ${test_data.text_editor.document_to_delete.content}
+    Delete Document
+    Verify Document Is Deleted
+
+Edit Existing Document
+    [Documentation]    Test editing an existing document
+    Create And Save Document    ${test_data.text_editor.editable_document.filename}    ${test_data.text_editor.editable_document.initial_content}
+    Set Content    ${test_data.text_editor.editable_document.updated_content}
+    Save Document
+    Verify Document Is Saved
+    Verify Content Is    ${test_data.text_editor.editable_document.updated_content}
+
+Verify Document Persistence
+    [Documentation]    Test that document content persists after save
+    Create And Save Document    ${test_data.text_editor.persistent_document.filename}    ${test_data.text_editor.persistent_document.content}
+    Verify Document Is Saved
+    Verify File Name Is    ${test_data.text_editor.persistent_document.filename}
+    Verify Content Is    ${test_data.text_editor.persistent_document.content}
 
 Save Document With Special Characters
-    Create And Save Document    special_chars.txt    Content with special chars: !@#$%^&*()_+
-    Verify Document Is Saved    special_chars.txt    Content with special chars: !@#$%^&*()_+
-    Clean Up Test Files    special_chars.txt
+    [Documentation]    Test saving document with special characters
+    ${special_content}=    Set Variable    Content with special chars: !@#$%^&*()_+
+    Create And Save Document    special_chars.txt    ${special_content}
+    Verify Document Is Saved
+    Verify Content Is    ${special_content}
 
 Save Document With Long Content
+    [Documentation]    Test saving document with long content
     ${long_content}=    Set Variable    This is a very long content that spans multiple lines.\nLine 2\nLine 3\nLine 4\nLine 5
     Create And Save Document    long_content.txt    ${long_content}
-    Verify Document Is Saved    long_content.txt    ${long_content}
-    Clean Up Test Files    long_content.txt
+    Verify Document Is Saved
+    Verify Content Is    ${long_content}
 
 Save Document With Empty Content
+    [Documentation]    Test saving document with empty content
     Create And Save Document    empty_content.txt    ${EMPTY}
-    Verify Document Is Saved    empty_content.txt    ${EMPTY}
-    Clean Up Test Files    empty_content.txt
+    Verify Document Is Saved
+    Verify Content Is    ${EMPTY}
 
 Save Document With Whitespace
-    Create And Save Document    whitespace.txt    Content with    multiple    spaces
-    Verify Document Is Saved    whitespace.txt    Content with    multiple    spaces
-    Clean Up Test Files    whitespace.txt
+    [Documentation]    Test saving document with whitespace
+    ${whitespace_content}=    Set Variable    Content with    multiple    spaces
+    Create And Save Document    whitespace.txt    ${whitespace_content}
+    Verify Document Is Saved
+    Verify Content Is    ${whitespace_content}
 
 Save Document With Line Breaks
-    Create And Save Document    line_breaks.txt    First line\nSecond line\nThird line
-    Verify Document Is Saved    line_breaks.txt    First line\nSecond line\nThird line
-    Clean Up Test Files    line_breaks.txt
+    [Documentation]    Test saving document with line breaks
+    ${line_break_content}=    Set Variable    First line\nSecond line\nThird line
+    Create And Save Document    line_breaks.txt    ${line_break_content}
+    Verify Document Is Saved
+    Verify Content Is    ${line_break_content}
 
 Save Document With Unicode Characters
-    Create And Save Document    unicode.txt    Unicode characters: éèêëñüß
-    Verify Document Is Saved    unicode.txt    Unicode characters: éèêëñüß
-    Clean Up Test Files    unicode.txt
+    [Documentation]    Test saving document with unicode characters
+    ${unicode_content}=    Set Variable    Unicode characters: éèêëñüß
+    Create And Save Document    unicode.txt    ${unicode_content}
+    Verify Document Is Saved
+    Verify Content Is    ${unicode_content}
 
 Save Document With HTML Content
-    Create And Save Document    html.txt    <html><body><h1>Test</h1></body></html>
-    Verify Document Is Saved    html.txt    <html><body><h1>Test</h1></body></html>
-    Clean Up Test Files    html.txt
+    [Documentation]    Test saving document with HTML content
+    ${html_content}=    Set Variable    <html><body><h1>Test</h1></body></html>
+    Create And Save Document    html.txt    ${html_content}
+    Verify Document Is Saved
+    Verify Content Is    ${html_content}
 
 Save Document With JavaScript Content
-    Create And Save Document    script.js    function test() { console.log('test'); }
-    Verify Document Is Saved    script.js    function test() { console.log('test'); }
-    Clean Up Test Files    script.js
+    [Documentation]    Test saving document with JavaScript content
+    ${js_content}=    Set Variable    function test() { console.log('test'); }
+    Create And Save Document    script.js    ${js_content}
+    Verify Document Is Saved
+    Verify Content Is    ${js_content}
 
 Save Document With SQL Content
-    Create And Save Document    query.sql    SELECT * FROM users WHERE id = 1;
-    Verify Document Is Saved    query.sql    SELECT * FROM users WHERE id = 1;
-    Clean Up Test Files    query.sql
+    [Documentation]    Test saving document with SQL content
+    ${sql_content}=    Set Variable    SELECT * FROM users WHERE id = 1;
+    Create And Save Document    query.sql    ${sql_content}
+    Verify Document Is Saved
+    Verify Content Is    ${sql_content}
 
 Save Document With Markdown Content
-    Create And Save Document    markdown.md    # Heading\n\n- List item 1\n- List item 2
-    Verify Document Is Saved    markdown.md    # Heading\n\n- List item 1\n- List item 2
-    Clean Up Test Files    markdown.md
+    [Documentation]    Test saving document with Markdown content
+    ${markdown_content}=    Set Variable    # Heading\n\n- List item 1\n- List item 2
+    Create And Save Document    markdown.md    ${markdown_content}
+    Verify Document Is Saved
+    Verify Content Is    ${markdown_content}
 
 Save Document With JSON Content
-    Create And Save Document    data.json    {"name": "test", "value": 123}
-    Verify Document Is Saved    data.json    {"name": "test", "value": 123}
-    Clean Up Test Files    data.json
+    [Documentation]    Test saving document with JSON content
+    ${json_content}=    Set Variable    {"name": "test", "value": 123}
+    Create And Save Document    data.json    ${json_content}
+    Verify Document Is Saved
+    Verify Content Is    ${json_content}
 
 Save Document With XML Content
-    Create And Save Document    config.xml    <config><setting>value</setting></config>
-    Verify Document Is Saved    config.xml    <config><setting>value</setting></config>
-    Clean Up Test Files    config.xml
+    [Documentation]    Test saving document with XML content
+    ${xml_content}=    Set Variable    <config><setting>value</setting></config>
+    Create And Save Document    config.xml    ${xml_content}
+    Verify Document Is Saved
+    Verify Content Is    ${xml_content}
 
 Save Document With YAML Content
-    Create And Save Document    config.yaml    key: value\nlist:\n  - item1\n  - item2
-    Verify Document Is Saved    config.yaml    key: value\nlist:\n  - item1\n  - item2
-    Clean Up Test Files    config.yaml
+    [Documentation]    Test saving document with YAML content
+    ${yaml_content}=    Set Variable    key: value\nlist:\n  - item1\n  - item2
+    Create And Save Document    config.yaml    ${yaml_content}
+    Verify Document Is Saved
+    Verify Content Is    ${yaml_content}
 
 Save Document With CSV Content
-    Create And Save Document    data.csv    name,age,email\nJohn,30,john@example.com
-    Verify Document Is Saved    data.csv    name,age,email\nJohn,30,john@example.com
-    Clean Up Test Files    data.csv
+    [Documentation]    Test saving document with CSV content
+    ${csv_content}=    Set Variable    name,age,email\nJohn,30,john@example.com
+    Create And Save Document    data.csv    ${csv_content}
+    Verify Document Is Saved
+    Verify Content Is    ${csv_content}
 
 Save Document With Multiple Saves
+    [Documentation]    Test saving document multiple times
     Create And Save Document    multiple_saves.txt    First save
-    Verify Document Is Saved    multiple_saves.txt    First save
-    Set Editor Content    Second save
-    Click Save Button
-    Verify Document Is Saved    multiple_saves.txt    Second save
-    Set Editor Content    Third save
-    Click Save Button
-    Verify Document Is Saved    multiple_saves.txt    Third save
-    Clean Up Test Files    multiple_saves.txt
+    Verify Document Is Saved
+    Verify Content Is    First save
+    Set Content    Second save
+    Save Document
+    Verify Document Is Saved
+    Verify Content Is    Second save
+    Set Content    Third save
+    Save Document
+    Verify Document Is Saved
+    Verify Content Is    Third save
