@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Todo App',
-  description: 'A todo application with intentional flaws for testing',
+  title: 'Utility Collection',
+  description: 'A tool application with intentional flaws for testing',
 }
 
 export default function RootLayout({
