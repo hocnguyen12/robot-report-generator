@@ -6,7 +6,9 @@ Variables    ../variables/app_variables.yaml
 *** Keywords ***
 Open Text Editor
     Open Browser    ${app.url}    chrome
-    Maximize Browser Window
+    Click Element    ${selectors.header.text_editor_button}
+    Wait Until Page Contains Element    ${selectors.text_editor.filename_input}    ${timeouts.page_load}
+    Log    Opened Text Editor
 
 Close Text Editor Application
     Close Browser

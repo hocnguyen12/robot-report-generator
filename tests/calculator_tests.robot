@@ -1,6 +1,5 @@
 *** Settings ***
 Resource    ../resources/keywords/calculator_keywords.resource
-Variables    ../resources/variables/app_variables.yaml
 
 *** Test Cases ***
 Basic Addition

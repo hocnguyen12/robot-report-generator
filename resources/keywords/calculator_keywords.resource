@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Variables    ../variables/app_variables.yaml
 
 *** Variables ***
 ${CALCULATOR_INPUT}    css=[data-testid="calculator-input"]
@@ -13,7 +14,7 @@ ${DISPLAY}    css=[data-testid="display"]
 
 *** Keywords ***
 Open Calculator
-    Open Browser    ${url}    firefox
+    Open Browser    ${app.url}    firefox
     Wait Until Element Is Visible    ${DISPLAY}
     Log    Opened calculator application
 

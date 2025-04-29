@@ -1,6 +1,5 @@
 *** Settings ***
 Resource    ../resources/keywords/todo_keywords.resource
-Variables    ../resources/variables/app_variables.yaml
 Test Setup    Open Todo Application
 Test Teardown    Close Todo Application
 

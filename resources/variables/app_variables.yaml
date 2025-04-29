@@ -2,6 +2,14 @@ app:
   url: "http://localhost:3000"
 
 selectors:
+  header :
+    title: "Productivity Tools"
+    description: "A collection of useful tools to boost your productivity"
+    todo_button: "xpath=//button[contains(text(), 'Todo List')]"
+    text_editor_button: "xpath=//button[contains(text(), 'Text Editor')]"
+    calculator_button: "xpath=//button[contains(text(), 'Calculator')]"
+    notes_button: "xpath=//button[contains(text(), 'Notes')]"
+
   todo :
     note_title_input: "css=input[placeholder='Note title']"
     note_content_input: "css=textarea[placeholder='Note content']"

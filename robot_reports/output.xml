@@ -1,59 +1,1436 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T10:34:54.985057" rpa="false" schemaversion="5">
-<suite id="s1" name="Check Application" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/check_application.robot">
-<test id="s1-t1" name="Check Application Is Running" line="7">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T11:06:44.549641" rpa="false" schemaversion="5">
+<suite id="s1" name="Text Editor Tests" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/text_editor_tests.robot">
+<test id="s1-t1" name="Create And Save New Document" line="9">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T10:34:55.103540" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T11:06:44.684361" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T10:34:55.102767" elapsed="0.700995"/>
+<status status="PASS" start="2025-04-29T11:06:44.683883" elapsed="0.758686"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-04-29T10:34:55.857969" level="INFO">Current page contains text 'Text Editor'.</msg>
-<arg>Text Editor</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-04-29T10:34:55.804020" elapsed="0.054131"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:45.443644" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:45.442857" elapsed="0.117277"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T10:34:55.935949" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T10:34:55.936116" level="FAIL">Page should have contained element 'css=input[placeholder='Enter file name']' but did not.</msg>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${selectors.text_editor.filename_input}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="FAIL" start="2025-04-29T10:34:55.858492" elapsed="0.078098">Page should have contained element 'css=input[placeholder='Enter file name']' but did not.</status>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:06:45.560386" elapsed="0.008088"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:06:45.568869" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:06:45.568669" elapsed="0.000250"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:44.683182" elapsed="0.885809"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:45.570830" level="INFO">Typing text 'test_document.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:45.570345" elapsed="0.084535"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:06:45.570060" elapsed="0.084945"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:45.655935" level="INFO">Typing text 'This is a test document content' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
 <arg>${selectors.text_editor.content_textarea}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T10:34:55.936850" elapsed="0.000042"/>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:45.655487" elapsed="0.084416"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:06:45.655176" elapsed="0.084928"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:45.741010" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
+<msg time="2025-04-29T11:06:45.821651" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T11:06:45.821867" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5b09eb0b275a &lt;unknown&gt;
+#1 0x5b09eab654b0 &lt;unknown&gt;
+#2 0x5b09eab6c0b6 &lt;unknown&gt;
+#3 0x5b09eab6e928 &lt;unknown&gt;
+#4 0x5b09eab6e9b3 &lt;unknown&gt;
+#5 0x5b09eabb63e5 &lt;unknown&gt;
+#6 0x5b09eabb6ba1 &lt;unknown&gt;
+#7 0x5b09eac05231 &lt;unknown&gt;
+#8 0x5b09eabdc5bd &lt;unknown&gt;
+#9 0x5b09eac025e0 &lt;unknown&gt;
+#10 0x5b09eabdc363 &lt;unknown&gt;
+#11 0x5b09eaba8d63 &lt;unknown&gt;
+#12 0x5b09eaba99c1 &lt;unknown&gt;
+#13 0x5b09eb077a6b &lt;unknown&gt;
+#14 0x5b09eb07b951 &lt;unknown&gt;
+#15 0x5b09eb05fb62 &lt;unknown&gt;
+#16 0x5b09eb07c4c4 &lt;unknown&gt;
+#17 0x5b09eb04413f &lt;unknown&gt;
+#18 0x5b09eb0a06f8 &lt;unknown&gt;
+#19 0x5b09eb0a08d6 &lt;unknown&gt;
+#20 0x5b09eb0b15a6 &lt;unknown&gt;
+#21 0x7fac70694ac3 &lt;unknown&gt;
+</msg>
 <arg>${selectors.text_editor.save_button}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T10:34:55.937027" elapsed="0.000024"/>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T11:06:45.740581" elapsed="0.082036">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5b09eb0b275a &lt;unknown&gt;
+#1 0x5b09eab654b0 &lt;unknown&gt;
+#2 0x5b09eab6c0b6 &lt;unknown&gt;
+#3 0x5b09eab6e928 &lt;unknown&gt;
+#4 0x5b09eab6e9b3 &lt;unknown&gt;
+#5 0x5b09eabb63e5 &lt;unknown&gt;
+#6 0x5b09eabb6ba1 &lt;unknown&gt;
+#7 0x5b09eac05231 &lt;unknown&gt;
+#8 0x5b09eabdc5bd &lt;unknown&gt;
+#9 0x5b09eac025e0 &lt;unknown&gt;
+#10 0x5b09eabdc363 &lt;unknown&gt;
+#11 0x5b09eaba8d63 &lt;unknown&gt;
+#12 0x5b09eaba99c1 &lt;unknown&gt;
+#13 0x5b09eb077a6b &lt;unknown&gt;
+#14 0x5b09eb07b951 &lt;unknown&gt;
+#15 0x5b09eb05fb62 &lt;unknown&gt;
+#16 0x5b09eb07c4c4 &lt;unknown&gt;
+#17 0x5b09eb04413f &lt;unknown&gt;
+#18 0x5b09eb0a06f8 &lt;unknown&gt;
+#19 0x5b09eb0a08d6 &lt;unknown&gt;
+#20 0x5b09eb0b15a6 &lt;unknown&gt;
+#21 0x7fac70694ac3 &lt;unknown&gt;
+</status>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.delete_button}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T10:34:55.937156" elapsed="0.000022"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.save_success_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:45.822827" elapsed="0.000038"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<status status="FAIL" start="2025-04-29T11:06:45.740321" elapsed="0.082659">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5b09eb0b275a &lt;unknown&gt;
+#1 0x5b09eab654b0 &lt;unknown&gt;
+#2 0x5b09eab6c0b6 &lt;unknown&gt;
+#3 0x5b09eab6e928 &lt;unknown&gt;
+#4 0x5b09eab6e9b3 &lt;unknown&gt;
+#5 0x5b09eabb63e5 &lt;unknown&gt;
+#6 0x5b09eabb6ba1 &lt;unknown&gt;
+#7 0x5b09eac05231 &lt;unknown&gt;
+#8 0x5b09eabdc5bd &lt;unknown&gt;
+#9 0x5b09eac025e0 &lt;unknown&gt;
+#10 0x5b09eabdc363 &lt;unknown&gt;
+#11 0x5b09eaba8d63 &lt;unknown&gt;
+#12 0x5b09eaba99c1 &lt;unknown&gt;
+#13 0x5b09eb077a6b &lt;unknown&gt;
+#14 0x5b09eb07b951 &lt;unknown&gt;
+#15 0x5b09eb05fb62 &lt;unknown&gt;
+#16 0x5b09eb07c4c4 &lt;unknown&gt;
+#17 0x5b09eb04413f &lt;unknown&gt;
+#18 0x5b09eb0a06f8 &lt;unknown&gt;
+#19 0x5b09eb0a08d6 &lt;unknown&gt;
+#20 0x5b09eb0b15a6 &lt;unknown&gt;
+#21 0x7fac70694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<arg>${test_data.text_editor.test_document.filename}</arg>
+<arg>${test_data.text_editor.test_document.content}</arg>
+<status status="FAIL" start="2025-04-29T11:06:45.569199" elapsed="0.253870">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5b09eb0b275a &lt;unknown&gt;
+#1 0x5b09eab654b0 &lt;unknown&gt;
+#2 0x5b09eab6c0b6 &lt;unknown&gt;
+#3 0x5b09eab6e928 &lt;unknown&gt;
+#4 0x5b09eab6e9b3 &lt;unknown&gt;
+#5 0x5b09eabb63e5 &lt;unknown&gt;
+#6 0x5b09eabb6ba1 &lt;unknown&gt;
+#7 0x5b09eac05231 &lt;unknown&gt;
+#8 0x5b09eabdc5bd &lt;unknown&gt;
+#9 0x5b09eac025e0 &lt;unknown&gt;
+#10 0x5b09eabdc363 &lt;unknown&gt;
+#11 0x5b09eaba8d63 &lt;unknown&gt;
+#12 0x5b09eaba99c1 &lt;unknown&gt;
+#13 0x5b09eb077a6b &lt;unknown&gt;
+#14 0x5b09eb07b951 &lt;unknown&gt;
+#15 0x5b09eb05fb62 &lt;unknown&gt;
+#16 0x5b09eb07c4c4 &lt;unknown&gt;
+#17 0x5b09eb04413f &lt;unknown&gt;
+#18 0x5b09eb0a06f8 &lt;unknown&gt;
+#19 0x5b09eb0a08d6 &lt;unknown&gt;
+#20 0x5b09eb0b15a6 &lt;unknown&gt;
+#21 0x7fac70694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Verify Document Is Saved" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:45.823340" elapsed="0.000037"/>
+</kw>
+<kw name="Verify File Name Is" owner="text_editor_keywords">
+<arg>${test_data.text_editor.test_document.filename}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:45.823508" elapsed="0.000025"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<arg>${test_data.text_editor.test_document.content}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:45.823642" elapsed="0.000023"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T10:34:55.937415" elapsed="0.055691"/>
+<status status="PASS" start="2025-04-29T11:06:45.824258" elapsed="0.056309"/>
 </kw>
-<doc>Verify that the application is running and accessible</doc>
-<status status="FAIL" start="2025-04-29T10:34:55.101523" elapsed="0.891735">Page should have contained element 'css=input[placeholder='Enter file name']' but did not.</status>
+<status status="PASS" start="2025-04-29T11:06:45.823892" elapsed="0.056799"/>
+</kw>
+<doc>Test creating and saving a new document</doc>
+<status status="FAIL" start="2025-04-29T11:06:44.682495" elapsed="1.198317">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5b09eb0b275a &lt;unknown&gt;
+#1 0x5b09eab654b0 &lt;unknown&gt;
+#2 0x5b09eab6c0b6 &lt;unknown&gt;
+#3 0x5b09eab6e928 &lt;unknown&gt;
+#4 0x5b09eab6e9b3 &lt;unknown&gt;
+#5 0x5b09eabb63e5 &lt;unknown&gt;
+#6 0x5b09eabb6ba1 &lt;unknown&gt;
+#7 0x5b09eac05231 &lt;unknown&gt;
+#8 0x5b09eabdc5bd &lt;unknown&gt;
+#9 0x5b09eac025e0 &lt;unknown&gt;
+#10 0x5b09eabdc363 &lt;unknown&gt;
+#11 0x5b09eaba8d63 &lt;unknown&gt;
+#12 0x5b09eaba99c1 &lt;unknown&gt;
+#13 0x5b09eb077a6b &lt;unknown&gt;
+#14 0x5b09eb07b951 &lt;unknown&gt;
+#15 0x5b09eb05fb62 &lt;unknown&gt;
+#16 0x5b09eb07c4c4 &lt;unknown&gt;
+#17 0x5b09eb04413f &lt;unknown&gt;
+#18 0x5b09eb0a06f8 &lt;unknown&gt;
+#19 0x5b09eb0a08d6 &lt;unknown&gt;
+#20 0x5b09eb0b15a6 &lt;unknown&gt;
+#21 0x7fac70694ac3 &lt;unknown&gt;
+</status>
 </test>
-<status status="FAIL" start="2025-04-29T10:34:54.985852" elapsed="1.007836"/>
+<test id="s1-t2" name="Delete Document" line="16">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:45.882294" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:06:45.881813" elapsed="0.739979"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:46.622921" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:46.622097" elapsed="0.106648"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:06:46.728979" elapsed="0.009329"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:06:46.738749" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:06:46.738548" elapsed="0.000258"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:45.881521" elapsed="0.857360"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:46.740492" level="INFO">Typing text 'document_to_delete.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:46.740075" elapsed="0.099647"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:06:46.739834" elapsed="0.100042"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:46.841009" level="INFO">Typing text 'This document will be deleted' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:46.840535" elapsed="0.083603"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:06:46.840085" elapsed="0.084243"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:46.925326" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
+<msg time="2025-04-29T11:06:47.020489" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T11:06:47.020667" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x576b6071975a &lt;unknown&gt;
+#1 0x576b601cc4b0 &lt;unknown&gt;
+#2 0x576b601d30b6 &lt;unknown&gt;
+#3 0x576b601d5928 &lt;unknown&gt;
+#4 0x576b601d59b3 &lt;unknown&gt;
+#5 0x576b6021d3e5 &lt;unknown&gt;
+#6 0x576b6021dba1 &lt;unknown&gt;
+#7 0x576b6026c231 &lt;unknown&gt;
+#8 0x576b602435bd &lt;unknown&gt;
+#9 0x576b602695e0 &lt;unknown&gt;
+#10 0x576b60243363 &lt;unknown&gt;
+#11 0x576b6020fd63 &lt;unknown&gt;
+#12 0x576b602109c1 &lt;unknown&gt;
+#13 0x576b606dea6b &lt;unknown&gt;
+#14 0x576b606e2951 &lt;unknown&gt;
+#15 0x576b606c6b62 &lt;unknown&gt;
+#16 0x576b606e34c4 &lt;unknown&gt;
+#17 0x576b606ab13f &lt;unknown&gt;
+#18 0x576b607076f8 &lt;unknown&gt;
+#19 0x576b607078d6 &lt;unknown&gt;
+#20 0x576b607185a6 &lt;unknown&gt;
+#21 0x76a1c1694ac3 &lt;unknown&gt;
+</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T11:06:46.924797" elapsed="0.096034">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x576b6071975a &lt;unknown&gt;
+#1 0x576b601cc4b0 &lt;unknown&gt;
+#2 0x576b601d30b6 &lt;unknown&gt;
+#3 0x576b601d5928 &lt;unknown&gt;
+#4 0x576b601d59b3 &lt;unknown&gt;
+#5 0x576b6021d3e5 &lt;unknown&gt;
+#6 0x576b6021dba1 &lt;unknown&gt;
+#7 0x576b6026c231 &lt;unknown&gt;
+#8 0x576b602435bd &lt;unknown&gt;
+#9 0x576b602695e0 &lt;unknown&gt;
+#10 0x576b60243363 &lt;unknown&gt;
+#11 0x576b6020fd63 &lt;unknown&gt;
+#12 0x576b602109c1 &lt;unknown&gt;
+#13 0x576b606dea6b &lt;unknown&gt;
+#14 0x576b606e2951 &lt;unknown&gt;
+#15 0x576b606c6b62 &lt;unknown&gt;
+#16 0x576b606e34c4 &lt;unknown&gt;
+#17 0x576b606ab13f &lt;unknown&gt;
+#18 0x576b607076f8 &lt;unknown&gt;
+#19 0x576b607078d6 &lt;unknown&gt;
+#20 0x576b607185a6 &lt;unknown&gt;
+#21 0x76a1c1694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.save_success_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:47.021103" elapsed="0.000044"/>
+</kw>
+<status status="FAIL" start="2025-04-29T11:06:46.924520" elapsed="0.096743">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x576b6071975a &lt;unknown&gt;
+#1 0x576b601cc4b0 &lt;unknown&gt;
+#2 0x576b601d30b6 &lt;unknown&gt;
+#3 0x576b601d5928 &lt;unknown&gt;
+#4 0x576b601d59b3 &lt;unknown&gt;
+#5 0x576b6021d3e5 &lt;unknown&gt;
+#6 0x576b6021dba1 &lt;unknown&gt;
+#7 0x576b6026c231 &lt;unknown&gt;
+#8 0x576b602435bd &lt;unknown&gt;
+#9 0x576b602695e0 &lt;unknown&gt;
+#10 0x576b60243363 &lt;unknown&gt;
+#11 0x576b6020fd63 &lt;unknown&gt;
+#12 0x576b602109c1 &lt;unknown&gt;
+#13 0x576b606dea6b &lt;unknown&gt;
+#14 0x576b606e2951 &lt;unknown&gt;
+#15 0x576b606c6b62 &lt;unknown&gt;
+#16 0x576b606e34c4 &lt;unknown&gt;
+#17 0x576b606ab13f &lt;unknown&gt;
+#18 0x576b607076f8 &lt;unknown&gt;
+#19 0x576b607078d6 &lt;unknown&gt;
+#20 0x576b607185a6 &lt;unknown&gt;
+#21 0x76a1c1694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<arg>${test_data.text_editor.document_to_delete.filename}</arg>
+<arg>${test_data.text_editor.document_to_delete.content}</arg>
+<status status="FAIL" start="2025-04-29T11:06:46.739090" elapsed="0.282258">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x576b6071975a &lt;unknown&gt;
+#1 0x576b601cc4b0 &lt;unknown&gt;
+#2 0x576b601d30b6 &lt;unknown&gt;
+#3 0x576b601d5928 &lt;unknown&gt;
+#4 0x576b601d59b3 &lt;unknown&gt;
+#5 0x576b6021d3e5 &lt;unknown&gt;
+#6 0x576b6021dba1 &lt;unknown&gt;
+#7 0x576b6026c231 &lt;unknown&gt;
+#8 0x576b602435bd &lt;unknown&gt;
+#9 0x576b602695e0 &lt;unknown&gt;
+#10 0x576b60243363 &lt;unknown&gt;
+#11 0x576b6020fd63 &lt;unknown&gt;
+#12 0x576b602109c1 &lt;unknown&gt;
+#13 0x576b606dea6b &lt;unknown&gt;
+#14 0x576b606e2951 &lt;unknown&gt;
+#15 0x576b606c6b62 &lt;unknown&gt;
+#16 0x576b606e34c4 &lt;unknown&gt;
+#17 0x576b606ab13f &lt;unknown&gt;
+#18 0x576b607076f8 &lt;unknown&gt;
+#19 0x576b607078d6 &lt;unknown&gt;
+#20 0x576b607185a6 &lt;unknown&gt;
+#21 0x76a1c1694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Delete Document" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:47.021578" elapsed="0.000041"/>
+</kw>
+<kw name="Verify Document Is Deleted" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:47.021775" elapsed="0.000030"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:06:47.022300" elapsed="0.055825"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:47.022038" elapsed="0.056215"/>
+</kw>
+<doc>Test deleting a document</doc>
+<status status="FAIL" start="2025-04-29T11:06:45.881154" elapsed="1.197193">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x576b6071975a &lt;unknown&gt;
+#1 0x576b601cc4b0 &lt;unknown&gt;
+#2 0x576b601d30b6 &lt;unknown&gt;
+#3 0x576b601d5928 &lt;unknown&gt;
+#4 0x576b601d59b3 &lt;unknown&gt;
+#5 0x576b6021d3e5 &lt;unknown&gt;
+#6 0x576b6021dba1 &lt;unknown&gt;
+#7 0x576b6026c231 &lt;unknown&gt;
+#8 0x576b602435bd &lt;unknown&gt;
+#9 0x576b602695e0 &lt;unknown&gt;
+#10 0x576b60243363 &lt;unknown&gt;
+#11 0x576b6020fd63 &lt;unknown&gt;
+#12 0x576b602109c1 &lt;unknown&gt;
+#13 0x576b606dea6b &lt;unknown&gt;
+#14 0x576b606e2951 &lt;unknown&gt;
+#15 0x576b606c6b62 &lt;unknown&gt;
+#16 0x576b606e34c4 &lt;unknown&gt;
+#17 0x576b606ab13f &lt;unknown&gt;
+#18 0x576b607076f8 &lt;unknown&gt;
+#19 0x576b607078d6 &lt;unknown&gt;
+#20 0x576b607185a6 &lt;unknown&gt;
+#21 0x76a1c1694ac3 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t3" name="Edit Existing Document" line="22">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:47.080128" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:06:47.079434" elapsed="0.772315"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:47.852937" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:47.852076" elapsed="0.094675"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:06:47.946951" elapsed="0.007911"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:06:47.955231" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:06:47.955071" elapsed="0.000207"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:47.079033" elapsed="0.876312"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:47.957063" level="INFO">Typing text 'editable_document.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:47.956678" elapsed="0.074706"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:06:47.956423" elapsed="0.075085"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:48.032618" level="INFO">Typing text 'Initial content' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:48.032011" elapsed="0.055663"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:06:48.031673" elapsed="0.056235"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:48.088778" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
+<msg time="2025-04-29T11:06:48.202370" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T11:06:48.202621" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5eb79df0475a &lt;unknown&gt;
+#1 0x5eb79d9b74b0 &lt;unknown&gt;
+#2 0x5eb79d9be0b6 &lt;unknown&gt;
+#3 0x5eb79d9c0928 &lt;unknown&gt;
+#4 0x5eb79d9c09b3 &lt;unknown&gt;
+#5 0x5eb79da083e5 &lt;unknown&gt;
+#6 0x5eb79da08ba1 &lt;unknown&gt;
+#7 0x5eb79da57231 &lt;unknown&gt;
+#8 0x5eb79da2e5bd &lt;unknown&gt;
+#9 0x5eb79da545e0 &lt;unknown&gt;
+#10 0x5eb79da2e363 &lt;unknown&gt;
+#11 0x5eb79d9fad63 &lt;unknown&gt;
+#12 0x5eb79d9fb9c1 &lt;unknown&gt;
+#13 0x5eb79dec9a6b &lt;unknown&gt;
+#14 0x5eb79decd951 &lt;unknown&gt;
+#15 0x5eb79deb1b62 &lt;unknown&gt;
+#16 0x5eb79dece4c4 &lt;unknown&gt;
+#17 0x5eb79de9613f &lt;unknown&gt;
+#18 0x5eb79def26f8 &lt;unknown&gt;
+#19 0x5eb79def28d6 &lt;unknown&gt;
+#20 0x5eb79df035a6 &lt;unknown&gt;
+#21 0x7cfead894ac3 &lt;unknown&gt;
+</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T11:06:48.088353" elapsed="0.114571">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5eb79df0475a &lt;unknown&gt;
+#1 0x5eb79d9b74b0 &lt;unknown&gt;
+#2 0x5eb79d9be0b6 &lt;unknown&gt;
+#3 0x5eb79d9c0928 &lt;unknown&gt;
+#4 0x5eb79d9c09b3 &lt;unknown&gt;
+#5 0x5eb79da083e5 &lt;unknown&gt;
+#6 0x5eb79da08ba1 &lt;unknown&gt;
+#7 0x5eb79da57231 &lt;unknown&gt;
+#8 0x5eb79da2e5bd &lt;unknown&gt;
+#9 0x5eb79da545e0 &lt;unknown&gt;
+#10 0x5eb79da2e363 &lt;unknown&gt;
+#11 0x5eb79d9fad63 &lt;unknown&gt;
+#12 0x5eb79d9fb9c1 &lt;unknown&gt;
+#13 0x5eb79dec9a6b &lt;unknown&gt;
+#14 0x5eb79decd951 &lt;unknown&gt;
+#15 0x5eb79deb1b62 &lt;unknown&gt;
+#16 0x5eb79dece4c4 &lt;unknown&gt;
+#17 0x5eb79de9613f &lt;unknown&gt;
+#18 0x5eb79def26f8 &lt;unknown&gt;
+#19 0x5eb79def28d6 &lt;unknown&gt;
+#20 0x5eb79df035a6 &lt;unknown&gt;
+#21 0x7cfead894ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.save_success_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:48.203199" elapsed="0.000054"/>
+</kw>
+<status status="FAIL" start="2025-04-29T11:06:48.088097" elapsed="0.115315">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5eb79df0475a &lt;unknown&gt;
+#1 0x5eb79d9b74b0 &lt;unknown&gt;
+#2 0x5eb79d9be0b6 &lt;unknown&gt;
+#3 0x5eb79d9c0928 &lt;unknown&gt;
+#4 0x5eb79d9c09b3 &lt;unknown&gt;
+#5 0x5eb79da083e5 &lt;unknown&gt;
+#6 0x5eb79da08ba1 &lt;unknown&gt;
+#7 0x5eb79da57231 &lt;unknown&gt;
+#8 0x5eb79da2e5bd &lt;unknown&gt;
+#9 0x5eb79da545e0 &lt;unknown&gt;
+#10 0x5eb79da2e363 &lt;unknown&gt;
+#11 0x5eb79d9fad63 &lt;unknown&gt;
+#12 0x5eb79d9fb9c1 &lt;unknown&gt;
+#13 0x5eb79dec9a6b &lt;unknown&gt;
+#14 0x5eb79decd951 &lt;unknown&gt;
+#15 0x5eb79deb1b62 &lt;unknown&gt;
+#16 0x5eb79dece4c4 &lt;unknown&gt;
+#17 0x5eb79de9613f &lt;unknown&gt;
+#18 0x5eb79def26f8 &lt;unknown&gt;
+#19 0x5eb79def28d6 &lt;unknown&gt;
+#20 0x5eb79df035a6 &lt;unknown&gt;
+#21 0x7cfead894ac3 &lt;unknown&gt;
+</status>
+</kw>
+<arg>${test_data.text_editor.editable_document.filename}</arg>
+<arg>${test_data.text_editor.editable_document.initial_content}</arg>
+<status status="FAIL" start="2025-04-29T11:06:47.955573" elapsed="0.247965">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5eb79df0475a &lt;unknown&gt;
+#1 0x5eb79d9b74b0 &lt;unknown&gt;
+#2 0x5eb79d9be0b6 &lt;unknown&gt;
+#3 0x5eb79d9c0928 &lt;unknown&gt;
+#4 0x5eb79d9c09b3 &lt;unknown&gt;
+#5 0x5eb79da083e5 &lt;unknown&gt;
+#6 0x5eb79da08ba1 &lt;unknown&gt;
+#7 0x5eb79da57231 &lt;unknown&gt;
+#8 0x5eb79da2e5bd &lt;unknown&gt;
+#9 0x5eb79da545e0 &lt;unknown&gt;
+#10 0x5eb79da2e363 &lt;unknown&gt;
+#11 0x5eb79d9fad63 &lt;unknown&gt;
+#12 0x5eb79d9fb9c1 &lt;unknown&gt;
+#13 0x5eb79dec9a6b &lt;unknown&gt;
+#14 0x5eb79decd951 &lt;unknown&gt;
+#15 0x5eb79deb1b62 &lt;unknown&gt;
+#16 0x5eb79dece4c4 &lt;unknown&gt;
+#17 0x5eb79de9613f &lt;unknown&gt;
+#18 0x5eb79def26f8 &lt;unknown&gt;
+#19 0x5eb79def28d6 &lt;unknown&gt;
+#20 0x5eb79df035a6 &lt;unknown&gt;
+#21 0x7cfead894ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<arg>${test_data.text_editor.editable_document.updated_content}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:48.203780" elapsed="0.000035"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:48.203948" elapsed="0.000026"/>
+</kw>
+<kw name="Verify Document Is Saved" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:48.204082" elapsed="0.000022"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<arg>${test_data.text_editor.editable_document.updated_content}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:48.204209" elapsed="0.000022"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:06:48.204676" elapsed="0.056130"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:48.204444" elapsed="0.056486"/>
+</kw>
+<doc>Test editing an existing document</doc>
+<status status="FAIL" start="2025-04-29T11:06:47.078605" elapsed="1.182414">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5eb79df0475a &lt;unknown&gt;
+#1 0x5eb79d9b74b0 &lt;unknown&gt;
+#2 0x5eb79d9be0b6 &lt;unknown&gt;
+#3 0x5eb79d9c0928 &lt;unknown&gt;
+#4 0x5eb79d9c09b3 &lt;unknown&gt;
+#5 0x5eb79da083e5 &lt;unknown&gt;
+#6 0x5eb79da08ba1 &lt;unknown&gt;
+#7 0x5eb79da57231 &lt;unknown&gt;
+#8 0x5eb79da2e5bd &lt;unknown&gt;
+#9 0x5eb79da545e0 &lt;unknown&gt;
+#10 0x5eb79da2e363 &lt;unknown&gt;
+#11 0x5eb79d9fad63 &lt;unknown&gt;
+#12 0x5eb79d9fb9c1 &lt;unknown&gt;
+#13 0x5eb79dec9a6b &lt;unknown&gt;
+#14 0x5eb79decd951 &lt;unknown&gt;
+#15 0x5eb79deb1b62 &lt;unknown&gt;
+#16 0x5eb79dece4c4 &lt;unknown&gt;
+#17 0x5eb79de9613f &lt;unknown&gt;
+#18 0x5eb79def26f8 &lt;unknown&gt;
+#19 0x5eb79def28d6 &lt;unknown&gt;
+#20 0x5eb79df035a6 &lt;unknown&gt;
+#21 0x7cfead894ac3 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t4" name="Verify Document Persistence" line="30">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:48.262386" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:06:48.261894" elapsed="0.720513"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:48.983495" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:48.982670" elapsed="0.100770"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:06:49.083692" elapsed="0.008160"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:06:49.092194" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:06:49.092047" elapsed="0.000193"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:48.261635" elapsed="0.830670"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:49.093879" level="INFO">Typing text 'persistent_document.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:49.093524" elapsed="0.090855"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:06:49.093302" elapsed="0.091397"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:49.185666" level="INFO">Typing text 'This content should persist' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:49.185218" elapsed="0.069552"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:06:49.184906" elapsed="0.070062"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:49.255915" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
+<msg time="2025-04-29T11:06:49.317103" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T11:06:49.317303" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x607ad32f475a &lt;unknown&gt;
+#1 0x607ad2da74b0 &lt;unknown&gt;
+#2 0x607ad2dae0b6 &lt;unknown&gt;
+#3 0x607ad2db0928 &lt;unknown&gt;
+#4 0x607ad2db09b3 &lt;unknown&gt;
+#5 0x607ad2df83e5 &lt;unknown&gt;
+#6 0x607ad2df8ba1 &lt;unknown&gt;
+#7 0x607ad2e47231 &lt;unknown&gt;
+#8 0x607ad2e1e5bd &lt;unknown&gt;
+#9 0x607ad2e445e0 &lt;unknown&gt;
+#10 0x607ad2e1e363 &lt;unknown&gt;
+#11 0x607ad2dead63 &lt;unknown&gt;
+#12 0x607ad2deb9c1 &lt;unknown&gt;
+#13 0x607ad32b9a6b &lt;unknown&gt;
+#14 0x607ad32bd951 &lt;unknown&gt;
+#15 0x607ad32a1b62 &lt;unknown&gt;
+#16 0x607ad32be4c4 &lt;unknown&gt;
+#17 0x607ad328613f &lt;unknown&gt;
+#18 0x607ad32e26f8 &lt;unknown&gt;
+#19 0x607ad32e28d6 &lt;unknown&gt;
+#20 0x607ad32f35a6 &lt;unknown&gt;
+#21 0x7e1f7fe94ac3 &lt;unknown&gt;
+</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T11:06:49.255411" elapsed="0.062075">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x607ad32f475a &lt;unknown&gt;
+#1 0x607ad2da74b0 &lt;unknown&gt;
+#2 0x607ad2dae0b6 &lt;unknown&gt;
+#3 0x607ad2db0928 &lt;unknown&gt;
+#4 0x607ad2db09b3 &lt;unknown&gt;
+#5 0x607ad2df83e5 &lt;unknown&gt;
+#6 0x607ad2df8ba1 &lt;unknown&gt;
+#7 0x607ad2e47231 &lt;unknown&gt;
+#8 0x607ad2e1e5bd &lt;unknown&gt;
+#9 0x607ad2e445e0 &lt;unknown&gt;
+#10 0x607ad2e1e363 &lt;unknown&gt;
+#11 0x607ad2dead63 &lt;unknown&gt;
+#12 0x607ad2deb9c1 &lt;unknown&gt;
+#13 0x607ad32b9a6b &lt;unknown&gt;
+#14 0x607ad32bd951 &lt;unknown&gt;
+#15 0x607ad32a1b62 &lt;unknown&gt;
+#16 0x607ad32be4c4 &lt;unknown&gt;
+#17 0x607ad328613f &lt;unknown&gt;
+#18 0x607ad32e26f8 &lt;unknown&gt;
+#19 0x607ad32e28d6 &lt;unknown&gt;
+#20 0x607ad32f35a6 &lt;unknown&gt;
+#21 0x7e1f7fe94ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.save_success_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:49.317677" elapsed="0.000035"/>
+</kw>
+<status status="FAIL" start="2025-04-29T11:06:49.255159" elapsed="0.062678">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x607ad32f475a &lt;unknown&gt;
+#1 0x607ad2da74b0 &lt;unknown&gt;
+#2 0x607ad2dae0b6 &lt;unknown&gt;
+#3 0x607ad2db0928 &lt;unknown&gt;
+#4 0x607ad2db09b3 &lt;unknown&gt;
+#5 0x607ad2df83e5 &lt;unknown&gt;
+#6 0x607ad2df8ba1 &lt;unknown&gt;
+#7 0x607ad2e47231 &lt;unknown&gt;
+#8 0x607ad2e1e5bd &lt;unknown&gt;
+#9 0x607ad2e445e0 &lt;unknown&gt;
+#10 0x607ad2e1e363 &lt;unknown&gt;
+#11 0x607ad2dead63 &lt;unknown&gt;
+#12 0x607ad2deb9c1 &lt;unknown&gt;
+#13 0x607ad32b9a6b &lt;unknown&gt;
+#14 0x607ad32bd951 &lt;unknown&gt;
+#15 0x607ad32a1b62 &lt;unknown&gt;
+#16 0x607ad32be4c4 &lt;unknown&gt;
+#17 0x607ad328613f &lt;unknown&gt;
+#18 0x607ad32e26f8 &lt;unknown&gt;
+#19 0x607ad32e28d6 &lt;unknown&gt;
+#20 0x607ad32f35a6 &lt;unknown&gt;
+#21 0x7e1f7fe94ac3 &lt;unknown&gt;
+</status>
+</kw>
+<arg>${test_data.text_editor.persistent_document.filename}</arg>
+<arg>${test_data.text_editor.persistent_document.content}</arg>
+<status status="FAIL" start="2025-04-29T11:06:49.092512" elapsed="0.225421">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x607ad32f475a &lt;unknown&gt;
+#1 0x607ad2da74b0 &lt;unknown&gt;
+#2 0x607ad2dae0b6 &lt;unknown&gt;
+#3 0x607ad2db0928 &lt;unknown&gt;
+#4 0x607ad2db09b3 &lt;unknown&gt;
+#5 0x607ad2df83e5 &lt;unknown&gt;
+#6 0x607ad2df8ba1 &lt;unknown&gt;
+#7 0x607ad2e47231 &lt;unknown&gt;
+#8 0x607ad2e1e5bd &lt;unknown&gt;
+#9 0x607ad2e445e0 &lt;unknown&gt;
+#10 0x607ad2e1e363 &lt;unknown&gt;
+#11 0x607ad2dead63 &lt;unknown&gt;
+#12 0x607ad2deb9c1 &lt;unknown&gt;
+#13 0x607ad32b9a6b &lt;unknown&gt;
+#14 0x607ad32bd951 &lt;unknown&gt;
+#15 0x607ad32a1b62 &lt;unknown&gt;
+#16 0x607ad32be4c4 &lt;unknown&gt;
+#17 0x607ad328613f &lt;unknown&gt;
+#18 0x607ad32e26f8 &lt;unknown&gt;
+#19 0x607ad32e28d6 &lt;unknown&gt;
+#20 0x607ad32f35a6 &lt;unknown&gt;
+#21 0x7e1f7fe94ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Verify Document Is Saved" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:49.318143" elapsed="0.000079"/>
+</kw>
+<kw name="Verify File Name Is" owner="text_editor_keywords">
+<arg>${test_data.text_editor.persistent_document.filename}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:49.318371" elapsed="0.000026"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<arg>${test_data.text_editor.persistent_document.content}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:49.318505" elapsed="0.000022"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:06:49.319023" elapsed="0.055786"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:49.318762" elapsed="0.056180"/>
+</kw>
+<doc>Test that document content persists after save</doc>
+<status status="FAIL" start="2025-04-29T11:06:48.261271" elapsed="1.113760">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x607ad32f475a &lt;unknown&gt;
+#1 0x607ad2da74b0 &lt;unknown&gt;
+#2 0x607ad2dae0b6 &lt;unknown&gt;
+#3 0x607ad2db0928 &lt;unknown&gt;
+#4 0x607ad2db09b3 &lt;unknown&gt;
+#5 0x607ad2df83e5 &lt;unknown&gt;
+#6 0x607ad2df8ba1 &lt;unknown&gt;
+#7 0x607ad2e47231 &lt;unknown&gt;
+#8 0x607ad2e1e5bd &lt;unknown&gt;
+#9 0x607ad2e445e0 &lt;unknown&gt;
+#10 0x607ad2e1e363 &lt;unknown&gt;
+#11 0x607ad2dead63 &lt;unknown&gt;
+#12 0x607ad2deb9c1 &lt;unknown&gt;
+#13 0x607ad32b9a6b &lt;unknown&gt;
+#14 0x607ad32bd951 &lt;unknown&gt;
+#15 0x607ad32a1b62 &lt;unknown&gt;
+#16 0x607ad32be4c4 &lt;unknown&gt;
+#17 0x607ad328613f &lt;unknown&gt;
+#18 0x607ad32e26f8 &lt;unknown&gt;
+#19 0x607ad32e28d6 &lt;unknown&gt;
+#20 0x607ad32f35a6 &lt;unknown&gt;
+#21 0x7e1f7fe94ac3 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t5" name="Save Document With Special Characters" line="37">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:49.376382" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:06:49.375888" elapsed="0.702802"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:50.079386" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.078912" elapsed="0.102619"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.181738" elapsed="0.007927"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:06:50.190014" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.189863" elapsed="0.000197"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:49.375643" elapsed="0.814483"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:06:50.190413" level="INFO">${special_content} = Content with special chars: !@#$%^&amp;*()_+</msg>
+<var>${special_content}</var>
+<arg>Content with special chars: !@#$%^&amp;*()_+</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.190277" elapsed="0.000162"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:50.191449" level="INFO">Typing text 'special_chars.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.191049" elapsed="0.070444"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:06:50.190853" elapsed="0.070763"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:50.262663" level="INFO">Typing text 'Content with special chars: !@#$%^&amp;*()_+' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.262173" elapsed="0.079134"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:06:50.261798" elapsed="0.079701"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:50.342836" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
+<msg time="2025-04-29T11:06:50.432951" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T11:06:50.433250" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5dfcd4dbb75a &lt;unknown&gt;
+#1 0x5dfcd486e4b0 &lt;unknown&gt;
+#2 0x5dfcd48750b6 &lt;unknown&gt;
+#3 0x5dfcd4877928 &lt;unknown&gt;
+#4 0x5dfcd48779b3 &lt;unknown&gt;
+#5 0x5dfcd48bf3e5 &lt;unknown&gt;
+#6 0x5dfcd48bfba1 &lt;unknown&gt;
+#7 0x5dfcd490e231 &lt;unknown&gt;
+#8 0x5dfcd48e55bd &lt;unknown&gt;
+#9 0x5dfcd490b5e0 &lt;unknown&gt;
+#10 0x5dfcd48e5363 &lt;unknown&gt;
+#11 0x5dfcd48b1d63 &lt;unknown&gt;
+#12 0x5dfcd48b29c1 &lt;unknown&gt;
+#13 0x5dfcd4d80a6b &lt;unknown&gt;
+#14 0x5dfcd4d84951 &lt;unknown&gt;
+#15 0x5dfcd4d68b62 &lt;unknown&gt;
+#16 0x5dfcd4d854c4 &lt;unknown&gt;
+#17 0x5dfcd4d4d13f &lt;unknown&gt;
+#18 0x5dfcd4da96f8 &lt;unknown&gt;
+#19 0x5dfcd4da98d6 &lt;unknown&gt;
+#20 0x5dfcd4dba5a6 &lt;unknown&gt;
+#21 0x79dd3f694ac3 &lt;unknown&gt;
+</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T11:06:50.342213" elapsed="0.091237">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5dfcd4dbb75a &lt;unknown&gt;
+#1 0x5dfcd486e4b0 &lt;unknown&gt;
+#2 0x5dfcd48750b6 &lt;unknown&gt;
+#3 0x5dfcd4877928 &lt;unknown&gt;
+#4 0x5dfcd48779b3 &lt;unknown&gt;
+#5 0x5dfcd48bf3e5 &lt;unknown&gt;
+#6 0x5dfcd48bfba1 &lt;unknown&gt;
+#7 0x5dfcd490e231 &lt;unknown&gt;
+#8 0x5dfcd48e55bd &lt;unknown&gt;
+#9 0x5dfcd490b5e0 &lt;unknown&gt;
+#10 0x5dfcd48e5363 &lt;unknown&gt;
+#11 0x5dfcd48b1d63 &lt;unknown&gt;
+#12 0x5dfcd48b29c1 &lt;unknown&gt;
+#13 0x5dfcd4d80a6b &lt;unknown&gt;
+#14 0x5dfcd4d84951 &lt;unknown&gt;
+#15 0x5dfcd4d68b62 &lt;unknown&gt;
+#16 0x5dfcd4d854c4 &lt;unknown&gt;
+#17 0x5dfcd4d4d13f &lt;unknown&gt;
+#18 0x5dfcd4da96f8 &lt;unknown&gt;
+#19 0x5dfcd4da98d6 &lt;unknown&gt;
+#20 0x5dfcd4dba5a6 &lt;unknown&gt;
+#21 0x79dd3f694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.save_success_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:50.433684" elapsed="0.000048"/>
+</kw>
+<status status="FAIL" start="2025-04-29T11:06:50.341792" elapsed="0.092052">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5dfcd4dbb75a &lt;unknown&gt;
+#1 0x5dfcd486e4b0 &lt;unknown&gt;
+#2 0x5dfcd48750b6 &lt;unknown&gt;
+#3 0x5dfcd4877928 &lt;unknown&gt;
+#4 0x5dfcd48779b3 &lt;unknown&gt;
+#5 0x5dfcd48bf3e5 &lt;unknown&gt;
+#6 0x5dfcd48bfba1 &lt;unknown&gt;
+#7 0x5dfcd490e231 &lt;unknown&gt;
+#8 0x5dfcd48e55bd &lt;unknown&gt;
+#9 0x5dfcd490b5e0 &lt;unknown&gt;
+#10 0x5dfcd48e5363 &lt;unknown&gt;
+#11 0x5dfcd48b1d63 &lt;unknown&gt;
+#12 0x5dfcd48b29c1 &lt;unknown&gt;
+#13 0x5dfcd4d80a6b &lt;unknown&gt;
+#14 0x5dfcd4d84951 &lt;unknown&gt;
+#15 0x5dfcd4d68b62 &lt;unknown&gt;
+#16 0x5dfcd4d854c4 &lt;unknown&gt;
+#17 0x5dfcd4d4d13f &lt;unknown&gt;
+#18 0x5dfcd4da96f8 &lt;unknown&gt;
+#19 0x5dfcd4da98d6 &lt;unknown&gt;
+#20 0x5dfcd4dba5a6 &lt;unknown&gt;
+#21 0x79dd3f694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<arg>special_chars.txt</arg>
+<arg>${special_content}</arg>
+<status status="FAIL" start="2025-04-29T11:06:50.190587" elapsed="0.243342">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5dfcd4dbb75a &lt;unknown&gt;
+#1 0x5dfcd486e4b0 &lt;unknown&gt;
+#2 0x5dfcd48750b6 &lt;unknown&gt;
+#3 0x5dfcd4877928 &lt;unknown&gt;
+#4 0x5dfcd48779b3 &lt;unknown&gt;
+#5 0x5dfcd48bf3e5 &lt;unknown&gt;
+#6 0x5dfcd48bfba1 &lt;unknown&gt;
+#7 0x5dfcd490e231 &lt;unknown&gt;
+#8 0x5dfcd48e55bd &lt;unknown&gt;
+#9 0x5dfcd490b5e0 &lt;unknown&gt;
+#10 0x5dfcd48e5363 &lt;unknown&gt;
+#11 0x5dfcd48b1d63 &lt;unknown&gt;
+#12 0x5dfcd48b29c1 &lt;unknown&gt;
+#13 0x5dfcd4d80a6b &lt;unknown&gt;
+#14 0x5dfcd4d84951 &lt;unknown&gt;
+#15 0x5dfcd4d68b62 &lt;unknown&gt;
+#16 0x5dfcd4d854c4 &lt;unknown&gt;
+#17 0x5dfcd4d4d13f &lt;unknown&gt;
+#18 0x5dfcd4da96f8 &lt;unknown&gt;
+#19 0x5dfcd4da98d6 &lt;unknown&gt;
+#20 0x5dfcd4dba5a6 &lt;unknown&gt;
+#21 0x79dd3f694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Verify Document Is Saved" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:50.434147" elapsed="0.000032"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<arg>${special_content}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:50.434304" elapsed="0.000024"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.434773" elapsed="0.055714"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:50.434546" elapsed="0.056062"/>
+</kw>
+<doc>Test saving document with special characters</doc>
+<status status="FAIL" start="2025-04-29T11:06:49.375278" elapsed="1.115418">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x5dfcd4dbb75a &lt;unknown&gt;
+#1 0x5dfcd486e4b0 &lt;unknown&gt;
+#2 0x5dfcd48750b6 &lt;unknown&gt;
+#3 0x5dfcd4877928 &lt;unknown&gt;
+#4 0x5dfcd48779b3 &lt;unknown&gt;
+#5 0x5dfcd48bf3e5 &lt;unknown&gt;
+#6 0x5dfcd48bfba1 &lt;unknown&gt;
+#7 0x5dfcd490e231 &lt;unknown&gt;
+#8 0x5dfcd48e55bd &lt;unknown&gt;
+#9 0x5dfcd490b5e0 &lt;unknown&gt;
+#10 0x5dfcd48e5363 &lt;unknown&gt;
+#11 0x5dfcd48b1d63 &lt;unknown&gt;
+#12 0x5dfcd48b29c1 &lt;unknown&gt;
+#13 0x5dfcd4d80a6b &lt;unknown&gt;
+#14 0x5dfcd4d84951 &lt;unknown&gt;
+#15 0x5dfcd4d68b62 &lt;unknown&gt;
+#16 0x5dfcd4d854c4 &lt;unknown&gt;
+#17 0x5dfcd4d4d13f &lt;unknown&gt;
+#18 0x5dfcd4da96f8 &lt;unknown&gt;
+#19 0x5dfcd4da98d6 &lt;unknown&gt;
+#20 0x5dfcd4dba5a6 &lt;unknown&gt;
+#21 0x79dd3f694ac3 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t6" name="Save Document With Long Content" line="44">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:50.492025" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:06:50.491578" elapsed="0.737561"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:51.229798" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.229334" elapsed="0.103989"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.333629" elapsed="0.007767"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:06:51.341748" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.341588" elapsed="0.000209"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:50.491334" elapsed="0.850530"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:06:51.342180" level="INFO">${long_content} = This is a very long content that spans multiple lines.
+Line 2
+Line 3
+Line 4
+Line 5</msg>
+<var>${long_content}</var>
+<arg>This is a very long content that spans multiple lines.\nLine 2\nLine 3\nLine 4\nLine 5</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.342016" elapsed="0.000191"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:51.343242" level="INFO">Typing text 'long_content.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.342853" elapsed="0.075777"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:06:51.342641" elapsed="0.076157"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:51.419745" level="INFO">Typing text 'This is a very long content that spans multiple lines.
+Line 2
+Line 3
+Line 4
+Line 5' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.419305" elapsed="0.139630"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:06:51.418990" elapsed="0.140163"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:51.560078" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
+<msg time="2025-04-29T11:06:51.620502" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T11:06:51.620834" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x61191c70f75a &lt;unknown&gt;
+#1 0x61191c1c24b0 &lt;unknown&gt;
+#2 0x61191c1c90b6 &lt;unknown&gt;
+#3 0x61191c1cb928 &lt;unknown&gt;
+#4 0x61191c1cb9b3 &lt;unknown&gt;
+#5 0x61191c2133e5 &lt;unknown&gt;
+#6 0x61191c213ba1 &lt;unknown&gt;
+#7 0x61191c262231 &lt;unknown&gt;
+#8 0x61191c2395bd &lt;unknown&gt;
+#9 0x61191c25f5e0 &lt;unknown&gt;
+#10 0x61191c239363 &lt;unknown&gt;
+#11 0x61191c205d63 &lt;unknown&gt;
+#12 0x61191c2069c1 &lt;unknown&gt;
+#13 0x61191c6d4a6b &lt;unknown&gt;
+#14 0x61191c6d8951 &lt;unknown&gt;
+#15 0x61191c6bcb62 &lt;unknown&gt;
+#16 0x61191c6d94c4 &lt;unknown&gt;
+#17 0x61191c6a113f &lt;unknown&gt;
+#18 0x61191c6fd6f8 &lt;unknown&gt;
+#19 0x61191c6fd8d6 &lt;unknown&gt;
+#20 0x61191c70e5a6 &lt;unknown&gt;
+#21 0x744f74694ac3 &lt;unknown&gt;
+</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T11:06:51.559645" elapsed="0.061446">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x61191c70f75a &lt;unknown&gt;
+#1 0x61191c1c24b0 &lt;unknown&gt;
+#2 0x61191c1c90b6 &lt;unknown&gt;
+#3 0x61191c1cb928 &lt;unknown&gt;
+#4 0x61191c1cb9b3 &lt;unknown&gt;
+#5 0x61191c2133e5 &lt;unknown&gt;
+#6 0x61191c213ba1 &lt;unknown&gt;
+#7 0x61191c262231 &lt;unknown&gt;
+#8 0x61191c2395bd &lt;unknown&gt;
+#9 0x61191c25f5e0 &lt;unknown&gt;
+#10 0x61191c239363 &lt;unknown&gt;
+#11 0x61191c205d63 &lt;unknown&gt;
+#12 0x61191c2069c1 &lt;unknown&gt;
+#13 0x61191c6d4a6b &lt;unknown&gt;
+#14 0x61191c6d8951 &lt;unknown&gt;
+#15 0x61191c6bcb62 &lt;unknown&gt;
+#16 0x61191c6d94c4 &lt;unknown&gt;
+#17 0x61191c6a113f &lt;unknown&gt;
+#18 0x61191c6fd6f8 &lt;unknown&gt;
+#19 0x61191c6fd8d6 &lt;unknown&gt;
+#20 0x61191c70e5a6 &lt;unknown&gt;
+#21 0x744f74694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.save_success_message}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:51.621341" elapsed="0.000039"/>
+</kw>
+<status status="FAIL" start="2025-04-29T11:06:51.559365" elapsed="0.062151">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x61191c70f75a &lt;unknown&gt;
+#1 0x61191c1c24b0 &lt;unknown&gt;
+#2 0x61191c1c90b6 &lt;unknown&gt;
+#3 0x61191c1cb928 &lt;unknown&gt;
+#4 0x61191c1cb9b3 &lt;unknown&gt;
+#5 0x61191c2133e5 &lt;unknown&gt;
+#6 0x61191c213ba1 &lt;unknown&gt;
+#7 0x61191c262231 &lt;unknown&gt;
+#8 0x61191c2395bd &lt;unknown&gt;
+#9 0x61191c25f5e0 &lt;unknown&gt;
+#10 0x61191c239363 &lt;unknown&gt;
+#11 0x61191c205d63 &lt;unknown&gt;
+#12 0x61191c2069c1 &lt;unknown&gt;
+#13 0x61191c6d4a6b &lt;unknown&gt;
+#14 0x61191c6d8951 &lt;unknown&gt;
+#15 0x61191c6bcb62 &lt;unknown&gt;
+#16 0x61191c6d94c4 &lt;unknown&gt;
+#17 0x61191c6a113f &lt;unknown&gt;
+#18 0x61191c6fd6f8 &lt;unknown&gt;
+#19 0x61191c6fd8d6 &lt;unknown&gt;
+#20 0x61191c70e5a6 &lt;unknown&gt;
+#21 0x744f74694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<arg>long_content.txt</arg>
+<arg>${long_content}</arg>
+<status status="FAIL" start="2025-04-29T11:06:51.342374" elapsed="0.279237">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x61191c70f75a &lt;unknown&gt;
+#1 0x61191c1c24b0 &lt;unknown&gt;
+#2 0x61191c1c90b6 &lt;unknown&gt;
+#3 0x61191c1cb928 &lt;unknown&gt;
+#4 0x61191c1cb9b3 &lt;unknown&gt;
+#5 0x61191c2133e5 &lt;unknown&gt;
+#6 0x61191c213ba1 &lt;unknown&gt;
+#7 0x61191c262231 &lt;unknown&gt;
+#8 0x61191c2395bd &lt;unknown&gt;
+#9 0x61191c25f5e0 &lt;unknown&gt;
+#10 0x61191c239363 &lt;unknown&gt;
+#11 0x61191c205d63 &lt;unknown&gt;
+#12 0x61191c2069c1 &lt;unknown&gt;
+#13 0x61191c6d4a6b &lt;unknown&gt;
+#14 0x61191c6d8951 &lt;unknown&gt;
+#15 0x61191c6bcb62 &lt;unknown&gt;
+#16 0x61191c6d94c4 &lt;unknown&gt;
+#17 0x61191c6a113f &lt;unknown&gt;
+#18 0x61191c6fd6f8 &lt;unknown&gt;
+#19 0x61191c6fd8d6 &lt;unknown&gt;
+#20 0x61191c70e5a6 &lt;unknown&gt;
+#21 0x744f74694ac3 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Verify Document Is Saved" owner="text_editor_keywords">
+<status status="NOT RUN" start="2025-04-29T11:06:51.621834" elapsed="0.000035"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<arg>${long_content}</arg>
+<status status="NOT RUN" start="2025-04-29T11:06:51.621985" elapsed="0.000023"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.622445" elapsed="0.055868"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:51.622219" elapsed="0.056221"/>
+</kw>
+<doc>Test saving document with long content</doc>
+<status status="FAIL" start="2025-04-29T11:06:50.490976" elapsed="1.187555">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Stacktrace:
+#0 0x61191c70f75a &lt;unknown&gt;
+#1 0x61191c1c24b0 &lt;unknown&gt;
+#2 0x61191c1c90b6 &lt;unknown&gt;
+#3 0x61191c1cb928 &lt;unknown&gt;
+#4 0x61191c1cb9b3 &lt;unknown&gt;
+#5 0x61191c2133e5 &lt;unknown&gt;
+#6 0x61191c213ba1 &lt;unknown&gt;
+#7 0x61191c262231 &lt;unknown&gt;
+#8 0x61191c2395bd &lt;unknown&gt;
+#9 0x61191c25f5e0 &lt;unknown&gt;
+#10 0x61191c239363 &lt;unknown&gt;
+#11 0x61191c205d63 &lt;unknown&gt;
+#12 0x61191c2069c1 &lt;unknown&gt;
+#13 0x61191c6d4a6b &lt;unknown&gt;
+#14 0x61191c6d8951 &lt;unknown&gt;
+#15 0x61191c6bcb62 &lt;unknown&gt;
+#16 0x61191c6d94c4 &lt;unknown&gt;
+#17 0x61191c6a113f &lt;unknown&gt;
+#18 0x61191c6fd6f8 &lt;unknown&gt;
+#19 0x61191c6fd8d6 &lt;unknown&gt;
+#20 0x61191c70e5a6 &lt;unknown&gt;
+#21 0x744f74694ac3 &lt;unknown&gt;
+</status>
+</test>
+<test id="s1-t7" name="Save Document With Empty Content" line="51">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:06:51.679846" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T11:06:51.803937" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-04-29T11:06:51.679416" elapsed="0.124663">Execution terminated by signal</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:51.804363" elapsed="0.000057"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:51.804564" elapsed="0.000035"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-29T11:06:51.804891" elapsed="0.000051"/>
+</kw>
+<status status="FAIL" start="2025-04-29T11:06:51.679163" elapsed="0.125925">Execution terminated by signal</status>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:06:51.805894" elapsed="0.000177"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:06:51.805505" elapsed="0.000648"/>
+</kw>
+<doc>Test saving document with empty content</doc>
+<status status="FAIL" start="2025-04-29T11:06:51.678805" elapsed="0.127450">Setup failed:
+Execution terminated by signal</status>
+</test>
+<test id="s1-t8" name="Save Document With Whitespace" line="57">
+<doc>Test saving document with whitespace</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.806550" elapsed="0.000460">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t9" name="Save Document With Line Breaks" line="64">
+<doc>Test saving document with line breaks</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.807263" elapsed="0.000320">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t10" name="Save Document With Unicode Characters" line="71">
+<doc>Test saving document with unicode characters</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.807799" elapsed="0.000256">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t11" name="Save Document With HTML Content" line="78">
+<doc>Test saving document with HTML content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.808193" elapsed="0.000225">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t12" name="Save Document With JavaScript Content" line="85">
+<doc>Test saving document with JavaScript content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.808552" elapsed="0.000232">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t13" name="Save Document With SQL Content" line="92">
+<doc>Test saving document with SQL content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.808914" elapsed="0.000224">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t14" name="Save Document With Markdown Content" line="99">
+<doc>Test saving document with Markdown content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.809269" elapsed="0.000240">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t15" name="Save Document With JSON Content" line="106">
+<doc>Test saving document with JSON content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.809639" elapsed="0.000227">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t16" name="Save Document With XML Content" line="113">
+<doc>Test saving document with XML content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.809996" elapsed="0.000212">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t17" name="Save Document With YAML Content" line="120">
+<doc>Test saving document with YAML content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.810353" elapsed="0.000226">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t18" name="Save Document With CSV Content" line="127">
+<doc>Test saving document with CSV content</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.810717" elapsed="0.000207">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t19" name="Save Document With Multiple Saves" line="134">
+<doc>Test saving document multiple times</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-04-29T11:06:51.811051" elapsed="0.000208">Test execution stopped due to a fatal error.</status>
+</test>
+<status status="FAIL" start="2025-04-29T11:06:44.550605" elapsed="7.261047"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="19" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat info="combined" combined="NOT robot:exit" pass="0" fail="7" skip="0">NOT robot:exit</stat>
 </tag>
 <suite>
-<stat name="Check Application" id="s1" pass="0" fail="1" skip="0">Check Application</stat>
+<stat name="Text Editor Tests" id="s1" pass="0" fail="19" skip="0">Text Editor Tests</stat>
 </suite>
 </statistics>
 <errors>
