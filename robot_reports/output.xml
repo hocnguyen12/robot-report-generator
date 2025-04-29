@@ -1,796 +1,2040 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T16:34:03.662566" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T17:01:37.158792" rpa="false" schemaversion="5">
 <suite id="s1" name="Note Tests" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/note_tests.robot">
 <test id="s1-t1" name="Create And Save Note" line="7">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:03.795798" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:37.289152" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:03.795343" elapsed="0.977744"/>
+<status status="PASS" start="2025-04-29T17:01:37.288701" elapsed="0.783716"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:04.774630" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:38.073487" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:04.773476" elapsed="0.108303"/>
+<status status="PASS" start="2025-04-29T17:01:38.072633" elapsed="0.113339"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:04.882027" elapsed="0.015033"/>
+<status status="PASS" start="2025-04-29T17:01:38.186170" elapsed="0.016048"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:03.794769" elapsed="1.102421"/>
+<status status="PASS" start="2025-04-29T17:01:37.288116" elapsed="0.914314"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:04.904949" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:38.212221" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:04.897881" elapsed="0.007123"/>
+<status status="PASS" start="2025-04-29T17:01:38.203478" elapsed="0.008838"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:04.905099" elapsed="0.000073"/>
+<status status="PASS" start="2025-04-29T17:01:38.212475" elapsed="0.000103"/>
 </return>
-<msg time="2025-04-29T16:34:04.905341" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:38.212802" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:04.897685" elapsed="0.007688"/>
+<status status="PASS" start="2025-04-29T17:01:38.203157" elapsed="0.009685"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.213064" elapsed="0.000282"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:38.202697" elapsed="0.010767"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:37.287821" elapsed="0.925723"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:38.214441" level="INFO">Adding note with title: Test Note</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.214231" elapsed="0.000278"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.214662" elapsed="0.017025"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.232795" level="INFO">Typing text 'Test Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.231981" elapsed="0.074529"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.307201" level="INFO">Typing text 'This is a test note' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.306706" elapsed="0.064481"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:04.906347" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:04.976456" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:04.976639" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:38.371912" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:04.905762" elapsed="0.071463">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:38.371431" elapsed="0.057662"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:04.977458" elapsed="0.000046"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.429890" elapsed="0.011982"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:04.905635" elapsed="0.071931">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:04.905463" elapsed="0.072167">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:04.977789" elapsed="0.000029"/>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.429318" elapsed="0.012685"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:04.897411" elapsed="0.080491">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<arg>Test Note</arg>
+<arg>This is a test note</arg>
+<status status="PASS" start="2025-04-29T17:01:38.213852" elapsed="0.228229"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:03.794496" elapsed="1.183472">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:38.443318" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Test Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.442697" elapsed="0.000656"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.454046" level="INFO">Element 'xpath=//h3[contains(text(), 'Test Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.443488" elapsed="0.010657"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.465877" level="INFO">Element 'xpath=//h3[contains(text(), 'Test Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'This is a test note')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.454847" elapsed="0.011135"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.454327" elapsed="0.011733"/>
+</kw>
+<arg>Test Note</arg>
+<arg>This is a test note</arg>
+<status status="PASS" start="2025-04-29T17:01:38.442347" elapsed="0.023783"/>
+</kw>
+<kw name="Verify Note Date Format" owner="note_keywords">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.482685" level="INFO">${date_text} = 4/29/2025, 5:01:38 PM</msg>
+<var>${date_text}</var>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-date-')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.466645" elapsed="0.016089"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${date_text}</arg>
+<arg>\\d{1,2}/\\d{1,2}/\\d{4}, \\d{1,2}:\\d{2}:\\d{2} [AP]M</arg>
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.482899" elapsed="0.000332"/>
+</kw>
+<arg>Test Note</arg>
+<status status="PASS" start="2025-04-29T17:01:38.466358" elapsed="0.017056"/>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<kw name="Reload Notes App" owner="note_keywords">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.484067" elapsed="0.356009"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.840971" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.840419" elapsed="0.064813"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:38.483883" elapsed="0.421550"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.905648" elapsed="0.010497"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:38.917165" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Test Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.916725" elapsed="0.000471"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.926262" level="INFO">Element 'xpath=//h3[contains(text(), 'Test Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.917327" elapsed="0.009049"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:38.935422" level="INFO">Element 'xpath=//h3[contains(text(), 'Test Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'This is a test note')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.927123" elapsed="0.008416"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:38.926577" elapsed="0.009041"/>
+</kw>
+<arg>${title}</arg>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T17:01:38.916387" elapsed="0.019302"/>
+</kw>
+<arg>Test Note</arg>
+<arg>This is a test note</arg>
+<status status="PASS" start="2025-04-29T17:01:38.483613" elapsed="0.452150"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:04.978350" elapsed="0.057062"/>
+<status status="PASS" start="2025-04-29T17:01:38.936024" elapsed="0.055847"/>
 </kw>
 <doc>Test creating and saving a new note</doc>
-<status status="FAIL" start="2025-04-29T16:34:03.793872" elapsed="1.241696">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:37.287180" elapsed="1.704826"/>
 </test>
 <test id="s1-t2" name="Edit Existing Note" line="14">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:05.037580" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:38.993613" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:05.036884" elapsed="0.797621"/>
+<status status="PASS" start="2025-04-29T17:01:38.993050" elapsed="0.810274"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:05.835204" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:39.804247" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:05.834726" elapsed="0.100260"/>
+<status status="PASS" start="2025-04-29T17:01:39.803626" elapsed="0.102197"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:05.935186" elapsed="0.012884"/>
+<status status="PASS" start="2025-04-29T17:01:39.906039" elapsed="0.013667"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:05.036641" elapsed="0.911550"/>
+<status status="PASS" start="2025-04-29T17:01:38.992845" elapsed="0.926998"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:05.956607" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:39.927813" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:05.948881" elapsed="0.007794"/>
+<status status="PASS" start="2025-04-29T17:01:39.920680" elapsed="0.007183"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:05.956775" elapsed="0.000075"/>
+<status status="PASS" start="2025-04-29T17:01:39.927949" elapsed="0.000053"/>
 </return>
-<msg time="2025-04-29T16:34:05.957036" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:39.928138" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:05.948693" elapsed="0.008370"/>
+<status status="PASS" start="2025-04-29T17:01:39.920464" elapsed="0.007697"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:39.928309" elapsed="0.000174"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:39.920039" elapsed="0.008511"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:38.992596" elapsed="0.935997"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:39.929134" level="INFO">Adding note with title: Original Note</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:39.929015" elapsed="0.000161"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:39.929264" elapsed="0.012689"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:39.942698" level="INFO">Typing text 'Original Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:39.942173" elapsed="0.070855"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.013791" level="INFO">Typing text 'Original content' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.013248" elapsed="0.075745"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:05.957911" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:06.043660" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:06.043885" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:40.089865" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:05.957444" elapsed="0.086637">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:40.089229" elapsed="0.052358"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:06.044371" elapsed="0.000056"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.142707" elapsed="0.010919"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:05.957292" elapsed="0.087219">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:05.957128" elapsed="0.087468">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:06.044840" elapsed="0.000051"/>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.142005" elapsed="0.011826"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:05.948413" elapsed="0.096577">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<arg>Original Note</arg>
+<arg>Original content</arg>
+<status status="PASS" start="2025-04-29T17:01:39.928786" elapsed="0.225163"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:05.036332" elapsed="1.008791">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Edit Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:40.155119" level="INFO">Editing note from 'Original Note' to 'Updated Note'</msg>
+<arg>Editing note from '${old_title}' to '${new_title}'</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.154849" elapsed="0.000352"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.155682" level="INFO">Clicking element 'xpath=//h3[contains(text(), 'Original Note')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'edit-note-button-')]'.</msg>
+<arg>xpath=//h3[contains(text(), '${old_title}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'edit-note-button-')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.155396" elapsed="0.043172"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.198769" elapsed="0.009974"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.209812" level="INFO">Typing text 'Updated Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${new_title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.209032" elapsed="0.074615"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.284396" level="INFO">Typing text 'Updated content' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${new_content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.283869" elapsed="0.064845"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.350015" level="INFO">Clicking element 'css=[data-testid='update-note-button']'.</msg>
+<arg>${selectors.notes.update_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.349045" elapsed="0.040737"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${new_title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.390940" elapsed="0.012135"/>
+</kw>
+<arg>'${new_title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${new_title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.390137" elapsed="0.013093"/>
+</kw>
+<arg>Original Note</arg>
+<arg>Updated Note</arg>
+<arg>Updated content</arg>
+<status status="PASS" start="2025-04-29T17:01:40.154349" elapsed="0.249005"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:40.404868" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Updated Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.404173" elapsed="0.000757"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.418769" level="INFO">Element 'xpath=//h3[contains(text(), 'Updated Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.405135" elapsed="0.013740"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.431355" level="INFO">Element 'xpath=//h3[contains(text(), 'Updated Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'Updated content')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.419619" elapsed="0.011855"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.419053" elapsed="0.012506"/>
+</kw>
+<arg>Updated Note</arg>
+<arg>Updated content</arg>
+<status status="PASS" start="2025-04-29T17:01:40.403696" elapsed="0.027955"/>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<kw name="Reload Notes App" owner="note_keywords">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.432445" elapsed="0.115342"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.549017" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.548086" elapsed="0.062899"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:40.432245" elapsed="0.178864"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.611330" elapsed="0.008576"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:40.621098" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Updated Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.620601" elapsed="0.000530"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.630024" level="INFO">Element 'xpath=//h3[contains(text(), 'Updated Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.621263" elapsed="0.008863"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:40.639157" level="INFO">Element 'xpath=//h3[contains(text(), 'Updated Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'Updated content')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.630839" elapsed="0.008486"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:40.630308" elapsed="0.009109"/>
+</kw>
+<arg>${title}</arg>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T17:01:40.620162" elapsed="0.019360"/>
+</kw>
+<arg>Updated Note</arg>
+<arg>Updated content</arg>
+<status status="PASS" start="2025-04-29T17:01:40.431900" elapsed="0.207688"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:06.045395" elapsed="0.055778"/>
+<status status="PASS" start="2025-04-29T17:01:40.639912" elapsed="0.058395"/>
 </kw>
 <doc>Test editing an existing note</doc>
-<status status="FAIL" start="2025-04-29T16:34:05.035867" elapsed="1.065503">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:38.992245" elapsed="1.706316"/>
 </test>
 <test id="s1-t3" name="Delete Note" line="21">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:06.102843" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:40.701328" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:06.102420" elapsed="0.839886"/>
+<status status="PASS" start="2025-04-29T17:01:40.700490" elapsed="0.805716"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:06.943537" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:41.506946" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:06.942649" elapsed="0.101563"/>
+<status status="PASS" start="2025-04-29T17:01:41.506448" elapsed="0.100993"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:07.044468" elapsed="0.012762"/>
+<status status="PASS" start="2025-04-29T17:01:41.607741" elapsed="0.013731"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:06.102211" elapsed="0.955152"/>
+<status status="PASS" start="2025-04-29T17:01:40.700107" elapsed="0.921560"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:07.065251" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:41.629556" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:07.058060" elapsed="0.007251"/>
+<status status="PASS" start="2025-04-29T17:01:41.622618" elapsed="0.006986"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:07.065392" elapsed="0.000055"/>
+<status status="PASS" start="2025-04-29T17:01:41.629686" elapsed="0.000051"/>
 </return>
-<msg time="2025-04-29T16:34:07.065581" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:41.629865" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:07.057855" elapsed="0.007749"/>
+<status status="PASS" start="2025-04-29T17:01:41.622333" elapsed="0.007555"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.630020" elapsed="0.000168"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:41.621928" elapsed="0.008341"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:40.699643" elapsed="0.930680"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:41.630910" level="INFO">Adding note with title: To Delete</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.630782" elapsed="0.000167"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.631041" elapsed="0.012881"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:41.644631" level="INFO">Typing text 'To Delete' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.644120" elapsed="0.064928"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:41.710018" level="INFO">Typing text 'This note will be deleted' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.709304" elapsed="0.068188"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:07.066329" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:07.138290" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:07.138512" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:41.778295" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:07.065891" elapsed="0.072838">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:41.777779" elapsed="0.052227"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:07.139004" elapsed="0.000063"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.831187" elapsed="0.011943"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:07.065778" elapsed="0.073361">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:07.065656" elapsed="0.073547">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.830323" elapsed="0.012922"/>
+</kw>
+<arg>To Delete</arg>
+<arg>This note will be deleted</arg>
+<status status="PASS" start="2025-04-29T17:01:41.630542" elapsed="0.212789"/>
+</kw>
+<kw name="Delete Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:41.844039" level="INFO">Deleting note: To Delete</msg>
+<arg>Deleting note: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.843900" elapsed="0.000184"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:41.844373" level="INFO">Clicking element 'xpath=//h3[contains(text(), 'To Delete')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'delete-note-button-')]'.</msg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'delete-note-button-')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.844185" elapsed="0.036294"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.880676" elapsed="0.004341"/>
+</kw>
+<arg>To Delete</arg>
+<status status="PASS" start="2025-04-29T17:01:41.843589" elapsed="0.041612"/>
+</kw>
+<kw name="Verify Note Does Not Exist" owner="note_keywords">
+<kw name="Element Should Not Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:41.890536" level="INFO">Element 'xpath=//h3[contains(text(), 'To Delete')]' did not exist.</msg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.885727" elapsed="0.004922"/>
+</kw>
+<arg>To Delete</arg>
+<status status="PASS" start="2025-04-29T17:01:41.885449" elapsed="0.005298"/>
+</kw>
 <kw name="Verify Note Count" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:41.895779" level="INFO">${count} = 0</msg>
+<var>${count}</var>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.891483" elapsed="0.004360"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T17:01:41.895955" elapsed="0.000069"/>
+</return>
+<msg time="2025-04-29T17:01:41.896209" level="INFO">${actual_count} = 0</msg>
+<var>${actual_count}</var>
+<status status="PASS" start="2025-04-29T17:01:41.891269" elapsed="0.004974"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-04-29T17:01:41.896662" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_count}</arg>
+<arg>${expected_count}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-04-29T17:01:41.896420" elapsed="0.000319"/>
+</kw>
 <arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:07.139386" elapsed="0.000031"/>
-</kw>
-<status status="FAIL" start="2025-04-29T16:34:07.057573" elapsed="0.081925">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</kw>
-<status status="FAIL" start="2025-04-29T16:34:06.101964" elapsed="1.037610">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:41.890967" elapsed="0.005855"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:07.139828" elapsed="0.057247"/>
+<status status="PASS" start="2025-04-29T17:01:41.897099" elapsed="0.056555"/>
 </kw>
 <doc>Test deleting a note</doc>
-<status status="FAIL" start="2025-04-29T16:34:06.101643" elapsed="1.095614">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:40.699003" elapsed="1.254813"/>
 </test>
 <test id="s1-t4" name="Multiple Notes" line="28">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:07.199605" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:41.955777" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:07.198739" elapsed="0.805807"/>
+<status status="PASS" start="2025-04-29T17:01:41.955249" elapsed="0.813924"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:08.005304" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:42.769855" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:08.004765" elapsed="0.101199"/>
+<status status="PASS" start="2025-04-29T17:01:42.769387" elapsed="0.101307"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:08.106195" elapsed="0.012902"/>
+<status status="PASS" start="2025-04-29T17:01:42.870923" elapsed="0.013496"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:07.198407" elapsed="0.920845"/>
+<status status="PASS" start="2025-04-29T17:01:41.954946" elapsed="0.929596"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:08.127932" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:42.892683" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:08.119962" elapsed="0.008026"/>
+<status status="PASS" start="2025-04-29T17:01:42.885220" elapsed="0.007515"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:08.128071" elapsed="0.000055"/>
+<status status="PASS" start="2025-04-29T17:01:42.892825" elapsed="0.000054"/>
 </return>
-<msg time="2025-04-29T16:34:08.128265" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:42.893014" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:08.119759" elapsed="0.008538"/>
+<status status="PASS" start="2025-04-29T17:01:42.885023" elapsed="0.008015"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:42.893194" elapsed="0.000199"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:42.884719" elapsed="0.008751"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:41.954549" elapsed="0.938967"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:42.894163" level="INFO">Adding note with title: Note 1</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:42.894024" elapsed="0.000179"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:42.894317" elapsed="0.012608"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:42.907762" level="INFO">Typing text 'Note 1' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:42.907178" elapsed="0.063279"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:42.971334" level="INFO">Typing text 'Content 1' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:42.970742" elapsed="0.050364"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:08.129016" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:08.206594" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:08.206744" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:43.022033" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:08.128592" elapsed="0.078290">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:43.021396" elapsed="0.052218"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:08.207133" elapsed="0.000045"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.074872" elapsed="0.010917"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:08.128480" elapsed="0.078787">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:08.128352" elapsed="0.079009">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.073923" elapsed="0.011987"/>
+</kw>
+<arg>Note 1</arg>
+<arg>Content 1</arg>
+<status status="PASS" start="2025-04-29T17:01:42.893733" elapsed="0.192261"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:43.086720" level="INFO">Adding note with title: Note 2</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.086580" elapsed="0.000184"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.086864" elapsed="0.008700"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.096241" level="INFO">Typing text 'Note 2' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.095755" elapsed="0.046512"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.143140" level="INFO">Typing text 'Content 2' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.142590" elapsed="0.059841"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.203196" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.202647" elapsed="0.036021"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.240099" elapsed="0.012797"/>
+</kw>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.239017" elapsed="0.014000"/>
+</kw>
+<arg>Note 2</arg>
+<arg>Content 2</arg>
+<status status="PASS" start="2025-04-29T17:01:43.086262" elapsed="0.166837"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:43.253831" level="INFO">Adding note with title: Note 3</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.253690" elapsed="0.000202"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.254002" elapsed="0.009834"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.264707" level="INFO">Typing text 'Note 3' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.264109" elapsed="0.051529"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.316355" level="INFO">Typing text 'Content 3' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.315845" elapsed="0.060613"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.377135" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.376663" elapsed="0.035061"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.412781" elapsed="0.013767"/>
+</kw>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.411978" elapsed="0.014672"/>
+</kw>
+<arg>Note 3</arg>
+<arg>Content 3</arg>
+<status status="PASS" start="2025-04-29T17:01:43.253391" elapsed="0.173333"/>
+</kw>
 <kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:08.207639" elapsed="0.000041"/>
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.431578" level="INFO">${count} = 3</msg>
+<var>${count}</var>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.427439" elapsed="0.004185"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:08.119486" elapsed="0.088280">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T17:01:43.431703" elapsed="0.000047"/>
+</return>
+<msg time="2025-04-29T17:01:43.431875" level="INFO">${actual_count} = 3</msg>
+<var>${actual_count}</var>
+<status status="PASS" start="2025-04-29T17:01:43.427243" elapsed="0.004655"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:07.198020" elapsed="1.009813">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-04-29T17:01:43.432184" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_count}</arg>
+<arg>${expected_count}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.432016" elapsed="0.000221"/>
+</kw>
+<arg>3</arg>
+<status status="PASS" start="2025-04-29T17:01:43.426953" elapsed="0.005352"/>
+</kw>
+<kw name="Delete Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:43.432802" level="INFO">Deleting note: Note 2</msg>
+<arg>Deleting note: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.432690" elapsed="0.000149"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.433100" level="INFO">Clicking element 'xpath=//h3[contains(text(), 'Note 2')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'delete-note-button-')]'.</msg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'delete-note-button-')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.432929" elapsed="0.042827"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.475972" elapsed="0.003967"/>
+</kw>
+<arg>Note 2</arg>
+<status status="PASS" start="2025-04-29T17:01:43.432474" elapsed="0.047575"/>
+</kw>
+<kw name="Verify Note Count" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.484930" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.480742" elapsed="0.004238"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T17:01:43.485062" elapsed="0.000049"/>
+</return>
+<msg time="2025-04-29T17:01:43.485250" level="INFO">${actual_count} = 2</msg>
+<var>${actual_count}</var>
+<status status="PASS" start="2025-04-29T17:01:43.480553" elapsed="0.004722"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-04-29T17:01:43.485597" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_count}</arg>
+<arg>${expected_count}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.485414" elapsed="0.000242"/>
+</kw>
+<arg>2</arg>
+<status status="PASS" start="2025-04-29T17:01:43.480259" elapsed="0.005465"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:43.486842" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Note 1')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.486318" elapsed="0.000556"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.497764" level="INFO">Element 'xpath=//h3[contains(text(), 'Note 1')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.487000" elapsed="0.010926"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.514774" level="INFO">Element 'xpath=//h3[contains(text(), 'Note 1')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content 1')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.499057" elapsed="0.015825"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.498190" elapsed="0.016773"/>
+</kw>
+<arg>Note 1</arg>
+<arg>Content 1</arg>
+<status status="PASS" start="2025-04-29T17:01:43.485932" elapsed="0.029105"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:43.516027" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Note 3')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.515571" elapsed="0.000487"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.527437" level="INFO">Element 'xpath=//h3[contains(text(), 'Note 3')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.516183" elapsed="0.011360"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:43.538062" level="INFO">Element 'xpath=//h3[contains(text(), 'Note 3')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content 3')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.528248" elapsed="0.009942"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:43.527716" elapsed="0.010610"/>
+</kw>
+<arg>Note 3</arg>
+<arg>Content 3</arg>
+<status status="PASS" start="2025-04-29T17:01:43.515261" elapsed="0.023175"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:08.208062" elapsed="0.057914"/>
+<status status="PASS" start="2025-04-29T17:01:43.538739" elapsed="0.056672"/>
 </kw>
 <doc>Test creating and managing multiple notes</doc>
-<status status="FAIL" start="2025-04-29T16:34:07.197575" elapsed="1.068553">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:41.954078" elapsed="1.641476"/>
 </test>
 <test id="s1-t5" name="Note With Special Characters" line="39">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:08.267938" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:43.597188" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:08.267276" elapsed="0.816593"/>
+<status status="PASS" start="2025-04-29T17:01:43.596764" elapsed="0.795671"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:09.084562" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:44.393259" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:09.084068" elapsed="0.105812"/>
+<status status="PASS" start="2025-04-29T17:01:44.392711" elapsed="0.105855"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:09.190078" elapsed="0.012249"/>
+<status status="PASS" start="2025-04-29T17:01:44.498762" elapsed="0.014833"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:08.267046" elapsed="0.935408"/>
+<status status="PASS" start="2025-04-29T17:01:43.596550" elapsed="0.917169"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:09.211071" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:44.521370" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:09.203480" elapsed="0.007640"/>
+<status status="PASS" start="2025-04-29T17:01:44.514352" elapsed="0.007078"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:09.211202" elapsed="0.000052"/>
+<status status="PASS" start="2025-04-29T17:01:44.521524" elapsed="0.000072"/>
 </return>
-<msg time="2025-04-29T16:34:09.211394" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:44.521778" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:09.202988" elapsed="0.008429"/>
+<status status="PASS" start="2025-04-29T17:01:44.514158" elapsed="0.007647"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.522028" elapsed="0.000352"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:44.513891" elapsed="0.008624"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:43.596141" elapsed="0.926446"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:44.523442" level="INFO">Adding note with title: Special !@#$%^&amp;*() Note</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.523261" elapsed="0.000230"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.523592" elapsed="0.012070"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:44.536678" level="INFO">Typing text 'Special !@#$%^&amp;*() Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.535923" elapsed="0.078501"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:44.615466" level="INFO">Typing text 'Content with special characters: !@#$%^&amp;*()' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.614762" elapsed="0.100591"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:09.212132" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:09.271157" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:09.271364" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:44.716538" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:09.211705" elapsed="0.059835">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:44.715690" elapsed="0.059463"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:09.271763" elapsed="0.000037"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.779212" elapsed="0.012586"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:09.211594" elapsed="0.060261">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:09.211471" elapsed="0.060443">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:09.272116" elapsed="0.000037"/>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.775441" elapsed="0.016465"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:09.202680" elapsed="0.069560">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<arg>Special !@#$%^&amp;*() Note</arg>
+<arg>Content with special characters: !@#$%^&amp;*()</arg>
+<status status="PASS" start="2025-04-29T17:01:44.522866" elapsed="0.269117"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:08.266782" elapsed="1.005534">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:44.792988" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Special !@#$%^&amp;*() Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.792514" elapsed="0.000504"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:44.803010" level="INFO">Element 'xpath=//h3[contains(text(), 'Special !@#$%^&amp;*() Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.793131" elapsed="0.009985"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:44.815086" level="INFO">Element 'xpath=//h3[contains(text(), 'Special !@#$%^&amp;*() Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content with special characters: !@#$%^&amp;*()')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.803948" elapsed="0.011241"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.803320" elapsed="0.011946"/>
+</kw>
+<arg>Special !@#$%^&amp;*() Note</arg>
+<arg>Content with special characters: !@#$%^&amp;*()</arg>
+<status status="PASS" start="2025-04-29T17:01:44.792206" elapsed="0.023139"/>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<kw name="Reload Notes App" owner="note_keywords">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.816061" elapsed="0.156115"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:44.973472" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:44.972596" elapsed="0.062481"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:44.815878" elapsed="0.219322"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:45.035344" elapsed="0.010808"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:45.047292" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Special !@#$%^&amp;*() Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:45.046755" elapsed="0.000572"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:45.055788" level="INFO">Element 'xpath=//h3[contains(text(), 'Special !@#$%^&amp;*() Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:45.047454" elapsed="0.008536"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:45.064620" level="INFO">Element 'xpath=//h3[contains(text(), 'Special !@#$%^&amp;*() Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content with special characters: !@#$%^&amp;*()')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:45.057119" elapsed="0.007602"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:45.056303" elapsed="0.008493"/>
+</kw>
+<arg>${title}</arg>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T17:01:45.046411" elapsed="0.018451"/>
+</kw>
+<arg>Special !@#$%^&amp;*() Note</arg>
+<arg>Content with special characters: !@#$%^&amp;*()</arg>
+<status status="PASS" start="2025-04-29T17:01:44.815581" elapsed="0.249334"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:09.272547" elapsed="0.055727"/>
+<status status="PASS" start="2025-04-29T17:01:45.065186" elapsed="0.055908"/>
 </kw>
 <doc>Test creating a note with special characters</doc>
-<status status="FAIL" start="2025-04-29T16:34:08.266395" elapsed="1.062101">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:43.595788" elapsed="1.525469"/>
 </test>
 <test id="s1-t6" name="Long Note Content" line="45">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:09.330199" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:45.123915" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:09.329770" elapsed="0.827395"/>
+<status status="PASS" start="2025-04-29T17:01:45.123255" elapsed="0.834044"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:10.158256" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:45.958227" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:10.157482" elapsed="0.106542"/>
+<status status="PASS" start="2025-04-29T17:01:45.957686" elapsed="0.101124"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:10.264218" elapsed="0.013730"/>
+<status status="PASS" start="2025-04-29T17:01:46.059034" elapsed="0.014337"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:09.329567" elapsed="0.948507"/>
+<status status="PASS" start="2025-04-29T17:01:45.122852" elapsed="0.950726"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:10.285695" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:46.081702" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:10.278760" elapsed="0.006983"/>
+<status status="PASS" start="2025-04-29T17:01:46.074626" elapsed="0.007123"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:10.285846" elapsed="0.000068"/>
+<status status="PASS" start="2025-04-29T17:01:46.081833" elapsed="0.000051"/>
 </return>
-<msg time="2025-04-29T16:34:10.286053" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:46.082013" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:10.278574" elapsed="0.007504"/>
+<status status="PASS" start="2025-04-29T17:01:46.074367" elapsed="0.007669"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.082165" elapsed="0.000173"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:46.073865" elapsed="0.008542"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:45.122116" elapsed="0.960333"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T17:01:46.082729" level="INFO">${long_content} = This is a very long note content that spans multiple lines and contains a lot of text. It should be properly saved and displayed in the notes application. The content should be preserved exactly as en...</msg>
+<var>${long_content}</var>
+<arg>This is a very long note content that spans multiple lines and contains a lot of text. It should be properly saved and displayed in the notes application. The content should be preserved exactly as entered, including all spaces and line breaks.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.082600" elapsed="0.000153"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:46.083264" level="INFO">Adding note with title: Long Note</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.083149" elapsed="0.000162"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.083405" elapsed="0.012831"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:46.096930" level="INFO">Typing text 'Long Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.096441" elapsed="0.063064"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:46.160240" level="INFO">Typing text 'This is a very long note content that spans multiple lines and contains a lot of text. It should be properly saved and displayed in the notes application. The content should be preserved exactly as entered, including all spaces and line breaks.' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.159728" elapsed="0.257828"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:10.287029" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:10.356729" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:10.357009" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:46.418346" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:10.286438" elapsed="0.070848">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:46.417788" elapsed="0.056132"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:10.357493" elapsed="0.000036"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.474987" elapsed="0.010846"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:10.286311" elapsed="0.071336">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:10.286146" elapsed="0.071583">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:10.357909" elapsed="0.000037"/>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.474200" elapsed="0.011731"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:10.278293" elapsed="0.079738">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<arg>Long Note</arg>
+<arg>${long_content}</arg>
+<status status="PASS" start="2025-04-29T17:01:46.082913" elapsed="0.403092"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:09.329272" elapsed="1.028826">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:46.486997" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Long Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.486549" elapsed="0.000478"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:46.498019" level="INFO">Element 'xpath=//h3[contains(text(), 'Long Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.487143" elapsed="0.010979"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:46.510146" level="INFO">Element 'xpath=//h3[contains(text(), 'Long Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'This is a very long note content that spans multiple lines and contains a lot of text. It should be properly saved and displayed in the notes application. The content should be preserved exactly as entered, including all spaces and line breaks.')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.498831" elapsed="0.011424"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.498304" elapsed="0.012050"/>
+</kw>
+<arg>Long Note</arg>
+<arg>${long_content}</arg>
+<status status="PASS" start="2025-04-29T17:01:46.486222" elapsed="0.024203"/>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<kw name="Reload Notes App" owner="note_keywords">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.511322" elapsed="0.351673"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:46.863961" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.863204" elapsed="0.069598"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:46.511106" elapsed="0.421816"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.933063" elapsed="0.010609"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:46.944730" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Long Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.944261" elapsed="0.000500"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:46.951851" level="INFO">Element 'xpath=//h3[contains(text(), 'Long Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.944883" elapsed="0.007065"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:46.962372" level="INFO">Element 'xpath=//h3[contains(text(), 'Long Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'This is a very long note content that spans multiple lines and contains a lot of text. It should be properly saved and displayed in the notes application. The content should be preserved exactly as entered, including all spaces and line breaks.')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.952729" elapsed="0.009745"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:46.952118" elapsed="0.010432"/>
+</kw>
+<arg>${title}</arg>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T17:01:46.943913" elapsed="0.018709"/>
+</kw>
+<arg>Long Note</arg>
+<arg>${long_content}</arg>
+<status status="PASS" start="2025-04-29T17:01:46.510749" elapsed="0.451926"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:10.358339" elapsed="0.055773"/>
+<status status="PASS" start="2025-04-29T17:01:46.962926" elapsed="0.055280"/>
 </kw>
 <doc>Test creating a note with long content</doc>
-<status status="FAIL" start="2025-04-29T16:34:09.328847" elapsed="1.085474">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:45.121578" elapsed="1.896770"/>
 </test>
 <test id="s1-t7" name="Empty Note Title" line="52">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:10.416125" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:47.019797" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:10.415679" elapsed="0.758438"/>
+<status status="PASS" start="2025-04-29T17:01:47.019364" elapsed="0.812974"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:11.175255" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:47.833029" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:11.174449" elapsed="0.248498"/>
+<status status="PASS" start="2025-04-29T17:01:47.832546" elapsed="0.102972"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:11.423176" elapsed="0.014462"/>
+<status status="PASS" start="2025-04-29T17:01:47.935718" elapsed="0.013252"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:10.415452" elapsed="1.022351"/>
+<status status="PASS" start="2025-04-29T17:01:47.019162" elapsed="0.929928"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:11.446882" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:47.957309" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:11.438725" elapsed="0.008217"/>
+<status status="PASS" start="2025-04-29T17:01:47.949737" elapsed="0.007630"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:11.447038" elapsed="0.000054"/>
+<status status="PASS" start="2025-04-29T17:01:47.957474" elapsed="0.000069"/>
 </return>
-<msg time="2025-04-29T16:34:11.447232" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:47.957715" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:11.438489" elapsed="0.008774"/>
+<status status="PASS" start="2025-04-29T17:01:47.949544" elapsed="0.008195"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:47.957908" elapsed="0.000216"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:47.949258" elapsed="0.008940"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:47.018918" elapsed="0.939333"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:47.959317" level="INFO">Adding note with title: </msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:47.959174" elapsed="0.000187"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:47.959462" elapsed="0.012930"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:47.973297" level="INFO">Typing text '' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:47.972648" elapsed="0.050290"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:48.024123" level="INFO">Typing text 'Content without title' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:48.023304" elapsed="0.073961"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:11.448002" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:11.505654" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:11.505879" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:48.098406" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:11.447576" elapsed="0.058514">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:48.097645" elapsed="0.036952"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:11.506385" elapsed="0.000063"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:48.134978" elapsed="0.000758"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:11.447458" elapsed="0.059080">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:11.447327" elapsed="0.059308">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:11.506923" elapsed="0.000067"/>
+<arg>${EMPTY}</arg>
+<arg>Content without title</arg>
+<status status="PASS" start="2025-04-29T17:01:47.958556" elapsed="0.177330"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:11.438093" elapsed="0.069148">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:01:48.137708" level="INFO">${note_selector} = xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content without title')]]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:01:48.137033" elapsed="0.000722"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:10.415018" elapsed="1.092326">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:48.189695" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T17:01:48.190010" level="FAIL">Element with locator 'xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content without title')]]' not found.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-29T17:01:48.137938" elapsed="0.053109">Element with locator 'xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content without title')]]' not found.</status>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-04-29T17:01:48.191388" elapsed="0.000049"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>Content without title</arg>
+<status status="FAIL" start="2025-04-29T17:01:48.136213" elapsed="0.055360">Element with locator 'xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content without title')]]' not found.</status>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<arg>${EMPTY}</arg>
+<arg>Content without title</arg>
+<status status="NOT RUN" start="2025-04-29T17:01:48.191825" elapsed="0.000049"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:11.507679" elapsed="0.057170"/>
+<status status="PASS" start="2025-04-29T17:01:48.192184" elapsed="0.057221"/>
 </kw>
 <doc>Test creating a note with empty title</doc>
-<status status="FAIL" start="2025-04-29T16:34:10.414624" elapsed="1.150372">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="FAIL" start="2025-04-29T17:01:47.018581" elapsed="1.231008">Element with locator 'xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), 'Content without title')]]' not found.</status>
 </test>
 <test id="s1-t8" name="Empty Note Content" line="58">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:11.566691" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:48.251390" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:11.566224" elapsed="0.896142"/>
+<status status="PASS" start="2025-04-29T17:01:48.250741" elapsed="0.808628"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:12.463606" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:01:49.060609" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:12.462721" elapsed="0.159889"/>
+<status status="PASS" start="2025-04-29T17:01:49.059814" elapsed="0.104048"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:12.622867" elapsed="0.015580"/>
+<status status="PASS" start="2025-04-29T17:01:49.164060" elapsed="0.014279"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:11.565836" elapsed="1.072766"/>
+<status status="PASS" start="2025-04-29T17:01:48.250530" elapsed="0.927934"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:12.647654" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:49.185934" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:12.639323" elapsed="0.008389"/>
+<status status="PASS" start="2025-04-29T17:01:49.179128" elapsed="0.006863"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:12.647810" elapsed="0.000063"/>
+<status status="PASS" start="2025-04-29T17:01:49.186081" elapsed="0.000056"/>
 </return>
-<msg time="2025-04-29T16:34:12.648019" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:01:49.186313" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:12.639124" elapsed="0.008920"/>
+<status status="PASS" start="2025-04-29T17:01:49.178927" elapsed="0.007426"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:01:49.186541" elapsed="0.000234"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:49.178641" elapsed="0.008221"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:48.250251" elapsed="0.936658"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:01:49.187805" level="INFO">Adding note with title: Empty Content Note</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:01:49.187669" elapsed="0.000183"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:01:49.187965" elapsed="0.012137"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:49.200801" level="INFO">Typing text 'Empty Content Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:49.200303" elapsed="0.071459"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:49.272520" level="INFO">Typing text '' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:01:49.271994" elapsed="0.040059"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:12.648875" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:12.759008" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:12.759231" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:01:49.313034" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:12.648428" elapsed="0.110996">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:01:49.312348" elapsed="0.036840"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:12.759824" elapsed="0.000071"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:01:59.534374" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T17:01:59.534649" level="FAIL">Element 'xpath=//h3[contains(text(), 'Empty Content Note')]' not visible after 10 seconds.</msg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-29T17:01:49.350123" elapsed="10.184862">Element 'xpath=//h3[contains(text(), 'Empty Content Note')]' not visible after 10 seconds.</status>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:12.648267" elapsed="0.111739">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:12.648104" elapsed="0.112005">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:12.760317" elapsed="0.000040"/>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-29T17:01:49.349447" elapsed="10.185663">Element 'xpath=//h3[contains(text(), 'Empty Content Note')]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:12.638837" elapsed="0.121619">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<arg>Empty Content Note</arg>
+<arg>${EMPTY}</arg>
+<status status="FAIL" start="2025-04-29T17:01:49.187134" elapsed="10.348124">Element 'xpath=//h3[contains(text(), 'Empty Content Note')]' not visible after 10 seconds.</status>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:11.565582" elapsed="1.194946">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Verify Note Exists" owner="note_keywords">
+<arg>Empty Content Note</arg>
+<arg>${EMPTY}</arg>
+<status status="NOT RUN" start="2025-04-29T17:01:59.535570" elapsed="0.000060"/>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<arg>Empty Content Note</arg>
+<arg>${EMPTY}</arg>
+<status status="NOT RUN" start="2025-04-29T17:01:59.535805" elapsed="0.000028"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:12.760777" elapsed="0.057987"/>
+<status status="PASS" start="2025-04-29T17:01:59.536047" elapsed="0.058196"/>
 </kw>
 <doc>Test creating a note with empty content</doc>
-<status status="FAIL" start="2025-04-29T16:34:11.565238" elapsed="1.253692">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="FAIL" start="2025-04-29T17:01:48.249881" elapsed="11.344534">Element 'xpath=//h3[contains(text(), 'Empty Content Note')]' not visible after 10 seconds.</status>
 </test>
 <test id="s1-t9" name="Note With Line Breaks" line="64">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:12.820625" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:01:59.595914" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:12.820106" elapsed="0.868760"/>
+<status status="PASS" start="2025-04-29T17:01:59.595487" elapsed="0.791123"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:13.690070" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:02:00.387820" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:13.689221" elapsed="0.107301"/>
+<status status="PASS" start="2025-04-29T17:02:00.386940" elapsed="0.096968"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:13.796720" elapsed="0.015056"/>
+<status status="PASS" start="2025-04-29T17:02:00.484221" elapsed="0.012825"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:12.819910" elapsed="0.991985"/>
+<status status="PASS" start="2025-04-29T17:01:59.595283" elapsed="0.901887"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:13.819950" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:02:00.505499" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:13.812582" elapsed="0.007441"/>
+<status status="PASS" start="2025-04-29T17:02:00.497806" elapsed="0.007744"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:13.820143" elapsed="0.000080"/>
+<status status="PASS" start="2025-04-29T17:02:00.505637" elapsed="0.000055"/>
 </return>
-<msg time="2025-04-29T16:34:13.820410" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:02:00.505826" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:13.812386" elapsed="0.008051"/>
+<status status="PASS" start="2025-04-29T17:02:00.497619" elapsed="0.008231"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.505996" elapsed="0.000176"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:02:00.497348" elapsed="0.008894"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:01:59.595034" elapsed="0.911264"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T17:02:00.506619" level="INFO">${content_with_breaks} = Line 1
+Line 2
+Line 3</msg>
+<var>${content_with_breaks}</var>
+<arg>Line 1\nLine 2\nLine 3</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.506468" elapsed="0.000176"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:02:00.507177" level="INFO">Adding note with title: Multi-line Note</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.507062" elapsed="0.000152"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.507310" elapsed="0.011806"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:00.519818" level="INFO">Typing text 'Multi-line Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.519317" elapsed="0.068498"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:00.588730" level="INFO">Typing text 'Line 1
+Line 2
+Line 3' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.588057" elapsed="0.058471"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:13.821228" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:13.889417" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:13.889569" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:02:00.647223" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:13.820758" elapsed="0.068939">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:02:00.646738" elapsed="0.046292"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:13.889881" elapsed="0.000039"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.693833" elapsed="0.011019"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:13.820631" elapsed="0.069344">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:13.820497" elapsed="0.069539">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:13.890198" elapsed="0.000031"/>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.693275" elapsed="0.011736"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:13.812096" elapsed="0.078225">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<arg>Multi-line Note</arg>
+<arg>${content_with_breaks}</arg>
+<status status="PASS" start="2025-04-29T17:02:00.506820" elapsed="0.198298"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:12.819630" elapsed="1.070759">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:02:00.706271" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Multi-line Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.705808" elapsed="0.000503"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:00.716767" level="INFO">Element 'xpath=//h3[contains(text(), 'Multi-line Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:00.706494" elapsed="0.010476"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2025-04-29T17:02:00.717797" level="FAIL">Evaluating expression "'Line 1\nLine 2\nLine 3' != ''" failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)</msg>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-29T17:02:00.717243" elapsed="0.000641">Evaluating expression "'Line 1\nLine 2\nLine 3' != ''" failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)</status>
+</kw>
+<arg>Multi-line Note</arg>
+<arg>${content_with_breaks}</arg>
+<status status="FAIL" start="2025-04-29T17:02:00.705424" elapsed="0.012571">Evaluating expression "'Line 1\nLine 2\nLine 3' != ''" failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)</status>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<arg>Multi-line Note</arg>
+<arg>${content_with_breaks}</arg>
+<status status="NOT RUN" start="2025-04-29T17:02:00.718194" elapsed="0.000032"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:13.890634" elapsed="0.056987"/>
+<status status="PASS" start="2025-04-29T17:02:00.718435" elapsed="0.055841"/>
 </kw>
 <doc>Test creating a note with line breaks</doc>
-<status status="FAIL" start="2025-04-29T16:34:12.819210" elapsed="1.128573">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="FAIL" start="2025-04-29T17:01:59.594677" elapsed="1.179759">Evaluating expression "'Line 1\nLine 2\nLine 3' != ''" failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)</status>
 </test>
 <test id="s1-t10" name="Note With Unicode Characters" line="71">
 <kw name="Open Notes App" owner="note_keywords" type="SETUP">
 <kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:13.949457" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T17:02:00.775943" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:34:13.948987" elapsed="0.862268"/>
+<status status="PASS" start="2025-04-29T17:02:00.775515" elapsed="0.785037"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:14.811948" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T17:02:01.561237" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:14.811466" elapsed="0.128646"/>
+<status status="PASS" start="2025-04-29T17:02:01.560767" elapsed="0.103889"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-04-29T16:34:14.940329" elapsed="0.015323"/>
+<status status="PASS" start="2025-04-29T17:02:01.664853" elapsed="0.013216"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:34:13.948742" elapsed="1.007052"/>
+<status status="PASS" start="2025-04-29T17:02:00.775312" elapsed="0.902876"/>
 </kw>
 <kw name="Clear All Notes" owner="note_keywords">
 <kw name="Get Note Count" owner="note_keywords">
 <kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:14.964405" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:02:01.685818" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<arg>${selectors.notes.note_item}</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:34:14.956546" elapsed="0.007910"/>
+<status status="PASS" start="2025-04-29T17:02:01.678814" elapsed="0.007051"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" start="2025-04-29T16:34:14.964540" elapsed="0.000053"/>
+<status status="PASS" start="2025-04-29T17:02:01.685949" elapsed="0.000052"/>
 </return>
-<msg time="2025-04-29T16:34:14.964724" level="INFO">${count} = 2</msg>
+<msg time="2025-04-29T17:02:01.686128" level="INFO">${count} = 0</msg>
 <var>${count}</var>
-<status status="PASS" start="2025-04-29T16:34:14.956329" elapsed="0.008418"/>
+<status status="PASS" start="2025-04-29T17:02:01.678629" elapsed="0.007524"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>Delete All Notes</arg>
+<arg>${count}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.686300" elapsed="0.000175"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:02:01.678367" elapsed="0.008176"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:02:00.775057" elapsed="0.911530"/>
+</kw>
+<kw name="Add Note" owner="note_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T17:02:01.687137" level="INFO">Adding note with title: Unicode Note</msg>
+<arg>Adding note with title: ${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.687016" elapsed="0.000168"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.687274" elapsed="0.011470"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:01.699620" level="INFO">Typing text 'Unicode Note' into text field 'css=[data-testid='note-title-input']'.</msg>
+<arg>${selectors.notes.note_title_input}</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.699052" elapsed="0.064745"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:01.764566" level="INFO">Typing text 'This note contains Unicode characters: 你好世界' into text field 'css=[data-testid='note-content-input']'.</msg>
+<arg>${selectors.notes.note_content_input}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.764038" elapsed="0.085999"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:34:14.965501" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
-<msg time="2025-04-29T16:34:15.052157" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:34:15.052852" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
-<arg>${selectors.notes.delete_note_button}</arg>
+<msg time="2025-04-29T17:02:01.850976" level="INFO">Clicking element 'css=[data-testid='add-note-button']'.</msg>
+<arg>${selectors.notes.add_note_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:34:14.965044" elapsed="0.088004">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:02:01.850334" elapsed="0.046498"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2025-04-29T16:34:15.053285" elapsed="0.000041"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.897667" elapsed="0.011235"/>
 </kw>
-<var name="${i}">0</var>
-<status status="FAIL" start="2025-04-29T16:34:14.964929" elapsed="0.088455">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</iter>
-<var>${i}</var>
-<value>${count}</value>
-<status status="FAIL" start="2025-04-29T16:34:14.964802" elapsed="0.088645">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
-</for>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>0</arg>
-<status status="NOT RUN" start="2025-04-29T16:34:15.053615" elapsed="0.000036"/>
+<arg>'${title}' != '${EMPTY}'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.897064" elapsed="0.011938"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:14.956014" elapsed="0.097737">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<arg>Unicode Note</arg>
+<arg>This note contains Unicode characters: 你好世界</arg>
+<status status="PASS" start="2025-04-29T17:02:01.686783" elapsed="0.222291"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:34:13.948481" elapsed="1.105339">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:02:01.910052" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Unicode Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.909598" elapsed="0.000483"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:01.920267" level="INFO">Element 'xpath=//h3[contains(text(), 'Unicode Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.910195" elapsed="0.010257"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:01.931827" level="INFO">Element 'xpath=//h3[contains(text(), 'Unicode Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'This note contains Unicode characters: 你好世界')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.921186" elapsed="0.010809"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.920639" elapsed="0.011483"/>
+</kw>
+<arg>Unicode Note</arg>
+<arg>This note contains Unicode characters: 你好世界</arg>
+<status status="PASS" start="2025-04-29T17:02:01.909300" elapsed="0.022944"/>
+</kw>
+<kw name="Verify Note Persistence" owner="note_keywords">
+<kw name="Reload Notes App" owner="note_keywords">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2025-04-29T17:02:01.933099" elapsed="0.342335"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:02.276286" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T17:02:02.275764" elapsed="0.072581"/>
+</kw>
+<status status="PASS" start="2025-04-29T17:02:01.932905" elapsed="0.415600"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:02.348678" elapsed="0.008788"/>
+</kw>
+<kw name="Verify Note Exists" owner="note_keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-04-29T17:02:02.358501" level="INFO">${note_selector} = xpath=//h3[contains(text(), 'Unicode Note')]/ancestor::div[contains(@data-testid, 'note-')]</msg>
+<var>${note_selector}</var>
+<arg>'${title}' == '${EMPTY}'</arg>
+<arg>xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]</arg>
+<arg>xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-04-29T17:02:02.358041" elapsed="0.000492"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:02.366349" level="INFO">Element 'xpath=//h3[contains(text(), 'Unicode Note')]/ancestor::div[contains(@data-testid, 'note-')]' is displayed.</msg>
+<arg>${note_selector}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:02.358651" elapsed="0.007822"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-29T17:02:02.375046" level="INFO">Element 'xpath=//h3[contains(text(), 'Unicode Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-content-') and contains(text(), 'This note contains Unicode characters: 你好世界')]' is displayed.</msg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T17:02:02.367306" elapsed="0.007843"/>
+</kw>
+<arg>'${content}' != '${EMPTY}'</arg>
+<arg>Element Should Be Visible</arg>
+<arg>${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-29T17:02:02.366661" elapsed="0.008564"/>
+</kw>
+<arg>${title}</arg>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T17:02:02.357704" elapsed="0.017596"/>
+</kw>
+<arg>Unicode Note</arg>
+<arg>This note contains Unicode characters: 你好世界</arg>
+<status status="PASS" start="2025-04-29T17:02:01.932551" elapsed="0.442804"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:34:15.054062" elapsed="0.058100"/>
+<status status="PASS" start="2025-04-29T17:02:02.375597" elapsed="0.056472"/>
 </kw>
 <doc>Test creating a note with Unicode characters</doc>
-<status status="FAIL" start="2025-04-29T16:34:13.948057" elapsed="1.164274">Setup failed:
-Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+<status status="PASS" start="2025-04-29T17:02:00.774699" elapsed="1.657511"/>
 </test>
-<status status="FAIL" start="2025-04-29T16:34:03.663238" elapsed="11.449654"/>
+<status status="FAIL" start="2025-04-29T17:01:37.159456" elapsed="25.273183"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="10" skip="0">All Tests</stat>
+<stat pass="7" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Note Tests" id="s1" pass="0" fail="10" skip="0">Note Tests</stat>
+<stat name="Note Tests" id="s1" pass="7" fail="3" skip="0">Note Tests</stat>
 </suite>
 </statistics>
 <errors>
