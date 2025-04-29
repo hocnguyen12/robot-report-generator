@@ -5,14 +5,15 @@ Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
 Open Text Editor
+    # Variable passed from `run_tests.sh`
     Log       Download Directory : ${DOWNLOAD_DIR}
 
+    # Change default download directory
     VAR    &{browser_prefs}    download.default_directory=${DOWNLOAD_DIR}    plugins.always_open_pdf_externally=${True}
     ${chrome_options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${chrome_options}    add_experimental_option    prefs    ${browser_prefs}
 
     Open Browser    ${app.url}    chrome    options=${chrome_options}
-    #...    ff_profile_dir=set_preference("browser.download.folderList", 2);set_preference("browser.download.dir", r"test_downloads");set_preference("browser.helperApps.neverAsk.saveToDisk", "application/zip")
     Click Element    ${selectors.header.text_editor_button}
     Wait Until Page Contains Element    ${selectors.text_editor.filename_input}    ${timeouts.page_load}
     Log    Opened Text Editor
