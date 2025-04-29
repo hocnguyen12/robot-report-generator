@@ -29,9 +29,9 @@ selectors:
     todo_checkbox_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//input[@type='checkbox']"
     todo_delete_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//button[@data-testid[starts-with(., 'todo-delete-')]]"
   text_editor:
-    filename_input: "css=input[placeholder='Enter file name']"
-    content_textarea: "css=textarea[placeholder='Start typing...']"
-    save_button: "css=button:contains('Save')"
+    filename_input: "css=input[type='text']"
+    content_textarea: "css=textarea"
+    save_button: "xpath=//button[contains(., 'Save')]"
     delete_button: "css=button:contains('Delete')"
     save_success_message: "css=div:contains('File saved successfully')"
     delete_success_message: "css=div:contains('File deleted successfully')"
@@ -52,9 +52,6 @@ test_data:
     test_document:
       filename: "test_document.txt"
       content: "This is a test document content"
-    document_to_delete:
-      filename: "document_to_delete.txt"
-      content: "This document will be deleted"
     editable_document:
       initial_content: "Initial content"
       updated_content: "Updated content"

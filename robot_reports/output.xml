@@ -1,1128 +1,550 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T11:06:44.549641" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T11:27:18.276219" rpa="false" schemaversion="5">
 <suite id="s1" name="Text Editor Tests" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/text_editor_tests.robot">
 <test id="s1-t1" name="Create And Save New Document" line="9">
 <kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:44.684361" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T11:27:18.406794" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T11:06:44.683883" elapsed="0.758686"/>
+<status status="PASS" start="2025-04-29T11:27:18.406323" elapsed="0.777424"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:45.443644" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<msg time="2025-04-29T11:27:19.184961" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
 <arg>${selectors.header.text_editor_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:45.442857" elapsed="0.117277"/>
+<status status="PASS" start="2025-04-29T11:27:19.184049" elapsed="0.114781"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${timeouts.page_load}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T11:06:45.560386" elapsed="0.008088"/>
+<status status="PASS" start="2025-04-29T11:27:19.299030" elapsed="0.007610"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T11:06:45.568869" level="INFO">Opened Text Editor</msg>
+<msg time="2025-04-29T11:27:19.307000" level="INFO">Opened Text Editor</msg>
 <arg>Opened Text Editor</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T11:06:45.568669" elapsed="0.000250"/>
+<status status="PASS" start="2025-04-29T11:27:19.306847" elapsed="0.000202"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:44.683182" elapsed="0.885809"/>
+<status status="PASS" start="2025-04-29T11:27:18.405623" elapsed="0.901497"/>
 </kw>
 <kw name="Create And Save Document" owner="text_editor_keywords">
 <kw name="Set File Name" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:45.570830" level="INFO">Typing text 'test_document.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<msg time="2025-04-29T11:27:19.308618" level="INFO">Typing text 'test_document.txt' into text field 'css=input[type='text']'.</msg>
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${filename}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:45.570345" elapsed="0.084535"/>
+<status status="PASS" start="2025-04-29T11:27:19.308263" elapsed="0.091608"/>
 </kw>
 <arg>${filename}</arg>
-<status status="PASS" start="2025-04-29T11:06:45.570060" elapsed="0.084945"/>
+<status status="PASS" start="2025-04-29T11:27:19.308041" elapsed="0.091980"/>
 </kw>
 <kw name="Set Content" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:45.655935" level="INFO">Typing text 'This is a test document content' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<msg time="2025-04-29T11:27:19.400984" level="INFO">Typing text 'This is a test document content' into text field 'css=textarea'.</msg>
 <arg>${selectors.text_editor.content_textarea}</arg>
 <arg>${content}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:45.655487" elapsed="0.084416"/>
+<status status="PASS" start="2025-04-29T11:27:19.400510" elapsed="0.084769"/>
 </kw>
 <arg>${content}</arg>
-<status status="PASS" start="2025-04-29T11:06:45.655176" elapsed="0.084928"/>
+<status status="PASS" start="2025-04-29T11:27:19.400204" elapsed="0.085271"/>
 </kw>
 <kw name="Save Document" owner="text_editor_keywords">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:45.741010" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
-<msg time="2025-04-29T11:06:45.821651" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T11:06:45.821867" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5b09eb0b275a &lt;unknown&gt;
-#1 0x5b09eab654b0 &lt;unknown&gt;
-#2 0x5b09eab6c0b6 &lt;unknown&gt;
-#3 0x5b09eab6e928 &lt;unknown&gt;
-#4 0x5b09eab6e9b3 &lt;unknown&gt;
-#5 0x5b09eabb63e5 &lt;unknown&gt;
-#6 0x5b09eabb6ba1 &lt;unknown&gt;
-#7 0x5b09eac05231 &lt;unknown&gt;
-#8 0x5b09eabdc5bd &lt;unknown&gt;
-#9 0x5b09eac025e0 &lt;unknown&gt;
-#10 0x5b09eabdc363 &lt;unknown&gt;
-#11 0x5b09eaba8d63 &lt;unknown&gt;
-#12 0x5b09eaba99c1 &lt;unknown&gt;
-#13 0x5b09eb077a6b &lt;unknown&gt;
-#14 0x5b09eb07b951 &lt;unknown&gt;
-#15 0x5b09eb05fb62 &lt;unknown&gt;
-#16 0x5b09eb07c4c4 &lt;unknown&gt;
-#17 0x5b09eb04413f &lt;unknown&gt;
-#18 0x5b09eb0a06f8 &lt;unknown&gt;
-#19 0x5b09eb0a08d6 &lt;unknown&gt;
-#20 0x5b09eb0b15a6 &lt;unknown&gt;
-#21 0x7fac70694ac3 &lt;unknown&gt;
-</msg>
+<msg time="2025-04-29T11:27:19.486833" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
 <arg>${selectors.text_editor.save_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T11:06:45.740581" elapsed="0.082036">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5b09eb0b275a &lt;unknown&gt;
-#1 0x5b09eab654b0 &lt;unknown&gt;
-#2 0x5b09eab6c0b6 &lt;unknown&gt;
-#3 0x5b09eab6e928 &lt;unknown&gt;
-#4 0x5b09eab6e9b3 &lt;unknown&gt;
-#5 0x5b09eabb63e5 &lt;unknown&gt;
-#6 0x5b09eabb6ba1 &lt;unknown&gt;
-#7 0x5b09eac05231 &lt;unknown&gt;
-#8 0x5b09eabdc5bd &lt;unknown&gt;
-#9 0x5b09eac025e0 &lt;unknown&gt;
-#10 0x5b09eabdc363 &lt;unknown&gt;
-#11 0x5b09eaba8d63 &lt;unknown&gt;
-#12 0x5b09eaba99c1 &lt;unknown&gt;
-#13 0x5b09eb077a6b &lt;unknown&gt;
-#14 0x5b09eb07b951 &lt;unknown&gt;
-#15 0x5b09eb05fb62 &lt;unknown&gt;
-#16 0x5b09eb07c4c4 &lt;unknown&gt;
-#17 0x5b09eb04413f &lt;unknown&gt;
-#18 0x5b09eb0a06f8 &lt;unknown&gt;
-#19 0x5b09eb0a08d6 &lt;unknown&gt;
-#20 0x5b09eb0b15a6 &lt;unknown&gt;
-#21 0x7fac70694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:19.486178" elapsed="0.053341"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.save_success_message}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:45.822827" elapsed="0.000038"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:21.540375" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:19.539855" elapsed="2.000775"/>
 </kw>
-<status status="FAIL" start="2025-04-29T11:06:45.740321" elapsed="0.082659">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5b09eb0b275a &lt;unknown&gt;
-#1 0x5b09eab654b0 &lt;unknown&gt;
-#2 0x5b09eab6c0b6 &lt;unknown&gt;
-#3 0x5b09eab6e928 &lt;unknown&gt;
-#4 0x5b09eab6e9b3 &lt;unknown&gt;
-#5 0x5b09eabb63e5 &lt;unknown&gt;
-#6 0x5b09eabb6ba1 &lt;unknown&gt;
-#7 0x5b09eac05231 &lt;unknown&gt;
-#8 0x5b09eabdc5bd &lt;unknown&gt;
-#9 0x5b09eac025e0 &lt;unknown&gt;
-#10 0x5b09eabdc363 &lt;unknown&gt;
-#11 0x5b09eaba8d63 &lt;unknown&gt;
-#12 0x5b09eaba99c1 &lt;unknown&gt;
-#13 0x5b09eb077a6b &lt;unknown&gt;
-#14 0x5b09eb07b951 &lt;unknown&gt;
-#15 0x5b09eb05fb62 &lt;unknown&gt;
-#16 0x5b09eb07c4c4 &lt;unknown&gt;
-#17 0x5b09eb04413f &lt;unknown&gt;
-#18 0x5b09eb0a06f8 &lt;unknown&gt;
-#19 0x5b09eb0a08d6 &lt;unknown&gt;
-#20 0x5b09eb0b15a6 &lt;unknown&gt;
-#21 0x7fac70694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:19.485764" elapsed="2.055087"/>
 </kw>
 <arg>${test_data.text_editor.test_document.filename}</arg>
 <arg>${test_data.text_editor.test_document.content}</arg>
-<status status="FAIL" start="2025-04-29T11:06:45.569199" elapsed="0.253870">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5b09eb0b275a &lt;unknown&gt;
-#1 0x5b09eab654b0 &lt;unknown&gt;
-#2 0x5b09eab6c0b6 &lt;unknown&gt;
-#3 0x5b09eab6e928 &lt;unknown&gt;
-#4 0x5b09eab6e9b3 &lt;unknown&gt;
-#5 0x5b09eabb63e5 &lt;unknown&gt;
-#6 0x5b09eabb6ba1 &lt;unknown&gt;
-#7 0x5b09eac05231 &lt;unknown&gt;
-#8 0x5b09eabdc5bd &lt;unknown&gt;
-#9 0x5b09eac025e0 &lt;unknown&gt;
-#10 0x5b09eabdc363 &lt;unknown&gt;
-#11 0x5b09eaba8d63 &lt;unknown&gt;
-#12 0x5b09eaba99c1 &lt;unknown&gt;
-#13 0x5b09eb077a6b &lt;unknown&gt;
-#14 0x5b09eb07b951 &lt;unknown&gt;
-#15 0x5b09eb05fb62 &lt;unknown&gt;
-#16 0x5b09eb07c4c4 &lt;unknown&gt;
-#17 0x5b09eb04413f &lt;unknown&gt;
-#18 0x5b09eb0a06f8 &lt;unknown&gt;
-#19 0x5b09eb0a08d6 &lt;unknown&gt;
-#20 0x5b09eb0b15a6 &lt;unknown&gt;
-#21 0x7fac70694ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Verify Document Is Saved" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:45.823340" elapsed="0.000037"/>
+<status status="PASS" start="2025-04-29T11:27:19.307331" elapsed="2.233645"/>
 </kw>
 <kw name="Verify File Name Is" owner="text_editor_keywords">
+<kw name="Get File Name" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:21.563214" level="INFO">${filename} = test_document.txt</msg>
+<var>${filename}</var>
+<arg>${selectors.text_editor.filename_input}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:21.543458" elapsed="0.019810"/>
+</kw>
+<return>
+<value>${filename}</value>
+<status status="PASS" start="2025-04-29T11:27:21.563354" elapsed="0.000057"/>
+</return>
+<msg time="2025-04-29T11:27:21.563559" level="INFO">${actual} = test_document.txt</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:21.542888" elapsed="0.020697"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:21.563711" elapsed="0.000217"/>
+</kw>
 <arg>${test_data.text_editor.test_document.filename}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:45.823508" elapsed="0.000025"/>
+<status status="PASS" start="2025-04-29T11:27:21.541446" elapsed="0.022545"/>
 </kw>
 <kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:21.572704" level="INFO">${content} = This is a test document content</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:21.565097" elapsed="0.007662"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:21.572841" elapsed="0.000051"/>
+</return>
+<msg time="2025-04-29T11:27:21.573023" level="INFO">${actual} = This is a test document content</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:21.564897" elapsed="0.008150"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:21.573169" elapsed="0.000197"/>
+</kw>
 <arg>${test_data.text_editor.test_document.content}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:45.823642" elapsed="0.000023"/>
+<status status="PASS" start="2025-04-29T11:27:21.564184" elapsed="0.009242"/>
 </kw>
 <kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T11:06:45.824258" elapsed="0.056309"/>
+<status status="PASS" start="2025-04-29T11:27:21.573906" elapsed="0.056630"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:45.823892" elapsed="0.056799"/>
+<status status="PASS" start="2025-04-29T11:27:21.573671" elapsed="0.057056"/>
 </kw>
 <doc>Test creating and saving a new document</doc>
-<status status="FAIL" start="2025-04-29T11:06:44.682495" elapsed="1.198317">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5b09eb0b275a &lt;unknown&gt;
-#1 0x5b09eab654b0 &lt;unknown&gt;
-#2 0x5b09eab6c0b6 &lt;unknown&gt;
-#3 0x5b09eab6e928 &lt;unknown&gt;
-#4 0x5b09eab6e9b3 &lt;unknown&gt;
-#5 0x5b09eabb63e5 &lt;unknown&gt;
-#6 0x5b09eabb6ba1 &lt;unknown&gt;
-#7 0x5b09eac05231 &lt;unknown&gt;
-#8 0x5b09eabdc5bd &lt;unknown&gt;
-#9 0x5b09eac025e0 &lt;unknown&gt;
-#10 0x5b09eabdc363 &lt;unknown&gt;
-#11 0x5b09eaba8d63 &lt;unknown&gt;
-#12 0x5b09eaba99c1 &lt;unknown&gt;
-#13 0x5b09eb077a6b &lt;unknown&gt;
-#14 0x5b09eb07b951 &lt;unknown&gt;
-#15 0x5b09eb05fb62 &lt;unknown&gt;
-#16 0x5b09eb07c4c4 &lt;unknown&gt;
-#17 0x5b09eb04413f &lt;unknown&gt;
-#18 0x5b09eb0a06f8 &lt;unknown&gt;
-#19 0x5b09eb0a08d6 &lt;unknown&gt;
-#20 0x5b09eb0b15a6 &lt;unknown&gt;
-#21 0x7fac70694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:18.404978" elapsed="3.225885"/>
 </test>
-<test id="s1-t2" name="Delete Document" line="16">
+<test id="s1-t2" name="Edit Existing Document" line="15">
 <kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:45.882294" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T11:27:21.632861" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T11:06:45.881813" elapsed="0.739979"/>
+<status status="PASS" start="2025-04-29T11:27:21.632213" elapsed="0.743347"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:46.622921" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<msg time="2025-04-29T11:27:22.376283" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
 <arg>${selectors.header.text_editor_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:46.622097" elapsed="0.106648"/>
+<status status="PASS" start="2025-04-29T11:27:22.375783" elapsed="0.104321"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${timeouts.page_load}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T11:06:46.728979" elapsed="0.009329"/>
+<status status="PASS" start="2025-04-29T11:27:22.480510" elapsed="0.007652"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T11:06:46.738749" level="INFO">Opened Text Editor</msg>
+<msg time="2025-04-29T11:27:22.488511" level="INFO">Opened Text Editor</msg>
 <arg>Opened Text Editor</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T11:06:46.738548" elapsed="0.000258"/>
+<status status="PASS" start="2025-04-29T11:27:22.488360" elapsed="0.000197"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:45.881521" elapsed="0.857360"/>
+<status status="PASS" start="2025-04-29T11:27:21.631828" elapsed="0.856860"/>
 </kw>
 <kw name="Create And Save Document" owner="text_editor_keywords">
 <kw name="Set File Name" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:46.740492" level="INFO">Typing text 'document_to_delete.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<msg time="2025-04-29T11:27:22.490489" level="INFO">Typing text 'editable_document.txt' into text field 'css=input[type='text']'.</msg>
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${filename}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:46.740075" elapsed="0.099647"/>
+<status status="PASS" start="2025-04-29T11:27:22.489909" elapsed="0.099394"/>
 </kw>
 <arg>${filename}</arg>
-<status status="PASS" start="2025-04-29T11:06:46.739834" elapsed="0.100042"/>
+<status status="PASS" start="2025-04-29T11:27:22.489607" elapsed="0.099919"/>
 </kw>
 <kw name="Set Content" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:46.841009" level="INFO">Typing text 'This document will be deleted' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<msg time="2025-04-29T11:27:22.590514" level="INFO">Typing text 'Initial content' into text field 'css=textarea'.</msg>
 <arg>${selectors.text_editor.content_textarea}</arg>
 <arg>${content}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:46.840535" elapsed="0.083603"/>
+<status status="PASS" start="2025-04-29T11:27:22.590076" elapsed="0.070299"/>
 </kw>
 <arg>${content}</arg>
-<status status="PASS" start="2025-04-29T11:06:46.840085" elapsed="0.084243"/>
+<status status="PASS" start="2025-04-29T11:27:22.589751" elapsed="0.070811"/>
 </kw>
 <kw name="Save Document" owner="text_editor_keywords">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:46.925326" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
-<msg time="2025-04-29T11:06:47.020489" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T11:06:47.020667" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x576b6071975a &lt;unknown&gt;
-#1 0x576b601cc4b0 &lt;unknown&gt;
-#2 0x576b601d30b6 &lt;unknown&gt;
-#3 0x576b601d5928 &lt;unknown&gt;
-#4 0x576b601d59b3 &lt;unknown&gt;
-#5 0x576b6021d3e5 &lt;unknown&gt;
-#6 0x576b6021dba1 &lt;unknown&gt;
-#7 0x576b6026c231 &lt;unknown&gt;
-#8 0x576b602435bd &lt;unknown&gt;
-#9 0x576b602695e0 &lt;unknown&gt;
-#10 0x576b60243363 &lt;unknown&gt;
-#11 0x576b6020fd63 &lt;unknown&gt;
-#12 0x576b602109c1 &lt;unknown&gt;
-#13 0x576b606dea6b &lt;unknown&gt;
-#14 0x576b606e2951 &lt;unknown&gt;
-#15 0x576b606c6b62 &lt;unknown&gt;
-#16 0x576b606e34c4 &lt;unknown&gt;
-#17 0x576b606ab13f &lt;unknown&gt;
-#18 0x576b607076f8 &lt;unknown&gt;
-#19 0x576b607078d6 &lt;unknown&gt;
-#20 0x576b607185a6 &lt;unknown&gt;
-#21 0x76a1c1694ac3 &lt;unknown&gt;
-</msg>
+<msg time="2025-04-29T11:27:22.661871" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
 <arg>${selectors.text_editor.save_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T11:06:46.924797" elapsed="0.096034">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x576b6071975a &lt;unknown&gt;
-#1 0x576b601cc4b0 &lt;unknown&gt;
-#2 0x576b601d30b6 &lt;unknown&gt;
-#3 0x576b601d5928 &lt;unknown&gt;
-#4 0x576b601d59b3 &lt;unknown&gt;
-#5 0x576b6021d3e5 &lt;unknown&gt;
-#6 0x576b6021dba1 &lt;unknown&gt;
-#7 0x576b6026c231 &lt;unknown&gt;
-#8 0x576b602435bd &lt;unknown&gt;
-#9 0x576b602695e0 &lt;unknown&gt;
-#10 0x576b60243363 &lt;unknown&gt;
-#11 0x576b6020fd63 &lt;unknown&gt;
-#12 0x576b602109c1 &lt;unknown&gt;
-#13 0x576b606dea6b &lt;unknown&gt;
-#14 0x576b606e2951 &lt;unknown&gt;
-#15 0x576b606c6b62 &lt;unknown&gt;
-#16 0x576b606e34c4 &lt;unknown&gt;
-#17 0x576b606ab13f &lt;unknown&gt;
-#18 0x576b607076f8 &lt;unknown&gt;
-#19 0x576b607078d6 &lt;unknown&gt;
-#20 0x576b607185a6 &lt;unknown&gt;
-#21 0x76a1c1694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:22.661245" elapsed="0.054617"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.save_success_message}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:47.021103" elapsed="0.000044"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:24.716425" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:22.716094" elapsed="2.000449"/>
 </kw>
-<status status="FAIL" start="2025-04-29T11:06:46.924520" elapsed="0.096743">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x576b6071975a &lt;unknown&gt;
-#1 0x576b601cc4b0 &lt;unknown&gt;
-#2 0x576b601d30b6 &lt;unknown&gt;
-#3 0x576b601d5928 &lt;unknown&gt;
-#4 0x576b601d59b3 &lt;unknown&gt;
-#5 0x576b6021d3e5 &lt;unknown&gt;
-#6 0x576b6021dba1 &lt;unknown&gt;
-#7 0x576b6026c231 &lt;unknown&gt;
-#8 0x576b602435bd &lt;unknown&gt;
-#9 0x576b602695e0 &lt;unknown&gt;
-#10 0x576b60243363 &lt;unknown&gt;
-#11 0x576b6020fd63 &lt;unknown&gt;
-#12 0x576b602109c1 &lt;unknown&gt;
-#13 0x576b606dea6b &lt;unknown&gt;
-#14 0x576b606e2951 &lt;unknown&gt;
-#15 0x576b606c6b62 &lt;unknown&gt;
-#16 0x576b606e34c4 &lt;unknown&gt;
-#17 0x576b606ab13f &lt;unknown&gt;
-#18 0x576b607076f8 &lt;unknown&gt;
-#19 0x576b607078d6 &lt;unknown&gt;
-#20 0x576b607185a6 &lt;unknown&gt;
-#21 0x76a1c1694ac3 &lt;unknown&gt;
-</status>
-</kw>
-<arg>${test_data.text_editor.document_to_delete.filename}</arg>
-<arg>${test_data.text_editor.document_to_delete.content}</arg>
-<status status="FAIL" start="2025-04-29T11:06:46.739090" elapsed="0.282258">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x576b6071975a &lt;unknown&gt;
-#1 0x576b601cc4b0 &lt;unknown&gt;
-#2 0x576b601d30b6 &lt;unknown&gt;
-#3 0x576b601d5928 &lt;unknown&gt;
-#4 0x576b601d59b3 &lt;unknown&gt;
-#5 0x576b6021d3e5 &lt;unknown&gt;
-#6 0x576b6021dba1 &lt;unknown&gt;
-#7 0x576b6026c231 &lt;unknown&gt;
-#8 0x576b602435bd &lt;unknown&gt;
-#9 0x576b602695e0 &lt;unknown&gt;
-#10 0x576b60243363 &lt;unknown&gt;
-#11 0x576b6020fd63 &lt;unknown&gt;
-#12 0x576b602109c1 &lt;unknown&gt;
-#13 0x576b606dea6b &lt;unknown&gt;
-#14 0x576b606e2951 &lt;unknown&gt;
-#15 0x576b606c6b62 &lt;unknown&gt;
-#16 0x576b606e34c4 &lt;unknown&gt;
-#17 0x576b606ab13f &lt;unknown&gt;
-#18 0x576b607076f8 &lt;unknown&gt;
-#19 0x576b607078d6 &lt;unknown&gt;
-#20 0x576b607185a6 &lt;unknown&gt;
-#21 0x76a1c1694ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Delete Document" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:47.021578" elapsed="0.000041"/>
-</kw>
-<kw name="Verify Document Is Deleted" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:47.021775" elapsed="0.000030"/>
-</kw>
-<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T11:06:47.022300" elapsed="0.055825"/>
-</kw>
-<status status="PASS" start="2025-04-29T11:06:47.022038" elapsed="0.056215"/>
-</kw>
-<doc>Test deleting a document</doc>
-<status status="FAIL" start="2025-04-29T11:06:45.881154" elapsed="1.197193">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x576b6071975a &lt;unknown&gt;
-#1 0x576b601cc4b0 &lt;unknown&gt;
-#2 0x576b601d30b6 &lt;unknown&gt;
-#3 0x576b601d5928 &lt;unknown&gt;
-#4 0x576b601d59b3 &lt;unknown&gt;
-#5 0x576b6021d3e5 &lt;unknown&gt;
-#6 0x576b6021dba1 &lt;unknown&gt;
-#7 0x576b6026c231 &lt;unknown&gt;
-#8 0x576b602435bd &lt;unknown&gt;
-#9 0x576b602695e0 &lt;unknown&gt;
-#10 0x576b60243363 &lt;unknown&gt;
-#11 0x576b6020fd63 &lt;unknown&gt;
-#12 0x576b602109c1 &lt;unknown&gt;
-#13 0x576b606dea6b &lt;unknown&gt;
-#14 0x576b606e2951 &lt;unknown&gt;
-#15 0x576b606c6b62 &lt;unknown&gt;
-#16 0x576b606e34c4 &lt;unknown&gt;
-#17 0x576b606ab13f &lt;unknown&gt;
-#18 0x576b607076f8 &lt;unknown&gt;
-#19 0x576b607078d6 &lt;unknown&gt;
-#20 0x576b607185a6 &lt;unknown&gt;
-#21 0x76a1c1694ac3 &lt;unknown&gt;
-</status>
-</test>
-<test id="s1-t3" name="Edit Existing Document" line="22">
-<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:47.080128" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
-<arg>${app.url}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T11:06:47.079434" elapsed="0.772315"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:47.852937" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
-<arg>${selectors.header.text_editor_button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:47.852076" elapsed="0.094675"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.filename_input}</arg>
-<arg>${timeouts.page_load}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T11:06:47.946951" elapsed="0.007911"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T11:06:47.955231" level="INFO">Opened Text Editor</msg>
-<arg>Opened Text Editor</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T11:06:47.955071" elapsed="0.000207"/>
-</kw>
-<status status="PASS" start="2025-04-29T11:06:47.079033" elapsed="0.876312"/>
-</kw>
-<kw name="Create And Save Document" owner="text_editor_keywords">
-<kw name="Set File Name" owner="text_editor_keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:47.957063" level="INFO">Typing text 'editable_document.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
-<arg>${selectors.text_editor.filename_input}</arg>
-<arg>${filename}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:47.956678" elapsed="0.074706"/>
-</kw>
-<arg>${filename}</arg>
-<status status="PASS" start="2025-04-29T11:06:47.956423" elapsed="0.075085"/>
-</kw>
-<kw name="Set Content" owner="text_editor_keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:48.032618" level="INFO">Typing text 'Initial content' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
-<arg>${selectors.text_editor.content_textarea}</arg>
-<arg>${content}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:48.032011" elapsed="0.055663"/>
-</kw>
-<arg>${content}</arg>
-<status status="PASS" start="2025-04-29T11:06:48.031673" elapsed="0.056235"/>
-</kw>
-<kw name="Save Document" owner="text_editor_keywords">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:48.088778" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
-<msg time="2025-04-29T11:06:48.202370" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T11:06:48.202621" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5eb79df0475a &lt;unknown&gt;
-#1 0x5eb79d9b74b0 &lt;unknown&gt;
-#2 0x5eb79d9be0b6 &lt;unknown&gt;
-#3 0x5eb79d9c0928 &lt;unknown&gt;
-#4 0x5eb79d9c09b3 &lt;unknown&gt;
-#5 0x5eb79da083e5 &lt;unknown&gt;
-#6 0x5eb79da08ba1 &lt;unknown&gt;
-#7 0x5eb79da57231 &lt;unknown&gt;
-#8 0x5eb79da2e5bd &lt;unknown&gt;
-#9 0x5eb79da545e0 &lt;unknown&gt;
-#10 0x5eb79da2e363 &lt;unknown&gt;
-#11 0x5eb79d9fad63 &lt;unknown&gt;
-#12 0x5eb79d9fb9c1 &lt;unknown&gt;
-#13 0x5eb79dec9a6b &lt;unknown&gt;
-#14 0x5eb79decd951 &lt;unknown&gt;
-#15 0x5eb79deb1b62 &lt;unknown&gt;
-#16 0x5eb79dece4c4 &lt;unknown&gt;
-#17 0x5eb79de9613f &lt;unknown&gt;
-#18 0x5eb79def26f8 &lt;unknown&gt;
-#19 0x5eb79def28d6 &lt;unknown&gt;
-#20 0x5eb79df035a6 &lt;unknown&gt;
-#21 0x7cfead894ac3 &lt;unknown&gt;
-</msg>
-<arg>${selectors.text_editor.save_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T11:06:48.088353" elapsed="0.114571">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5eb79df0475a &lt;unknown&gt;
-#1 0x5eb79d9b74b0 &lt;unknown&gt;
-#2 0x5eb79d9be0b6 &lt;unknown&gt;
-#3 0x5eb79d9c0928 &lt;unknown&gt;
-#4 0x5eb79d9c09b3 &lt;unknown&gt;
-#5 0x5eb79da083e5 &lt;unknown&gt;
-#6 0x5eb79da08ba1 &lt;unknown&gt;
-#7 0x5eb79da57231 &lt;unknown&gt;
-#8 0x5eb79da2e5bd &lt;unknown&gt;
-#9 0x5eb79da545e0 &lt;unknown&gt;
-#10 0x5eb79da2e363 &lt;unknown&gt;
-#11 0x5eb79d9fad63 &lt;unknown&gt;
-#12 0x5eb79d9fb9c1 &lt;unknown&gt;
-#13 0x5eb79dec9a6b &lt;unknown&gt;
-#14 0x5eb79decd951 &lt;unknown&gt;
-#15 0x5eb79deb1b62 &lt;unknown&gt;
-#16 0x5eb79dece4c4 &lt;unknown&gt;
-#17 0x5eb79de9613f &lt;unknown&gt;
-#18 0x5eb79def26f8 &lt;unknown&gt;
-#19 0x5eb79def28d6 &lt;unknown&gt;
-#20 0x5eb79df035a6 &lt;unknown&gt;
-#21 0x7cfead894ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.save_success_message}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:48.203199" elapsed="0.000054"/>
-</kw>
-<status status="FAIL" start="2025-04-29T11:06:48.088097" elapsed="0.115315">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5eb79df0475a &lt;unknown&gt;
-#1 0x5eb79d9b74b0 &lt;unknown&gt;
-#2 0x5eb79d9be0b6 &lt;unknown&gt;
-#3 0x5eb79d9c0928 &lt;unknown&gt;
-#4 0x5eb79d9c09b3 &lt;unknown&gt;
-#5 0x5eb79da083e5 &lt;unknown&gt;
-#6 0x5eb79da08ba1 &lt;unknown&gt;
-#7 0x5eb79da57231 &lt;unknown&gt;
-#8 0x5eb79da2e5bd &lt;unknown&gt;
-#9 0x5eb79da545e0 &lt;unknown&gt;
-#10 0x5eb79da2e363 &lt;unknown&gt;
-#11 0x5eb79d9fad63 &lt;unknown&gt;
-#12 0x5eb79d9fb9c1 &lt;unknown&gt;
-#13 0x5eb79dec9a6b &lt;unknown&gt;
-#14 0x5eb79decd951 &lt;unknown&gt;
-#15 0x5eb79deb1b62 &lt;unknown&gt;
-#16 0x5eb79dece4c4 &lt;unknown&gt;
-#17 0x5eb79de9613f &lt;unknown&gt;
-#18 0x5eb79def26f8 &lt;unknown&gt;
-#19 0x5eb79def28d6 &lt;unknown&gt;
-#20 0x5eb79df035a6 &lt;unknown&gt;
-#21 0x7cfead894ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:22.660818" elapsed="2.055823"/>
 </kw>
 <arg>${test_data.text_editor.editable_document.filename}</arg>
 <arg>${test_data.text_editor.editable_document.initial_content}</arg>
-<status status="FAIL" start="2025-04-29T11:06:47.955573" elapsed="0.247965">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5eb79df0475a &lt;unknown&gt;
-#1 0x5eb79d9b74b0 &lt;unknown&gt;
-#2 0x5eb79d9be0b6 &lt;unknown&gt;
-#3 0x5eb79d9c0928 &lt;unknown&gt;
-#4 0x5eb79d9c09b3 &lt;unknown&gt;
-#5 0x5eb79da083e5 &lt;unknown&gt;
-#6 0x5eb79da08ba1 &lt;unknown&gt;
-#7 0x5eb79da57231 &lt;unknown&gt;
-#8 0x5eb79da2e5bd &lt;unknown&gt;
-#9 0x5eb79da545e0 &lt;unknown&gt;
-#10 0x5eb79da2e363 &lt;unknown&gt;
-#11 0x5eb79d9fad63 &lt;unknown&gt;
-#12 0x5eb79d9fb9c1 &lt;unknown&gt;
-#13 0x5eb79dec9a6b &lt;unknown&gt;
-#14 0x5eb79decd951 &lt;unknown&gt;
-#15 0x5eb79deb1b62 &lt;unknown&gt;
-#16 0x5eb79dece4c4 &lt;unknown&gt;
-#17 0x5eb79de9613f &lt;unknown&gt;
-#18 0x5eb79def26f8 &lt;unknown&gt;
-#19 0x5eb79def28d6 &lt;unknown&gt;
-#20 0x5eb79df035a6 &lt;unknown&gt;
-#21 0x7cfead894ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:22.488908" elapsed="2.227782"/>
 </kw>
 <kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:24.717845" level="INFO">Typing text 'Updated content' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:24.717451" elapsed="0.054033"/>
+</kw>
 <arg>${test_data.text_editor.editable_document.updated_content}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:48.203780" elapsed="0.000035"/>
+<status status="PASS" start="2025-04-29T11:27:24.716913" elapsed="0.054734"/>
 </kw>
 <kw name="Save Document" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:48.203948" elapsed="0.000026"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:24.772670" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:24.772206" elapsed="0.042820"/>
 </kw>
-<kw name="Verify Document Is Saved" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:48.204082" elapsed="0.000022"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:26.815542" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:24.815218" elapsed="2.000442"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:24.771916" elapsed="2.043856"/>
 </kw>
 <kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:26.825544" level="INFO">${content} = Updated content</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:26.816763" elapsed="0.008828"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:26.825703" elapsed="0.000060"/>
+</return>
+<msg time="2025-04-29T11:27:26.825935" level="INFO">${actual} = Updated content</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:26.816560" elapsed="0.009408"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:26.826158" elapsed="0.000239"/>
+</kw>
 <arg>${test_data.text_editor.editable_document.updated_content}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:48.204209" elapsed="0.000022"/>
+<status status="PASS" start="2025-04-29T11:27:26.816002" elapsed="0.010471"/>
 </kw>
 <kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T11:06:48.204676" elapsed="0.056130"/>
+<status status="PASS" start="2025-04-29T11:27:26.827092" elapsed="0.060610"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:48.204444" elapsed="0.056486"/>
+<status status="PASS" start="2025-04-29T11:27:26.826760" elapsed="0.061132"/>
 </kw>
 <doc>Test editing an existing document</doc>
-<status status="FAIL" start="2025-04-29T11:06:47.078605" elapsed="1.182414">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5eb79df0475a &lt;unknown&gt;
-#1 0x5eb79d9b74b0 &lt;unknown&gt;
-#2 0x5eb79d9be0b6 &lt;unknown&gt;
-#3 0x5eb79d9c0928 &lt;unknown&gt;
-#4 0x5eb79d9c09b3 &lt;unknown&gt;
-#5 0x5eb79da083e5 &lt;unknown&gt;
-#6 0x5eb79da08ba1 &lt;unknown&gt;
-#7 0x5eb79da57231 &lt;unknown&gt;
-#8 0x5eb79da2e5bd &lt;unknown&gt;
-#9 0x5eb79da545e0 &lt;unknown&gt;
-#10 0x5eb79da2e363 &lt;unknown&gt;
-#11 0x5eb79d9fad63 &lt;unknown&gt;
-#12 0x5eb79d9fb9c1 &lt;unknown&gt;
-#13 0x5eb79dec9a6b &lt;unknown&gt;
-#14 0x5eb79decd951 &lt;unknown&gt;
-#15 0x5eb79deb1b62 &lt;unknown&gt;
-#16 0x5eb79dece4c4 &lt;unknown&gt;
-#17 0x5eb79de9613f &lt;unknown&gt;
-#18 0x5eb79def26f8 &lt;unknown&gt;
-#19 0x5eb79def28d6 &lt;unknown&gt;
-#20 0x5eb79df035a6 &lt;unknown&gt;
-#21 0x7cfead894ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:21.631250" elapsed="5.256767"/>
 </test>
-<test id="s1-t4" name="Verify Document Persistence" line="30">
+<test id="s1-t3" name="Verify Document Persistence" line="22">
 <kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:48.262386" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T11:27:26.889679" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T11:06:48.261894" elapsed="0.720513"/>
+<status status="PASS" start="2025-04-29T11:27:26.889173" elapsed="0.765919"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:48.983495" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<msg time="2025-04-29T11:27:27.655863" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
 <arg>${selectors.header.text_editor_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:48.982670" elapsed="0.100770"/>
+<status status="PASS" start="2025-04-29T11:27:27.655335" elapsed="0.102019"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${timeouts.page_load}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T11:06:49.083692" elapsed="0.008160"/>
+<status status="PASS" start="2025-04-29T11:27:27.757651" elapsed="0.007996"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T11:06:49.092194" level="INFO">Opened Text Editor</msg>
+<msg time="2025-04-29T11:27:27.766004" level="INFO">Opened Text Editor</msg>
 <arg>Opened Text Editor</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T11:06:49.092047" elapsed="0.000193"/>
+<status status="PASS" start="2025-04-29T11:27:27.765851" elapsed="0.000200"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:48.261635" elapsed="0.830670"/>
+<status status="PASS" start="2025-04-29T11:27:26.888868" elapsed="0.877247"/>
 </kw>
 <kw name="Create And Save Document" owner="text_editor_keywords">
 <kw name="Set File Name" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:49.093879" level="INFO">Typing text 'persistent_document.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<msg time="2025-04-29T11:27:27.767761" level="INFO">Typing text 'persistent_document.txt' into text field 'css=input[type='text']'.</msg>
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${filename}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:49.093524" elapsed="0.090855"/>
+<status status="PASS" start="2025-04-29T11:27:27.767395" elapsed="0.099814"/>
 </kw>
 <arg>${filename}</arg>
-<status status="PASS" start="2025-04-29T11:06:49.093302" elapsed="0.091397"/>
+<status status="PASS" start="2025-04-29T11:27:27.767021" elapsed="0.100383"/>
 </kw>
 <kw name="Set Content" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:49.185666" level="INFO">Typing text 'This content should persist' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<msg time="2025-04-29T11:27:27.868310" level="INFO">Typing text 'This content should persist' into text field 'css=textarea'.</msg>
 <arg>${selectors.text_editor.content_textarea}</arg>
 <arg>${content}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:49.185218" elapsed="0.069552"/>
+<status status="PASS" start="2025-04-29T11:27:27.867892" elapsed="0.078200"/>
 </kw>
 <arg>${content}</arg>
-<status status="PASS" start="2025-04-29T11:06:49.184906" elapsed="0.070062"/>
+<status status="PASS" start="2025-04-29T11:27:27.867578" elapsed="0.078660"/>
 </kw>
 <kw name="Save Document" owner="text_editor_keywords">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:49.255915" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
-<msg time="2025-04-29T11:06:49.317103" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T11:06:49.317303" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x607ad32f475a &lt;unknown&gt;
-#1 0x607ad2da74b0 &lt;unknown&gt;
-#2 0x607ad2dae0b6 &lt;unknown&gt;
-#3 0x607ad2db0928 &lt;unknown&gt;
-#4 0x607ad2db09b3 &lt;unknown&gt;
-#5 0x607ad2df83e5 &lt;unknown&gt;
-#6 0x607ad2df8ba1 &lt;unknown&gt;
-#7 0x607ad2e47231 &lt;unknown&gt;
-#8 0x607ad2e1e5bd &lt;unknown&gt;
-#9 0x607ad2e445e0 &lt;unknown&gt;
-#10 0x607ad2e1e363 &lt;unknown&gt;
-#11 0x607ad2dead63 &lt;unknown&gt;
-#12 0x607ad2deb9c1 &lt;unknown&gt;
-#13 0x607ad32b9a6b &lt;unknown&gt;
-#14 0x607ad32bd951 &lt;unknown&gt;
-#15 0x607ad32a1b62 &lt;unknown&gt;
-#16 0x607ad32be4c4 &lt;unknown&gt;
-#17 0x607ad328613f &lt;unknown&gt;
-#18 0x607ad32e26f8 &lt;unknown&gt;
-#19 0x607ad32e28d6 &lt;unknown&gt;
-#20 0x607ad32f35a6 &lt;unknown&gt;
-#21 0x7e1f7fe94ac3 &lt;unknown&gt;
-</msg>
+<msg time="2025-04-29T11:27:27.947240" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
 <arg>${selectors.text_editor.save_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T11:06:49.255411" elapsed="0.062075">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x607ad32f475a &lt;unknown&gt;
-#1 0x607ad2da74b0 &lt;unknown&gt;
-#2 0x607ad2dae0b6 &lt;unknown&gt;
-#3 0x607ad2db0928 &lt;unknown&gt;
-#4 0x607ad2db09b3 &lt;unknown&gt;
-#5 0x607ad2df83e5 &lt;unknown&gt;
-#6 0x607ad2df8ba1 &lt;unknown&gt;
-#7 0x607ad2e47231 &lt;unknown&gt;
-#8 0x607ad2e1e5bd &lt;unknown&gt;
-#9 0x607ad2e445e0 &lt;unknown&gt;
-#10 0x607ad2e1e363 &lt;unknown&gt;
-#11 0x607ad2dead63 &lt;unknown&gt;
-#12 0x607ad2deb9c1 &lt;unknown&gt;
-#13 0x607ad32b9a6b &lt;unknown&gt;
-#14 0x607ad32bd951 &lt;unknown&gt;
-#15 0x607ad32a1b62 &lt;unknown&gt;
-#16 0x607ad32be4c4 &lt;unknown&gt;
-#17 0x607ad328613f &lt;unknown&gt;
-#18 0x607ad32e26f8 &lt;unknown&gt;
-#19 0x607ad32e28d6 &lt;unknown&gt;
-#20 0x607ad32f35a6 &lt;unknown&gt;
-#21 0x7e1f7fe94ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:27.946811" elapsed="0.055722"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.save_success_message}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:49.317677" elapsed="0.000035"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:30.003282" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:28.002814" elapsed="2.000719"/>
 </kw>
-<status status="FAIL" start="2025-04-29T11:06:49.255159" elapsed="0.062678">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x607ad32f475a &lt;unknown&gt;
-#1 0x607ad2da74b0 &lt;unknown&gt;
-#2 0x607ad2dae0b6 &lt;unknown&gt;
-#3 0x607ad2db0928 &lt;unknown&gt;
-#4 0x607ad2db09b3 &lt;unknown&gt;
-#5 0x607ad2df83e5 &lt;unknown&gt;
-#6 0x607ad2df8ba1 &lt;unknown&gt;
-#7 0x607ad2e47231 &lt;unknown&gt;
-#8 0x607ad2e1e5bd &lt;unknown&gt;
-#9 0x607ad2e445e0 &lt;unknown&gt;
-#10 0x607ad2e1e363 &lt;unknown&gt;
-#11 0x607ad2dead63 &lt;unknown&gt;
-#12 0x607ad2deb9c1 &lt;unknown&gt;
-#13 0x607ad32b9a6b &lt;unknown&gt;
-#14 0x607ad32bd951 &lt;unknown&gt;
-#15 0x607ad32a1b62 &lt;unknown&gt;
-#16 0x607ad32be4c4 &lt;unknown&gt;
-#17 0x607ad328613f &lt;unknown&gt;
-#18 0x607ad32e26f8 &lt;unknown&gt;
-#19 0x607ad32e28d6 &lt;unknown&gt;
-#20 0x607ad32f35a6 &lt;unknown&gt;
-#21 0x7e1f7fe94ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:27.946512" elapsed="2.057254"/>
 </kw>
 <arg>${test_data.text_editor.persistent_document.filename}</arg>
 <arg>${test_data.text_editor.persistent_document.content}</arg>
-<status status="FAIL" start="2025-04-29T11:06:49.092512" elapsed="0.225421">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x607ad32f475a &lt;unknown&gt;
-#1 0x607ad2da74b0 &lt;unknown&gt;
-#2 0x607ad2dae0b6 &lt;unknown&gt;
-#3 0x607ad2db0928 &lt;unknown&gt;
-#4 0x607ad2db09b3 &lt;unknown&gt;
-#5 0x607ad2df83e5 &lt;unknown&gt;
-#6 0x607ad2df8ba1 &lt;unknown&gt;
-#7 0x607ad2e47231 &lt;unknown&gt;
-#8 0x607ad2e1e5bd &lt;unknown&gt;
-#9 0x607ad2e445e0 &lt;unknown&gt;
-#10 0x607ad2e1e363 &lt;unknown&gt;
-#11 0x607ad2dead63 &lt;unknown&gt;
-#12 0x607ad2deb9c1 &lt;unknown&gt;
-#13 0x607ad32b9a6b &lt;unknown&gt;
-#14 0x607ad32bd951 &lt;unknown&gt;
-#15 0x607ad32a1b62 &lt;unknown&gt;
-#16 0x607ad32be4c4 &lt;unknown&gt;
-#17 0x607ad328613f &lt;unknown&gt;
-#18 0x607ad32e26f8 &lt;unknown&gt;
-#19 0x607ad32e28d6 &lt;unknown&gt;
-#20 0x607ad32f35a6 &lt;unknown&gt;
-#21 0x7e1f7fe94ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Verify Document Is Saved" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:49.318143" elapsed="0.000079"/>
+<status status="PASS" start="2025-04-29T11:27:27.766304" elapsed="2.237593"/>
 </kw>
 <kw name="Verify File Name Is" owner="text_editor_keywords">
+<kw name="Get File Name" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:30.026019" level="INFO">${filename} = persistent_document.txt</msg>
+<var>${filename}</var>
+<arg>${selectors.text_editor.filename_input}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:30.006267" elapsed="0.019803"/>
+</kw>
+<return>
+<value>${filename}</value>
+<status status="PASS" start="2025-04-29T11:27:30.026160" elapsed="0.000056"/>
+</return>
+<msg time="2025-04-29T11:27:30.026358" level="INFO">${actual} = persistent_document.txt</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:30.005738" elapsed="0.020646"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:30.026520" elapsed="0.000243"/>
+</kw>
 <arg>${test_data.text_editor.persistent_document.filename}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:49.318371" elapsed="0.000026"/>
+<status status="PASS" start="2025-04-29T11:27:30.004366" elapsed="0.022473"/>
 </kw>
 <kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:30.036861" level="INFO">${content} = This content should persist</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:30.027916" elapsed="0.008997"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:30.036999" elapsed="0.000051"/>
+</return>
+<msg time="2025-04-29T11:27:30.037188" level="INFO">${actual} = This content should persist</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:30.027674" elapsed="0.009539"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:30.037337" elapsed="0.000205"/>
+</kw>
 <arg>${test_data.text_editor.persistent_document.content}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:49.318505" elapsed="0.000022"/>
+<status status="PASS" start="2025-04-29T11:27:30.027044" elapsed="0.010564"/>
 </kw>
 <kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T11:06:49.319023" elapsed="0.055786"/>
+<status status="PASS" start="2025-04-29T11:27:30.038114" elapsed="0.055492"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:49.318762" elapsed="0.056180"/>
+<status status="PASS" start="2025-04-29T11:27:30.037847" elapsed="0.055919"/>
 </kw>
 <doc>Test that document content persists after save</doc>
-<status status="FAIL" start="2025-04-29T11:06:48.261271" elapsed="1.113760">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x607ad32f475a &lt;unknown&gt;
-#1 0x607ad2da74b0 &lt;unknown&gt;
-#2 0x607ad2dae0b6 &lt;unknown&gt;
-#3 0x607ad2db0928 &lt;unknown&gt;
-#4 0x607ad2db09b3 &lt;unknown&gt;
-#5 0x607ad2df83e5 &lt;unknown&gt;
-#6 0x607ad2df8ba1 &lt;unknown&gt;
-#7 0x607ad2e47231 &lt;unknown&gt;
-#8 0x607ad2e1e5bd &lt;unknown&gt;
-#9 0x607ad2e445e0 &lt;unknown&gt;
-#10 0x607ad2e1e363 &lt;unknown&gt;
-#11 0x607ad2dead63 &lt;unknown&gt;
-#12 0x607ad2deb9c1 &lt;unknown&gt;
-#13 0x607ad32b9a6b &lt;unknown&gt;
-#14 0x607ad32bd951 &lt;unknown&gt;
-#15 0x607ad32a1b62 &lt;unknown&gt;
-#16 0x607ad32be4c4 &lt;unknown&gt;
-#17 0x607ad328613f &lt;unknown&gt;
-#18 0x607ad32e26f8 &lt;unknown&gt;
-#19 0x607ad32e28d6 &lt;unknown&gt;
-#20 0x607ad32f35a6 &lt;unknown&gt;
-#21 0x7e1f7fe94ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:26.888403" elapsed="3.205469"/>
 </test>
-<test id="s1-t5" name="Save Document With Special Characters" line="37">
+<test id="s1-t4" name="Save Document With Special Characters" line="28">
 <kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:49.376382" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T11:27:30.095614" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T11:06:49.375888" elapsed="0.702802"/>
+<status status="PASS" start="2025-04-29T11:27:30.095129" elapsed="0.765175"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:50.079386" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<msg time="2025-04-29T11:27:30.861196" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
 <arg>${selectors.header.text_editor_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.078912" elapsed="0.102619"/>
+<status status="PASS" start="2025-04-29T11:27:30.860535" elapsed="0.083752"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${timeouts.page_load}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.181738" elapsed="0.007927"/>
+<status status="PASS" start="2025-04-29T11:27:30.944584" elapsed="0.007953"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T11:06:50.190014" level="INFO">Opened Text Editor</msg>
+<msg time="2025-04-29T11:27:30.952909" level="INFO">Opened Text Editor</msg>
 <arg>Opened Text Editor</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.189863" elapsed="0.000197"/>
+<status status="PASS" start="2025-04-29T11:27:30.952754" elapsed="0.000201"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:49.375643" elapsed="0.814483"/>
+<status status="PASS" start="2025-04-29T11:27:30.094845" elapsed="0.858177"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-29T11:06:50.190413" level="INFO">${special_content} = Content with special chars: !@#$%^&amp;*()_+</msg>
+<msg time="2025-04-29T11:27:30.953500" level="INFO">${special_content} = Content with special chars: !@#$%^&amp;*()_+</msg>
 <var>${special_content}</var>
 <arg>Content with special chars: !@#$%^&amp;*()_+</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.190277" elapsed="0.000162"/>
+<status status="PASS" start="2025-04-29T11:27:30.953305" elapsed="0.000231"/>
 </kw>
 <kw name="Create And Save Document" owner="text_editor_keywords">
 <kw name="Set File Name" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:50.191449" level="INFO">Typing text 'special_chars.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<msg time="2025-04-29T11:27:30.954944" level="INFO">Typing text 'special_chars.txt' into text field 'css=input[type='text']'.</msg>
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${filename}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.191049" elapsed="0.070444"/>
+<status status="PASS" start="2025-04-29T11:27:30.954435" elapsed="0.079879"/>
 </kw>
 <arg>${filename}</arg>
-<status status="PASS" start="2025-04-29T11:06:50.190853" elapsed="0.070763"/>
+<status status="PASS" start="2025-04-29T11:27:30.954132" elapsed="0.080332"/>
 </kw>
 <kw name="Set Content" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:50.262663" level="INFO">Typing text 'Content with special chars: !@#$%^&amp;*()_+' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+<msg time="2025-04-29T11:27:31.035573" level="INFO">Typing text 'Content with special chars: !@#$%^&amp;*()_+' into text field 'css=textarea'.</msg>
 <arg>${selectors.text_editor.content_textarea}</arg>
 <arg>${content}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.262173" elapsed="0.079134"/>
+<status status="PASS" start="2025-04-29T11:27:31.035016" elapsed="0.093388"/>
 </kw>
 <arg>${content}</arg>
-<status status="PASS" start="2025-04-29T11:06:50.261798" elapsed="0.079701"/>
+<status status="PASS" start="2025-04-29T11:27:31.034636" elapsed="0.093903"/>
 </kw>
 <kw name="Save Document" owner="text_editor_keywords">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:50.342836" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
-<msg time="2025-04-29T11:06:50.432951" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T11:06:50.433250" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5dfcd4dbb75a &lt;unknown&gt;
-#1 0x5dfcd486e4b0 &lt;unknown&gt;
-#2 0x5dfcd48750b6 &lt;unknown&gt;
-#3 0x5dfcd4877928 &lt;unknown&gt;
-#4 0x5dfcd48779b3 &lt;unknown&gt;
-#5 0x5dfcd48bf3e5 &lt;unknown&gt;
-#6 0x5dfcd48bfba1 &lt;unknown&gt;
-#7 0x5dfcd490e231 &lt;unknown&gt;
-#8 0x5dfcd48e55bd &lt;unknown&gt;
-#9 0x5dfcd490b5e0 &lt;unknown&gt;
-#10 0x5dfcd48e5363 &lt;unknown&gt;
-#11 0x5dfcd48b1d63 &lt;unknown&gt;
-#12 0x5dfcd48b29c1 &lt;unknown&gt;
-#13 0x5dfcd4d80a6b &lt;unknown&gt;
-#14 0x5dfcd4d84951 &lt;unknown&gt;
-#15 0x5dfcd4d68b62 &lt;unknown&gt;
-#16 0x5dfcd4d854c4 &lt;unknown&gt;
-#17 0x5dfcd4d4d13f &lt;unknown&gt;
-#18 0x5dfcd4da96f8 &lt;unknown&gt;
-#19 0x5dfcd4da98d6 &lt;unknown&gt;
-#20 0x5dfcd4dba5a6 &lt;unknown&gt;
-#21 0x79dd3f694ac3 &lt;unknown&gt;
-</msg>
+<msg time="2025-04-29T11:27:31.129555" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
 <arg>${selectors.text_editor.save_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T11:06:50.342213" elapsed="0.091237">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5dfcd4dbb75a &lt;unknown&gt;
-#1 0x5dfcd486e4b0 &lt;unknown&gt;
-#2 0x5dfcd48750b6 &lt;unknown&gt;
-#3 0x5dfcd4877928 &lt;unknown&gt;
-#4 0x5dfcd48779b3 &lt;unknown&gt;
-#5 0x5dfcd48bf3e5 &lt;unknown&gt;
-#6 0x5dfcd48bfba1 &lt;unknown&gt;
-#7 0x5dfcd490e231 &lt;unknown&gt;
-#8 0x5dfcd48e55bd &lt;unknown&gt;
-#9 0x5dfcd490b5e0 &lt;unknown&gt;
-#10 0x5dfcd48e5363 &lt;unknown&gt;
-#11 0x5dfcd48b1d63 &lt;unknown&gt;
-#12 0x5dfcd48b29c1 &lt;unknown&gt;
-#13 0x5dfcd4d80a6b &lt;unknown&gt;
-#14 0x5dfcd4d84951 &lt;unknown&gt;
-#15 0x5dfcd4d68b62 &lt;unknown&gt;
-#16 0x5dfcd4d854c4 &lt;unknown&gt;
-#17 0x5dfcd4d4d13f &lt;unknown&gt;
-#18 0x5dfcd4da96f8 &lt;unknown&gt;
-#19 0x5dfcd4da98d6 &lt;unknown&gt;
-#20 0x5dfcd4dba5a6 &lt;unknown&gt;
-#21 0x79dd3f694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:31.129102" elapsed="0.053629"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.save_success_message}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:50.433684" elapsed="0.000048"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:33.183249" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:31.182919" elapsed="2.000561"/>
 </kw>
-<status status="FAIL" start="2025-04-29T11:06:50.341792" elapsed="0.092052">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5dfcd4dbb75a &lt;unknown&gt;
-#1 0x5dfcd486e4b0 &lt;unknown&gt;
-#2 0x5dfcd48750b6 &lt;unknown&gt;
-#3 0x5dfcd4877928 &lt;unknown&gt;
-#4 0x5dfcd48779b3 &lt;unknown&gt;
-#5 0x5dfcd48bf3e5 &lt;unknown&gt;
-#6 0x5dfcd48bfba1 &lt;unknown&gt;
-#7 0x5dfcd490e231 &lt;unknown&gt;
-#8 0x5dfcd48e55bd &lt;unknown&gt;
-#9 0x5dfcd490b5e0 &lt;unknown&gt;
-#10 0x5dfcd48e5363 &lt;unknown&gt;
-#11 0x5dfcd48b1d63 &lt;unknown&gt;
-#12 0x5dfcd48b29c1 &lt;unknown&gt;
-#13 0x5dfcd4d80a6b &lt;unknown&gt;
-#14 0x5dfcd4d84951 &lt;unknown&gt;
-#15 0x5dfcd4d68b62 &lt;unknown&gt;
-#16 0x5dfcd4d854c4 &lt;unknown&gt;
-#17 0x5dfcd4d4d13f &lt;unknown&gt;
-#18 0x5dfcd4da96f8 &lt;unknown&gt;
-#19 0x5dfcd4da98d6 &lt;unknown&gt;
-#20 0x5dfcd4dba5a6 &lt;unknown&gt;
-#21 0x79dd3f694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:31.128768" elapsed="2.055061"/>
 </kw>
 <arg>special_chars.txt</arg>
 <arg>${special_content}</arg>
-<status status="FAIL" start="2025-04-29T11:06:50.190587" elapsed="0.243342">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5dfcd4dbb75a &lt;unknown&gt;
-#1 0x5dfcd486e4b0 &lt;unknown&gt;
-#2 0x5dfcd48750b6 &lt;unknown&gt;
-#3 0x5dfcd4877928 &lt;unknown&gt;
-#4 0x5dfcd48779b3 &lt;unknown&gt;
-#5 0x5dfcd48bf3e5 &lt;unknown&gt;
-#6 0x5dfcd48bfba1 &lt;unknown&gt;
-#7 0x5dfcd490e231 &lt;unknown&gt;
-#8 0x5dfcd48e55bd &lt;unknown&gt;
-#9 0x5dfcd490b5e0 &lt;unknown&gt;
-#10 0x5dfcd48e5363 &lt;unknown&gt;
-#11 0x5dfcd48b1d63 &lt;unknown&gt;
-#12 0x5dfcd48b29c1 &lt;unknown&gt;
-#13 0x5dfcd4d80a6b &lt;unknown&gt;
-#14 0x5dfcd4d84951 &lt;unknown&gt;
-#15 0x5dfcd4d68b62 &lt;unknown&gt;
-#16 0x5dfcd4d854c4 &lt;unknown&gt;
-#17 0x5dfcd4d4d13f &lt;unknown&gt;
-#18 0x5dfcd4da96f8 &lt;unknown&gt;
-#19 0x5dfcd4da98d6 &lt;unknown&gt;
-#20 0x5dfcd4dba5a6 &lt;unknown&gt;
-#21 0x79dd3f694ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Verify Document Is Saved" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:50.434147" elapsed="0.000032"/>
+<status status="PASS" start="2025-04-29T11:27:30.953767" elapsed="2.230200"/>
 </kw>
 <kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:33.207278" level="INFO">${content} = Content with special chars: !@#$%^&amp;*()_+</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:33.185915" elapsed="0.021414"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:33.207415" elapsed="0.000052"/>
+</return>
+<msg time="2025-04-29T11:27:33.207599" level="INFO">${actual} = Content with special chars: !@#$%^&amp;*()_+</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:33.185356" elapsed="0.022268"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:33.207764" elapsed="0.000242"/>
+</kw>
 <arg>${special_content}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:50.434304" elapsed="0.000024"/>
+<status status="PASS" start="2025-04-29T11:27:33.184489" elapsed="0.023587"/>
 </kw>
 <kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.434773" elapsed="0.055714"/>
+<status status="PASS" start="2025-04-29T11:27:33.208643" elapsed="0.057853"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:50.434546" elapsed="0.056062"/>
+<status status="PASS" start="2025-04-29T11:27:33.208386" elapsed="0.058276"/>
 </kw>
 <doc>Test saving document with special characters</doc>
-<status status="FAIL" start="2025-04-29T11:06:49.375278" elapsed="1.115418">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5dfcd4dbb75a &lt;unknown&gt;
-#1 0x5dfcd486e4b0 &lt;unknown&gt;
-#2 0x5dfcd48750b6 &lt;unknown&gt;
-#3 0x5dfcd4877928 &lt;unknown&gt;
-#4 0x5dfcd48779b3 &lt;unknown&gt;
-#5 0x5dfcd48bf3e5 &lt;unknown&gt;
-#6 0x5dfcd48bfba1 &lt;unknown&gt;
-#7 0x5dfcd490e231 &lt;unknown&gt;
-#8 0x5dfcd48e55bd &lt;unknown&gt;
-#9 0x5dfcd490b5e0 &lt;unknown&gt;
-#10 0x5dfcd48e5363 &lt;unknown&gt;
-#11 0x5dfcd48b1d63 &lt;unknown&gt;
-#12 0x5dfcd48b29c1 &lt;unknown&gt;
-#13 0x5dfcd4d80a6b &lt;unknown&gt;
-#14 0x5dfcd4d84951 &lt;unknown&gt;
-#15 0x5dfcd4d68b62 &lt;unknown&gt;
-#16 0x5dfcd4d854c4 &lt;unknown&gt;
-#17 0x5dfcd4d4d13f &lt;unknown&gt;
-#18 0x5dfcd4da96f8 &lt;unknown&gt;
-#19 0x5dfcd4da98d6 &lt;unknown&gt;
-#20 0x5dfcd4dba5a6 &lt;unknown&gt;
-#21 0x79dd3f694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:30.094232" elapsed="3.172558"/>
 </test>
-<test id="s1-t6" name="Save Document With Long Content" line="44">
+<test id="s1-t5" name="Save Document With Long Content" line="34">
 <kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:50.492025" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T11:27:33.269087" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T11:06:50.491578" elapsed="0.737561"/>
+<status status="PASS" start="2025-04-29T11:27:33.268032" elapsed="0.815819"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:51.229798" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<msg time="2025-04-29T11:27:34.085971" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
 <arg>${selectors.header.text_editor_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.229334" elapsed="0.103989"/>
+<status status="PASS" start="2025-04-29T11:27:34.085141" elapsed="0.172642"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${timeouts.page_load}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.333629" elapsed="0.007767"/>
+<status status="PASS" start="2025-04-29T11:27:34.257982" elapsed="0.009222"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T11:06:51.341748" level="INFO">Opened Text Editor</msg>
+<msg time="2025-04-29T11:27:34.267700" level="INFO">Opened Text Editor</msg>
 <arg>Opened Text Editor</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.341588" elapsed="0.000209"/>
+<status status="PASS" start="2025-04-29T11:27:34.267471" elapsed="0.000302"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:50.491334" elapsed="0.850530"/>
+<status status="PASS" start="2025-04-29T11:27:33.267669" elapsed="1.000198"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-04-29T11:06:51.342180" level="INFO">${long_content} = This is a very long content that spans multiple lines.
+<msg time="2025-04-29T11:27:34.268262" level="INFO">${long_content} = This is a very long content that spans multiple lines.
 Line 2
 Line 3
 Line 4
@@ -1130,307 +552,1707 @@ Line 5</msg>
 <var>${long_content}</var>
 <arg>This is a very long content that spans multiple lines.\nLine 2\nLine 3\nLine 4\nLine 5</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.342016" elapsed="0.000191"/>
+<status status="PASS" start="2025-04-29T11:27:34.268065" elapsed="0.000262"/>
 </kw>
 <kw name="Create And Save Document" owner="text_editor_keywords">
 <kw name="Set File Name" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:51.343242" level="INFO">Typing text 'long_content.txt' into text field 'css=input[placeholder='Enter file name']'.</msg>
+<msg time="2025-04-29T11:27:34.269567" level="INFO">Typing text 'long_content.txt' into text field 'css=input[type='text']'.</msg>
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${filename}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.342853" elapsed="0.075777"/>
+<status status="PASS" start="2025-04-29T11:27:34.269166" elapsed="0.077027"/>
 </kw>
 <arg>${filename}</arg>
-<status status="PASS" start="2025-04-29T11:06:51.342641" elapsed="0.076157"/>
+<status status="PASS" start="2025-04-29T11:27:34.268952" elapsed="0.077469"/>
 </kw>
 <kw name="Set Content" owner="text_editor_keywords">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:51.419745" level="INFO">Typing text 'This is a very long content that spans multiple lines.
+<msg time="2025-04-29T11:27:34.347893" level="INFO">Typing text 'This is a very long content that spans multiple lines.
 Line 2
 Line 3
 Line 4
-Line 5' into text field 'css=textarea[placeholder='Start typing...']'.</msg>
+Line 5' into text field 'css=textarea'.</msg>
 <arg>${selectors.text_editor.content_textarea}</arg>
 <arg>${content}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.419305" elapsed="0.139630"/>
+<status status="PASS" start="2025-04-29T11:27:34.347211" elapsed="0.128069"/>
 </kw>
 <arg>${content}</arg>
-<status status="PASS" start="2025-04-29T11:06:51.418990" elapsed="0.140163"/>
+<status status="PASS" start="2025-04-29T11:27:34.346712" elapsed="0.128706"/>
 </kw>
 <kw name="Save Document" owner="text_editor_keywords">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:51.560078" level="INFO">Clicking button 'css=button:contains('Save')'.</msg>
-<msg time="2025-04-29T11:06:51.620502" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T11:06:51.620834" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x61191c70f75a &lt;unknown&gt;
-#1 0x61191c1c24b0 &lt;unknown&gt;
-#2 0x61191c1c90b6 &lt;unknown&gt;
-#3 0x61191c1cb928 &lt;unknown&gt;
-#4 0x61191c1cb9b3 &lt;unknown&gt;
-#5 0x61191c2133e5 &lt;unknown&gt;
-#6 0x61191c213ba1 &lt;unknown&gt;
-#7 0x61191c262231 &lt;unknown&gt;
-#8 0x61191c2395bd &lt;unknown&gt;
-#9 0x61191c25f5e0 &lt;unknown&gt;
-#10 0x61191c239363 &lt;unknown&gt;
-#11 0x61191c205d63 &lt;unknown&gt;
-#12 0x61191c2069c1 &lt;unknown&gt;
-#13 0x61191c6d4a6b &lt;unknown&gt;
-#14 0x61191c6d8951 &lt;unknown&gt;
-#15 0x61191c6bcb62 &lt;unknown&gt;
-#16 0x61191c6d94c4 &lt;unknown&gt;
-#17 0x61191c6a113f &lt;unknown&gt;
-#18 0x61191c6fd6f8 &lt;unknown&gt;
-#19 0x61191c6fd8d6 &lt;unknown&gt;
-#20 0x61191c70e5a6 &lt;unknown&gt;
-#21 0x744f74694ac3 &lt;unknown&gt;
-</msg>
+<msg time="2025-04-29T11:27:34.476344" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
 <arg>${selectors.text_editor.save_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T11:06:51.559645" elapsed="0.061446">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x61191c70f75a &lt;unknown&gt;
-#1 0x61191c1c24b0 &lt;unknown&gt;
-#2 0x61191c1c90b6 &lt;unknown&gt;
-#3 0x61191c1cb928 &lt;unknown&gt;
-#4 0x61191c1cb9b3 &lt;unknown&gt;
-#5 0x61191c2133e5 &lt;unknown&gt;
-#6 0x61191c213ba1 &lt;unknown&gt;
-#7 0x61191c262231 &lt;unknown&gt;
-#8 0x61191c2395bd &lt;unknown&gt;
-#9 0x61191c25f5e0 &lt;unknown&gt;
-#10 0x61191c239363 &lt;unknown&gt;
-#11 0x61191c205d63 &lt;unknown&gt;
-#12 0x61191c2069c1 &lt;unknown&gt;
-#13 0x61191c6d4a6b &lt;unknown&gt;
-#14 0x61191c6d8951 &lt;unknown&gt;
-#15 0x61191c6bcb62 &lt;unknown&gt;
-#16 0x61191c6d94c4 &lt;unknown&gt;
-#17 0x61191c6a113f &lt;unknown&gt;
-#18 0x61191c6fd6f8 &lt;unknown&gt;
-#19 0x61191c6fd8d6 &lt;unknown&gt;
-#20 0x61191c70e5a6 &lt;unknown&gt;
-#21 0x744f74694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:34.475881" elapsed="0.062382"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.text_editor.save_success_message}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:51.621341" elapsed="0.000039"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:36.538975" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:34.538552" elapsed="2.000656"/>
 </kw>
-<status status="FAIL" start="2025-04-29T11:06:51.559365" elapsed="0.062151">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x61191c70f75a &lt;unknown&gt;
-#1 0x61191c1c24b0 &lt;unknown&gt;
-#2 0x61191c1c90b6 &lt;unknown&gt;
-#3 0x61191c1cb928 &lt;unknown&gt;
-#4 0x61191c1cb9b3 &lt;unknown&gt;
-#5 0x61191c2133e5 &lt;unknown&gt;
-#6 0x61191c213ba1 &lt;unknown&gt;
-#7 0x61191c262231 &lt;unknown&gt;
-#8 0x61191c2395bd &lt;unknown&gt;
-#9 0x61191c25f5e0 &lt;unknown&gt;
-#10 0x61191c239363 &lt;unknown&gt;
-#11 0x61191c205d63 &lt;unknown&gt;
-#12 0x61191c2069c1 &lt;unknown&gt;
-#13 0x61191c6d4a6b &lt;unknown&gt;
-#14 0x61191c6d8951 &lt;unknown&gt;
-#15 0x61191c6bcb62 &lt;unknown&gt;
-#16 0x61191c6d94c4 &lt;unknown&gt;
-#17 0x61191c6a113f &lt;unknown&gt;
-#18 0x61191c6fd6f8 &lt;unknown&gt;
-#19 0x61191c6fd8d6 &lt;unknown&gt;
-#20 0x61191c70e5a6 &lt;unknown&gt;
-#21 0x744f74694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:34.475601" elapsed="2.063821"/>
 </kw>
 <arg>long_content.txt</arg>
 <arg>${long_content}</arg>
-<status status="FAIL" start="2025-04-29T11:06:51.342374" elapsed="0.279237">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x61191c70f75a &lt;unknown&gt;
-#1 0x61191c1c24b0 &lt;unknown&gt;
-#2 0x61191c1c90b6 &lt;unknown&gt;
-#3 0x61191c1cb928 &lt;unknown&gt;
-#4 0x61191c1cb9b3 &lt;unknown&gt;
-#5 0x61191c2133e5 &lt;unknown&gt;
-#6 0x61191c213ba1 &lt;unknown&gt;
-#7 0x61191c262231 &lt;unknown&gt;
-#8 0x61191c2395bd &lt;unknown&gt;
-#9 0x61191c25f5e0 &lt;unknown&gt;
-#10 0x61191c239363 &lt;unknown&gt;
-#11 0x61191c205d63 &lt;unknown&gt;
-#12 0x61191c2069c1 &lt;unknown&gt;
-#13 0x61191c6d4a6b &lt;unknown&gt;
-#14 0x61191c6d8951 &lt;unknown&gt;
-#15 0x61191c6bcb62 &lt;unknown&gt;
-#16 0x61191c6d94c4 &lt;unknown&gt;
-#17 0x61191c6a113f &lt;unknown&gt;
-#18 0x61191c6fd6f8 &lt;unknown&gt;
-#19 0x61191c6fd8d6 &lt;unknown&gt;
-#20 0x61191c70e5a6 &lt;unknown&gt;
-#21 0x744f74694ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Verify Document Is Saved" owner="text_editor_keywords">
-<status status="NOT RUN" start="2025-04-29T11:06:51.621834" elapsed="0.000035"/>
+<status status="PASS" start="2025-04-29T11:27:34.268620" elapsed="2.270934"/>
 </kw>
 <kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:36.559589" level="INFO">${content} = This is a very long content that spans multiple lines.
+Line 2
+Line 3
+Line 4
+Line 5</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:36.541324" elapsed="0.018314"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:36.559730" elapsed="0.000054"/>
+</return>
+<msg time="2025-04-29T11:27:36.559926" level="INFO">${actual} = This is a very long content that spans multiple lines.
+Line 2
+Line 3
+Line 4
+Line 5</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:36.540826" elapsed="0.019124"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:36.560096" elapsed="0.000242"/>
+</kw>
 <arg>${long_content}</arg>
-<status status="NOT RUN" start="2025-04-29T11:06:51.621985" elapsed="0.000023"/>
+<status status="PASS" start="2025-04-29T11:27:36.540033" elapsed="0.020406"/>
 </kw>
 <kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.622445" elapsed="0.055868"/>
+<status status="PASS" start="2025-04-29T11:27:36.561178" elapsed="0.059209"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:51.622219" elapsed="0.056221"/>
+<status status="PASS" start="2025-04-29T11:27:36.560803" elapsed="0.059719"/>
 </kw>
 <doc>Test saving document with long content</doc>
-<status status="FAIL" start="2025-04-29T11:06:50.490976" elapsed="1.187555">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x61191c70f75a &lt;unknown&gt;
-#1 0x61191c1c24b0 &lt;unknown&gt;
-#2 0x61191c1c90b6 &lt;unknown&gt;
-#3 0x61191c1cb928 &lt;unknown&gt;
-#4 0x61191c1cb9b3 &lt;unknown&gt;
-#5 0x61191c2133e5 &lt;unknown&gt;
-#6 0x61191c213ba1 &lt;unknown&gt;
-#7 0x61191c262231 &lt;unknown&gt;
-#8 0x61191c2395bd &lt;unknown&gt;
-#9 0x61191c25f5e0 &lt;unknown&gt;
-#10 0x61191c239363 &lt;unknown&gt;
-#11 0x61191c205d63 &lt;unknown&gt;
-#12 0x61191c2069c1 &lt;unknown&gt;
-#13 0x61191c6d4a6b &lt;unknown&gt;
-#14 0x61191c6d8951 &lt;unknown&gt;
-#15 0x61191c6bcb62 &lt;unknown&gt;
-#16 0x61191c6d94c4 &lt;unknown&gt;
-#17 0x61191c6a113f &lt;unknown&gt;
-#18 0x61191c6fd6f8 &lt;unknown&gt;
-#19 0x61191c6fd8d6 &lt;unknown&gt;
-#20 0x61191c70e5a6 &lt;unknown&gt;
-#21 0x744f74694ac3 &lt;unknown&gt;
-</status>
+<status status="PASS" start="2025-04-29T11:27:33.267124" elapsed="3.353525"/>
 </test>
-<test id="s1-t7" name="Save Document With Empty Content" line="51">
+<test id="s1-t6" name="Save Document With Empty Content" line="40">
 <kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T11:06:51.679846" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
-<msg time="2025-04-29T11:06:51.803937" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-29T11:27:36.622015" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="FAIL" start="2025-04-29T11:06:51.679416" elapsed="0.124663">Execution terminated by signal</status>
+<status status="PASS" start="2025-04-29T11:27:36.621563" elapsed="0.759532"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:37.382050" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
 <arg>${selectors.header.text_editor_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:51.804363" elapsed="0.000057"/>
+<status status="PASS" start="2025-04-29T11:27:37.381343" elapsed="0.117992"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${selectors.text_editor.filename_input}</arg>
 <arg>${timeouts.page_load}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:51.804564" elapsed="0.000035"/>
+<status status="PASS" start="2025-04-29T11:27:37.499799" elapsed="0.007682"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:37.507828" level="INFO">Opened Text Editor</msg>
 <arg>Opened Text Editor</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-04-29T11:06:51.804891" elapsed="0.000051"/>
+<status status="PASS" start="2025-04-29T11:27:37.507670" elapsed="0.000205"/>
 </kw>
-<status status="FAIL" start="2025-04-29T11:06:51.679163" elapsed="0.125925">Execution terminated by signal</status>
+<status status="PASS" start="2025-04-29T11:27:36.621306" elapsed="0.886635"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:37.509293" level="INFO">Typing text 'empty_content.txt' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:37.508916" elapsed="0.094657"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:37.508685" elapsed="0.095045"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:37.604618" level="INFO">Typing text '' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:37.604201" elapsed="0.046402"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:37.603901" elapsed="0.046893"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:37.652143" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:37.651472" elapsed="0.053377"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:39.705653" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:37.705278" elapsed="2.000526"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:37.651076" elapsed="2.054848"/>
+</kw>
+<arg>empty_content.txt</arg>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2025-04-29T11:27:37.508167" elapsed="2.197817"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:39.717172" level="INFO">${content} = </msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:39.707045" elapsed="0.010180"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:39.717312" elapsed="0.000055"/>
+</return>
+<msg time="2025-04-29T11:27:39.717506" level="INFO">${actual} = </msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:39.706841" elapsed="0.010690"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:39.717658" elapsed="0.000226"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2025-04-29T11:27:39.706240" elapsed="0.011712"/>
 </kw>
 <kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T11:06:51.805894" elapsed="0.000177"/>
+<status status="PASS" start="2025-04-29T11:27:39.718399" elapsed="0.055570"/>
 </kw>
-<status status="PASS" start="2025-04-29T11:06:51.805505" elapsed="0.000648"/>
+<status status="PASS" start="2025-04-29T11:27:39.718182" elapsed="0.055908"/>
 </kw>
 <doc>Test saving document with empty content</doc>
-<status status="FAIL" start="2025-04-29T11:06:51.678805" elapsed="0.127450">Setup failed:
-Execution terminated by signal</status>
+<status status="PASS" start="2025-04-29T11:27:36.620929" elapsed="3.153246"/>
 </test>
-<test id="s1-t8" name="Save Document With Whitespace" line="57">
+<test id="s1-t7" name="Save Document With Whitespace" line="45">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:39.775547" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:27:39.775132" elapsed="0.730265"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:40.506110" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.505593" elapsed="0.103316"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.609103" elapsed="0.009037"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:40.618517" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.618351" elapsed="0.000218"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:39.774854" elapsed="0.843785"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:27:40.618952" level="INFO">${whitespace_content} = Content with multiple spaces</msg>
+<var>${whitespace_content}</var>
+<arg>Content with multiple spaces</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.618805" elapsed="0.000174"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:40.620031" level="INFO">Typing text 'whitespace.txt' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.619628" elapsed="0.074673"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:40.619415" elapsed="0.075011"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:40.695829" level="INFO">Typing text 'Content with multiple spaces' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.695093" elapsed="0.076465"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:40.694603" elapsed="0.077099"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:40.772548" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.772146" elapsed="0.052130"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:42.824775" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:40.824466" elapsed="2.000475"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:40.771890" elapsed="2.053315"/>
+</kw>
+<arg>whitespace.txt</arg>
+<arg>${whitespace_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:40.619142" elapsed="2.206158"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:42.835870" level="INFO">${content} = Content with multiple spaces</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:42.826239" elapsed="0.009681"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:42.836002" elapsed="0.000052"/>
+</return>
+<msg time="2025-04-29T11:27:42.836183" level="INFO">${actual} = Content with multiple spaces</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:42.826018" elapsed="0.010188"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:42.836330" elapsed="0.000195"/>
+</kw>
+<arg>${whitespace_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:42.825608" elapsed="0.010980"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:27:42.837056" elapsed="0.056849"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:42.836826" elapsed="0.057292"/>
+</kw>
 <doc>Test saving document with whitespace</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.806550" elapsed="0.000460">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:27:39.774404" elapsed="3.119818"/>
 </test>
-<test id="s1-t9" name="Save Document With Line Breaks" line="64">
+<test id="s1-t8" name="Save Document With Line Breaks" line="51">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:42.895927" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:27:42.895431" elapsed="0.729393"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:43.625781" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.625135" elapsed="0.113386"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.738727" elapsed="0.009172"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:43.748243" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.748092" elapsed="0.000197"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:42.895151" elapsed="0.853206"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:27:43.748663" level="INFO">${line_break_content} = First line
+Second line
+Third line</msg>
+<var>${line_break_content}</var>
+<arg>First line\nSecond line\nThird line</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.748514" elapsed="0.000176"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:43.749737" level="INFO">Typing text 'line_breaks.txt' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.749334" elapsed="0.082689"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:43.749128" elapsed="0.083050"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:43.833347" level="INFO">Typing text 'First line
+Second line
+Third line' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.832860" elapsed="0.089745"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:43.832368" elapsed="0.090385"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:43.923802" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.923232" elapsed="0.053615"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:45.977538" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:43.977065" elapsed="2.000615"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:43.922934" elapsed="2.054866"/>
+</kw>
+<arg>line_breaks.txt</arg>
+<arg>${line_break_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:43.748856" elapsed="2.228996"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:45.988852" level="INFO">${content} = First line
+Second line
+Third line</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:45.978640" elapsed="0.010271"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:45.989020" elapsed="0.000063"/>
+</return>
+<msg time="2025-04-29T11:27:45.989251" level="INFO">${actual} = First line
+Second line
+Third line</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:45.978456" elapsed="0.010819"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:45.989415" elapsed="0.000243"/>
+</kw>
+<arg>${line_break_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:45.978101" elapsed="0.011630"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:27:45.990270" elapsed="0.055797"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:45.990015" elapsed="0.056221"/>
+</kw>
 <doc>Test saving document with line breaks</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.807263" elapsed="0.000320">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:27:42.894567" elapsed="3.151790"/>
 </test>
-<test id="s1-t10" name="Save Document With Unicode Characters" line="71">
+<test id="s1-t9" name="Save Document With Unicode Characters" line="57">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:46.047860" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:27:46.047419" elapsed="0.741987"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:46.790489" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:46.789690" elapsed="0.110810"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:27:46.900694" elapsed="0.007462"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:46.908565" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:27:46.908350" elapsed="0.000273"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:46.047137" elapsed="0.861568"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:27:46.909100" level="INFO">${unicode_content} = Unicode characters: éèêëñüß</msg>
+<var>${unicode_content}</var>
+<arg>Unicode characters: éèêëñüß</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:27:46.908903" elapsed="0.000236"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:46.910399" level="INFO">Typing text 'unicode.txt' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:46.909929" elapsed="0.078411"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:46.909619" elapsed="0.078859"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:46.989426" level="INFO">Typing text 'Unicode characters: éèêëñüß' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:46.988991" elapsed="0.078577"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:46.988650" elapsed="0.079135"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:47.068920" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:47.068377" elapsed="0.050328"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:49.119245" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:47.118925" elapsed="2.000453"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:47.068065" elapsed="2.051417"/>
+</kw>
+<arg>unicode.txt</arg>
+<arg>${unicode_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:46.909327" elapsed="2.210206"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:49.130718" level="INFO">${content} = Unicode characters: éèêëñüß</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:49.120272" elapsed="0.010522"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:49.130919" elapsed="0.000079"/>
+</return>
+<msg time="2025-04-29T11:27:49.131181" level="INFO">${actual} = Unicode characters: éèêëñüß</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:49.120092" elapsed="0.011115"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:49.131336" elapsed="0.000222"/>
+</kw>
+<arg>${unicode_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:49.119766" elapsed="0.011856"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:27:49.132196" elapsed="0.055453"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:49.131881" elapsed="0.055904"/>
+</kw>
 <doc>Test saving document with unicode characters</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.807799" elapsed="0.000256">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:27:46.046665" elapsed="3.141212"/>
 </test>
-<test id="s1-t11" name="Save Document With HTML Content" line="78">
+<test id="s1-t10" name="Save Document With HTML Content" line="63">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:49.189166" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:27:49.188733" elapsed="0.697818"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:49.887335" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:49.886791" elapsed="0.110964"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:27:49.997954" elapsed="0.007897"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:50.006240" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:27:50.006063" elapsed="0.000229"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:49.188473" elapsed="0.817897"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:27:50.006700" level="INFO">${html_content} = &lt;html&gt;&lt;body&gt;&lt;h1&gt;Test&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</msg>
+<var>${html_content}</var>
+<arg>&lt;html&gt;&lt;body&gt;&lt;h1&gt;Test&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:27:50.006544" elapsed="0.000195"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:50.007900" level="INFO">Typing text 'html.txt' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:50.007464" elapsed="0.072814"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:50.007236" elapsed="0.073249"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:50.081942" level="INFO">Typing text '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Test&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:50.081260" elapsed="0.102071"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:50.080757" elapsed="0.102718"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:50.184347" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:50.183936" elapsed="0.062249"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:52.246799" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:50.246411" elapsed="2.000595"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:50.183652" elapsed="2.063547"/>
+</kw>
+<arg>html.txt</arg>
+<arg>${html_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:50.006953" elapsed="2.240345"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:52.262623" level="INFO">${content} = &lt;html&gt;&lt;body&gt;&lt;h1&gt;Test&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:52.249094" elapsed="0.013654"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:52.262957" elapsed="0.000118"/>
+</return>
+<msg time="2025-04-29T11:27:52.263384" level="INFO">${actual} = &lt;html&gt;&lt;body&gt;&lt;h1&gt;Test&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:52.248623" elapsed="0.014820"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:52.263711" elapsed="0.000471"/>
+</kw>
+<arg>${html_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:52.247776" elapsed="0.016546"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:27:52.265261" elapsed="0.055905"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:52.264787" elapsed="0.056503"/>
+</kw>
 <doc>Test saving document with HTML content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.808193" elapsed="0.000225">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:27:49.188122" elapsed="3.133252"/>
 </test>
-<test id="s1-t12" name="Save Document With JavaScript Content" line="85">
+<test id="s1-t11" name="Save Document With JavaScript Content" line="69">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:52.322652" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:27:52.322233" elapsed="0.685747"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:53.008744" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.008189" elapsed="0.120115"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.128525" elapsed="0.008665"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:53.137554" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.137391" elapsed="0.000212"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:52.321984" elapsed="0.815689"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:27:53.138005" level="INFO">${js_content} = function test() { console.log('test'); }</msg>
+<var>${js_content}</var>
+<arg>function test() { console.log('test'); }</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.137851" elapsed="0.000181"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:53.139114" level="INFO">Typing text 'script.js' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.138705" elapsed="0.073227"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:53.138484" elapsed="0.073589"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:53.213071" level="INFO">Typing text 'function test() { console.log('test'); }' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.212588" elapsed="0.100550"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:53.212246" elapsed="0.101116"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:53.314807" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.313903" elapsed="0.059421"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:55.373831" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:53.373547" elapsed="2.000412"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:53.313593" elapsed="2.060467"/>
+</kw>
+<arg>script.js</arg>
+<arg>${js_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:53.138202" elapsed="2.235907"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:55.385839" level="INFO">${content} = function test() { console.log('test'); }</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:55.374849" elapsed="0.011048"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:55.385987" elapsed="0.000058"/>
+</return>
+<msg time="2025-04-29T11:27:55.386191" level="INFO">${actual} = function test() { console.log('test'); }</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:55.374644" elapsed="0.011575"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:55.386354" elapsed="0.000215"/>
+</kw>
+<arg>${js_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:55.374325" elapsed="0.012378"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:27:55.387261" elapsed="0.055393"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:55.387016" elapsed="0.055807"/>
+</kw>
 <doc>Test saving document with JavaScript content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.808552" elapsed="0.000232">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:27:52.321596" elapsed="3.121383"/>
 </test>
-<test id="s1-t13" name="Save Document With SQL Content" line="92">
+<test id="s1-t12" name="Save Document With SQL Content" line="75">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:55.445024" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:27:55.444283" elapsed="0.747762"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:56.192704" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.192242" elapsed="0.104393"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.296884" elapsed="0.008003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:56.305222" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.305076" elapsed="0.000190"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:55.443816" elapsed="0.861513"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:27:56.305634" level="INFO">${sql_content} = SELECT * FROM users WHERE id = 1;</msg>
+<var>${sql_content}</var>
+<arg>SELECT * FROM users WHERE id = 1;</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.305488" elapsed="0.000170"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:56.306641" level="INFO">Typing text 'query.sql' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.306264" elapsed="0.082132"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:56.306071" elapsed="0.082452"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:56.389424" level="INFO">Typing text 'SELECT * FROM users WHERE id = 1;' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.389005" elapsed="0.094870"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:56.388687" elapsed="0.095318"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:56.484859" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.484437" elapsed="0.049971"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:27:58.534953" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:56.534641" elapsed="2.000435"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:56.484180" elapsed="2.050999"/>
+</kw>
+<arg>query.sql</arg>
+<arg>${sql_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:56.305817" elapsed="2.229412"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:58.545417" level="INFO">${content} = SELECT * FROM users WHERE id = 1;</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:58.535981" elapsed="0.009486"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:27:58.545554" elapsed="0.000055"/>
+</return>
+<msg time="2025-04-29T11:27:58.545788" level="INFO">${actual} = SELECT * FROM users WHERE id = 1;</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:27:58.535788" elapsed="0.010031"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:27:58.546014" elapsed="0.000284"/>
+</kw>
+<arg>${sql_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:58.535445" elapsed="0.010942"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:27:58.546996" elapsed="0.056061"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:58.546657" elapsed="0.056542"/>
+</kw>
 <doc>Test saving document with SQL content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.808914" elapsed="0.000224">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:27:55.443304" elapsed="3.159992"/>
 </test>
-<test id="s1-t14" name="Save Document With Markdown Content" line="99">
+<test id="s1-t13" name="Save Document With Markdown Content" line="81">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:58.604690" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:27:58.604267" elapsed="0.802274"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:59.407217" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.406757" elapsed="0.116691"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.523646" elapsed="0.008972"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:27:59.532989" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.532832" elapsed="0.000205"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:58.604003" elapsed="0.929102"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:27:59.533393" level="INFO">${markdown_content} = </msg>
+<var>${markdown_content}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.533260" elapsed="0.000157"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:59.534559" level="INFO">Typing text 'markdown.md' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.534167" elapsed="0.087407"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:27:59.533955" elapsed="0.087778"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:59.622650" level="INFO">Typing text '' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.622239" elapsed="0.040110"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:27:59.621935" elapsed="0.040613"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:27:59.664431" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.663529" elapsed="0.055556"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:01.719773" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:27:59.719387" elapsed="2.000515"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:27:59.662927" elapsed="2.057080"/>
+</kw>
+<arg>markdown.md</arg>
+<arg>${markdown_content}</arg>
+<status status="PASS" start="2025-04-29T11:27:59.533649" elapsed="2.186410"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:01.731370" level="INFO">${content} = </msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:01.720826" elapsed="0.010621"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:01.731588" elapsed="0.000082"/>
+</return>
+<msg time="2025-04-29T11:28:01.731901" level="INFO">${actual} = </msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:01.720624" elapsed="0.011316"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:01.732192" elapsed="0.000396"/>
+</kw>
+<arg>${markdown_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:01.720295" elapsed="0.012395"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:28:01.733397" elapsed="0.057449"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:01.733049" elapsed="0.057920"/>
+</kw>
 <doc>Test saving document with Markdown content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.809269" elapsed="0.000240">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:27:58.603574" elapsed="3.187482"/>
 </test>
-<test id="s1-t15" name="Save Document With JSON Content" line="106">
+<test id="s1-t14" name="Save Document With JSON Content" line="87">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:01.792350" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:28:01.791926" elapsed="0.715933"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:02.508625" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.508067" elapsed="0.105418"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.613729" elapsed="0.008107"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:28:02.622182" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.622034" elapsed="0.000194"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:01.791675" elapsed="0.830619"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:28:02.622585" level="INFO">${json_content} = {"name": "test", "value": 123}</msg>
+<var>${json_content}</var>
+<arg>{"name": "test", "value": 123}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.622450" elapsed="0.000161"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:02.623605" level="INFO">Typing text 'data.json' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.623221" elapsed="0.074945"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:28:02.623022" elapsed="0.075272"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:02.699246" level="INFO">Typing text '{"name": "test", "value": 123}' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.698797" elapsed="0.079705"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:28:02.698461" elapsed="0.080234"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:02.779602" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.779191" elapsed="0.054770"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:04.834781" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:28:02.834388" elapsed="2.000542"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:02.778914" elapsed="2.056135"/>
+</kw>
+<arg>data.json</arg>
+<arg>${json_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:02.622764" elapsed="2.212337"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:04.845313" level="INFO">${content} = {"name": "test", "value": 123}</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:04.835955" elapsed="0.009409"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:04.845531" elapsed="0.000078"/>
+</return>
+<msg time="2025-04-29T11:28:04.845868" level="INFO">${actual} = {"name": "test", "value": 123}</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:04.835755" elapsed="0.010147"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:04.846059" elapsed="0.000240"/>
+</kw>
+<arg>${json_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:04.835349" elapsed="0.011019"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:28:04.846960" elapsed="0.057431"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:04.846678" elapsed="0.058486"/>
+</kw>
 <doc>Test saving document with JSON content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.809639" elapsed="0.000227">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:28:01.791282" elapsed="3.114072"/>
 </test>
-<test id="s1-t16" name="Save Document With XML Content" line="113">
+<test id="s1-t15" name="Save Document With XML Content" line="93">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:04.907563" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:28:04.906913" elapsed="0.703974"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:05.612143" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.611225" elapsed="0.102348"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.713803" elapsed="0.007729"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:28:05.721887" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.721734" elapsed="0.000201"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:04.906502" elapsed="0.815502"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:28:05.722314" level="INFO">${xml_content} = &lt;config&gt;&lt;setting&gt;value&lt;/setting&gt;&lt;/config&gt;</msg>
+<var>${xml_content}</var>
+<arg>&lt;config&gt;&lt;setting&gt;value&lt;/setting&gt;&lt;/config&gt;</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.722167" elapsed="0.000176"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:05.723731" level="INFO">Typing text 'config.xml' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.723229" elapsed="0.074475"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:28:05.722891" elapsed="0.075138"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:05.799478" level="INFO">Typing text '&lt;config&gt;&lt;setting&gt;value&lt;/setting&gt;&lt;/config&gt;' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.798984" elapsed="0.089598"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:28:05.798549" elapsed="0.090192"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:05.889843" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.889380" elapsed="0.053067"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:07.943165" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:28:05.942650" elapsed="2.000758"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:05.888988" elapsed="2.054641"/>
+</kw>
+<arg>config.xml</arg>
+<arg>${xml_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:05.722509" elapsed="2.221278"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:07.965444" level="INFO">${content} = &lt;config&gt;&lt;setting&gt;value&lt;/setting&gt;&lt;/config&gt;</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:07.945819" elapsed="0.019680"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:07.965589" elapsed="0.000057"/>
+</return>
+<msg time="2025-04-29T11:28:07.965791" level="INFO">${actual} = &lt;config&gt;&lt;setting&gt;value&lt;/setting&gt;&lt;/config&gt;</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:07.945190" elapsed="0.020627"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:07.965943" elapsed="0.000195"/>
+</kw>
+<arg>${xml_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:07.944266" elapsed="0.021934"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:28:07.966636" elapsed="0.055475"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:07.966421" elapsed="0.055819"/>
+</kw>
 <doc>Test saving document with XML content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.809996" elapsed="0.000212">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:28:04.905818" elapsed="3.116517"/>
 </test>
-<test id="s1-t17" name="Save Document With YAML Content" line="120">
+<test id="s1-t16" name="Save Document With YAML Content" line="99">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:08.023810" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:28:08.023346" elapsed="0.698591"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:08.723329" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:08.722445" elapsed="0.097285"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:28:08.819922" elapsed="0.007787"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:28:08.828428" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:28:08.828137" elapsed="0.000369"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:08.023023" elapsed="0.805594"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-04-29T11:28:08.829078" level="INFO">${yaml_content} = key: value
+list:
+- item1
+- item2</msg>
+<var>${yaml_content}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>key: value</arg>
+<arg>list:</arg>
+<arg>- item1</arg>
+<arg>- item2</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-04-29T11:28:08.828847" elapsed="0.000260"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:08.830423" level="INFO">Typing text 'config.yaml' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:08.830005" elapsed="0.090463"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:28:08.829770" elapsed="0.090912"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:08.921967" level="INFO">Typing text 'key: value
+list:
+- item1
+- item2' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:08.921399" elapsed="0.082990"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:28:08.920986" elapsed="0.083593"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:09.006033" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:09.005301" elapsed="0.051907"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:11.057890" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:28:09.057420" elapsed="2.000735"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:09.004858" elapsed="2.053527"/>
+</kw>
+<arg>config.yaml</arg>
+<arg>${yaml_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:08.829401" elapsed="2.229114"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:11.079355" level="INFO">${content} = key: value
+list:
+- item1
+- item2</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.060275" elapsed="0.019133"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:11.079513" elapsed="0.000061"/>
+</return>
+<msg time="2025-04-29T11:28:11.079740" level="INFO">${actual} = key: value
+list:
+- item1
+- item2</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:11.059783" elapsed="0.019983"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.079905" elapsed="0.000214"/>
+</kw>
+<arg>${yaml_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:11.059010" elapsed="0.021176"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.080675" elapsed="0.056031"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:11.080439" elapsed="0.056396"/>
+</kw>
 <doc>Test saving document with YAML content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.810353" elapsed="0.000226">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:28:08.022607" elapsed="3.114312"/>
 </test>
-<test id="s1-t18" name="Save Document With CSV Content" line="127">
+<test id="s1-t17" name="Save Document With CSV Content" line="109">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:11.138145" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.137728" elapsed="0.667316"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:11.805993" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.805278" elapsed="0.099991"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.905484" elapsed="0.008556"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:28:11.914708" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.914426" elapsed="0.000391"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:11.137490" elapsed="0.777458"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-29T11:28:11.915435" level="INFO">${csv_content} = name,age,email
+John,30,john@example.com</msg>
+<var>${csv_content}</var>
+<arg>name,age,email\nJohn,30,john@example.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.915208" elapsed="0.000268"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:11.917106" level="INFO">Typing text 'data.csv' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.916459" elapsed="0.070468"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:28:11.916138" elapsed="0.070914"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:11.987968" level="INFO">Typing text 'name,age,email
+John,30,john@example.com' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:11.987522" elapsed="0.089505"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:28:11.987217" elapsed="0.089938"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:12.078236" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:12.077735" elapsed="0.051125"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:14.129638" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:28:12.129172" elapsed="2.000744"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:12.077363" elapsed="2.052777"/>
+</kw>
+<arg>data.csv</arg>
+<arg>${csv_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:11.915739" elapsed="2.214532"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:14.150786" level="INFO">${content} = name,age,email
+John,30,john@example.com</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:14.132582" elapsed="0.018277"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:14.150984" elapsed="0.000077"/>
+</return>
+<msg time="2025-04-29T11:28:14.151250" level="INFO">${actual} = name,age,email
+John,30,john@example.com</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:14.132026" elapsed="0.019259"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:14.151467" elapsed="0.000303"/>
+</kw>
+<arg>${csv_content}</arg>
+<status status="PASS" start="2025-04-29T11:28:14.130917" elapsed="0.020951"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:28:14.152566" elapsed="0.057882"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:14.152219" elapsed="0.058382"/>
+</kw>
 <doc>Test saving document with CSV content</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.810717" elapsed="0.000207">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:28:11.137149" elapsed="3.073561"/>
 </test>
-<test id="s1-t19" name="Save Document With Multiple Saves" line="134">
+<test id="s1-t18" name="Save Document With Multiple Saves" line="115">
+<kw name="Open Text Editor" owner="text_editor_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:14.212883" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T11:28:14.212174" elapsed="0.791936"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:15.004897" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Text Editor')]'.</msg>
+<arg>${selectors.header.text_editor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:15.004323" elapsed="0.104774"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-29T11:28:15.109291" elapsed="0.008447"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-29T11:28:15.118276" level="INFO">Opened Text Editor</msg>
+<arg>Opened Text Editor</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-29T11:28:15.118032" elapsed="0.000322"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:14.211759" elapsed="0.906704"/>
+</kw>
+<kw name="Create And Save Document" owner="text_editor_keywords">
+<kw name="Set File Name" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:15.120040" level="INFO">Typing text 'multiple_saves.txt' into text field 'css=input[type='text']'.</msg>
+<arg>${selectors.text_editor.filename_input}</arg>
+<arg>${filename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:15.119544" elapsed="0.082130"/>
+</kw>
+<arg>${filename}</arg>
+<status status="PASS" start="2025-04-29T11:28:15.119182" elapsed="0.082630"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:15.202793" level="INFO">Typing text 'First save' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:15.202329" elapsed="0.056410"/>
+</kw>
+<arg>${content}</arg>
+<status status="PASS" start="2025-04-29T11:28:15.201983" elapsed="0.056888"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:15.260011" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:15.259379" elapsed="0.050720"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:17.310774" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:28:15.310287" elapsed="2.000729"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:15.259055" elapsed="2.052183"/>
+</kw>
+<arg>multiple_saves.txt</arg>
+<arg>First save</arg>
+<status status="PASS" start="2025-04-29T11:28:15.118771" elapsed="2.192601"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:17.332843" level="INFO">${content} = First save</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:17.313421" elapsed="0.019474"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:17.332979" elapsed="0.000053"/>
+</return>
+<msg time="2025-04-29T11:28:17.333166" level="INFO">${actual} = First save</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:17.312816" elapsed="0.020374"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:17.333319" elapsed="0.000205"/>
+</kw>
+<arg>First save</arg>
+<status status="PASS" start="2025-04-29T11:28:17.311974" elapsed="0.021616"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:17.334477" level="INFO">Typing text 'Second save' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:17.334062" elapsed="0.053104"/>
+</kw>
+<arg>Second save</arg>
+<status status="PASS" start="2025-04-29T11:28:17.333773" elapsed="0.053521"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:17.388300" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:17.387871" elapsed="0.038974"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:19.427558" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:28:17.427119" elapsed="2.000685"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:17.387575" elapsed="2.040626"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:19.460244" level="INFO">${content} = Second save</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:19.430908" elapsed="0.029385"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:19.460376" elapsed="0.000066"/>
+</return>
+<msg time="2025-04-29T11:28:19.460584" level="INFO">${actual} = Second save</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:19.429984" elapsed="0.030624"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:19.460749" elapsed="0.000214"/>
+</kw>
+<arg>Second save</arg>
+<status status="PASS" start="2025-04-29T11:28:19.428913" elapsed="0.032116"/>
+</kw>
+<kw name="Set Content" owner="text_editor_keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:19.462344" level="INFO">Typing text 'Third save' into text field 'css=textarea'.</msg>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<arg>${content}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:19.461599" elapsed="0.057489"/>
+</kw>
+<arg>Third save</arg>
+<status status="PASS" start="2025-04-29T11:28:19.461223" elapsed="0.057989"/>
+</kw>
+<kw name="Save Document" owner="text_editor_keywords">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:19.520190" level="INFO">Clicking button 'xpath=//button[contains(., 'Save')]'.</msg>
+<arg>${selectors.text_editor.save_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:19.519776" elapsed="0.039437"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-29T11:28:21.559976" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-29T11:28:19.559512" elapsed="2.000700"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:19.519485" elapsed="2.040944"/>
+</kw>
+<kw name="Verify Content Is" owner="text_editor_keywords">
+<kw name="Get Editor Content" owner="text_editor_keywords">
+<kw name="Get Value" owner="SeleniumLibrary">
+<msg time="2025-04-29T11:28:21.581460" level="INFO">${content} = Third save</msg>
+<var>${content}</var>
+<arg>${selectors.text_editor.content_textarea}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T11:28:21.562790" elapsed="0.018721"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2025-04-29T11:28:21.581598" elapsed="0.000052"/>
+</return>
+<msg time="2025-04-29T11:28:21.581789" level="INFO">${actual} = Third save</msg>
+<var>${actual}</var>
+<status status="PASS" start="2025-04-29T11:28:21.561983" elapsed="0.019831"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-04-29T11:28:21.581944" elapsed="0.000203"/>
+</kw>
+<arg>Third save</arg>
+<status status="PASS" start="2025-04-29T11:28:21.561029" elapsed="0.021179"/>
+</kw>
+<kw name="Close Text Editor Application" owner="text_editor_keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T11:28:21.582744" elapsed="0.056500"/>
+</kw>
+<status status="PASS" start="2025-04-29T11:28:21.582471" elapsed="0.056898"/>
+</kw>
 <doc>Test saving document multiple times</doc>
-<tag>robot:exit</tag>
-<status status="FAIL" start="2025-04-29T11:06:51.811051" elapsed="0.000208">Test execution stopped due to a fatal error.</status>
+<status status="PASS" start="2025-04-29T11:28:14.211078" elapsed="7.428380"/>
 </test>
-<status status="FAIL" start="2025-04-29T11:06:44.550605" elapsed="7.261047"/>
+<status status="PASS" start="2025-04-29T11:27:18.277267" elapsed="63.362619"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="19" skip="0">All Tests</stat>
+<stat pass="18" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat info="combined" combined="NOT robot:exit" pass="0" fail="7" skip="0">NOT robot:exit</stat>
 </tag>
 <suite>
-<stat name="Text Editor Tests" id="s1" pass="0" fail="19" skip="0">Text Editor Tests</stat>
+<stat name="Text Editor Tests" id="s1" pass="18" fail="0" skip="0">Text Editor Tests</stat>
 </suite>
 </statistics>
 <errors>

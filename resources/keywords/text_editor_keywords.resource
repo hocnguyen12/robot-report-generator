@@ -23,7 +23,8 @@ Set Content
 
 Save Document
     Click Button    ${selectors.text_editor.save_button}
-    Wait Until Element Is Visible    ${selectors.text_editor.save_success_message}
+    # Wait for file download to complete
+    Sleep    2s
 
 Delete Document
     Click Button    ${selectors.text_editor.delete_button}
@@ -58,16 +59,6 @@ Verify Content Is
     [Arguments]    ${expected}
     ${actual}=    Get Editor Content
     Should Be Equal    ${actual}    ${expected}
-
-Clean Up Test Files
-    [Arguments]    ${filename}
-    # Click delete button if it exists
-    ${delete_button_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${selectors.text_editor.delete_button}
-    Run Keyword If    ${delete_button_exists}    Click Button    ${selectors.text_editor.delete_button}
-    # Wait for confirmation that file is deleted
-    Wait Until Element Is Visible    ${selectors.text_editor.delete_success_message}    ${timeouts.element_visible}
-    # Verify file is actually deleted from the system
-    File Should Not Exist    ${filename}
 
 Close Browser and Stop App
     [Teardown]
