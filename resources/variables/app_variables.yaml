@@ -35,14 +35,14 @@ selectors:
     save_success_message: "xpath=//div[contains(., 'File saved successfully')]"
     clear_success_message: "xpath=//div[contains(., 'Editor content cleared')]"
   calculator:
-    calculator_input: "css=[data-testid='calculator-input']"
-    calculator_button: "css=[data-testid='calculate-button']"
-    calculator_result: "css=[data-testid='calculator-result']"
+    calculator: "css=[data-testid='calculator']"
+    display: "css=[data-testid='display']"
+    equation_display: "css=[data-testid='equation-display']"
+    clear_button: "css=[data-testid='clear-button']"
     number_button: "css=[data-testid='number-{0}']"
     operator_button: "css=[data-testid='operator-{0}']"
-    clear_button: "css=[data-testid='clear-button']"
     equals_button: "css=[data-testid='equals-button']"
-    display: "css=[data-testid='display']"
+    decimal_button: "css=[data-testid='number-decimal']"
 
 
 test_data:

@@ -1,12 +1,14 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
+Library    Collections
 Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
 Open Calculator
     Open Browser    ${app.url}    chrome
     Click Element    ${selectors.header.calculator_button}
-    Wait Until Element Is Visible    ${selectors.calculator.display}
+    Wait Until Page Contains Element    ${selectors.calculator.calculator}
     Log    Opened calculator application
 
 Close Calculator
@@ -15,13 +17,18 @@ Close Calculator
 
 Click Number
     [Arguments]    ${number}
-    ${button_locator}=    Format String    ${selectors.calculator.number_button}    ${number}
-    Click Element    ${button_locator}
+    ${digits}=    Split String To Characters    ${number}
+    FOR    ${digit}    IN    @{digits}
+        ${button_locator}=    Format String    ${selectors.calculator.number_button}    ${digit}
+        Click Element    ${button_locator}
+    END
     Log    Clicked number: ${number}
 
 Click Operator
     [Arguments]    ${operator}
-    ${button_locator}=    Format String    ${selectors.calculator.operator_button}    ${operator}
+    ${operator_map}=    Create Dictionary    +=add    -=subtract    *=multiply    /=divide
+    ${operator_key}=    Get From Dictionary    ${operator_map}    ${operator}
+    ${button_locator}=    Format String    ${selectors.calculator.operator_button}    ${operator_key}
     Click Element    ${button_locator}
     Log    Clicked operator: ${operator}
 
@@ -33,6 +40,10 @@ Click Equals
     Click Element    ${selectors.calculator.equals_button}
     Log    Clicked equals button
 
+Click Decimal
+    Click Element    ${selectors.calculator.decimal_button}
+    Log    Clicked decimal point
+
 Perform Calculation
     [Arguments]    ${num1}    ${operator}    ${num2}
     Click Number    ${num1}
@@ -43,10 +54,35 @@ Perform Calculation
 
 Verify Display Shows
     [Arguments]    ${expected_value}
-    Wait Until Element Is Visible    ${selectors.calculator.display}
+    Wait Until Page Contains Element    ${selectors.calculator.display}
     ${actual_value}=    Get Text    ${selectors.calculator.display}
     Should Be Equal As Strings    ${actual_value}    ${expected_value}
     Log    Verified display shows: ${expected_value}
+
+Verify Equation Shows
+    [Arguments]    ${expected_equation}
+    Wait Until Page Contains Element    ${selectors.calculator.equation_display}
+    ${actual_equation}=    Get Text    ${selectors.calculator.equation_display}
+    Should Be Equal As Strings    ${actual_equation}    ${expected_equation}
+    Log    Verified equation shows: ${expected_equation}
+
+Perform Complex Calculation
+    [Arguments]    @{steps}
+    ${step_count}=    Set Variable    0
+    FOR    ${step}    IN    @{steps}
+        Run Keyword If    '${step}' in ['+', '-', '*', '/']    Click Operator    ${step}
+        ...    ELSE IF    '${step}' == '='    Click Equals
+        ...    ELSE IF    '${step}' == '.'    Click Decimal
+        ...    ELSE    Click Number    ${step}
+        ${step_count}=    Evaluate    ${step_count} + 1
+    END
+    Log    Performed complex calculation: @{steps}
+
+Verify Calculator State
+    [Arguments]    ${expected_display}    ${expected_equation}=${EMPTY}
+    Verify Display Shows    ${expected_display}
+    Run Keyword If    '${expected_equation}' != '${EMPTY}'    Verify Equation Shows    ${expected_equation}
+    Log    Verified calculator state - Display: ${expected_display}, Equation: ${expected_equation}
 
 Calculate Expression
     [Arguments]    ${expression}
