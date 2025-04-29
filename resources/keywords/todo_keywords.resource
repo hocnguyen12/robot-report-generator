@@ -6,7 +6,7 @@ Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
 Open Todo Application
-    Open Browser    ${app.url}    firefox
+    Open Browser    ${app.url}    chrome
     Wait Until Page Contains Element    ${selectors.todo.todo_input}    ${timeouts.page_load}
     Log    Opened todo list application
 

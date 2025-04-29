@@ -32,9 +32,9 @@ selectors:
     filename_input: "css=input[type='text']"
     content_textarea: "css=textarea"
     save_button: "xpath=//button[contains(., 'Save')]"
-    delete_button: "css=button:contains('Delete')"
-    save_success_message: "css=div:contains('File saved successfully')"
-    delete_success_message: "css=div:contains('File deleted successfully')"
+    clear_button: "xpath=//button[contains(., 'Clear')]"
+    save_success_message: "xpath=//div[contains(., 'File saved successfully')]"
+    clear_success_message: "xpath=//div[contains(., 'Editor content cleared')]"
 
 test_data:
   initial_note:

@@ -22,19 +22,29 @@ Set Content
     Input Text    ${selectors.text_editor.content_textarea}    ${content}
 
 Save Document
+    [Documentation]    Saves the document and verifies the download was triggered
+    # Get the current content and filename
+    ${content}=    Get Editor Content
+    ${filename}=    Get File Name
+    
+    # Click the save button
     Click Button    ${selectors.text_editor.save_button}
+    
+    # Wait for success message
+    Wait Until Element Is Visible    ${selectors.text_editor.save_success_message}    ${timeouts.element_visible}
+    
     # Wait for file download to complete
     Sleep    2s
 
-Delete Document
-    Click Button    ${selectors.text_editor.delete_button}
-    Wait Until Element Is Visible    ${selectors.text_editor.delete_success_message}
+Clear Editor
+    [Documentation]    Clears the editor content
+    Click Button    ${selectors.text_editor.clear_button}
+    Wait Until Element Is Visible    ${selectors.text_editor.clear_success_message}    ${timeouts.element_visible}
 
-Verify Document Is Saved
-    Element Should Be Visible    ${selectors.text_editor.save_success_message}
-
-Verify Document Is Deleted
-    Element Should Be Visible    ${selectors.text_editor.delete_success_message}
+Verify Editor Is Cleared
+    ${content}=    Get Editor Content
+    Should Be Empty    ${content}    Editor content should be empty
+    Element Should Be Visible    ${selectors.text_editor.clear_success_message}
 
 Create And Save Document
     [Arguments]    ${filename}    ${content}

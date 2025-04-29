@@ -2,18 +2,55 @@
 
 import { useState } from 'react';
 
+interface Message {
+  type: 'success' | 'error';
+  text: string;
+}
+
 export default function TextEditor() {
   const [content, setContent] = useState('');
   const [fileName, setFileName] = useState('untitled.txt');
+  const [message, setMessage] = useState<Message | null>(null);
+
+  const showMessage = (type: 'success' | 'error', text: string) => {
+    setMessage({ type, text });
+    setTimeout(() => setMessage(null), 3000);
+  };
 
   const handleSave = () => {
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    a.click();
-    URL.revokeObjectURL(url);
+    try {
+      // Validate filename
+      if (!fileName.trim()) {
+        showMessage('error', 'Please enter a file name');
+        return;
+      }
+
+      // Create and download the file
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      showMessage('success', 'File saved successfully');
+    } catch (error) {
+      showMessage('error', 'Failed to save file');
+      console.error('Save error:', error);
+    }
+  };
+
+  const handleClear = () => {
+    try {
+      setContent('');
+      showMessage('success', 'Editor content cleared');
+    } catch (error) {
+      showMessage('error', 'Failed to clear content');
+      console.error('Clear error:', error);
+    }
   };
 
   return (
@@ -38,7 +75,27 @@ export default function TextEditor() {
             </svg>
             Save
           </button>
+          <button
+            onClick={handleClear}
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+            Clear
+          </button>
         </div>
+        {message && (
+          <div
+            className={`mt-4 p-3 rounded-md ${
+              message.type === 'success'
+                ? 'bg-green-50 text-green-800'
+                : 'bg-red-50 text-red-800'
+            }`}
+          >
+            {message.text}
+          </div>
+        )}
       </div>
       <div className="p-4">
         <textarea

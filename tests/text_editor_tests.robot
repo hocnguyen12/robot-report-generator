@@ -19,11 +19,24 @@ Edit Existing Document
     Save Document
     Verify Content Is    ${test_data.text_editor.editable_document.updated_content}
 
-Verify Document Persistence
-    [Documentation]    Test that document content persists after save
-    Create And Save Document    ${test_data.text_editor.persistent_document.filename}    ${test_data.text_editor.persistent_document.content}
-    Verify File Name Is    ${test_data.text_editor.persistent_document.filename}
-    Verify Content Is    ${test_data.text_editor.persistent_document.content}
+Clear Editor Content
+    [Documentation]    Test clearing the editor content
+    Set Content    Some test content
+    Clear Editor
+    Verify Editor Is Cleared
+
+Clear Empty Editor
+    [Documentation]    Test clearing an empty editor
+    Clear Editor
+    Verify Editor Is Cleared
+
+Clear And Save Document
+    [Documentation]    Test clearing and then saving a document
+    Set Content    Initial content
+    Clear Editor
+    Verify Editor Is Cleared
+    Save Document
+    Verify Content Is    ${EMPTY}
 
 Save Document With Special Characters
     [Documentation]    Test saving document with special characters
