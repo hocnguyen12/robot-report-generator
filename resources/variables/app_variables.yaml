@@ -36,14 +36,20 @@ selectors:
     equals_button: "css=[data-testid='equals-button']"
     decimal_button: "css=[data-testid='number-decimal']"
   notes:
-    note_title_input: "css=input[placeholder='Note title']"
-    note_content_input: "css=textarea[placeholder='Note content']"
-    add_note_button: "css=button:contains('Add Note')"
-    edit_note_button: "css=button:contains('Edit')"
-    delete_note_button: "css=button:contains('Delete')"
-    note_title: "css=h3"
-    note_content: "css=p"
-    note_item: "css=div[data-testid='note-item']"
+    notes_app: "css=[data-testid='notes-app']"
+    note_title_input: "css=[data-testid='note-title-input']"
+    note_content_input: "css=[data-testid='note-content-input']"
+    add_note_button: "css=[data-testid='add-note-button']"
+    update_note_button: "css=[data-testid='update-note-button']"
+    note_item: "css=[data-testid^='note-']"
+    note_title: "css=[data-testid^='note-title-']"
+    note_content: "css=[data-testid^='note-content-']"
+    note_date: "css=[data-testid^='note-date-']"
+    edit_note_button: "css=[data-testid^='edit-note-button-']"
+    delete_note_button: "css=[data-testid^='delete-note-button-']"
+    note_by_title: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]"
+    edit_button_in_note: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'edit-note-button-')]"
+    delete_button_in_note: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'delete-note-button-')]"
 
 
 test_data:

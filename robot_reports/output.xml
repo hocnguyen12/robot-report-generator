@@ -1,916 +1,796 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T16:14:56.524106" rpa="false" schemaversion="5">
-<suite id="s1" name="Notes Tests" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/notes_tests.robot">
-<test id="s1-t1" name="Basic Note Creation" line="7">
-<kw name="Open Notes" owner="note_keywords" type="SETUP">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-04-29T16:34:03.662566" rpa="false" schemaversion="5">
+<suite id="s1" name="Note Tests" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/note_tests.robot">
+<test id="s1-t1" name="Create And Save Note" line="7">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:56.650954" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T16:34:03.795798" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:14:56.650480" elapsed="0.887828"/>
+<status status="PASS" start="2025-04-29T16:34:03.795343" elapsed="0.977744"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:57.539387" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T16:34:04.774630" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.538527" elapsed="0.105577"/>
+<status status="PASS" start="2025-04-29T16:34:04.773476" elapsed="0.108303"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${selectors.notes.note_title_input}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.644308" elapsed="0.008009"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:04.882027" elapsed="0.015033"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:14:57.652658" level="INFO">Opened notes application</msg>
-<arg>Opened notes application</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.652506" elapsed="0.000201"/>
+<status status="PASS" start="2025-04-29T16:34:03.794769" elapsed="1.102421"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:14:56.649849" elapsed="1.002939"/>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:04.904949" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:04.897881" elapsed="0.007123"/>
 </kw>
-<kw name="Add Note" owner="note_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:14:57.653808" level="INFO">Attempting to add note with title: Test Note</msg>
-<arg>Attempting to add note with title: ${title}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.653673" elapsed="0.000184"/>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:04.905099" elapsed="0.000073"/>
+</return>
+<msg time="2025-04-29T16:34:04.905341" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:04.897685" elapsed="0.007688"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:57.654296" level="INFO">Typing text 'Test Note' into text field 'css=input[placeholder='Note title']'.</msg>
-<arg>${selectors.notes.note_title_input}</arg>
-<arg>${title}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.653950" elapsed="0.065351"/>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:04.906347" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:04.976456" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:04.976639" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:04.905762" elapsed="0.071463">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:57.720001" level="INFO">Typing text 'This is a test note' into text field 'css=textarea[placeholder='Note content']'.</msg>
-<arg>${selectors.notes.note_content_input}</arg>
-<arg>${content}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.719491" elapsed="0.058967"/>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:04.977458" elapsed="0.000046"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:57.779467" level="INFO">Clicking button 'css=button:contains('Add Note')'.</msg>
-<msg time="2025-04-29T16:14:57.864669" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:14:57.865010" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5cdeddc8d75a &lt;unknown&gt;
-#1 0x5cdedd7404b0 &lt;unknown&gt;
-#2 0x5cdedd7470b6 &lt;unknown&gt;
-#3 0x5cdedd749928 &lt;unknown&gt;
-#4 0x5cdedd7499b3 &lt;unknown&gt;
-#5 0x5cdedd7913e5 &lt;unknown&gt;
-#6 0x5cdedd791ba1 &lt;unknown&gt;
-#7 0x5cdedd7e0231 &lt;unknown&gt;
-#8 0x5cdedd7b75bd &lt;unknown&gt;
-#9 0x5cdedd7dd5e0 &lt;unknown&gt;
-#10 0x5cdedd7b7363 &lt;unknown&gt;
-#11 0x5cdedd783d63 &lt;unknown&gt;
-#12 0x5cdedd7849c1 &lt;unknown&gt;
-#13 0x5cdeddc52a6b &lt;unknown&gt;
-#14 0x5cdeddc56951 &lt;unknown&gt;
-#15 0x5cdeddc3ab62 &lt;unknown&gt;
-#16 0x5cdeddc574c4 &lt;unknown&gt;
-#17 0x5cdeddc1f13f &lt;unknown&gt;
-#18 0x5cdeddc7b6f8 &lt;unknown&gt;
-#19 0x5cdeddc7b8d6 &lt;unknown&gt;
-#20 0x5cdeddc8c5a6 &lt;unknown&gt;
-#21 0x7b3432294ac3 &lt;unknown&gt;
-</msg>
-<arg>${selectors.notes.add_note_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:14:57.778694" elapsed="0.088681">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5cdeddc8d75a &lt;unknown&gt;
-#1 0x5cdedd7404b0 &lt;unknown&gt;
-#2 0x5cdedd7470b6 &lt;unknown&gt;
-#3 0x5cdedd749928 &lt;unknown&gt;
-#4 0x5cdedd7499b3 &lt;unknown&gt;
-#5 0x5cdedd7913e5 &lt;unknown&gt;
-#6 0x5cdedd791ba1 &lt;unknown&gt;
-#7 0x5cdedd7e0231 &lt;unknown&gt;
-#8 0x5cdedd7b75bd &lt;unknown&gt;
-#9 0x5cdedd7dd5e0 &lt;unknown&gt;
-#10 0x5cdedd7b7363 &lt;unknown&gt;
-#11 0x5cdedd783d63 &lt;unknown&gt;
-#12 0x5cdedd7849c1 &lt;unknown&gt;
-#13 0x5cdeddc52a6b &lt;unknown&gt;
-#14 0x5cdeddc56951 &lt;unknown&gt;
-#15 0x5cdeddc3ab62 &lt;unknown&gt;
-#16 0x5cdeddc574c4 &lt;unknown&gt;
-#17 0x5cdeddc1f13f &lt;unknown&gt;
-#18 0x5cdeddc7b6f8 &lt;unknown&gt;
-#19 0x5cdeddc7b8d6 &lt;unknown&gt;
-#20 0x5cdeddc8c5a6 &lt;unknown&gt;
-#21 0x7b3432294ac3 &lt;unknown&gt;
-</status>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:04.905635" elapsed="0.071931">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:04.905463" elapsed="0.072167">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:04.977789" elapsed="0.000029"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${title}</arg>
-<arg>${timeouts.element_visible}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T16:14:57.867594" elapsed="0.000038"/>
+<status status="FAIL" start="2025-04-29T16:34:04.897411" elapsed="0.080491">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<arg>${test_data.initial_note.title}</arg>
-<arg>${test_data.initial_note.content}</arg>
-<status status="FAIL" start="2025-04-29T16:14:57.652997" elapsed="0.214766">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5cdeddc8d75a &lt;unknown&gt;
-#1 0x5cdedd7404b0 &lt;unknown&gt;
-#2 0x5cdedd7470b6 &lt;unknown&gt;
-#3 0x5cdedd749928 &lt;unknown&gt;
-#4 0x5cdedd7499b3 &lt;unknown&gt;
-#5 0x5cdedd7913e5 &lt;unknown&gt;
-#6 0x5cdedd791ba1 &lt;unknown&gt;
-#7 0x5cdedd7e0231 &lt;unknown&gt;
-#8 0x5cdedd7b75bd &lt;unknown&gt;
-#9 0x5cdedd7dd5e0 &lt;unknown&gt;
-#10 0x5cdedd7b7363 &lt;unknown&gt;
-#11 0x5cdedd783d63 &lt;unknown&gt;
-#12 0x5cdedd7849c1 &lt;unknown&gt;
-#13 0x5cdeddc52a6b &lt;unknown&gt;
-#14 0x5cdeddc56951 &lt;unknown&gt;
-#15 0x5cdeddc3ab62 &lt;unknown&gt;
-#16 0x5cdeddc574c4 &lt;unknown&gt;
-#17 0x5cdeddc1f13f &lt;unknown&gt;
-#18 0x5cdeddc7b6f8 &lt;unknown&gt;
-#19 0x5cdeddc7b8d6 &lt;unknown&gt;
-#20 0x5cdeddc8c5a6 &lt;unknown&gt;
-#21 0x7b3432294ac3 &lt;unknown&gt;
-</status>
+<status status="FAIL" start="2025-04-29T16:34:03.794496" elapsed="1.183472">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.868044" elapsed="0.055641"/>
+<status status="PASS" start="2025-04-29T16:34:04.978350" elapsed="0.057062"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:14:56.649265" elapsed="1.274578">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5cdeddc8d75a &lt;unknown&gt;
-#1 0x5cdedd7404b0 &lt;unknown&gt;
-#2 0x5cdedd7470b6 &lt;unknown&gt;
-#3 0x5cdedd749928 &lt;unknown&gt;
-#4 0x5cdedd7499b3 &lt;unknown&gt;
-#5 0x5cdedd7913e5 &lt;unknown&gt;
-#6 0x5cdedd791ba1 &lt;unknown&gt;
-#7 0x5cdedd7e0231 &lt;unknown&gt;
-#8 0x5cdedd7b75bd &lt;unknown&gt;
-#9 0x5cdedd7dd5e0 &lt;unknown&gt;
-#10 0x5cdedd7b7363 &lt;unknown&gt;
-#11 0x5cdedd783d63 &lt;unknown&gt;
-#12 0x5cdedd7849c1 &lt;unknown&gt;
-#13 0x5cdeddc52a6b &lt;unknown&gt;
-#14 0x5cdeddc56951 &lt;unknown&gt;
-#15 0x5cdeddc3ab62 &lt;unknown&gt;
-#16 0x5cdeddc574c4 &lt;unknown&gt;
-#17 0x5cdeddc1f13f &lt;unknown&gt;
-#18 0x5cdeddc7b6f8 &lt;unknown&gt;
-#19 0x5cdeddc7b8d6 &lt;unknown&gt;
-#20 0x5cdeddc8c5a6 &lt;unknown&gt;
-#21 0x7b3432294ac3 &lt;unknown&gt;
-</status>
+<doc>Test creating and saving a new note</doc>
+<status status="FAIL" start="2025-04-29T16:34:03.793872" elapsed="1.241696">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </test>
-<test id="s1-t2" name="Basic Note Editing" line="10">
-<kw name="Open Notes" owner="note_keywords" type="SETUP">
+<test id="s1-t2" name="Edit Existing Note" line="14">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:57.925416" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T16:34:05.037580" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:14:57.924811" elapsed="0.823922"/>
+<status status="PASS" start="2025-04-29T16:34:05.036884" elapsed="0.797621"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:58.749886" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T16:34:05.835204" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:14:58.749048" elapsed="0.102901"/>
+<status status="PASS" start="2025-04-29T16:34:05.834726" elapsed="0.100260"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${selectors.notes.note_title_input}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T16:14:58.852146" elapsed="0.007530"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:05.935186" elapsed="0.012884"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:14:58.860052" level="INFO">Opened notes application</msg>
-<arg>Opened notes application</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:14:58.859885" elapsed="0.000215"/>
+<status status="PASS" start="2025-04-29T16:34:05.036641" elapsed="0.911550"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:14:57.924528" elapsed="0.935642"/>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:05.956607" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:05.948881" elapsed="0.007794"/>
 </kw>
-<kw name="Add Note" owner="note_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:14:58.861192" level="INFO">Attempting to add note with title: Test Note</msg>
-<arg>Attempting to add note with title: ${title}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:14:58.861067" elapsed="0.000168"/>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:05.956775" elapsed="0.000075"/>
+</return>
+<msg time="2025-04-29T16:34:05.957036" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:05.948693" elapsed="0.008370"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:58.861685" level="INFO">Typing text 'Test Note' into text field 'css=input[placeholder='Note title']'.</msg>
-<arg>${selectors.notes.note_title_input}</arg>
-<arg>${title}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:14:58.861326" elapsed="0.067653"/>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:05.957911" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:06.043660" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:06.043885" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:05.957444" elapsed="0.086637">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:58.929664" level="INFO">Typing text 'This is a test note' into text field 'css=textarea[placeholder='Note content']'.</msg>
-<arg>${selectors.notes.note_content_input}</arg>
-<arg>${content}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:14:58.929172" elapsed="0.056829"/>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:06.044371" elapsed="0.000056"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:58.986700" level="INFO">Clicking button 'css=button:contains('Add Note')'.</msg>
-<msg time="2025-04-29T16:14:59.106569" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:14:59.106846" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5f3c0b66a75a &lt;unknown&gt;
-#1 0x5f3c0b11d4b0 &lt;unknown&gt;
-#2 0x5f3c0b1240b6 &lt;unknown&gt;
-#3 0x5f3c0b126928 &lt;unknown&gt;
-#4 0x5f3c0b1269b3 &lt;unknown&gt;
-#5 0x5f3c0b16e3e5 &lt;unknown&gt;
-#6 0x5f3c0b16eba1 &lt;unknown&gt;
-#7 0x5f3c0b1bd231 &lt;unknown&gt;
-#8 0x5f3c0b1945bd &lt;unknown&gt;
-#9 0x5f3c0b1ba5e0 &lt;unknown&gt;
-#10 0x5f3c0b194363 &lt;unknown&gt;
-#11 0x5f3c0b160d63 &lt;unknown&gt;
-#12 0x5f3c0b1619c1 &lt;unknown&gt;
-#13 0x5f3c0b62fa6b &lt;unknown&gt;
-#14 0x5f3c0b633951 &lt;unknown&gt;
-#15 0x5f3c0b617b62 &lt;unknown&gt;
-#16 0x5f3c0b6344c4 &lt;unknown&gt;
-#17 0x5f3c0b5fc13f &lt;unknown&gt;
-#18 0x5f3c0b6586f8 &lt;unknown&gt;
-#19 0x5f3c0b6588d6 &lt;unknown&gt;
-#20 0x5f3c0b6695a6 &lt;unknown&gt;
-#21 0x73b97fa94ac3 &lt;unknown&gt;
-</msg>
-<arg>${selectors.notes.add_note_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:14:58.986199" elapsed="0.120929">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5f3c0b66a75a &lt;unknown&gt;
-#1 0x5f3c0b11d4b0 &lt;unknown&gt;
-#2 0x5f3c0b1240b6 &lt;unknown&gt;
-#3 0x5f3c0b126928 &lt;unknown&gt;
-#4 0x5f3c0b1269b3 &lt;unknown&gt;
-#5 0x5f3c0b16e3e5 &lt;unknown&gt;
-#6 0x5f3c0b16eba1 &lt;unknown&gt;
-#7 0x5f3c0b1bd231 &lt;unknown&gt;
-#8 0x5f3c0b1945bd &lt;unknown&gt;
-#9 0x5f3c0b1ba5e0 &lt;unknown&gt;
-#10 0x5f3c0b194363 &lt;unknown&gt;
-#11 0x5f3c0b160d63 &lt;unknown&gt;
-#12 0x5f3c0b1619c1 &lt;unknown&gt;
-#13 0x5f3c0b62fa6b &lt;unknown&gt;
-#14 0x5f3c0b633951 &lt;unknown&gt;
-#15 0x5f3c0b617b62 &lt;unknown&gt;
-#16 0x5f3c0b6344c4 &lt;unknown&gt;
-#17 0x5f3c0b5fc13f &lt;unknown&gt;
-#18 0x5f3c0b6586f8 &lt;unknown&gt;
-#19 0x5f3c0b6588d6 &lt;unknown&gt;
-#20 0x5f3c0b6695a6 &lt;unknown&gt;
-#21 0x73b97fa94ac3 &lt;unknown&gt;
-</status>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:05.957292" elapsed="0.087219">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:05.957128" elapsed="0.087468">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:06.044840" elapsed="0.000051"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${title}</arg>
-<arg>${timeouts.element_visible}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T16:14:59.107450" elapsed="0.000055"/>
+<status status="FAIL" start="2025-04-29T16:34:05.948413" elapsed="0.096577">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<arg>${test_data.initial_note.title}</arg>
-<arg>${test_data.initial_note.content}</arg>
-<status status="FAIL" start="2025-04-29T16:14:58.860380" elapsed="0.247252">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5f3c0b66a75a &lt;unknown&gt;
-#1 0x5f3c0b11d4b0 &lt;unknown&gt;
-#2 0x5f3c0b1240b6 &lt;unknown&gt;
-#3 0x5f3c0b126928 &lt;unknown&gt;
-#4 0x5f3c0b1269b3 &lt;unknown&gt;
-#5 0x5f3c0b16e3e5 &lt;unknown&gt;
-#6 0x5f3c0b16eba1 &lt;unknown&gt;
-#7 0x5f3c0b1bd231 &lt;unknown&gt;
-#8 0x5f3c0b1945bd &lt;unknown&gt;
-#9 0x5f3c0b1ba5e0 &lt;unknown&gt;
-#10 0x5f3c0b194363 &lt;unknown&gt;
-#11 0x5f3c0b160d63 &lt;unknown&gt;
-#12 0x5f3c0b1619c1 &lt;unknown&gt;
-#13 0x5f3c0b62fa6b &lt;unknown&gt;
-#14 0x5f3c0b633951 &lt;unknown&gt;
-#15 0x5f3c0b617b62 &lt;unknown&gt;
-#16 0x5f3c0b6344c4 &lt;unknown&gt;
-#17 0x5f3c0b5fc13f &lt;unknown&gt;
-#18 0x5f3c0b6586f8 &lt;unknown&gt;
-#19 0x5f3c0b6588d6 &lt;unknown&gt;
-#20 0x5f3c0b6695a6 &lt;unknown&gt;
-#21 0x73b97fa94ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Edit Note" owner="note_keywords">
-<arg>${test_data.initial_note.title}</arg>
-<arg>${test_data.updated_note.title}</arg>
-<arg>${test_data.updated_note.content}</arg>
-<status status="NOT RUN" start="2025-04-29T16:14:59.107902" elapsed="0.000034"/>
+<status status="FAIL" start="2025-04-29T16:34:05.036332" elapsed="1.008791">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:14:59.108247" elapsed="0.056603"/>
+<status status="PASS" start="2025-04-29T16:34:06.045395" elapsed="0.055778"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:14:57.924194" elapsed="1.240826">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x5f3c0b66a75a &lt;unknown&gt;
-#1 0x5f3c0b11d4b0 &lt;unknown&gt;
-#2 0x5f3c0b1240b6 &lt;unknown&gt;
-#3 0x5f3c0b126928 &lt;unknown&gt;
-#4 0x5f3c0b1269b3 &lt;unknown&gt;
-#5 0x5f3c0b16e3e5 &lt;unknown&gt;
-#6 0x5f3c0b16eba1 &lt;unknown&gt;
-#7 0x5f3c0b1bd231 &lt;unknown&gt;
-#8 0x5f3c0b1945bd &lt;unknown&gt;
-#9 0x5f3c0b1ba5e0 &lt;unknown&gt;
-#10 0x5f3c0b194363 &lt;unknown&gt;
-#11 0x5f3c0b160d63 &lt;unknown&gt;
-#12 0x5f3c0b1619c1 &lt;unknown&gt;
-#13 0x5f3c0b62fa6b &lt;unknown&gt;
-#14 0x5f3c0b633951 &lt;unknown&gt;
-#15 0x5f3c0b617b62 &lt;unknown&gt;
-#16 0x5f3c0b6344c4 &lt;unknown&gt;
-#17 0x5f3c0b5fc13f &lt;unknown&gt;
-#18 0x5f3c0b6586f8 &lt;unknown&gt;
-#19 0x5f3c0b6588d6 &lt;unknown&gt;
-#20 0x5f3c0b6695a6 &lt;unknown&gt;
-#21 0x73b97fa94ac3 &lt;unknown&gt;
-</status>
+<doc>Test editing an existing note</doc>
+<status status="FAIL" start="2025-04-29T16:34:05.035867" elapsed="1.065503">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </test>
-<test id="s1-t3" name="Basic Note Deletion" line="14">
-<kw name="Open Notes" owner="note_keywords" type="SETUP">
+<test id="s1-t3" name="Delete Note" line="21">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:14:59.166539" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T16:34:06.102843" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:14:59.166029" elapsed="0.846347"/>
+<status status="PASS" start="2025-04-29T16:34:06.102420" elapsed="0.839886"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:00.013055" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T16:34:06.943537" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.012576" elapsed="0.110619"/>
+<status status="PASS" start="2025-04-29T16:34:06.942649" elapsed="0.101563"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${selectors.notes.note_title_input}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.123435" elapsed="0.006880"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:07.044468" elapsed="0.012762"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:15:00.130643" level="INFO">Opened notes application</msg>
-<arg>Opened notes application</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.130500" elapsed="0.000190"/>
+<status status="PASS" start="2025-04-29T16:34:06.102211" elapsed="0.955152"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:14:59.165638" elapsed="0.965128"/>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:07.065251" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:07.058060" elapsed="0.007251"/>
 </kw>
-<kw name="Add Note" owner="note_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:15:00.131792" level="INFO">Attempting to add note with title: Test Note</msg>
-<arg>Attempting to add note with title: ${title}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.131651" elapsed="0.000185"/>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:07.065392" elapsed="0.000055"/>
+</return>
+<msg time="2025-04-29T16:34:07.065581" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:07.057855" elapsed="0.007749"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:00.132291" level="INFO">Typing text 'Test Note' into text field 'css=input[placeholder='Note title']'.</msg>
-<arg>${selectors.notes.note_title_input}</arg>
-<arg>${title}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.131930" elapsed="0.063304"/>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:07.066329" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:07.138290" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:07.138512" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:07.065891" elapsed="0.072838">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:00.195960" level="INFO">Typing text 'This is a test note' into text field 'css=textarea[placeholder='Note content']'.</msg>
-<arg>${selectors.notes.note_content_input}</arg>
-<arg>${content}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.195427" elapsed="0.060637"/>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:07.139004" elapsed="0.000063"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:00.256890" level="INFO">Clicking button 'css=button:contains('Add Note')'.</msg>
-<msg time="2025-04-29T16:15:00.320658" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:15:00.320953" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x620cae64575a &lt;unknown&gt;
-#1 0x620cae0f84b0 &lt;unknown&gt;
-#2 0x620cae0ff0b6 &lt;unknown&gt;
-#3 0x620cae101928 &lt;unknown&gt;
-#4 0x620cae1019b3 &lt;unknown&gt;
-#5 0x620cae1493e5 &lt;unknown&gt;
-#6 0x620cae149ba1 &lt;unknown&gt;
-#7 0x620cae198231 &lt;unknown&gt;
-#8 0x620cae16f5bd &lt;unknown&gt;
-#9 0x620cae1955e0 &lt;unknown&gt;
-#10 0x620cae16f363 &lt;unknown&gt;
-#11 0x620cae13bd63 &lt;unknown&gt;
-#12 0x620cae13c9c1 &lt;unknown&gt;
-#13 0x620cae60aa6b &lt;unknown&gt;
-#14 0x620cae60e951 &lt;unknown&gt;
-#15 0x620cae5f2b62 &lt;unknown&gt;
-#16 0x620cae60f4c4 &lt;unknown&gt;
-#17 0x620cae5d713f &lt;unknown&gt;
-#18 0x620cae6336f8 &lt;unknown&gt;
-#19 0x620cae6338d6 &lt;unknown&gt;
-#20 0x620cae6445a6 &lt;unknown&gt;
-#21 0x703632e94ac3 &lt;unknown&gt;
-</msg>
-<arg>${selectors.notes.add_note_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:15:00.256354" elapsed="0.064816">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x620cae64575a &lt;unknown&gt;
-#1 0x620cae0f84b0 &lt;unknown&gt;
-#2 0x620cae0ff0b6 &lt;unknown&gt;
-#3 0x620cae101928 &lt;unknown&gt;
-#4 0x620cae1019b3 &lt;unknown&gt;
-#5 0x620cae1493e5 &lt;unknown&gt;
-#6 0x620cae149ba1 &lt;unknown&gt;
-#7 0x620cae198231 &lt;unknown&gt;
-#8 0x620cae16f5bd &lt;unknown&gt;
-#9 0x620cae1955e0 &lt;unknown&gt;
-#10 0x620cae16f363 &lt;unknown&gt;
-#11 0x620cae13bd63 &lt;unknown&gt;
-#12 0x620cae13c9c1 &lt;unknown&gt;
-#13 0x620cae60aa6b &lt;unknown&gt;
-#14 0x620cae60e951 &lt;unknown&gt;
-#15 0x620cae5f2b62 &lt;unknown&gt;
-#16 0x620cae60f4c4 &lt;unknown&gt;
-#17 0x620cae5d713f &lt;unknown&gt;
-#18 0x620cae6336f8 &lt;unknown&gt;
-#19 0x620cae6338d6 &lt;unknown&gt;
-#20 0x620cae6445a6 &lt;unknown&gt;
-#21 0x703632e94ac3 &lt;unknown&gt;
-</status>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:07.065778" elapsed="0.073361">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:07.065656" elapsed="0.073547">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:07.139386" elapsed="0.000031"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${title}</arg>
-<arg>${timeouts.element_visible}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T16:15:00.321370" elapsed="0.000036"/>
+<status status="FAIL" start="2025-04-29T16:34:07.057573" elapsed="0.081925">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<arg>${test_data.initial_note.title}</arg>
-<arg>${test_data.initial_note.content}</arg>
-<status status="FAIL" start="2025-04-29T16:15:00.130974" elapsed="0.190552">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x620cae64575a &lt;unknown&gt;
-#1 0x620cae0f84b0 &lt;unknown&gt;
-#2 0x620cae0ff0b6 &lt;unknown&gt;
-#3 0x620cae101928 &lt;unknown&gt;
-#4 0x620cae1019b3 &lt;unknown&gt;
-#5 0x620cae1493e5 &lt;unknown&gt;
-#6 0x620cae149ba1 &lt;unknown&gt;
-#7 0x620cae198231 &lt;unknown&gt;
-#8 0x620cae16f5bd &lt;unknown&gt;
-#9 0x620cae1955e0 &lt;unknown&gt;
-#10 0x620cae16f363 &lt;unknown&gt;
-#11 0x620cae13bd63 &lt;unknown&gt;
-#12 0x620cae13c9c1 &lt;unknown&gt;
-#13 0x620cae60aa6b &lt;unknown&gt;
-#14 0x620cae60e951 &lt;unknown&gt;
-#15 0x620cae5f2b62 &lt;unknown&gt;
-#16 0x620cae60f4c4 &lt;unknown&gt;
-#17 0x620cae5d713f &lt;unknown&gt;
-#18 0x620cae6336f8 &lt;unknown&gt;
-#19 0x620cae6338d6 &lt;unknown&gt;
-#20 0x620cae6445a6 &lt;unknown&gt;
-#21 0x703632e94ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Delete Note" owner="note_keywords">
-<arg>${test_data.initial_note.title}</arg>
-<status status="NOT RUN" start="2025-04-29T16:15:00.321825" elapsed="0.000044"/>
+<status status="FAIL" start="2025-04-29T16:34:06.101964" elapsed="1.037610">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.322099" elapsed="0.058318"/>
+<status status="PASS" start="2025-04-29T16:34:07.139828" elapsed="0.057247"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:14:59.165317" elapsed="1.215264">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x620cae64575a &lt;unknown&gt;
-#1 0x620cae0f84b0 &lt;unknown&gt;
-#2 0x620cae0ff0b6 &lt;unknown&gt;
-#3 0x620cae101928 &lt;unknown&gt;
-#4 0x620cae1019b3 &lt;unknown&gt;
-#5 0x620cae1493e5 &lt;unknown&gt;
-#6 0x620cae149ba1 &lt;unknown&gt;
-#7 0x620cae198231 &lt;unknown&gt;
-#8 0x620cae16f5bd &lt;unknown&gt;
-#9 0x620cae1955e0 &lt;unknown&gt;
-#10 0x620cae16f363 &lt;unknown&gt;
-#11 0x620cae13bd63 &lt;unknown&gt;
-#12 0x620cae13c9c1 &lt;unknown&gt;
-#13 0x620cae60aa6b &lt;unknown&gt;
-#14 0x620cae60e951 &lt;unknown&gt;
-#15 0x620cae5f2b62 &lt;unknown&gt;
-#16 0x620cae60f4c4 &lt;unknown&gt;
-#17 0x620cae5d713f &lt;unknown&gt;
-#18 0x620cae6336f8 &lt;unknown&gt;
-#19 0x620cae6338d6 &lt;unknown&gt;
-#20 0x620cae6445a6 &lt;unknown&gt;
-#21 0x703632e94ac3 &lt;unknown&gt;
-</status>
+<doc>Test deleting a note</doc>
+<status status="FAIL" start="2025-04-29T16:34:06.101643" elapsed="1.095614">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </test>
-<test id="s1-t4" name="Complete Note Lifecycle" line="18">
-<kw name="Open Notes" owner="note_keywords" type="SETUP">
+<test id="s1-t4" name="Multiple Notes" line="28">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:00.382097" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T16:34:07.199605" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:15:00.381562" elapsed="0.840902"/>
+<status status="PASS" start="2025-04-29T16:34:07.198739" elapsed="0.805807"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:01.223475" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T16:34:08.005304" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.222746" elapsed="0.099102"/>
+<status status="PASS" start="2025-04-29T16:34:08.004765" elapsed="0.101199"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${selectors.notes.note_title_input}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.322048" elapsed="0.007276"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:08.106195" elapsed="0.012902"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:15:01.329662" level="INFO">Opened notes application</msg>
-<arg>Opened notes application</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.329514" elapsed="0.000195"/>
+<status status="PASS" start="2025-04-29T16:34:07.198407" elapsed="0.920845"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:15:00.381285" elapsed="0.948505"/>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:08.127932" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:08.119962" elapsed="0.008026"/>
 </kw>
-<kw name="Add Note" owner="note_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:15:01.330794" level="INFO">Attempting to add note with title: Test Note</msg>
-<arg>Attempting to add note with title: ${title}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.330660" elapsed="0.000177"/>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:08.128071" elapsed="0.000055"/>
+</return>
+<msg time="2025-04-29T16:34:08.128265" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:08.119759" elapsed="0.008538"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:01.331285" level="INFO">Typing text 'Test Note' into text field 'css=input[placeholder='Note title']'.</msg>
-<arg>${selectors.notes.note_title_input}</arg>
-<arg>${title}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.330931" elapsed="0.065253"/>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:08.129016" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:08.206594" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:08.206744" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:08.128592" elapsed="0.078290">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:01.396892" level="INFO">Typing text 'This is a test note' into text field 'css=textarea[placeholder='Note content']'.</msg>
-<arg>${selectors.notes.note_content_input}</arg>
-<arg>${content}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.396383" elapsed="0.058187"/>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:08.207133" elapsed="0.000045"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:01.455380" level="INFO">Clicking button 'css=button:contains('Add Note')'.</msg>
-<msg time="2025-04-29T16:15:01.562228" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:15:01.562471" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x63e1b86c975a &lt;unknown&gt;
-#1 0x63e1b817c4b0 &lt;unknown&gt;
-#2 0x63e1b81830b6 &lt;unknown&gt;
-#3 0x63e1b8185928 &lt;unknown&gt;
-#4 0x63e1b81859b3 &lt;unknown&gt;
-#5 0x63e1b81cd3e5 &lt;unknown&gt;
-#6 0x63e1b81cdba1 &lt;unknown&gt;
-#7 0x63e1b821c231 &lt;unknown&gt;
-#8 0x63e1b81f35bd &lt;unknown&gt;
-#9 0x63e1b82195e0 &lt;unknown&gt;
-#10 0x63e1b81f3363 &lt;unknown&gt;
-#11 0x63e1b81bfd63 &lt;unknown&gt;
-#12 0x63e1b81c09c1 &lt;unknown&gt;
-#13 0x63e1b868ea6b &lt;unknown&gt;
-#14 0x63e1b8692951 &lt;unknown&gt;
-#15 0x63e1b8676b62 &lt;unknown&gt;
-#16 0x63e1b86934c4 &lt;unknown&gt;
-#17 0x63e1b865b13f &lt;unknown&gt;
-#18 0x63e1b86b76f8 &lt;unknown&gt;
-#19 0x63e1b86b78d6 &lt;unknown&gt;
-#20 0x63e1b86c85a6 &lt;unknown&gt;
-#21 0x7be4b3494ac3 &lt;unknown&gt;
-</msg>
-<arg>${selectors.notes.add_note_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:15:01.454778" elapsed="0.107994">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x63e1b86c975a &lt;unknown&gt;
-#1 0x63e1b817c4b0 &lt;unknown&gt;
-#2 0x63e1b81830b6 &lt;unknown&gt;
-#3 0x63e1b8185928 &lt;unknown&gt;
-#4 0x63e1b81859b3 &lt;unknown&gt;
-#5 0x63e1b81cd3e5 &lt;unknown&gt;
-#6 0x63e1b81cdba1 &lt;unknown&gt;
-#7 0x63e1b821c231 &lt;unknown&gt;
-#8 0x63e1b81f35bd &lt;unknown&gt;
-#9 0x63e1b82195e0 &lt;unknown&gt;
-#10 0x63e1b81f3363 &lt;unknown&gt;
-#11 0x63e1b81bfd63 &lt;unknown&gt;
-#12 0x63e1b81c09c1 &lt;unknown&gt;
-#13 0x63e1b868ea6b &lt;unknown&gt;
-#14 0x63e1b8692951 &lt;unknown&gt;
-#15 0x63e1b8676b62 &lt;unknown&gt;
-#16 0x63e1b86934c4 &lt;unknown&gt;
-#17 0x63e1b865b13f &lt;unknown&gt;
-#18 0x63e1b86b76f8 &lt;unknown&gt;
-#19 0x63e1b86b78d6 &lt;unknown&gt;
-#20 0x63e1b86c85a6 &lt;unknown&gt;
-#21 0x7be4b3494ac3 &lt;unknown&gt;
-</status>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:08.128480" elapsed="0.078787">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:08.128352" elapsed="0.079009">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:08.207639" elapsed="0.000041"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${title}</arg>
-<arg>${timeouts.element_visible}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T16:15:01.563037" elapsed="0.000047"/>
+<status status="FAIL" start="2025-04-29T16:34:08.119486" elapsed="0.088280">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<arg>${test_data.initial_note.title}</arg>
-<arg>${test_data.initial_note.content}</arg>
-<status status="FAIL" start="2025-04-29T16:15:01.329996" elapsed="0.233280">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x63e1b86c975a &lt;unknown&gt;
-#1 0x63e1b817c4b0 &lt;unknown&gt;
-#2 0x63e1b81830b6 &lt;unknown&gt;
-#3 0x63e1b8185928 &lt;unknown&gt;
-#4 0x63e1b81859b3 &lt;unknown&gt;
-#5 0x63e1b81cd3e5 &lt;unknown&gt;
-#6 0x63e1b81cdba1 &lt;unknown&gt;
-#7 0x63e1b821c231 &lt;unknown&gt;
-#8 0x63e1b81f35bd &lt;unknown&gt;
-#9 0x63e1b82195e0 &lt;unknown&gt;
-#10 0x63e1b81f3363 &lt;unknown&gt;
-#11 0x63e1b81bfd63 &lt;unknown&gt;
-#12 0x63e1b81c09c1 &lt;unknown&gt;
-#13 0x63e1b868ea6b &lt;unknown&gt;
-#14 0x63e1b8692951 &lt;unknown&gt;
-#15 0x63e1b8676b62 &lt;unknown&gt;
-#16 0x63e1b86934c4 &lt;unknown&gt;
-#17 0x63e1b865b13f &lt;unknown&gt;
-#18 0x63e1b86b76f8 &lt;unknown&gt;
-#19 0x63e1b86b78d6 &lt;unknown&gt;
-#20 0x63e1b86c85a6 &lt;unknown&gt;
-#21 0x7be4b3494ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Edit Note" owner="note_keywords">
-<arg>${test_data.initial_note.title}</arg>
-<arg>${test_data.updated_note.title}</arg>
-<arg>${test_data.updated_note.content}</arg>
-<status status="NOT RUN" start="2025-04-29T16:15:01.563542" elapsed="0.000036"/>
-</kw>
-<kw name="Delete Note" owner="note_keywords">
-<arg>${test_data.updated_note.title}</arg>
-<status status="NOT RUN" start="2025-04-29T16:15:01.563707" elapsed="0.000030"/>
+<status status="FAIL" start="2025-04-29T16:34:07.198020" elapsed="1.009813">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.563939" elapsed="0.055840"/>
+<status status="PASS" start="2025-04-29T16:34:08.208062" elapsed="0.057914"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:15:00.380881" elapsed="1.239045">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x63e1b86c975a &lt;unknown&gt;
-#1 0x63e1b817c4b0 &lt;unknown&gt;
-#2 0x63e1b81830b6 &lt;unknown&gt;
-#3 0x63e1b8185928 &lt;unknown&gt;
-#4 0x63e1b81859b3 &lt;unknown&gt;
-#5 0x63e1b81cd3e5 &lt;unknown&gt;
-#6 0x63e1b81cdba1 &lt;unknown&gt;
-#7 0x63e1b821c231 &lt;unknown&gt;
-#8 0x63e1b81f35bd &lt;unknown&gt;
-#9 0x63e1b82195e0 &lt;unknown&gt;
-#10 0x63e1b81f3363 &lt;unknown&gt;
-#11 0x63e1b81bfd63 &lt;unknown&gt;
-#12 0x63e1b81c09c1 &lt;unknown&gt;
-#13 0x63e1b868ea6b &lt;unknown&gt;
-#14 0x63e1b8692951 &lt;unknown&gt;
-#15 0x63e1b8676b62 &lt;unknown&gt;
-#16 0x63e1b86934c4 &lt;unknown&gt;
-#17 0x63e1b865b13f &lt;unknown&gt;
-#18 0x63e1b86b76f8 &lt;unknown&gt;
-#19 0x63e1b86b78d6 &lt;unknown&gt;
-#20 0x63e1b86c85a6 &lt;unknown&gt;
-#21 0x7be4b3494ac3 &lt;unknown&gt;
-</status>
+<doc>Test creating and managing multiple notes</doc>
+<status status="FAIL" start="2025-04-29T16:34:07.197575" elapsed="1.068553">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </test>
-<test id="s1-t5" name="Multiple Notes Management" line="23">
-<kw name="Open Notes" owner="note_keywords" type="SETUP">
+<test id="s1-t5" name="Note With Special Characters" line="39">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:01.621223" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-04-29T16:34:08.267938" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-29T16:15:01.620783" elapsed="0.801748"/>
+<status status="PASS" start="2025-04-29T16:34:08.267276" elapsed="0.816593"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:02.423389" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<msg time="2025-04-29T16:34:09.084562" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
 <arg>${selectors.header.notes_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:02.422755" elapsed="0.102409"/>
+<status status="PASS" start="2025-04-29T16:34:09.084068" elapsed="0.105812"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${selectors.notes.note_title_input}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-04-29T16:15:02.525468" elapsed="0.007583"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:09.190078" elapsed="0.012249"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:15:02.533389" level="INFO">Opened notes application</msg>
-<arg>Opened notes application</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:15:02.533238" elapsed="0.000202"/>
+<status status="PASS" start="2025-04-29T16:34:08.267046" elapsed="0.935408"/>
 </kw>
-<status status="PASS" start="2025-04-29T16:15:01.620507" elapsed="0.913001"/>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:09.211071" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:09.203480" elapsed="0.007640"/>
 </kw>
-<kw name="Add Note" owner="note_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-29T16:15:02.534118" level="INFO">Attempting to add note with title: First Note</msg>
-<arg>Attempting to add note with title: ${title}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-29T16:15:02.533994" elapsed="0.000165"/>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:09.211202" elapsed="0.000052"/>
+</return>
+<msg time="2025-04-29T16:34:09.211394" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:09.202988" elapsed="0.008429"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:02.534645" level="INFO">Typing text 'First Note' into text field 'css=input[placeholder='Note title']'.</msg>
-<arg>${selectors.notes.note_title_input}</arg>
-<arg>${title}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:02.534253" elapsed="0.061245"/>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:09.212132" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:09.271157" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:09.271364" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:09.211705" elapsed="0.059835">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:02.596643" level="INFO">Typing text 'First Content' into text field 'css=textarea[placeholder='Note content']'.</msg>
-<arg>${selectors.notes.note_content_input}</arg>
-<arg>${content}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-29T16:15:02.595814" elapsed="0.052804"/>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:09.271763" elapsed="0.000037"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-04-29T16:15:02.649369" level="INFO">Clicking button 'css=button:contains('Add Note')'.</msg>
-<msg time="2025-04-29T16:15:02.759854" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-04-29T16:15:02.760135" level="FAIL">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x644079fcf75a &lt;unknown&gt;
-#1 0x644079a824b0 &lt;unknown&gt;
-#2 0x644079a890b6 &lt;unknown&gt;
-#3 0x644079a8b928 &lt;unknown&gt;
-#4 0x644079a8b9b3 &lt;unknown&gt;
-#5 0x644079ad33e5 &lt;unknown&gt;
-#6 0x644079ad3ba1 &lt;unknown&gt;
-#7 0x644079b22231 &lt;unknown&gt;
-#8 0x644079af95bd &lt;unknown&gt;
-#9 0x644079b1f5e0 &lt;unknown&gt;
-#10 0x644079af9363 &lt;unknown&gt;
-#11 0x644079ac5d63 &lt;unknown&gt;
-#12 0x644079ac69c1 &lt;unknown&gt;
-#13 0x644079f94a6b &lt;unknown&gt;
-#14 0x644079f98951 &lt;unknown&gt;
-#15 0x644079f7cb62 &lt;unknown&gt;
-#16 0x644079f994c4 &lt;unknown&gt;
-#17 0x644079f6113f &lt;unknown&gt;
-#18 0x644079fbd6f8 &lt;unknown&gt;
-#19 0x644079fbd8d6 &lt;unknown&gt;
-#20 0x644079fce5a6 &lt;unknown&gt;
-#21 0x7c0d3f694ac3 &lt;unknown&gt;
-</msg>
-<arg>${selectors.notes.add_note_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-04-29T16:15:02.648852" elapsed="0.111616">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x644079fcf75a &lt;unknown&gt;
-#1 0x644079a824b0 &lt;unknown&gt;
-#2 0x644079a890b6 &lt;unknown&gt;
-#3 0x644079a8b928 &lt;unknown&gt;
-#4 0x644079a8b9b3 &lt;unknown&gt;
-#5 0x644079ad33e5 &lt;unknown&gt;
-#6 0x644079ad3ba1 &lt;unknown&gt;
-#7 0x644079b22231 &lt;unknown&gt;
-#8 0x644079af95bd &lt;unknown&gt;
-#9 0x644079b1f5e0 &lt;unknown&gt;
-#10 0x644079af9363 &lt;unknown&gt;
-#11 0x644079ac5d63 &lt;unknown&gt;
-#12 0x644079ac69c1 &lt;unknown&gt;
-#13 0x644079f94a6b &lt;unknown&gt;
-#14 0x644079f98951 &lt;unknown&gt;
-#15 0x644079f7cb62 &lt;unknown&gt;
-#16 0x644079f994c4 &lt;unknown&gt;
-#17 0x644079f6113f &lt;unknown&gt;
-#18 0x644079fbd6f8 &lt;unknown&gt;
-#19 0x644079fbd8d6 &lt;unknown&gt;
-#20 0x644079fce5a6 &lt;unknown&gt;
-#21 0x7c0d3f694ac3 &lt;unknown&gt;
-</status>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:09.211594" elapsed="0.060261">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:09.211471" elapsed="0.060443">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:09.272116" elapsed="0.000037"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${title}</arg>
-<arg>${timeouts.element_visible}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-04-29T16:15:02.760921" elapsed="0.000076"/>
+<status status="FAIL" start="2025-04-29T16:34:09.202680" elapsed="0.069560">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
-<arg>First Note</arg>
-<arg>First Content</arg>
-<status status="FAIL" start="2025-04-29T16:15:02.533727" elapsed="0.227484">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x644079fcf75a &lt;unknown&gt;
-#1 0x644079a824b0 &lt;unknown&gt;
-#2 0x644079a890b6 &lt;unknown&gt;
-#3 0x644079a8b928 &lt;unknown&gt;
-#4 0x644079a8b9b3 &lt;unknown&gt;
-#5 0x644079ad33e5 &lt;unknown&gt;
-#6 0x644079ad3ba1 &lt;unknown&gt;
-#7 0x644079b22231 &lt;unknown&gt;
-#8 0x644079af95bd &lt;unknown&gt;
-#9 0x644079b1f5e0 &lt;unknown&gt;
-#10 0x644079af9363 &lt;unknown&gt;
-#11 0x644079ac5d63 &lt;unknown&gt;
-#12 0x644079ac69c1 &lt;unknown&gt;
-#13 0x644079f94a6b &lt;unknown&gt;
-#14 0x644079f98951 &lt;unknown&gt;
-#15 0x644079f7cb62 &lt;unknown&gt;
-#16 0x644079f994c4 &lt;unknown&gt;
-#17 0x644079f6113f &lt;unknown&gt;
-#18 0x644079fbd6f8 &lt;unknown&gt;
-#19 0x644079fbd8d6 &lt;unknown&gt;
-#20 0x644079fce5a6 &lt;unknown&gt;
-#21 0x7c0d3f694ac3 &lt;unknown&gt;
-</status>
-</kw>
-<kw name="Add Note" owner="note_keywords">
-<arg>Second Note</arg>
-<arg>Second Content</arg>
-<status status="NOT RUN" start="2025-04-29T16:15:02.761584" elapsed="0.000061"/>
-</kw>
-<kw name="Edit Note" owner="note_keywords">
-<arg>First Note</arg>
-<arg>Updated First Note</arg>
-<arg>Updated First Content</arg>
-<status status="NOT RUN" start="2025-04-29T16:15:02.761870" elapsed="0.000035"/>
-</kw>
-<kw name="Delete Note" owner="note_keywords">
-<arg>Second Note</arg>
-<status status="NOT RUN" start="2025-04-29T16:15:02.762058" elapsed="0.000029"/>
+<status status="FAIL" start="2025-04-29T16:34:08.266782" elapsed="1.005534">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-29T16:15:02.762336" elapsed="0.056428"/>
+<status status="PASS" start="2025-04-29T16:34:09.272547" elapsed="0.055727"/>
 </kw>
-<status status="FAIL" start="2025-04-29T16:15:01.620188" elapsed="1.198732">InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
-  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
-Stacktrace:
-#0 0x644079fcf75a &lt;unknown&gt;
-#1 0x644079a824b0 &lt;unknown&gt;
-#2 0x644079a890b6 &lt;unknown&gt;
-#3 0x644079a8b928 &lt;unknown&gt;
-#4 0x644079a8b9b3 &lt;unknown&gt;
-#5 0x644079ad33e5 &lt;unknown&gt;
-#6 0x644079ad3ba1 &lt;unknown&gt;
-#7 0x644079b22231 &lt;unknown&gt;
-#8 0x644079af95bd &lt;unknown&gt;
-#9 0x644079b1f5e0 &lt;unknown&gt;
-#10 0x644079af9363 &lt;unknown&gt;
-#11 0x644079ac5d63 &lt;unknown&gt;
-#12 0x644079ac69c1 &lt;unknown&gt;
-#13 0x644079f94a6b &lt;unknown&gt;
-#14 0x644079f98951 &lt;unknown&gt;
-#15 0x644079f7cb62 &lt;unknown&gt;
-#16 0x644079f994c4 &lt;unknown&gt;
-#17 0x644079f6113f &lt;unknown&gt;
-#18 0x644079fbd6f8 &lt;unknown&gt;
-#19 0x644079fbd8d6 &lt;unknown&gt;
-#20 0x644079fce5a6 &lt;unknown&gt;
-#21 0x7c0d3f694ac3 &lt;unknown&gt;
-</status>
+<doc>Test creating a note with special characters</doc>
+<status status="FAIL" start="2025-04-29T16:34:08.266395" elapsed="1.062101">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
 </test>
-<status status="FAIL" start="2025-04-29T16:14:56.524876" elapsed="6.294552"/>
+<test id="s1-t6" name="Long Note Content" line="45">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:09.330199" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T16:34:09.329770" elapsed="0.827395"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:10.158256" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:10.157482" elapsed="0.106542"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:10.264218" elapsed="0.013730"/>
+</kw>
+<status status="PASS" start="2025-04-29T16:34:09.329567" elapsed="0.948507"/>
+</kw>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:10.285695" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:10.278760" elapsed="0.006983"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:10.285846" elapsed="0.000068"/>
+</return>
+<msg time="2025-04-29T16:34:10.286053" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:10.278574" elapsed="0.007504"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:10.287029" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:10.356729" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:10.357009" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:10.286438" elapsed="0.070848">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:10.357493" elapsed="0.000036"/>
+</kw>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:10.286311" elapsed="0.071336">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:10.286146" elapsed="0.071583">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:10.357909" elapsed="0.000037"/>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:10.278293" elapsed="0.079738">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:09.329272" elapsed="1.028826">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T16:34:10.358339" elapsed="0.055773"/>
+</kw>
+<doc>Test creating a note with long content</doc>
+<status status="FAIL" start="2025-04-29T16:34:09.328847" elapsed="1.085474">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</test>
+<test id="s1-t7" name="Empty Note Title" line="52">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:10.416125" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T16:34:10.415679" elapsed="0.758438"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:11.175255" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:11.174449" elapsed="0.248498"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:11.423176" elapsed="0.014462"/>
+</kw>
+<status status="PASS" start="2025-04-29T16:34:10.415452" elapsed="1.022351"/>
+</kw>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:11.446882" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:11.438725" elapsed="0.008217"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:11.447038" elapsed="0.000054"/>
+</return>
+<msg time="2025-04-29T16:34:11.447232" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:11.438489" elapsed="0.008774"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:11.448002" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:11.505654" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:11.505879" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:11.447576" elapsed="0.058514">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:11.506385" elapsed="0.000063"/>
+</kw>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:11.447458" elapsed="0.059080">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:11.447327" elapsed="0.059308">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:11.506923" elapsed="0.000067"/>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:11.438093" elapsed="0.069148">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:10.415018" elapsed="1.092326">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T16:34:11.507679" elapsed="0.057170"/>
+</kw>
+<doc>Test creating a note with empty title</doc>
+<status status="FAIL" start="2025-04-29T16:34:10.414624" elapsed="1.150372">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</test>
+<test id="s1-t8" name="Empty Note Content" line="58">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:11.566691" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T16:34:11.566224" elapsed="0.896142"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:12.463606" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:12.462721" elapsed="0.159889"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:12.622867" elapsed="0.015580"/>
+</kw>
+<status status="PASS" start="2025-04-29T16:34:11.565836" elapsed="1.072766"/>
+</kw>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:12.647654" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:12.639323" elapsed="0.008389"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:12.647810" elapsed="0.000063"/>
+</return>
+<msg time="2025-04-29T16:34:12.648019" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:12.639124" elapsed="0.008920"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:12.648875" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:12.759008" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:12.759231" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:12.648428" elapsed="0.110996">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:12.759824" elapsed="0.000071"/>
+</kw>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:12.648267" elapsed="0.111739">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:12.648104" elapsed="0.112005">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:12.760317" elapsed="0.000040"/>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:12.638837" elapsed="0.121619">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:11.565582" elapsed="1.194946">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T16:34:12.760777" elapsed="0.057987"/>
+</kw>
+<doc>Test creating a note with empty content</doc>
+<status status="FAIL" start="2025-04-29T16:34:11.565238" elapsed="1.253692">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</test>
+<test id="s1-t9" name="Note With Line Breaks" line="64">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:12.820625" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T16:34:12.820106" elapsed="0.868760"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:13.690070" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:13.689221" elapsed="0.107301"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:13.796720" elapsed="0.015056"/>
+</kw>
+<status status="PASS" start="2025-04-29T16:34:12.819910" elapsed="0.991985"/>
+</kw>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:13.819950" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:13.812582" elapsed="0.007441"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:13.820143" elapsed="0.000080"/>
+</return>
+<msg time="2025-04-29T16:34:13.820410" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:13.812386" elapsed="0.008051"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:13.821228" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:13.889417" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:13.889569" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:13.820758" elapsed="0.068939">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:13.889881" elapsed="0.000039"/>
+</kw>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:13.820631" elapsed="0.069344">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:13.820497" elapsed="0.069539">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:13.890198" elapsed="0.000031"/>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:13.812096" elapsed="0.078225">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:12.819630" elapsed="1.070759">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T16:34:13.890634" elapsed="0.056987"/>
+</kw>
+<doc>Test creating a note with line breaks</doc>
+<status status="FAIL" start="2025-04-29T16:34:12.819210" elapsed="1.128573">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</test>
+<test id="s1-t10" name="Note With Unicode Characters" line="71">
+<kw name="Open Notes App" owner="note_keywords" type="SETUP">
+<kw name="Open Notes" owner="note_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:13.949457" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-29T16:34:13.948987" elapsed="0.862268"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:14.811948" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
+<arg>${selectors.header.notes_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:14.811466" elapsed="0.128646"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${selectors.notes.notes_app}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-29T16:34:14.940329" elapsed="0.015323"/>
+</kw>
+<status status="PASS" start="2025-04-29T16:34:13.948742" elapsed="1.007052"/>
+</kw>
+<kw name="Clear All Notes" owner="note_keywords">
+<kw name="Get Note Count" owner="note_keywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:14.964405" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${selectors.notes.note_item}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-04-29T16:34:14.956546" elapsed="0.007910"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" start="2025-04-29T16:34:14.964540" elapsed="0.000053"/>
+</return>
+<msg time="2025-04-29T16:34:14.964724" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<status status="PASS" start="2025-04-29T16:34:14.956329" elapsed="0.008418"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-29T16:34:14.965501" level="INFO">Clicking element 'css=[data-testid^='delete-note-button-']'.</msg>
+<msg time="2025-04-29T16:34:15.052157" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-29T16:34:15.052852" level="FAIL">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</msg>
+<arg>${selectors.notes.delete_note_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-29T16:34:14.965044" elapsed="0.088004">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-29T16:34:15.053285" elapsed="0.000041"/>
+</kw>
+<var name="${i}">0</var>
+<status status="FAIL" start="2025-04-29T16:34:14.964929" elapsed="0.088455">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</iter>
+<var>${i}</var>
+<value>${count}</value>
+<status status="FAIL" start="2025-04-29T16:34:14.964802" elapsed="0.088645">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</for>
+<kw name="Verify Note Count" owner="note_keywords">
+<arg>0</arg>
+<status status="NOT RUN" start="2025-04-29T16:34:15.053615" elapsed="0.000036"/>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:14.956014" elapsed="0.097737">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<status status="FAIL" start="2025-04-29T16:34:13.948481" elapsed="1.105339">Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-29T16:34:15.054062" elapsed="0.058100"/>
+</kw>
+<doc>Test creating a note with Unicode characters</doc>
+<status status="FAIL" start="2025-04-29T16:34:13.948057" elapsed="1.164274">Setup failed:
+Element with locator 'css=[data-testid^='delete-note-button-']' not found.</status>
+</test>
+<status status="FAIL" start="2025-04-29T16:34:03.663238" elapsed="11.449654"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="5" skip="0">All Tests</stat>
+<stat pass="0" fail="10" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Notes Tests" id="s1" pass="0" fail="5" skip="0">Notes Tests</stat>
+<stat name="Note Tests" id="s1" pass="0" fail="10" skip="0">Note Tests</stat>
 </suite>
 </statistics>
 <errors>
