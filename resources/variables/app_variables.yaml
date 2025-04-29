@@ -10,14 +10,6 @@ selectors:
     calculator_button: "xpath=//button[contains(text(), 'Calculator')]"
     notes_button: "xpath=//button[contains(text(), 'Notes')]"
   todo:
-    note_title_input: "css=input[placeholder='Note title']"
-    note_content_input: "css=textarea[placeholder='Note content']"
-    add_note_button: "css=button:contains('Add Note')"
-    edit_note_button: "css=button:contains('Edit')"
-    delete_note_button: "css=button:contains('Delete')"
-    note_title: "css=h3"
-    note_content: "css=p"
-    note_item: "css=div[data-testid='note-item']"
     todo_input: "css=input[placeholder='Add a new todo']"
     add_todo_button: "css=button[data-testid='add-todo-button']"
     todo_item: "css=li[data-testid^='todo-item-']"
@@ -43,6 +35,15 @@ selectors:
     operator_button: "css=[data-testid='operator-{0}']"
     equals_button: "css=[data-testid='equals-button']"
     decimal_button: "css=[data-testid='number-decimal']"
+  notes:
+    note_title_input: "css=input[placeholder='Note title']"
+    note_content_input: "css=textarea[placeholder='Note content']"
+    add_note_button: "css=button:contains('Add Note')"
+    edit_note_button: "css=button:contains('Edit')"
+    delete_note_button: "css=button:contains('Delete')"
+    note_title: "css=h3"
+    note_content: "css=p"
+    note_item: "css=div[data-testid='note-item']"
 
 
 test_data:
