@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ../resources/keywords/text_editor_keywords.resource
-Variables    ../resources/variables/app_variables.yaml
 Test Setup    Open Text Editor
 Test Teardown    Close Text Editor Application
 

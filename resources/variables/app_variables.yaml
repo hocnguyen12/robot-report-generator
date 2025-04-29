@@ -2,15 +2,14 @@ app:
   url: "http://localhost:3000"
 
 selectors:
-  header :
+  header:
     title: "Productivity Tools"
     description: "A collection of useful tools to boost your productivity"
     todo_button: "xpath=//button[contains(text(), 'Todo List')]"
     text_editor_button: "xpath=//button[contains(text(), 'Text Editor')]"
     calculator_button: "xpath=//button[contains(text(), 'Calculator')]"
     notes_button: "xpath=//button[contains(text(), 'Notes')]"
-
-  todo :
+  todo:
     note_title_input: "css=input[placeholder='Note title']"
     note_content_input: "css=textarea[placeholder='Note content']"
     add_note_button: "css=button:contains('Add Note')"
@@ -35,6 +34,16 @@ selectors:
     clear_button: "xpath=//button[contains(., 'Clear')]"
     save_success_message: "xpath=//div[contains(., 'File saved successfully')]"
     clear_success_message: "xpath=//div[contains(., 'Editor content cleared')]"
+  calculator:
+    calculator_input: "css=[data-testid='calculator-input']"
+    calculator_button: "css=[data-testid='calculate-button']"
+    calculator_result: "css=[data-testid='calculator-result']"
+    number_button: "css=[data-testid='number-{0}']"
+    operator_button: "css=[data-testid='operator-{0}']"
+    clear_button: "css=[data-testid='clear-button']"
+    equals_button: "css=[data-testid='equals-button']"
+    display: "css=[data-testid='display']"
+
 
 test_data:
   initial_note:
