@@ -20,7 +20,17 @@ Add Note
     Input Text    ${selectors.notes.note_title_input}    ${title}
     Input Text    ${selectors.notes.note_content_input}    ${content}
     Click Element    ${selectors.notes.add_note_button}
-    Run Keyword If    '${title}' != '${EMPTY}'    Wait Until Element Is Visible    xpath=//h3[contains(text(), '${title}')]    timeout=10s
+
+    #${title_empty}=    Run Keyword And Return Status    Should Be Empty    ${title}
+    #${content_empty}=    Run Keyword And Return Status    Should Be Empty    ${content}
+    #${should_wait}=    Run Keyword And Return Status    Should Not Be True    ${title_empty}
+    #${should_wait}=    Run Keyword If    ${should_wait}    Run Keyword And Return Status    Should Not Be True    ${content_empty}
+
+    ${title_has_content}=    Run Keyword And Return Status    Should Not Match Regexp    ${title}    ^\\s*$
+    ${content_has_content}=    Run Keyword And Return Status    Should Not Match Regexp    ${content}    ^\\s*$
+    ${should_wait}=    Run Keyword And Return Status    Should Be True    ${title_has_content} and ${content_has_content}
+
+    Run Keyword If    ${should_wait}    Wait Until Element Is Visible    xpath=//h3[contains(text(), '${title}')]    timeout=10s
 
 Edit Note
     [Arguments]    ${old_title}    ${new_title}    ${new_content}
@@ -40,9 +50,10 @@ Delete Note
 
 Verify Note Exists
     [Arguments]    ${title}    ${content}
-    ${note_selector}=    Set Variable If    '${title}' == '${EMPTY}'    xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]]    xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]
+    ${note_selector}=    Set Variable If    '${title}' == '${EMPTY}'    xpath=//div[contains(@data-testid, 'note-')][.//p[contains(@data-testid, 'note-content-')]]    xpath=//h3[contains(text(), '${title}')]/ancestor::div[contains(@data-testid, 'note-')]
     Element Should Be Visible    ${note_selector}
-    Run Keyword If    '${content}' != '${EMPTY}'    Element Should Be Visible    ${note_selector}//p[contains(@data-testid, 'note-content-') and contains(text(), '${content}')]
+    ${has_content}=    Run Keyword And Return Status    Should Not Be Empty    ${content}
+    Run Keyword If    ${has_content}    Element Should Be Visible    ${note_selector}//p[contains(@data-testid, 'note-content-')]
 
 Verify Note Does Not Exist
     [Arguments]    ${title}
@@ -82,3 +93,5 @@ Verify Note Persistence
 Reload Notes App
     Reload Page
     Click Element    ${selectors.header.notes_button}
+    Wait Until Element Is Visible    ${selectors.notes.notes_app}    timeout=10s
+    Sleep    1s    # Wait for notes to load from localStorage

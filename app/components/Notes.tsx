@@ -28,7 +28,7 @@ export default function Notes() {
   };
 
   const handleAddNote = () => {
-    if (!title || !content) return;
+    if (!title.trim() || !content.trim()) return;
 
     const newNote: Note = {
       id: Date.now().toString(),

@@ -50,20 +50,29 @@ Long Note Content
     Verify Note Persistence    Long Note    ${long_content}
 
 Empty Note Title
-    [Documentation]    Test creating a note with empty title
+    [Documentation]    Test that note with empty title is not created
+    ${initial_count}=    Get Note Count
     Add Note    ${EMPTY}    Content without title
-    Verify Note Exists    ${EMPTY}    Content without title
-    Verify Note Persistence    ${EMPTY}    Content without title
+    ${final_count}=    Get Note Count
+    Should Be Equal As Numbers    ${initial_count}    ${final_count}
 
 Empty Note Content
-    [Documentation]    Test creating a note with empty content
+    [Documentation]    Test that note with empty content is not created
+    ${initial_count}=    Get Note Count
     Add Note    Empty Content Note    ${EMPTY}
-    Verify Note Exists    Empty Content Note    ${EMPTY}
-    Verify Note Persistence    Empty Content Note    ${EMPTY}
+    ${final_count}=    Get Note Count
+    Should Be Equal As Numbers    ${initial_count}    ${final_count}
+
+Empty Title And Content
+    [Documentation]    Test that note with both empty title and content is not created
+    ${initial_count}=    Get Note Count
+    Add Note    ${EMPTY}    ${EMPTY}
+    ${final_count}=    Get Note Count
+    Should Be Equal As Numbers    ${initial_count}    ${final_count}
 
 Note With Line Breaks
     [Documentation]    Test creating a note with line breaks
-    ${content_with_breaks}=    Set Variable    Line 1\nLine 2\nLine 3
+    ${content_with_breaks}=    Catenate    SEPARATOR=\n    Line 1    Line 2    Line 3
     Add Note    Multi-line Note    ${content_with_breaks}
     Verify Note Exists    Multi-line Note    ${content_with_breaks}
     Verify Note Persistence    Multi-line Note    ${content_with_breaks}
@@ -72,4 +81,58 @@ Note With Unicode Characters
     [Documentation]    Test creating a note with Unicode characters
     Add Note    Unicode Note    This note contains Unicode characters: 你好世界
     Verify Note Exists    Unicode Note    This note contains Unicode characters: 你好世界
-    Verify Note Persistence    Unicode Note    This note contains Unicode characters: 你好世界 
+    Verify Note Persistence    Unicode Note    This note contains Unicode characters: 你好世界
+
+Edit With Empty Fields
+    [Documentation]    Test that editing a note with empty fields is not allowed
+    Add Note    Original Note    Original content
+    ${initial_count}=    Get Note Count
+    Edit Note    Original Note    ${EMPTY}    Updated content
+    ${final_count}=    Get Note Count
+    Should Be Equal As Numbers    ${initial_count}    ${final_count}
+    Verify Note Exists    Original Note    Original content
+
+Whitespace Only Inputs
+    [Documentation]    Test that notes with only whitespace are not created
+    ${initial_count}=    Get Note Count
+    Add Note    ${SPACE}${SPACE}${SPACE}    ${SPACE}${SPACE}${SPACE}
+    ${final_count}=    Get Note Count
+    Should Be Equal As Numbers    ${initial_count}    ${final_count}
+
+Note Ordering
+    [Documentation]    Test that notes are displayed in chronological order (newest first)
+    Add Note    First Note    First content
+    Sleep    1s
+    Add Note    Second Note    Second content
+    ${first_note_date}=    Get Text    xpath=//h3[contains(text(), 'First Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-date-')]
+    ${second_note_date}=    Get Text    xpath=//h3[contains(text(), 'Second Note')]/ancestor::div[contains(@data-testid, 'note-')]//p[contains(@data-testid, 'note-date-')]
+    Should Be True    '${second_note_date}' > '${first_note_date}'
+
+Multiple Edits
+    [Documentation]    Test multiple edits of the same note
+    Add Note    Test Note    Initial content
+    Edit Note    Test Note    Test Note    First edit
+    Verify Note Exists    Test Note    First edit
+    Edit Note    Test Note    Test Note    Second edit
+    Verify Note Exists    Test Note    Second edit
+    Edit Note    Test Note    Test Note    Final edit
+    Verify Note Exists    Test Note    Final edit
+    Verify Note Persistence    Test Note    Final edit
+
+Rapid Note Operations
+    [Documentation]    Test rapid creation and deletion of notes
+    FOR    ${i}    IN RANGE    5
+        Add Note    Note ${i}    Content ${i}
+        Verify Note Exists    Note ${i}    Content ${i}
+        Delete Note    Note ${i}
+        Verify Note Does Not Exist    Note ${i}
+    END
+    Verify Note Count    0
+
+Browser Refresh Behavior
+    [Documentation]    Test that notes persist after multiple browser refreshes
+    Add Note    Persistence Test    This note should persist
+    FOR    ${i}    IN RANGE    3
+        Reload Notes App
+        Verify Note Exists    Persistence Test    This note should persist
+    END 
