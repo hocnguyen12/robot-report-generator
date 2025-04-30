@@ -9,7 +9,7 @@ Open Notes App
     Clear All Notes
 
 Open Notes
-    Open Browser    ${app.url}    chrome    #options=add_argument("--headless")
+    Open Browser    ${app.url}    chrome
     Click Element    ${selectors.header.notes_button}
     Wait Until Element Is Visible    ${selectors.notes.notes_app}    timeout=10s
 
