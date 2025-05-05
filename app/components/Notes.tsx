@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { DELAYS_ENABLED, DELAYS } from '../config/delays';
 
 interface Note {
   id: string;
@@ -16,9 +17,17 @@ export default function Notes() {
   const [editingNote, setEditingNote] = useState<Note | null>(null);
 
   useEffect(() => {
-    const savedNotes = localStorage.getItem('notes');
-    if (savedNotes) {
-      setNotes(JSON.parse(savedNotes));
+    const loadNotes = () => {
+      const savedNotes = localStorage.getItem('notes');
+      if (savedNotes) {
+        setNotes(JSON.parse(savedNotes));
+      }
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(loadNotes, DELAYS.NOTES.LOAD);
+    } else {
+      loadNotes();
     }
   }, []);
 
@@ -37,19 +46,43 @@ export default function Notes() {
       createdAt: new Date().toISOString(),
     };
 
-    saveNotes([...notes, newNote]);
-    setTitle('');
-    setContent('');
+    const action = () => {
+      saveNotes([...notes, newNote]);
+      setTitle('');
+      setContent('');
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.NOTES.ADD);
+    } else {
+      action();
+    }
   };
 
   const handleDeleteNote = (id: string) => {
-    saveNotes(notes.filter((note) => note.id !== id));
+    const action = () => {
+      saveNotes(notes.filter((note) => note.id !== id));
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.NOTES.DELETE);
+    } else {
+      action();
+    }
   };
 
   const handleEditNote = (note: Note) => {
-    setEditingNote(note);
-    setTitle(note.title);
-    setContent(note.content);
+    const action = () => {
+      setEditingNote(note);
+      setTitle(note.title);
+      setContent(note.content);
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.NOTES.EDIT);
+    } else {
+      action();
+    }
   };
 
   const handleUpdateNote = () => {
@@ -61,10 +94,18 @@ export default function Notes() {
         : note
     );
 
-    saveNotes(updatedNotes);
-    setEditingNote(null);
-    setTitle('');
-    setContent('');
+    const action = () => {
+      saveNotes(updatedNotes);
+      setEditingNote(null);
+      setTitle('');
+      setContent('');
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.NOTES.UPDATE);
+    } else {
+      action();
+    }
   };
 
   return (

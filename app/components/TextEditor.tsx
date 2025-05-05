@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { DELAYS_ENABLED, DELAYS } from '../config/delays';
 
 interface Message {
   type: 'success' | 'error';
@@ -25,18 +26,26 @@ export default function TextEditor() {
         return;
       }
 
-      // Create and download the file
-      const blob = new Blob([content], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      const action = () => {
+        // Create and download the file
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
 
-      showMessage('success', 'File saved successfully');
+        showMessage('success', 'File saved successfully');
+      };
+
+      if (DELAYS_ENABLED) {
+        setTimeout(action, DELAYS.TEXT_EDITOR.SAVE);
+      } else {
+        action();
+      }
     } catch (error) {
       showMessage('error', 'Failed to save file');
       console.error('Save error:', error);
@@ -45,8 +54,16 @@ export default function TextEditor() {
 
   const handleClear = () => {
     try {
-      setContent('');
-      showMessage('success', 'Editor content cleared');
+      const action = () => {
+        setContent('');
+        showMessage('success', 'Editor content cleared');
+      };
+
+      if (DELAYS_ENABLED) {
+        setTimeout(action, DELAYS.TEXT_EDITOR.CLEAR);
+      } else {
+        action();
+      }
     } catch (error) {
       showMessage('error', 'Failed to clear content');
       console.error('Clear error:', error);

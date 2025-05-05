@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { DELAYS_ENABLED, DELAYS } from '../config/delays';
 
 interface Todo {
   id: number;
@@ -13,21 +14,45 @@ export default function Todo() {
 
   const addTodo = () => {
     if (inputText.trim()) {
-      setTodos([...todos, { id: Date.now(), text: inputText.trim(), completed: false }]);
-      setInputText('');
+      const action = () => {
+        setTodos([...todos, { id: Date.now(), text: inputText.trim(), completed: false }]);
+        setInputText('');
+      };
+      
+      if (DELAYS_ENABLED) {
+        setTimeout(action, DELAYS.TODO.ADD);
+      } else {
+        action();
+      }
     }
   };
 
   const toggleTodo = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    const action = () => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        )
+      );
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.TODO.TOGGLE);
+    } else {
+      action();
+    }
   };
 
   const deleteTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    const action = () => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.TODO.DELETE);
+    } else {
+      action();
+    }
   };
 
   return (

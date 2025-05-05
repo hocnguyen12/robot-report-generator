@@ -95,4 +95,4 @@ Calculate Expression
 Verify Calculation Result
     [Arguments]    ${expected_result}
     ${actual_result}=    Get Text    ${selectors.calculator.calculator_result}
-    Should Be Equal As Numbers    ${actual_result}    ${expected_result} 
+    Should Be Equal As Numbers    ${actual_result}    ${expected_result}

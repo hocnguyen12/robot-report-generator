@@ -1,0 +1,80 @@
+app:
+  url: "http://localhost:3000"
+
+selectors:
+  header:
+    title: "Productivity Tools"
+    description: "A collection of useful tools to boost your productivity"
+    todo_button: "xpath=//button[contains(text(), 'Todo List')]"
+    text_editor_button: "xpath=//button[contains(text(), 'Text Editor')]"
+    calculator_button: "xpath=//button[contains(text(), 'Calculator')]"
+    notes_button: "xpath=//button[contains(text(), 'Notes')]"
+  todo:
+    # Removed todo_input and add_todo_button to simulate UI simplification
+    todo_item: "css=li[data-testid^='todo-item-']"
+    todo_text: "css=span[data-testid^='todo-text-']"
+    todo_checkbox: "css=input[data-testid^='todo-checkbox-']"
+    todo_delete_button: "css=button[data-testid^='todo-delete-']"
+    todo_text_by_content: "xpath=//li[.//span[contains(text(), '{0}')]]"
+    todo_checkbox_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//input[@type='checkbox']"
+    todo_delete_for_text: "xpath=//li[.//span[contains(text(), '{0}')]]//button[@data-testid[starts-with(., 'todo-delete-')]]"
+  text_editor:
+    filename_input: "css=input[type='text']"
+    content_textarea: "css=textarea"
+    # Removed save_button to simulate UI change
+    clear_button: "xpath=//button[contains(., 'Clear')]"
+    # Changed success message to error message to simulate UI change
+    save_success_message: "xpath=//div[contains(., 'Error saving file')]"
+    clear_success_message: "xpath=//div[contains(., 'Editor content cleared')]"
+  calculator:
+    calculator: "css=[data-testid='calculator']"
+    display: "css=[data-testid='display']"
+    # Removed equation_display to simulate UI simplification
+    clear_button: "css=[data-testid='clear-button']"
+    number_button: "css=[data-testid='number-{0}']"
+    operator_button: "css=[data-testid='operator-{0}']"
+    equals_button: "css=[data-testid='equals-button']"
+    decimal_button: "css=[data-testid='number-decimal']"
+  notes:
+    notes_app: "css=[data-testid='notes-app']"
+    note_title_input: "css=[data-testid='note-title-input']"
+    note_content_input: "css=[data-testid='note-content-input']"
+    add_note_button: "css=[data-testid='add-note-button']"
+    # Removed update_note_button to simulate UI change
+    note_item: "css=[data-testid^='note-']"
+    note_title: "css=[data-testid^='note-title-']"
+    note_content: "css=[data-testid^='note-content-']"
+    # Removed note_date to simulate UI simplification
+    edit_note_button: "css=[data-testid^='edit-note-button-']"
+    delete_note_button: "css=[data-testid^='delete-note-button-']"
+    note_by_title: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]"
+    edit_button_in_note: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'edit-note-button-')]"
+    delete_button_in_note: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'delete-note-button-')]"
+
+test_data:
+  initial_note:
+    title: "Test Note"
+    content: "This is a test note"
+  updated_note:
+    title: "Updated Test Note"
+    content: "This is an updated test note"
+  todo_items:
+    - "Buy groceries"
+    - "Do laundry"
+    - "Call mom"
+    - "Special & test item"
+  text_editor:
+    test_document:
+      filename: "test_document.txt"
+      content: "This is a test document content"
+    editable_document:
+      initial_content: "Initial content"
+      updated_content: "Updated content"
+      filename: "editable_document.txt"
+    persistent_document:
+      filename: "persistent_document.txt"
+      content: "This content should persist"
+
+timeouts:
+  page_load: 10s
+  element_visible: 2s 

@@ -1,37 +1,70 @@
 'use client';
 
 import { useState } from 'react';
+import { DELAYS_ENABLED, DELAYS } from '../config/delays';
 
 export default function Calculator() {
   const [display, setDisplay] = useState('0');
   const [equation, setEquation] = useState('');
 
   const handleNumber = (num: string) => {
-    if (display === '0') {
-      setDisplay(num);
+    const action = () => {
+      if (display === '0') {
+        setDisplay(num);
+      } else {
+        setDisplay(display + num);
+      }
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.CALCULATOR.NUMBER);
     } else {
-      setDisplay(display + num);
+      action();
     }
   };
 
   const handleOperator = (op: string) => {
-    setEquation(equation + display + op);
-    setDisplay('0');
+    const action = () => {
+      setEquation(equation + display + op);
+      setDisplay('0');
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.CALCULATOR.OPERATOR);
+    } else {
+      action();
+    }
   };
 
   const handleEquals = () => {
-    try {
-      const result = eval(equation + display);
-      setDisplay(result.toString());
-      setEquation('');
-    } catch (error) {
-      setDisplay('Error');
+    const action = () => {
+      try {
+        const result = eval(equation + display);
+        setDisplay(result.toString());
+        setEquation('');
+      } catch (error) {
+        setDisplay('Error');
+      }
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.CALCULATOR.EQUALS);
+    } else {
+      action();
     }
   };
 
   const handleClear = () => {
-    setDisplay('0');
-    setEquation('');
+    const action = () => {
+      setDisplay('0');
+      setEquation('');
+    };
+
+    if (DELAYS_ENABLED) {
+      setTimeout(action, DELAYS.CALCULATOR.CLEAR);
+    } else {
+      action();
+    }
   };
 
   return (

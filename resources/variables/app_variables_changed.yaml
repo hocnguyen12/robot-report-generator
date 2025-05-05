@@ -1,0 +1,85 @@
+app:
+  url: "http://localhost:3000"
+
+selectors:
+  header:
+    title: "Productivity Tools"
+    description: "A collection of useful tools to boost your productivity"
+    todo_button: "xpath=//button[contains(text(), 'Todo List')]"
+    text_editor_button: "xpath=//button[contains(text(), 'Text Editor')]"
+    calculator_button: "xpath=//button[contains(text(), 'Calculator')]"
+    notes_button: "xpath=//button[contains(text(), 'Notes')]"
+  todo:
+    todo_input: "css=input.todo-input-field"
+    add_todo_button: "xpath=//button[contains(text(), 'Add Task')]"
+    todo_item: "css=li.todo-item"
+    todo_text: "css=span.todo-text"
+    todo_checkbox: "css=input.todo-checkbox"
+    todo_delete_button: "css=button.todo-delete"
+    todo_text_by_content: "xpath=//li[contains(@class, 'todo-item')][.//span[contains(text(), '{0}')]]"
+    todo_checkbox_for_text: "xpath=//li[contains(@class, 'todo-item')][.//span[contains(text(), '{0}')]]//input[contains(@class, 'todo-checkbox')]"
+    todo_delete_for_text: "xpath=//li[contains(@class, 'todo-item')][.//span[contains(text(), '{0}')]]//button[contains(@class, 'todo-delete')]"
+  text_editor:
+    filename_input: "css=input.filename-field"
+    content_textarea: "css=textarea.editor-content"
+    save_button: "css=button[data-testid='save-file-button']"
+    clear_button: "css=button[data-testid='clear-editor-button']"
+    save_success_message: "css=div.save-success-message"
+    clear_success_message: "css=div.clear-success-message"
+  calculator:
+    calculator: "css=.calculator-container"
+    display: "css=.calculator-display"
+    equation_display: "css=.equation-display"
+    clear_button: "css=.clear-button"
+    number_button: "css=.number-button-{0}"
+    operator_button: "css=.operator-button-{0}"
+    equals_button: "css=.equals-button"
+    decimal_button: "css=.decimal-button"
+  notes:
+    notes_app: "css=[data-testid='notes-container']"
+    
+    note_title_input: "css=input.note-title-field"
+    note_content_input: "css=textarea.note-content-field"
+    
+    add_note_button: "xpath=//button[contains(text(), 'Create Note')]"
+    update_note_button: "xpath=//button[contains(text(), 'Save Changes')]"
+    
+    note_item: "css=.note-card"
+    note_title: "css=.note-title"
+    note_content: "css=.note-content"
+    note_date: "css=.note-date"
+    
+    edit_note_button: "css=.edit-button"
+    delete_note_button: "css=.delete-button"
+    
+    note_by_title: "xpath=//div[contains(@class, 'note-card')][.//h3[contains(text(), '{0}')]]"
+    edit_button_in_note: "xpath=//div[contains(@class, 'note-card')][.//h3[contains(text(), '{0}')]]//button[contains(@class, 'edit-button')]"
+    delete_button_in_note: "xpath=//div[contains(@class, 'note-card')][.//h3[contains(text(), '{0}')]]//button[contains(@class, 'delete-button')]"
+
+test_data:
+  initial_note:
+    title: "Test Note"
+    content: "This is a test note"
+  updated_note:
+    title: "Updated Test Note"
+    content: "This is an updated test note"
+  todo_items:
+    - "Buy groceries"
+    - "Do laundry"
+    - "Call mom"
+    - "Special & test item"
+  text_editor:
+    test_document:
+      filename: "test_document.txt"
+      content: "This is a test document content"
+    editable_document:
+      initial_content: "Initial content"
+      updated_content: "Updated content"
+      filename: "editable_document.txt"
+    persistent_document:
+      filename: "persistent_document.txt"
+      content: "This content should persist"
+
+timeouts:
+  page_load: 10s
+  element_visible: 2s 

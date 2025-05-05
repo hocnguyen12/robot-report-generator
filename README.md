@@ -1,3 +1,5 @@
+# Robot Framework Fails
+
 ## Run the automated tests
 
 First run the app:
