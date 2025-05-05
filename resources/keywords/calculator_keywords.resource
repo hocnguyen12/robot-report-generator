@@ -2,16 +2,21 @@
 Library    SeleniumLibrary
 Library    String
 Library    Collections
+Resource    common_keywords.resource
 Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
 Open Calculator
     Open Browser    ${app.url}    chrome
+    Login To Application
+    Ensure Logged In
     Click Element    ${selectors.header.calculator_button}
     Wait Until Page Contains Element    ${selectors.calculator.calculator}
     Log    Opened calculator application
 
 Close Calculator
+    Logout From Application
+    Ensure Logged Out
     Close Browser
     Log    Closed calculator application
 

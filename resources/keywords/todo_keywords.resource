@@ -2,16 +2,21 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    String
+Resource    common_keywords.resource
 Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
 Open Todo Application
     Open Browser    ${app.url}    chrome
+    Login To Application
+    Ensure Logged In
     Wait Until Page Contains Element    ${selectors.todo.todo_input}    ${timeouts.page_load}
     Log    Opened todo list application
 
 Close Todo Application
-    Close Browser and Stop App
+    Logout From Application
+    Ensure Logged Out
+    Close Browser
 
 Add New Todo
     [Arguments]    ${todo_text}
@@ -99,8 +104,3 @@ Toggle Todo Item
 Get Todo Count
     ${count}=    Get Element Count    ${selectors.todo.todo_item}
     RETURN    ${count}
-
-Close Browser and Stop App
-    [Teardown]
-    Close Browser
-    Log    Closed browser and stopped application 

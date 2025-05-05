@@ -76,7 +76,6 @@ Test Empty Todo List
 Add Single Todo
     Add Todo Item    Buy groceries
     Verify Todo Exists    Buy groceries
-    [Teardown]    Close Browser
 
 Add Multiple Todos
     Add Todo Item    First task
@@ -84,21 +83,18 @@ Add Multiple Todos
     Add Todo Item    Third task
     ${count}=    Get Todo Count
     Should Be Equal As Numbers    ${count}    3
-    [Teardown]    Close Browser
 
 Complete Todo
     Add Todo Item    Complete this task
     Verify Todo Item Is Not Completed    Complete this task
     Toggle Todo Item    Complete this task
     Verify Todo Item Is Completed    Complete this task
-    [Teardown]    Close Browser
 
 Delete Todo
     Add Todo Item    Task to delete
     Verify Todo Exists    Task to delete
     Delete Todo Item    Task to delete
     Verify Todo Does Not Exist    Task to delete
-    [Teardown]    Close Browser
 
 Toggle Multiple Todos
     Add Todo Item    Task 1
@@ -107,7 +103,6 @@ Toggle Multiple Todos
     Toggle Todo Item    Task 2
     Verify Todo Item Is Completed    Task 1
     Verify Todo Item Is Completed    Task 2
-    [Teardown]    Close Browser
 
 Complete And Uncomplete Todo
     Add Todo Item    Toggle task
@@ -115,7 +110,6 @@ Complete And Uncomplete Todo
     Verify Todo Item Is Completed    Toggle task
     Toggle Todo Item    Toggle task
     Verify Todo Item Is Not Completed    Toggle task
-    [Teardown]    Close Browser
 
 Add And Delete Multiple Todos
     Add Todo Item    Task 1
@@ -125,24 +119,20 @@ Add And Delete Multiple Todos
     Verify Todo Exists    Task 1
     Verify Todo Does Not Exist    Task 2
     Verify Todo Exists    Task 3
-    [Teardown]    Close Browser
 
 Add Todo Item
     Add Todo Item    ${test_data.todo_items}[0]
     Verify Todo Exists    ${test_data.todo_items}[0]
-    Close Browser and Stop App
 
 Complete Todo Item
     Add Todo Item    ${test_data.todo_items}[1]
     Complete Todo Item    ${test_data.todo_items}[1]
     Verify Todo Completed    ${test_data.todo_items}[1]
-    Close Browser and Stop App
 
 Delete Todo Item
     Add Todo Item    ${test_data.todo_items}[2]
     Delete Todo Item    ${test_data.todo_items}[2]
     Verify Todo Not Exists    ${test_data.todo_items}[2]
-    Close Browser and Stop App
 
 Multiple Todo Operations
     Add Todo Item    ${test_data.todo_items}[0]
@@ -154,9 +144,7 @@ Multiple Todo Operations
     Verify Todo Exists    ${test_data.todo_items}[2]
     Verify Todo Completed    ${test_data.todo_items}[1]
     Verify Todo Not Exists    ${test_data.todo_items}[0]
-    Close Browser and Stop App
 
 Add Todo Item With Special Characters
     Add Todo Item    ${test_data.todo_items}[3]
     Verify Todo Exists    ${test_data.todo_items}[3]
-    Close Browser and Stop App 

@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
+Resource    common_keywords.resource
 Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
@@ -10,8 +11,15 @@ Open Notes App
 
 Open Notes
     Open Browser    ${app.url}    chrome
+    Login To Application
+    Ensure Logged In
     Click Element    ${selectors.header.notes_button}
     Wait Until Element Is Visible    ${selectors.notes.notes_app}    timeout=10s
+
+Close Notes App
+    Logout From Application
+    Ensure Logged Out
+    Close Browser
 
 Add Note
     [Arguments]    ${title}    ${content}

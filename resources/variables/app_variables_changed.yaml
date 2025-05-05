@@ -37,21 +37,16 @@ selectors:
     decimal_button: "css=.decimal-button"
   notes:
     notes_app: "css=[data-testid='notes-container']"
-    
     note_title_input: "css=input.note-title-field"
     note_content_input: "css=textarea.note-content-field"
-    
     add_note_button: "xpath=//button[contains(text(), 'Create Note')]"
     update_note_button: "xpath=//button[contains(text(), 'Save Changes')]"
-    
     note_item: "css=.note-card"
     note_title: "css=.note-title"
     note_content: "css=.note-content"
     note_date: "css=.note-date"
-    
     edit_note_button: "css=.edit-button"
     delete_note_button: "css=.delete-button"
-    
     note_by_title: "xpath=//div[contains(@class, 'note-card')][.//h3[contains(text(), '{0}')]]"
     edit_button_in_note: "xpath=//div[contains(@class, 'note-card')][.//h3[contains(text(), '{0}')]]//button[contains(@class, 'edit-button')]"
     delete_button_in_note: "xpath=//div[contains(@class, 'note-card')][.//h3[contains(text(), '{0}')]]//button[contains(@class, 'delete-button')]"

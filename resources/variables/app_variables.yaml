@@ -51,6 +51,20 @@ selectors:
     edit_button_in_note: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'edit-note-button-')]"
     delete_button_in_note: "xpath=//h3[contains(text(), '{0}')]/ancestor::div[contains(@data-testid, 'note-')]//button[contains(@data-testid, 'delete-note-button-')]"
 
+# Authentication selectors
+auth:
+  email_input: "css=[data-testid='email-input']"
+  password_input: "css=[data-testid='password-input']"
+  submit_button: "css=[data-testid='submit-button']"
+  logout_button: "css=[data-testid='logout-button']"
+  user_email: "css=[data-testid='user-email']"
+  error_message: "css=[data-testid='error-message']"
+  console_error: "css=[data-testid='console-error']"
+
+# Test credentials
+credentials:
+  email: test@example.com
+  password: password1234
 
 test_data:
   initial_note:

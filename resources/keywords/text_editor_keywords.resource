@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
+Resource    common_keywords.resource
 Variables    ../variables/app_variables.yaml
 
 *** Keywords ***
@@ -14,11 +15,15 @@ Open Text Editor
     Call Method    ${chrome_options}    add_experimental_option    prefs    ${browser_prefs}
 
     Open Browser    ${app.url}    chrome    options=${chrome_options} 
+    Login To Application
+    Ensure Logged In
     Click Element    ${selectors.header.text_editor_button}
     Wait Until Page Contains Element    ${selectors.text_editor.filename_input}    ${timeouts.page_load}
     Log    Opened Text Editor
 
 Close Text Editor Application
+    Logout From Application
+    Ensure Logged Out
     Close Browser
 
 Set File Name
