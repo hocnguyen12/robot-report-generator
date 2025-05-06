@@ -39,7 +39,7 @@ selectors:
     notes_app: "css=[data-testid='notes-app']"
     note_title_input: "css=[data-testid='note-title-input']"
     note_content_input: "css=[data-testid='note-content-input']"
-    add_note_button: "css=[data-testid='add-note-button']"
+    add_note_button: "css=[data-testid='add-note']"
     update_note_button: "css=[data-testid='update-note-button']"
     note_item: "css=[data-testid^='note-']"
     note_title: "css=[data-testid^='note-title-']"
@@ -64,7 +64,7 @@ auth:
 # Test credentials
 credentials:
   email: test@example.com
-  password: password1234
+  password: password123
 
 test_data:
   initial_note:

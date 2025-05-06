@@ -1,6 +1,6 @@
 # Robot Framework Fails
 
-## Run the automated tests
+## How to run the automated tests
 
 First run the app:
 ```bash
@@ -11,7 +11,7 @@ npm run dev
 robot --outputdir robot_reports/ tests/*.robot
 ```
 
-Created a script that deletes all previous screenshots and geckodriver logs :
+`run_tests.sh` deletes all previous screenshots and geckodriver logs to keep the `robot_reports` directory clean.
 
 1. Run all tests:
 ```bash
