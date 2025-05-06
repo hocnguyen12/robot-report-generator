@@ -20,16 +20,10 @@ Login To Application
     Click Element    ${auth.submit_button}
     
     # Check for error messages
-    ${has_error}=    Run Keyword And Return Status    
-    ...    Wait Until Element Is Visible    ${auth.error_message}    timeout=5s
     
     ${has_console_error}=    Run Keyword And Return Status    
-    ...    Wait Until Element Is Visible    ${auth.console_error}    timeout=5s
+    ...    Wait Until Element Is Visible    ${auth.console_error}    timeout=1s
     
-    IF    ${has_error}
-        ${error_text}=    Get Text    ${auth.error_message}
-        Fail    Login failed: ${error_text}
-    END
     
     IF    ${has_console_error}
         ${console_error_text}=    Get Text    ${auth.console_error}

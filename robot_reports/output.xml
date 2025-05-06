@@ -1,131 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-06T10:18:00.771546" rpa="false" schemaversion="5">
-<suite id="s1" name="Prediction Test" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/prediction_test.robot">
-<test id="s1-t1" name="Test If Predictions Work" line="8">
-<kw name="Open Notes App" owner="note_keywords" type="SETUP">
-<kw name="Open Notes" owner="note_keywords">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-06T15:37:43.577783" rpa="false" schemaversion="5">
+<suite id="s1" name="Check Application" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/check_application.robot">
+<test id="s1-t1" name="Check Application Is Running" line="7">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:00.914905" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-05-06T15:37:43.677325" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-05-06T10:18:00.914397" elapsed="0.803580"/>
+<status status="PASS" start="2025-05-06T15:37:43.676839" elapsed="0.804795"/>
 </kw>
 <kw name="Login To Application" owner="common_keywords">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:01.721189" level="INFO">Opening url 'http://localhost:3000/login'</msg>
+<msg time="2025-05-06T15:37:44.484830" level="INFO">Opening url 'http://localhost:3000/login'</msg>
 <arg>${app.url}/login</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-05-06T10:18:01.720331" elapsed="0.193604"/>
+<status status="PASS" start="2025-05-06T15:37:44.484075" elapsed="0.179602"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${auth.email_input}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T10:18:01.914302" elapsed="0.044764"/>
+<status status="PASS" start="2025-05-06T15:37:44.664108" elapsed="0.061127"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:01.960200" level="INFO">Typing text 'test@example.com' into text field 'css=[data-testid='email-input']'.</msg>
+<msg time="2025-05-06T15:37:44.725951" level="INFO">Typing text 'test@example.com' into text field 'css=[data-testid='email-input']'.</msg>
 <arg>${auth.email_input}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:01.959362" elapsed="0.093677"/>
+<status status="PASS" start="2025-05-06T15:37:44.725424" elapsed="0.096587"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:02.054268" level="INFO">Typing text 'password123' into text field 'css=[data-testid='password-input']'.</msg>
+<msg time="2025-05-06T15:37:44.822817" level="INFO">Typing text 'password123' into text field 'css=[data-testid='password-input']'.</msg>
 <arg>${auth.password_input}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:02.053390" elapsed="0.066059"/>
+<status status="PASS" start="2025-05-06T15:37:44.822248" elapsed="0.069820"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:02.120544" level="INFO">Clicking element 'css=[data-testid='submit-button']'.</msg>
+<msg time="2025-05-06T15:37:44.892789" level="INFO">Clicking element 'css=[data-testid='submit-button']'.</msg>
 <arg>${auth.submit_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:02.119785" elapsed="0.052006"/>
+<status status="PASS" start="2025-05-06T15:37:44.892279" elapsed="0.051862"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:07.314868" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-05-06T10:18:07.315073" level="FAIL">Element 'css=[data-testid='error-message']' not visible after 5 seconds.</msg>
-<arg>${auth.error_message}</arg>
-<arg>timeout=5s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-05-06T10:18:02.173589" elapsed="5.141876">Element 'css=[data-testid='error-message']' not visible after 5 seconds.</status>
-</kw>
-<msg time="2025-05-06T10:18:07.315605" level="INFO">${has_error} = False</msg>
-<var>${has_error}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${auth.error_message}</arg>
-<arg>timeout=5s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-05-06T10:18:02.173129" elapsed="5.142501"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.440560" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-05-06T10:18:12.440722" level="FAIL">Element 'css=[data-testid='console-error']' not visible after 5 seconds.</msg>
+<msg time="2025-05-06T15:37:46.083065" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-06T15:37:46.083234" level="FAIL">Element 'css=[data-testid='console-error']' not visible after 1 second.</msg>
 <arg>${auth.console_error}</arg>
-<arg>timeout=5s</arg>
+<arg>timeout=1s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-05-06T10:18:07.315955" elapsed="5.124885">Element 'css=[data-testid='console-error']' not visible after 5 seconds.</status>
+<status status="FAIL" start="2025-05-06T15:37:44.944832" elapsed="1.138811">Element 'css=[data-testid='console-error']' not visible after 1 second.</status>
 </kw>
-<msg time="2025-05-06T10:18:12.440974" level="INFO">${has_console_error} = False</msg>
+<msg time="2025-05-06T15:37:46.083820" level="INFO">${has_console_error} = False</msg>
 <var>${has_console_error}</var>
 <arg>Wait Until Element Is Visible</arg>
 <arg>${auth.console_error}</arg>
-<arg>timeout=5s</arg>
+<arg>timeout=1s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-05-06T10:18:07.315780" elapsed="5.125219"/>
+<status status="PASS" start="2025-05-06T15:37:44.944526" elapsed="1.139321"/>
 </kw>
-<if>
-<branch type="IF" condition="${has_error}">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${error_text}</var>
-<arg>${auth.error_message}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.441289" elapsed="0.000030"/>
-</kw>
-<kw name="Fail" owner="BuiltIn">
-<arg>Login failed: ${error_text}</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.441412" elapsed="0.000022"/>
-</kw>
-<status status="NOT RUN" start="2025-05-06T10:18:12.441112" elapsed="0.000353"/>
-</branch>
-<status status="PASS" start="2025-05-06T10:18:12.441078" elapsed="0.000421"/>
-</if>
 <if>
 <branch type="IF" condition="${has_console_error}">
 <kw name="Get Text" owner="SeleniumLibrary">
 <var>${console_error_text}</var>
 <arg>${auth.console_error}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.441666" elapsed="0.000021"/>
+<status status="NOT RUN" start="2025-05-06T15:37:46.084132" elapsed="0.000030"/>
 </kw>
 <kw name="Fail" owner="BuiltIn">
 <arg>Console error occurred: ${console_error_text}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.441762" elapsed="0.000019"/>
+<status status="NOT RUN" start="2025-05-06T15:37:46.084256" elapsed="0.000023"/>
 </kw>
-<status status="NOT RUN" start="2025-05-06T10:18:12.441547" elapsed="0.000263"/>
+<status status="NOT RUN" start="2025-05-06T15:37:46.083955" elapsed="0.000356"/>
 </branch>
-<status status="PASS" start="2025-05-06T10:18:12.441534" elapsed="0.000301"/>
+<status status="PASS" start="2025-05-06T15:37:46.083926" elapsed="0.000416"/>
 </if>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${auth.user_email}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.441901" elapsed="0.012203"/>
+<status status="PASS" start="2025-05-06T15:37:46.084411" elapsed="0.014017"/>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.473760" level="INFO">Element 'css=[data-testid='user-email']' contains text 'test@example.com'.</msg>
+<msg time="2025-05-06T15:37:46.118887" level="INFO">Element 'css=[data-testid='user-email']' contains text 'test@example.com'.</msg>
 <arg>${auth.user_email}</arg>
 <arg>${email}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.454408" elapsed="0.019460"/>
+<status status="PASS" start="2025-05-06T15:37:46.098662" elapsed="0.020331"/>
 </kw>
 <doc>Logs in to the application using test credentials</doc>
-<status status="PASS" start="2025-05-06T10:18:01.718743" elapsed="10.755225"/>
+<status status="PASS" start="2025-05-06T15:37:44.482435" elapsed="1.636681"/>
 </kw>
 <kw name="Ensure Logged In" owner="common_keywords">
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
@@ -133,15 +97,15 @@
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.475149" elapsed="0.008066"/>
+<status status="PASS" start="2025-05-06T15:37:46.120574" elapsed="0.010121"/>
 </kw>
-<msg time="2025-05-06T10:18:12.483372" level="INFO">${is_logged_in} = True</msg>
+<msg time="2025-05-06T15:37:46.130901" level="INFO">${is_logged_in} = True</msg>
 <var>${is_logged_in}</var>
 <arg>Wait Until Element Is Visible</arg>
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.474981" elapsed="0.008420"/>
+<status status="PASS" start="2025-05-06T15:37:46.120364" elapsed="0.010570"/>
 </kw>
 <if>
 <branch type="IF" condition="not ${is_logged_in}">
@@ -149,211 +113,93 @@
 <arg>${email}</arg>
 <arg>${password}</arg>
 <doc>Logs in to the application using test credentials</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.483825" elapsed="0.000035"/>
+<status status="NOT RUN" start="2025-05-06T15:37:46.131535" elapsed="0.000052"/>
 </kw>
-<status status="NOT RUN" start="2025-05-06T10:18:12.483498" elapsed="0.000468"/>
+<status status="NOT RUN" start="2025-05-06T15:37:46.131046" elapsed="0.000602"/>
 </branch>
-<status status="PASS" start="2025-05-06T10:18:12.483469" elapsed="0.000541"/>
+<status status="PASS" start="2025-05-06T15:37:46.131017" elapsed="0.000676"/>
 </if>
 <doc>Ensures user is logged in, logs in if not</doc>
-<status status="PASS" start="2025-05-06T10:18:12.474207" elapsed="0.009873"/>
+<status status="PASS" start="2025-05-06T15:37:46.119380" elapsed="0.012379"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.484620" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Notes')]'.</msg>
-<arg>${selectors.header.notes_button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.484204" elapsed="0.051709"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-05-06T15:37:46.140246" level="INFO">Current page contains text 'Productivity Tools'.</msg>
+<arg>${selectors.header.title}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-05-06T15:37:46.131963" elapsed="0.008382"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.notes.notes_app}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.536127" elapsed="0.011759"/>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-05-06T15:37:46.150770" level="INFO">Current page contains text 'A collection of useful tools to boost your productivity'.</msg>
+<arg>${selectors.header.description}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-05-06T15:37:46.140538" elapsed="0.010338"/>
 </kw>
-<status status="PASS" start="2025-05-06T10:18:00.913826" elapsed="11.634204"/>
-</kw>
-<kw name="Clear All Notes" owner="note_keywords">
-<kw name="Get Note Count" owner="note_keywords">
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.557963" level="INFO">${count} = 0</msg>
-<var>${count}</var>
-<arg>xpath=//div[contains(@data-testid, 'note-') and .//h3]</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.548711" elapsed="0.009334"/>
-</kw>
-<return>
-<value>${count}</value>
-<status status="PASS" start="2025-05-06T10:18:12.558150" elapsed="0.000062"/>
-</return>
-<msg time="2025-05-06T10:18:12.558359" level="INFO">${count} = 0</msg>
-<var>${count}</var>
-<status status="PASS" start="2025-05-06T10:18:12.548514" elapsed="0.009870"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${count} &gt; 0</arg>
-<arg>Delete All Notes</arg>
-<arg>${count}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.558530" elapsed="0.000189"/>
-</kw>
-<status status="PASS" start="2025-05-06T10:18:12.548226" elapsed="0.010564"/>
-</kw>
-<status status="PASS" start="2025-05-06T10:18:00.913566" elapsed="11.645267"/>
-</kw>
-<kw name="Add Note" owner="note_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-06T10:18:12.559431" level="INFO">Adding note with title: Test Note</msg>
-<arg>Adding note with title: ${title}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.559306" elapsed="0.000169"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${selectors.notes.note_title_input}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.559569" elapsed="0.013956"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.574424" level="INFO">Typing text 'Test Note' into text field 'css=[data-testid='note-title-input']'.</msg>
-<arg>${selectors.notes.note_title_input}</arg>
-<arg>${title}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.573723" elapsed="0.052500"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.626961" level="INFO">Typing text 'This is a test note' into text field 'css=[data-testid='note-content-input']'.</msg>
-<arg>${selectors.notes.note_content_input}</arg>
-<arg>${content}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.626431" elapsed="0.060890"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.688386" level="INFO">Clicking element 'css=[data-testid='add-note']'.</msg>
-<msg time="2025-05-06T10:18:12.755915" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-05-06T10:18:12.756111" level="FAIL">Element with locator 'css=[data-testid='add-note']' not found.</msg>
-<arg>${selectors.notes.add_note_button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-05-06T10:18:12.687622" elapsed="0.068922">Element with locator 'css=[data-testid='add-note']' not found.</status>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${title_has_content}</var>
-<arg>Should Not Match Regexp</arg>
-<arg>${title}</arg>
-<arg>^\\s*$</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.756765" elapsed="0.000040"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${content_has_content}</var>
-<arg>Should Not Match Regexp</arg>
-<arg>${content}</arg>
-<arg>^\\s*$</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.756898" elapsed="0.000021"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<var>${should_wait}</var>
-<arg>Should Be True</arg>
-<arg>${title_has_content} and ${content_has_content}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.757001" elapsed="0.000020"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>${should_wait}</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>xpath=//h3[contains(text(), '${title}')]</arg>
-<arg>timeout=10s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:12.757115" elapsed="0.000021"/>
-</kw>
-<arg>Test Note</arg>
-<arg>This is a test note</arg>
-<status status="FAIL" start="2025-05-06T10:18:12.559056" elapsed="0.198179">Element with locator 'css=[data-testid='add-note']' not found.</status>
-</kw>
-<kw name="Verify Note Exists" owner="note_keywords">
-<arg>Test Note</arg>
-<arg>This is a test note</arg>
-<status status="NOT RUN" start="2025-05-06T10:18:12.757431" elapsed="0.000028"/>
-</kw>
-<kw name="Verify Note Date Format" owner="note_keywords">
-<arg>Test Note</arg>
-<status status="NOT RUN" start="2025-05-06T10:18:12.757574" elapsed="0.000023"/>
-</kw>
-<kw name="Verify Note Persistence" owner="note_keywords">
-<arg>Test Note</arg>
-<arg>This is a test note</arg>
-<status status="NOT RUN" start="2025-05-06T10:18:12.757704" elapsed="0.000023"/>
-</kw>
-<kw name="Verify Note Count" owner="note_keywords">
-<arg>1</arg>
-<status status="NOT RUN" start="2025-05-06T10:18:12.757833" elapsed="0.000022"/>
-</kw>
-<kw name="Close Notes App" owner="note_keywords" type="TEARDOWN">
+<kw name="Close App" owner="common_keywords" type="TEARDOWN">
 <kw name="Logout From Application" owner="common_keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:12.758917" level="INFO">Clicking element 'css=[data-testid='logout-button']'.</msg>
+<msg time="2025-05-06T15:37:46.152164" level="INFO">Clicking element 'css=[data-testid='logout-button']'.</msg>
 <arg>${auth.logout_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.758506" elapsed="0.050147"/>
+<status status="PASS" start="2025-05-06T15:37:46.151726" elapsed="0.048186"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${auth.email_input}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T10:18:12.808862" elapsed="0.652029"/>
+<status status="PASS" start="2025-05-06T15:37:46.200111" elapsed="0.634650"/>
 </kw>
 <doc>Logs out from the application</doc>
-<status status="PASS" start="2025-05-06T10:18:12.758308" elapsed="0.702702"/>
+<status status="PASS" start="2025-05-06T15:37:46.151511" elapsed="0.683473"/>
 </kw>
 <kw name="Ensure Logged Out" owner="common_keywords">
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-05-06T10:18:14.571854" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-05-06T10:18:14.572111" level="FAIL">Element 'css=[data-testid='user-email']' not visible after 1 second.</msg>
+<msg time="2025-05-06T15:37:47.925670" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-06T15:37:47.925933" level="FAIL">Element 'css=[data-testid='user-email']' not visible after 1 second.</msg>
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-05-06T10:18:13.461683" elapsed="1.110683">Element 'css=[data-testid='user-email']' not visible after 1 second.</status>
+<status status="FAIL" start="2025-05-06T15:37:46.836164" elapsed="1.089918">Element 'css=[data-testid='user-email']' not visible after 1 second.</status>
 </kw>
-<msg time="2025-05-06T10:18:14.572551" level="INFO">${is_logged_in} = False</msg>
+<msg time="2025-05-06T15:37:47.926226" level="INFO">${is_logged_in} = False</msg>
 <var>${is_logged_in}</var>
 <arg>Wait Until Element Is Visible</arg>
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-05-06T10:18:13.461539" elapsed="1.111052"/>
+<status status="PASS" start="2025-05-06T15:37:46.835970" elapsed="1.090282"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_logged_in}">
 <kw name="Logout From Application" owner="common_keywords">
 <doc>Logs out from the application</doc>
-<status status="NOT RUN" start="2025-05-06T10:18:14.572995" elapsed="0.000036"/>
+<status status="NOT RUN" start="2025-05-06T15:37:47.926557" elapsed="0.000033"/>
 </kw>
-<status status="NOT RUN" start="2025-05-06T10:18:14.572737" elapsed="0.000337"/>
+<status status="NOT RUN" start="2025-05-06T15:37:47.926354" elapsed="0.000273"/>
 </branch>
-<status status="PASS" start="2025-05-06T10:18:14.572700" elapsed="0.000406"/>
+<status status="PASS" start="2025-05-06T15:37:47.926327" elapsed="0.000331"/>
 </if>
 <doc>Ensures user is logged out, logs out if not</doc>
-<status status="PASS" start="2025-05-06T10:18:13.461239" elapsed="1.111915"/>
+<status status="PASS" start="2025-05-06T15:37:46.835443" elapsed="1.091264"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-05-06T10:18:14.573259" elapsed="0.056546"/>
+<status status="PASS" start="2025-05-06T15:37:47.926805" elapsed="0.056940"/>
 </kw>
-<status status="PASS" start="2025-05-06T10:18:12.758068" elapsed="1.871918"/>
+<status status="PASS" start="2025-05-06T15:37:46.151223" elapsed="1.832684"/>
 </kw>
-<doc>This is a test to see if predictions are correct with basic classification</doc>
-<status status="FAIL" start="2025-05-06T10:18:00.912946" elapsed="13.717196">Element with locator 'css=[data-testid='add-note']' not found.</status>
+<doc>Verify that the application is running and accessible</doc>
+<status status="PASS" start="2025-05-06T15:37:43.675963" elapsed="4.308044"/>
 </test>
-<status status="FAIL" start="2025-05-06T10:18:00.772300" elapsed="13.858562"/>
+<status status="PASS" start="2025-05-06T15:37:43.578500" elapsed="4.406036"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Prediction Test" id="s1" pass="0" fail="1" skip="0">Prediction Test</stat>
+<stat name="Check Application" id="s1" pass="1" fail="0" skip="0">Check Application</stat>
 </suite>
 </statistics>
 <errors>
