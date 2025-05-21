@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Library    OperatingSystem
 Library    String
 Resource    common_keywords.resource
-Variables    ../variables/app_variables.yaml
+Variables    ../variables/app_variables_changed.yaml
 
 *** Keywords ***
 Open Todo Application

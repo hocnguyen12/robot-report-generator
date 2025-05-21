@@ -1,62 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-06T15:37:43.577783" rpa="false" schemaversion="5">
-<suite id="s1" name="Check Application" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/check_application.robot">
-<test id="s1-t1" name="Check Application Is Running" line="7">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-21T11:59:35.129624" rpa="false" schemaversion="5">
+<suite id="s1" name="Todo Tests" source="/home/nguyenvh/Sync/3a/stage_stet/projet_dho/robot-report-generator/tests/todo_tests.robot">
+<test id="s1-t1" name="Test Add Todo Functionality" line="7">
+<kw name="Open Todo Application" owner="todo_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:43.677325" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2025-05-21T11:59:35.264665" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
 <arg>${app.url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-05-06T15:37:43.676839" elapsed="0.804795"/>
+<status status="PASS" start="2025-05-21T11:59:35.264247" elapsed="0.802635"/>
 </kw>
 <kw name="Login To Application" owner="common_keywords">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:44.484830" level="INFO">Opening url 'http://localhost:3000/login'</msg>
+<msg time="2025-05-21T11:59:36.069315" level="INFO">Opening url 'http://localhost:3000/login'</msg>
 <arg>${app.url}/login</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-05-06T15:37:44.484075" elapsed="0.179602"/>
+<status status="PASS" start="2025-05-21T11:59:36.068798" elapsed="0.182024"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${auth.email_input}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T15:37:44.664108" elapsed="0.061127"/>
+<status status="PASS" start="2025-05-21T11:59:36.251160" elapsed="0.059390"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:44.725951" level="INFO">Typing text 'test@example.com' into text field 'css=[data-testid='email-input']'.</msg>
+<msg time="2025-05-21T11:59:36.311864" level="INFO">Typing text 'test@example.com' into text field 'css=[data-testid='email-input']'.</msg>
 <arg>${auth.email_input}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T15:37:44.725424" elapsed="0.096587"/>
+<status status="PASS" start="2025-05-21T11:59:36.310818" elapsed="0.116349"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:44.822817" level="INFO">Typing text 'password123' into text field 'css=[data-testid='password-input']'.</msg>
+<msg time="2025-05-21T11:59:36.427941" level="INFO">Typing text 'password123' into text field 'css=[data-testid='password-input']'.</msg>
 <arg>${auth.password_input}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T15:37:44.822248" elapsed="0.069820"/>
+<status status="PASS" start="2025-05-21T11:59:36.427382" elapsed="0.077379"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:44.892789" level="INFO">Clicking element 'css=[data-testid='submit-button']'.</msg>
+<msg time="2025-05-21T11:59:36.506081" level="INFO">Clicking element 'css=[data-testid='submit-button']'.</msg>
 <arg>${auth.submit_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T15:37:44.892279" elapsed="0.051862"/>
+<status status="PASS" start="2025-05-21T11:59:36.505129" elapsed="0.057015"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:46.083065" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-05-06T15:37:46.083234" level="FAIL">Element 'css=[data-testid='console-error']' not visible after 1 second.</msg>
+<msg time="2025-05-21T11:59:37.686438" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-21T11:59:37.686731" level="FAIL">Element 'css=[data-testid='console-error']' not visible after 1 second.</msg>
 <arg>${auth.console_error}</arg>
 <arg>timeout=1s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-05-06T15:37:44.944832" elapsed="1.138811">Element 'css=[data-testid='console-error']' not visible after 1 second.</status>
+<status status="FAIL" start="2025-05-21T11:59:36.562835" elapsed="1.124576">Element 'css=[data-testid='console-error']' not visible after 1 second.</status>
 </kw>
-<msg time="2025-05-06T15:37:46.083820" level="INFO">${has_console_error} = False</msg>
+<msg time="2025-05-21T11:59:37.687641" level="INFO">${has_console_error} = False</msg>
 <var>${has_console_error}</var>
 <arg>Wait Until Element Is Visible</arg>
 <arg>${auth.console_error}</arg>
 <arg>timeout=1s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-05-06T15:37:44.944526" elapsed="1.139321"/>
+<status status="PASS" start="2025-05-21T11:59:36.562483" elapsed="1.125196"/>
 </kw>
 <if>
 <branch type="IF" condition="${has_console_error}">
@@ -64,32 +65,32 @@
 <var>${console_error_text}</var>
 <arg>${auth.console_error}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-05-06T15:37:46.084132" elapsed="0.000030"/>
+<status status="NOT RUN" start="2025-05-21T11:59:37.688079" elapsed="0.000036"/>
 </kw>
 <kw name="Fail" owner="BuiltIn">
 <arg>Console error occurred: ${console_error_text}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-05-06T15:37:46.084256" elapsed="0.000023"/>
+<status status="NOT RUN" start="2025-05-21T11:59:37.688210" elapsed="0.000022"/>
 </kw>
-<status status="NOT RUN" start="2025-05-06T15:37:46.083955" elapsed="0.000356"/>
+<status status="NOT RUN" start="2025-05-21T11:59:37.687856" elapsed="0.000408"/>
 </branch>
-<status status="PASS" start="2025-05-06T15:37:46.083926" elapsed="0.000416"/>
+<status status="PASS" start="2025-05-21T11:59:37.687802" elapsed="0.000497"/>
 </if>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${auth.user_email}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.084411" elapsed="0.014017"/>
+<status status="PASS" start="2025-05-21T11:59:37.688371" elapsed="0.018331"/>
 </kw>
 <kw name="Element Should Contain" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:46.118887" level="INFO">Element 'css=[data-testid='user-email']' contains text 'test@example.com'.</msg>
+<msg time="2025-05-21T11:59:37.720503" level="INFO">Element 'css=[data-testid='user-email']' contains text 'test@example.com'.</msg>
 <arg>${auth.user_email}</arg>
 <arg>${email}</arg>
 <doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.098662" elapsed="0.020331"/>
+<status status="PASS" start="2025-05-21T11:59:37.706935" elapsed="0.013690"/>
 </kw>
 <doc>Logs in to the application using test credentials</doc>
-<status status="PASS" start="2025-05-06T15:37:44.482435" elapsed="1.636681"/>
+<status status="PASS" start="2025-05-21T11:59:36.067383" elapsed="1.653492"/>
 </kw>
 <kw name="Ensure Logged In" owner="common_keywords">
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
@@ -97,15 +98,15 @@
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.120574" elapsed="0.010121"/>
+<status status="PASS" start="2025-05-21T11:59:37.722189" elapsed="0.017610"/>
 </kw>
-<msg time="2025-05-06T15:37:46.130901" level="INFO">${is_logged_in} = True</msg>
+<msg time="2025-05-21T11:59:37.739970" level="INFO">${is_logged_in} = True</msg>
 <var>${is_logged_in}</var>
 <arg>Wait Until Element Is Visible</arg>
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.120364" elapsed="0.010570"/>
+<status status="PASS" start="2025-05-21T11:59:37.722016" elapsed="0.017987"/>
 </kw>
 <if>
 <branch type="IF" condition="not ${is_logged_in}">
@@ -113,95 +114,595 @@
 <arg>${email}</arg>
 <arg>${password}</arg>
 <doc>Logs in to the application using test credentials</doc>
-<status status="NOT RUN" start="2025-05-06T15:37:46.131535" elapsed="0.000052"/>
+<status status="NOT RUN" start="2025-05-21T11:59:37.740420" elapsed="0.000035"/>
 </kw>
-<status status="NOT RUN" start="2025-05-06T15:37:46.131046" elapsed="0.000602"/>
+<status status="NOT RUN" start="2025-05-21T11:59:37.740110" elapsed="0.000385"/>
 </branch>
-<status status="PASS" start="2025-05-06T15:37:46.131017" elapsed="0.000676"/>
+<status status="PASS" start="2025-05-21T11:59:37.740081" elapsed="0.000443"/>
 </if>
 <doc>Ensures user is logged in, logs in if not</doc>
-<status status="PASS" start="2025-05-06T15:37:46.119380" elapsed="0.012379"/>
+<status status="PASS" start="2025-05-21T11:59:37.721135" elapsed="0.019437"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:46.140246" level="INFO">Current page contains text 'Productivity Tools'.</msg>
-<arg>${selectors.header.title}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.131963" elapsed="0.008382"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:47.911142" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-21T11:59:47.911357" level="FAIL">Element 'css=input.todo-input-field' did not appear in 10 seconds.</msg>
+<arg>${selectors.todo.todo_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-05-21T11:59:37.740686" elapsed="10.170808">Element 'css=input.todo-input-field' did not appear in 10 seconds.</status>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:46.150770" level="INFO">Current page contains text 'A collection of useful tools to boost your productivity'.</msg>
-<arg>${selectors.header.description}</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.140538" elapsed="0.010338"/>
+<kw name="Log" owner="BuiltIn">
+<arg>Opened todo list application</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-21T11:59:47.911718" elapsed="0.000042"/>
 </kw>
-<kw name="Close App" owner="common_keywords" type="TEARDOWN">
+<status status="FAIL" start="2025-05-21T11:59:35.263628" elapsed="12.648241">Element 'css=input.todo-input-field' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Close Todo Application" owner="todo_keywords" type="TEARDOWN">
 <kw name="Logout From Application" owner="common_keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:46.152164" level="INFO">Clicking element 'css=[data-testid='logout-button']'.</msg>
+<msg time="2025-05-21T11:59:47.913075" level="INFO">Clicking element 'css=[data-testid='logout-button']'.</msg>
 <arg>${auth.logout_button}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.151726" elapsed="0.048186"/>
+<status status="PASS" start="2025-05-21T11:59:47.912663" elapsed="0.055032"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${auth.email_input}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.200111" elapsed="0.634650"/>
+<status status="PASS" start="2025-05-21T11:59:47.967987" elapsed="0.637104"/>
 </kw>
 <doc>Logs out from the application</doc>
-<status status="PASS" start="2025-05-06T15:37:46.151511" elapsed="0.683473"/>
+<status status="PASS" start="2025-05-21T11:59:47.912448" elapsed="0.693013"/>
 </kw>
 <kw name="Ensure Logged Out" owner="common_keywords">
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-05-06T15:37:47.925670" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-05-06T15:37:47.925933" level="FAIL">Element 'css=[data-testid='user-email']' not visible after 1 second.</msg>
+<msg time="2025-05-21T11:59:49.739290" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-21T11:59:49.739506" level="FAIL">Element 'css=[data-testid='user-email']' not visible after 1 second.</msg>
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-05-06T15:37:46.836164" elapsed="1.089918">Element 'css=[data-testid='user-email']' not visible after 1 second.</status>
+<status status="FAIL" start="2025-05-21T11:59:48.606344" elapsed="1.133357">Element 'css=[data-testid='user-email']' not visible after 1 second.</status>
 </kw>
-<msg time="2025-05-06T15:37:47.926226" level="INFO">${is_logged_in} = False</msg>
+<msg time="2025-05-21T11:59:49.739909" level="INFO">${is_logged_in} = False</msg>
 <var>${is_logged_in}</var>
 <arg>Wait Until Element Is Visible</arg>
 <arg>${auth.user_email}</arg>
 <arg>timeout=1s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-05-06T15:37:46.835970" elapsed="1.090282"/>
+<status status="PASS" start="2025-05-21T11:59:48.606097" elapsed="1.133851"/>
 </kw>
 <if>
 <branch type="IF" condition="${is_logged_in}">
 <kw name="Logout From Application" owner="common_keywords">
 <doc>Logs out from the application</doc>
-<status status="NOT RUN" start="2025-05-06T15:37:47.926557" elapsed="0.000033"/>
+<status status="NOT RUN" start="2025-05-21T11:59:49.740561" elapsed="0.000060"/>
 </kw>
-<status status="NOT RUN" start="2025-05-06T15:37:47.926354" elapsed="0.000273"/>
+<status status="NOT RUN" start="2025-05-21T11:59:49.740107" elapsed="0.000557"/>
 </branch>
-<status status="PASS" start="2025-05-06T15:37:47.926327" elapsed="0.000331"/>
+<status status="PASS" start="2025-05-21T11:59:49.740070" elapsed="0.000626"/>
 </if>
 <doc>Ensures user is logged out, logs out if not</doc>
-<status status="PASS" start="2025-05-06T15:37:46.835443" elapsed="1.091264"/>
+<status status="PASS" start="2025-05-21T11:59:48.605737" elapsed="1.135016"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-05-06T15:37:47.926805" elapsed="0.056940"/>
+<status status="PASS" start="2025-05-21T11:59:49.740884" elapsed="0.059120"/>
 </kw>
-<status status="PASS" start="2025-05-06T15:37:46.151223" elapsed="1.832684"/>
+<status status="PASS" start="2025-05-21T11:59:47.912174" elapsed="1.888017"/>
 </kw>
-<doc>Verify that the application is running and accessible</doc>
-<status status="PASS" start="2025-05-06T15:37:43.675963" elapsed="4.308044"/>
+<doc>Test adding todos</doc>
+<status status="FAIL" start="2025-05-21T11:59:35.263050" elapsed="14.537274">Setup failed:
+Element 'css=input.todo-input-field' did not appear in 10 seconds.</status>
 </test>
-<status status="PASS" start="2025-05-06T15:37:43.578500" elapsed="4.406036"/>
+<test id="s1-t2" name="Test Todo Completion Toggle" line="16">
+<kw name="Open Todo Application" owner="todo_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:49.802313" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-21T11:59:49.801735" elapsed="0.857584"/>
+</kw>
+<kw name="Login To Application" owner="common_keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:50.661204" level="INFO">Opening url 'http://localhost:3000/login'</msg>
+<arg>${app.url}/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-21T11:59:50.660722" elapsed="0.177939"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${auth.email_input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-21T11:59:50.839032" elapsed="0.060455"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:50.900207" level="INFO">Typing text 'test@example.com' into text field 'css=[data-testid='email-input']'.</msg>
+<arg>${auth.email_input}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-21T11:59:50.899694" elapsed="0.089447"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:50.990135" level="INFO">Typing text 'password123' into text field 'css=[data-testid='password-input']'.</msg>
+<arg>${auth.password_input}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-21T11:59:50.989443" elapsed="0.066812"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:51.057402" level="INFO">Clicking element 'css=[data-testid='submit-button']'.</msg>
+<arg>${auth.submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-21T11:59:51.056600" elapsed="0.045853"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:52.241240" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-21T11:59:52.241457" level="FAIL">Element 'css=[data-testid='console-error']' not visible after 1 second.</msg>
+<arg>${auth.console_error}</arg>
+<arg>timeout=1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-05-21T11:59:51.103082" elapsed="1.138560">Element 'css=[data-testid='console-error']' not visible after 1 second.</status>
+</kw>
+<msg time="2025-05-21T11:59:52.241811" level="INFO">${has_console_error} = False</msg>
+<var>${has_console_error}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${auth.console_error}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-21T11:59:51.102770" elapsed="1.139067"/>
+</kw>
+<if>
+<branch type="IF" condition="${has_console_error}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${console_error_text}</var>
+<arg>${auth.console_error}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-21T11:59:52.242117" elapsed="0.000029"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<arg>Console error occurred: ${console_error_text}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-05-21T11:59:52.242254" elapsed="0.000022"/>
+</kw>
+<status status="NOT RUN" start="2025-05-21T11:59:52.241939" elapsed="0.000370"/>
+</branch>
+<status status="PASS" start="2025-05-21T11:59:52.241911" elapsed="0.000427"/>
+</if>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${auth.user_email}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-21T11:59:52.242410" elapsed="0.018838"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-05-21T11:59:52.274871" level="INFO">Element 'css=[data-testid='user-email']' contains text 'test@example.com'.</msg>
+<arg>${auth.user_email}</arg>
+<arg>${email}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-05-21T11:59:52.261459" elapsed="0.013525"/>
+</kw>
+<doc>Logs in to the application using test credentials</doc>
+<status status="PASS" start="2025-05-21T11:59:50.659746" elapsed="1.615351"/>
+</kw>
+<kw name="Ensure Logged In" owner="common_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${auth.user_email}</arg>
+<arg>timeout=1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-21T11:59:52.276356" elapsed="0.008453"/>
+</kw>
+<msg time="2025-05-21T11:59:52.285047" level="INFO">${is_logged_in} = True</msg>
+<var>${is_logged_in}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${auth.user_email}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-21T11:59:52.276164" elapsed="0.008932"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${is_logged_in}">
+<kw name="Login To Application" owner="common_keywords">
+<arg>${email}</arg>
+<arg>${password}</arg>
+<doc>Logs in to the application using test credentials</doc>
+<status status="NOT RUN" start="2025-05-21T11:59:52.286188" elapsed="0.000075"/>
+</kw>
+<status status="NOT RUN" start="2025-05-21T11:59:52.285338" elapsed="0.001013"/>
+</branch>
+<status status="PASS" start="2025-05-21T11:59:52.285295" elapsed="0.001121"/>
+</if>
+<doc>Ensures user is logged in, logs in if not</doc>
+<status status="PASS" start="2025-05-21T11:59:52.275323" elapsed="0.011199"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:02.548862" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-21T12:00:02.549014" level="FAIL">Element 'css=input.todo-input-field' did not appear in 10 seconds.</msg>
+<arg>${selectors.todo.todo_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-05-21T11:59:52.286757" elapsed="10.262374">Element 'css=input.todo-input-field' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Opened todo list application</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:02.549325" elapsed="0.000036"/>
+</kw>
+<status status="FAIL" start="2025-05-21T11:59:49.801385" elapsed="12.748075">Element 'css=input.todo-input-field' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Close Todo Application" owner="todo_keywords" type="TEARDOWN">
+<kw name="Logout From Application" owner="common_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:02.550812" level="INFO">Clicking element 'css=[data-testid='logout-button']'.</msg>
+<arg>${auth.logout_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-21T12:00:02.550407" elapsed="0.061396"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${auth.email_input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-21T12:00:02.612007" elapsed="0.637337"/>
+</kw>
+<doc>Logs out from the application</doc>
+<status status="PASS" start="2025-05-21T12:00:02.550200" elapsed="0.699266"/>
+</kw>
+<kw name="Ensure Logged Out" owner="common_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:04.350097" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-21T12:00:04.350354" level="FAIL">Element 'css=[data-testid='user-email']' not visible after 1 second.</msg>
+<arg>${auth.user_email}</arg>
+<arg>timeout=1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-05-21T12:00:03.250110" elapsed="1.100422">Element 'css=[data-testid='user-email']' not visible after 1 second.</status>
+</kw>
+<msg time="2025-05-21T12:00:04.350706" level="INFO">${is_logged_in} = False</msg>
+<var>${is_logged_in}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${auth.user_email}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-21T12:00:03.249963" elapsed="1.100770"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_logged_in}">
+<kw name="Logout From Application" owner="common_keywords">
+<doc>Logs out from the application</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:04.351297" elapsed="0.000052"/>
+</kw>
+<status status="NOT RUN" start="2025-05-21T12:00:04.350893" elapsed="0.000509"/>
+</branch>
+<status status="PASS" start="2025-05-21T12:00:04.350808" elapsed="0.000635"/>
+</if>
+<doc>Ensures user is logged out, logs out if not</doc>
+<status status="PASS" start="2025-05-21T12:00:03.249683" elapsed="1.101829"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-21T12:00:04.351752" elapsed="0.060615"/>
+</kw>
+<status status="PASS" start="2025-05-21T12:00:02.549761" elapsed="1.862769"/>
+</kw>
+<doc>Test toggling todo completion</doc>
+<status status="FAIL" start="2025-05-21T11:59:49.800755" elapsed="14.611916">Setup failed:
+Element 'css=input.todo-input-field' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-t3" name="Test Delete Todo Functionality" line="25">
+<kw name="Open Todo Application" owner="todo_keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:04.414293" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<arg>${app.url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-21T12:00:04.413785" elapsed="0.883168"/>
+</kw>
+<kw name="Login To Application" owner="common_keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:05.298534" level="INFO">Opening url 'http://localhost:3000/login'</msg>
+<arg>${app.url}/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-21T12:00:05.298143" elapsed="0.174476"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${auth.email_input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-21T12:00:05.472952" elapsed="0.061306"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:05.535201" level="INFO">Typing text 'test@example.com' into text field 'css=[data-testid='email-input']'.</msg>
+<arg>${auth.email_input}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-21T12:00:05.534618" elapsed="0.091897"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:05.627369" level="INFO">Typing text 'password123' into text field 'css=[data-testid='password-input']'.</msg>
+<arg>${auth.password_input}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-21T12:00:05.626786" elapsed="0.071902"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:05.699399" level="INFO">Clicking element 'css=[data-testid='submit-button']'.</msg>
+<arg>${auth.submit_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-21T12:00:05.698907" elapsed="0.049072"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:06.602286" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.603549" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24df90&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.604686" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24fa60&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.605926" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24c2b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<arg>${auth.console_error}</arg>
+<arg>timeout=1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-05-21T12:00:05.748592" elapsed="0.857655">Execution terminated by signal</status>
+</kw>
+<var>${has_console_error}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${auth.console_error}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="FAIL" start="2025-05-21T12:00:05.748265" elapsed="0.858163">Execution terminated by signal</status>
+</kw>
+<if>
+<branch type="IF" condition="${has_console_error}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${console_error_text}</var>
+<arg>${auth.console_error}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.607090" elapsed="0.000073"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<arg>Console error occurred: ${console_error_text}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.607379" elapsed="0.000050"/>
+</kw>
+<status status="NOT RUN" start="2025-05-21T12:00:06.606670" elapsed="0.000833"/>
+</branch>
+<status status="NOT RUN" start="2025-05-21T12:00:06.606609" elapsed="0.000959"/>
+</if>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${auth.user_email}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.607743" elapsed="0.000049"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${auth.user_email}</arg>
+<arg>${email}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.607972" elapsed="0.000045"/>
+</kw>
+<doc>Logs in to the application using test credentials</doc>
+<status status="FAIL" start="2025-05-21T12:00:05.297280" elapsed="1.310917">Execution terminated by signal</status>
+</kw>
+<kw name="Ensure Logged In" owner="common_keywords">
+<doc>Ensures user is logged in, logs in if not</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.608543" elapsed="0.000072"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${selectors.todo.todo_input}</arg>
+<arg>${timeouts.page_load}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.608800" elapsed="0.000049"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Opened todo list application</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.609030" elapsed="0.000045"/>
+</kw>
+<status status="FAIL" start="2025-05-21T12:00:04.413448" elapsed="2.195779">Execution terminated by signal</status>
+</kw>
+<kw name="Close Todo Application" owner="todo_keywords" type="TEARDOWN">
+<kw name="Logout From Application" owner="common_keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:06.611154" level="INFO">Clicking element 'css=[data-testid='logout-button']'.</msg>
+<msg time="2025-05-21T12:00:06.611894" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f670&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.612443" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f760&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.612899" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f880&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.613807" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fd60&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.614368" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fe20&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.614862" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24fc70&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.615246" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24f070&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<msg time="2025-05-21T12:00:06.615447" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fa30&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<arg>${auth.logout_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-05-21T12:00:06.610493" elapsed="0.006869">MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fa30&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:06.619273" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c5b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.619835" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c6a0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.620527" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c760&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.621564" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cb50&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.622108" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cc10&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.622489" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cd90&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.622842" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cf10&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<msg time="2025-05-21T12:00:06.623038" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c8e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<arg>${auth.email_input}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-05-21T12:00:06.617711" elapsed="0.005632">MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c8e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</kw>
+<doc>Logs out from the application</doc>
+<status status="FAIL" start="2025-05-21T12:00:06.610184" elapsed="0.013365">Several failures occurred:
+
+1) MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fa30&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2) MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c8e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</kw>
+<kw name="Ensure Logged Out" owner="common_keywords">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:06.628168" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12ead0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.628796" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12e860&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.629250" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12d900&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.630401" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f1f0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.630850" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12dfc0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.631283" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12e290&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.631696" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12d210&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<msg time="2025-05-21T12:00:06.631953" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f5e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<arg>${auth.user_email}</arg>
+<arg>timeout=1s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-05-21T12:00:06.625059" elapsed="0.007298">MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f5e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</kw>
+<msg time="2025-05-21T12:00:06.632566" level="INFO">${is_logged_in} = False</msg>
+<var>${is_logged_in}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${auth.user_email}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-21T12:00:06.624397" elapsed="0.008218"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_logged_in}">
+<kw name="Logout From Application" owner="common_keywords">
+<doc>Logs out from the application</doc>
+<status status="NOT RUN" start="2025-05-21T12:00:06.633108" elapsed="0.000119"/>
+</kw>
+<status status="NOT RUN" start="2025-05-21T12:00:06.632775" elapsed="0.000511"/>
+</branch>
+<status status="PASS" start="2025-05-21T12:00:06.632735" elapsed="0.000600"/>
+</if>
+<doc>Ensures user is logged out, logs out if not</doc>
+<status status="PASS" start="2025-05-21T12:00:06.623938" elapsed="0.009473"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<msg time="2025-05-21T12:00:06.634595" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12d7b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d</msg>
+<msg time="2025-05-21T12:00:06.635233" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12cd00&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d</msg>
+<msg time="2025-05-21T12:00:06.635732" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12c640&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d</msg>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-21T12:00:06.633596" elapsed="0.002849"/>
+</kw>
+<status status="FAIL" start="2025-05-21T12:00:06.609739" elapsed="0.026889">Several failures occurred:
+
+1) MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fa30&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2) MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c8e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</kw>
+<doc>Test deleting todos</doc>
+<status status="FAIL" start="2025-05-21T12:00:04.413006" elapsed="2.223737">Setup failed:
+Execution terminated by signal
+
+Also teardown failed:
+Several failures occurred:
+
+1) MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fa30&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+2) MaxRetryError: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/elements (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c8e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</status>
+</test>
+<test id="s1-t4" name="Test Multiple Operations" line="35">
+<doc>Test multiple operations</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.637116" elapsed="0.000526">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t5" name="Test Complex Workflow" line="47">
+<doc>Test complex workflow</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.637898" elapsed="0.000345">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="Test Todo With Special Characters" line="64">
+<doc>Test todo with special characters</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.638468" elapsed="0.000298">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t7" name="Test Empty Todo List" line="69">
+<doc>Test empty todo list</doc>
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.638958" elapsed="0.000361">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t8" name="Add Single Todo" line="76">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.639553" elapsed="0.000392">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t9" name="Add Multiple Todos" line="80">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.640163" elapsed="0.000263">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t10" name="Complete Todo" line="87">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.640574" elapsed="0.000471">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t11" name="Delete Todo" line="93">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.641268" elapsed="0.000304">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t12" name="Toggle Multiple Todos" line="99">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.641779" elapsed="0.000212">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t13" name="Complete And Uncomplete Todo" line="107">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.642135" elapsed="0.000193">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t14" name="Add And Delete Multiple Todos" line="114">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.642459" elapsed="0.000193">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t15" name="Add Todo Item" line="123">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.642781" elapsed="0.000171">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t16" name="Complete Todo Item" line="127">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.643086" elapsed="0.000253">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t17" name="Delete Todo Item" line="132">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.643509" elapsed="0.000257">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t18" name="Multiple Todo Operations" line="137">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.643934" elapsed="0.000221">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t19" name="Add Todo Item With Special Characters" line="148">
+<tag>robot:exit</tag>
+<status status="FAIL" start="2025-05-21T12:00:06.644314" elapsed="0.000194">Test execution stopped due to a fatal error.</status>
+</test>
+<status status="FAIL" start="2025-05-21T11:59:35.130366" elapsed="31.514481"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="19" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat info="combined" combined="NOT robot:exit" pass="0" fail="3" skip="0">NOT robot:exit</stat>
 </tag>
 <suite>
-<stat name="Check Application" id="s1" pass="1" fail="0" skip="0">Check Application</stat>
+<stat name="Todo Tests" id="s1" pass="0" fail="19" skip="0">Todo Tests</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-05-21T12:00:06.602286" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.603549" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24df90&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.604686" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24fa60&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.605926" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24c2b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<msg time="2025-05-21T12:00:06.611894" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f670&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.612443" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f760&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.612899" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f880&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.613807" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fd60&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.614368" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12fe20&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.614862" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24fc70&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.615246" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df24f070&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<msg time="2025-05-21T12:00:06.619273" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c5b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.619835" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c6a0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.620527" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15c760&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.621564" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cb50&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.622108" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cc10&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.622489" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cd90&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.622842" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df15cf10&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<msg time="2025-05-21T12:00:06.628168" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12ead0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.628796" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12e860&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.629250" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12d900&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/elements</msg>
+<msg time="2025-05-21T12:00:06.630401" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12f1f0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.630850" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12dfc0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.631283" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12e290&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d/screenshot</msg>
+<msg time="2025-05-21T12:00:06.631696" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=32869): Max retries exceeded with url: /session/4de7887f6b501efe1128336d7eb3953d/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12d210&gt;: Failed to establish a new connection: [Errno 111] Connection refused'))</msg>
+<msg time="2025-05-21T12:00:06.634595" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12d7b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d</msg>
+<msg time="2025-05-21T12:00:06.635233" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12cd00&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d</msg>
+<msg time="2025-05-21T12:00:06.635732" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7c28df12c640&gt;: Failed to establish a new connection: [Errno 111] Connection refused')': /session/4de7887f6b501efe1128336d7eb3953d</msg>
 </errors>
 </robot>

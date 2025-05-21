@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation     Common keywords for the application
-Variables         ../variables/app_variables.yaml
+Variables         ../variables/app_variables_changed.yaml
 Library           SeleniumLibrary
 
 *** Keywords ***
